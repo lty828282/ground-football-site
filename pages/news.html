@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>축구 정보 — 그라운드</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb"><a href="/index.html">홈</a> / <span>축구 정보</span></div>
+    <h1>축구 정보</h1>
+    <p>여러 언론사의 최신 축구 기사를 모았습니다. 클릭하면 원문으로 이동합니다.</p>
+    <div class="result-count" id="news-updated"></div>
+  </div>
+
+  <div class="section">
+    <div class="news-list" id="news-list">
+      <div class="empty-state">불러오는 중…</div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="/assets/js/icons.js"></script>
+  <script src="/assets/js/render.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="/assets/js/supabase-client.js"></script>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/news.js"></script>
+</body>
+</html>

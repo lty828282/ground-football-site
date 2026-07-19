@@ -1,0 +1,540 @@
+[
+  {
+    "id": "info-004",
+    "category": "info",
+    "categoryLabel": "축구 정보",
+    "tag": "선수 분석",
+    "title": "손흥민 폼 완벽 분석, 무엇이 다른가",
+    "excerpt": "최근 5경기 활동량과 슈팅 패턴을 데이터로 뜯어봤다. 전문가들이 주목한 변화 포인트는 따로 있었다.",
+    "content": [
+      "최근 5경기에서 손흥민의 평균 활동량은 시즌 초 대비 소폭 증가했다. 특히 오프더볼 움직임에서 상대 수비 라인 사이 공간을 파고드는 빈도가 눈에 띄게 늘었다는 분석이 나온다.",
+      "슈팅 패턴 데이터를 보면 페널티 박스 바깥에서의 시도 비중이 줄고, 박스 안쪽 왼발 마무리 비중이 높아졌다. 전문가들은 이를 골 결정력 향상의 핵심 변화로 꼽는다.",
+      "다음 경기에서도 이 흐름이 이어질지, 상대 수비 전술에 따라 얼마나 달라질지가 관전 포인트다."
+    ],
+    "icon": "ball",
+    "video": true,
+    "duration": "8분",
+    "views": 15200,
+    "comments": 128,
+    "date": "2026-07-18",
+    "popular": true,
+    "rank": 1
+  },
+  {
+    "id": "info-001",
+    "category": "info",
+    "categoryLabel": "축구 정보",
+    "tag": "이적시장",
+    "title": "여름 이적시장 막바지, 남은 대형 매물 정리",
+    "excerpt": "마감까지 3일, 아직 거취가 정해지지 않은 대형 이적 후보들을 포지션별로 정리했다.",
+    "content": [
+      "이적시장 마감이 임박하면서 여러 구단이 막바지 협상에 속도를 내고 있다. 미드필더 자원을 중심으로 여러 팀이 동시에 관심을 보이는 상황이다.",
+      "포지션별로 보면 중앙 수비수와 측면 공격수 쪽 움직임이 가장 활발하며, 일부는 임대 형태로 마무리될 가능성도 제기된다."
+    ],
+    "icon": "chart",
+    "video": false,
+    "duration": null,
+    "views": 8200,
+    "comments": 34,
+    "date": "2026-07-19",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "info-002",
+    "category": "info",
+    "categoryLabel": "축구 정보",
+    "tag": "경기 요약",
+    "title": "어젯밤 하이라이트, 3분 요약으로 보기",
+    "excerpt": "놓친 경기가 있다면 이것만 보면 된다. 핵심 장면만 골라 3분 안에 정리했다.",
+    "content": [
+      "어젯밤 열린 주요 경기들의 핵심 장면을 모았다. 득점 장면과 결정적인 수비 상황 위주로 편집해 짧은 시간에 전체 흐름을 파악할 수 있다."
+    ],
+    "icon": "video",
+    "video": true,
+    "duration": "3분",
+    "views": 6500,
+    "comments": 12,
+    "date": "2026-07-19",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "info-003",
+    "category": "info",
+    "categoryLabel": "축구 정보",
+    "tag": "SNS 화제",
+    "title": "연습 영상 하나로 화제가 된 유망주",
+    "excerpt": "개인 SNS에 올린 훈련 영상 하나가 순식간에 퍼지며 스카우트들의 관심을 받고 있다.",
+    "content": [
+      "한 유망주가 개인 계정에 올린 훈련 영상이 큰 화제를 모으고 있다. 짧은 영상이지만 볼 컨트롤과 판단 속도에서 또래 대비 확실한 차이를 보여준다는 평가다."
+    ],
+    "icon": "person",
+    "video": false,
+    "duration": null,
+    "views": 5100,
+    "comments": 21,
+    "date": "2026-07-17",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "info-005",
+    "category": "info",
+    "categoryLabel": "축구 정보",
+    "tag": "이적시장",
+    "title": "이적시장 마감 D-3, 미드필더 영입설 확산",
+    "excerpt": "여러 구단이 동시에 관심을 보이는 미드필더를 둘러싸고 영입설이 빠르게 퍼지고 있다.",
+    "content": [
+      "마감을 사흘 앞두고 미드필더 한 명을 둘러싼 영입설이 확산되고 있다. 복수의 구단이 동시에 접촉했다는 보도가 나오며 최종 행선지에 관심이 쏠린다."
+    ],
+    "icon": "chart",
+    "video": false,
+    "duration": null,
+    "views": 4300,
+    "comments": 9,
+    "date": "2026-07-19",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "dribble-004",
+    "category": "dribble",
+    "categoryLabel": "드리블 훈련",
+    "tag": "기초",
+    "title": "초보자를 위한 라보나 드리블 완전정복",
+    "excerpt": "화려해 보이지만 원리는 단순하다. 라보나 드리블의 기본 스텝부터 실전 타이밍까지 순서대로 알아본다.",
+    "content": [
+      "라보나 드리블은 다리를 교차해 공을 감아 차는 동작으로, 처음에는 스텝 타이밍을 익히는 것이 가장 중요하다.",
+      "제자리에서 스텝만 반복하는 연습으로 시작해, 익숙해지면 낮은 속도로 실제 볼 터치를 붙여본다.",
+      "실전에서는 상대가 예측하기 어려운 타이밍에 시도해야 효과가 크다."
+    ],
+    "icon": "boot",
+    "video": true,
+    "duration": "5분",
+    "views": 9400,
+    "comments": 41,
+    "date": "2026-07-18",
+    "popular": true,
+    "rank": 2
+  },
+  {
+    "id": "dribble-001",
+    "category": "dribble",
+    "categoryLabel": "드리블 훈련",
+    "tag": "기초",
+    "title": "공을 몸에 붙이는 첫걸음, 터치 훈련",
+    "excerpt": "드리블의 시작은 터치다. 공을 몸 가까이 두는 감각을 만드는 기초 루틴을 소개한다.",
+    "content": [
+      "드리블의 완성도는 결국 볼 터치의 정교함에서 나온다. 이번 루틴은 제자리 터치부터 전진 터치까지 단계별로 구성됐다."
+    ],
+    "icon": "boot",
+    "video": true,
+    "duration": "3분",
+    "views": 4300,
+    "comments": 15,
+    "date": "2026-07-15",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "dribble-002",
+    "category": "dribble",
+    "categoryLabel": "드리블 훈련",
+    "tag": "방향전환",
+    "title": "수비를 벗기는 크루이프 턴 완전분석",
+    "excerpt": "각도, 무게중심, 타이밍까지. 크루이프 턴을 실전에서 통하게 만드는 디테일을 짚었다.",
+    "content": [
+      "크루이프 턴은 단순해 보이지만 무게중심 이동과 발목 각도가 어긋나면 바로 볼을 빼앗긴다. 핵심 디테일을 단계별로 짚어본다."
+    ],
+    "icon": "zigzag",
+    "video": true,
+    "duration": "5분",
+    "views": 9700,
+    "comments": 38,
+    "date": "2026-07-16",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "dribble-003",
+    "category": "dribble",
+    "categoryLabel": "드리블 훈련",
+    "tag": "실전응용",
+    "title": "좁은 공간에서 쓰는 엘라스티코 타이밍",
+    "excerpt": "공간이 없을 때일수록 타이밍이 전부다. 좁은 공간에서 통하는 엘라스티코 사용법.",
+    "content": [
+      "엘라스티코는 넓은 공간보다 오히려 좁은 공간에서 더 위력적이다. 상대와의 거리, 접촉 타이밍을 중심으로 정리했다."
+    ],
+    "icon": "ball",
+    "video": true,
+    "duration": "4분",
+    "views": 7100,
+    "comments": 19,
+    "date": "2026-07-14",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "dribble-005",
+    "category": "dribble",
+    "categoryLabel": "드리블 훈련",
+    "tag": "유소년 연계",
+    "title": "초등부 드리블 훈련 루틴, 왜 효과적인가",
+    "excerpt": "조회수 12만을 넘긴 화제의 루틴, 무엇이 다른지 코치의 설명을 들어봤다.",
+    "content": [
+      "이 루틴이 화제가 된 이유는 단순함에 있다. 짧은 동작을 반복하되 매 세트마다 미세하게 난이도를 높이는 구성이 핵심이다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 12000,
+    "comments": 52,
+    "date": "2026-07-19",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "skills-001",
+    "category": "skills",
+    "categoryLabel": "축구 스킬",
+    "tag": "패스",
+    "title": "원터치 패스 정확도를 올리는 법",
+    "excerpt": "생각보다 발끝이 아니라 몸의 방향이 정확도를 결정한다.",
+    "content": [
+      "원터치 패스의 정확도는 임팩트 순간의 발끝 각도보다 패스 전 몸의 방향 설정에서 대부분 결정된다."
+    ],
+    "icon": "ball",
+    "video": false,
+    "duration": null,
+    "views": 3800,
+    "comments": 7,
+    "date": "2026-07-13",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "skills-002",
+    "category": "skills",
+    "categoryLabel": "축구 스킬",
+    "tag": "프리킥",
+    "title": "프리킥 감아차기, 각도별 훈련법",
+    "excerpt": "거리와 각도에 따라 달라지는 감아차기 임팩트 포인트를 정리했다.",
+    "content": [
+      "프리킥 감아차기는 거리와 각도에 따라 임팩트 지점이 달라진다. 세 가지 거리대별로 훈련법을 나눠 설명한다."
+    ],
+    "icon": "zigzag",
+    "video": true,
+    "duration": "6분",
+    "views": 6200,
+    "comments": 24,
+    "date": "2026-07-12",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "skills-003",
+    "category": "skills",
+    "categoryLabel": "축구 스킬",
+    "tag": "헤더",
+    "title": "헤더 타이밍 잡는 3가지 드릴",
+    "excerpt": "높이보다 타이밍. 헤더 정확도를 올리는 실전 드릴 3가지.",
+    "content": [
+      "헤더는 점프 높이보다 타이밍이 승부를 가른다. 실전에서 바로 적용 가능한 드릴 세 가지를 소개한다."
+    ],
+    "icon": "person",
+    "video": false,
+    "duration": null,
+    "views": 4100,
+    "comments": 11,
+    "date": "2026-07-11",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "skills-004",
+    "category": "skills",
+    "categoryLabel": "축구 스킬",
+    "tag": "응용",
+    "title": "압박 상황에서 턴 활용하는 법",
+    "excerpt": "압박이 들어오는 타이밍에 턴을 쓰는 판단 기준을 정리했다.",
+    "content": [
+      "압박 상황에서의 턴은 타이밍보다 판단이 먼저다. 언제 턴을 시도하고 언제 내줘야 하는지 기준을 정리했다."
+    ],
+    "icon": "boot",
+    "video": true,
+    "duration": "4분",
+    "views": 5300,
+    "comments": 16,
+    "date": "2026-07-10",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "skills-005",
+    "category": "skills",
+    "categoryLabel": "축구 스킬",
+    "tag": "밸런스",
+    "title": "왼발 감각 깨우는 5분 루틴",
+    "excerpt": "매일 5분이면 충분하다. 약발 감각을 끌어올리는 루틴.",
+    "content": [
+      "약발 감각은 짧고 꾸준한 반복이 가장 효과적이다. 매일 5분씩 실천 가능한 루틴으로 구성했다."
+    ],
+    "icon": "ball",
+    "video": true,
+    "duration": "5분",
+    "views": 4700,
+    "comments": 13,
+    "date": "2026-07-09",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "youth-004",
+    "category": "youth",
+    "categoryLabel": "유소년 축구",
+    "tag": "가이드",
+    "title": "유소년 클럽 등록 전 꼭 확인할 5가지",
+    "excerpt": "등록 전에 놓치기 쉬운 부분들을 학부모 관점에서 체크리스트로 정리했다.",
+    "content": [
+      "유소년 클럽 등록을 앞두고 있다면 지도자 자격, 훈련 강도, 이동 거리, 비용 구조, 대회 참가 빈도 다섯 가지를 먼저 확인하는 것이 좋다."
+    ],
+    "icon": "person",
+    "video": false,
+    "duration": null,
+    "views": 6100,
+    "comments": 27,
+    "date": "2026-07-17",
+    "popular": true,
+    "rank": 4
+  },
+  {
+    "id": "youth-001",
+    "category": "youth",
+    "categoryLabel": "유소년 축구",
+    "tag": "인터뷰",
+    "title": "그라운드 키즈 인터뷰, 부모가 알아야 할 것",
+    "excerpt": "현직 유소년 지도자가 말하는, 부모가 흔히 오해하는 부분들.",
+    "content": [
+      "현직 지도자는 부모가 결과보다 과정에 집중해야 아이가 더 오래 즐길 수 있다고 강조했다."
+    ],
+    "icon": "person",
+    "video": true,
+    "duration": "7분",
+    "views": 3900,
+    "comments": 18,
+    "date": "2026-07-08",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "youth-002",
+    "category": "youth",
+    "categoryLabel": "유소년 축구",
+    "tag": "대회 준비",
+    "title": "초등부 대회 참가 준비물 체크리스트",
+    "excerpt": "빠뜨리기 쉬운 준비물까지 한 번에 정리했다.",
+    "content": [
+      "대회 당일 급하게 챙기다 놓치기 쉬운 물품들을 포함해 준비물을 체크리스트로 정리했다."
+    ],
+    "icon": "chart",
+    "video": false,
+    "duration": null,
+    "views": 3300,
+    "comments": 6,
+    "date": "2026-07-07",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "youth-003",
+    "category": "youth",
+    "categoryLabel": "유소년 축구",
+    "tag": "부상 예방",
+    "title": "성장기 부상 예방을 위한 스트레칭",
+    "excerpt": "성장통과 부상을 혼동하지 않으려면 알아야 할 스트레칭 습관.",
+    "content": [
+      "성장기에는 근육과 뼈의 성장 속도 차이로 부상 위험이 커진다. 훈련 전후 스트레칭 습관을 짚어본다."
+    ],
+    "icon": "person",
+    "video": true,
+    "duration": "4분",
+    "views": 4800,
+    "comments": 14,
+    "date": "2026-07-06",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "youth-005",
+    "category": "youth",
+    "categoryLabel": "유소년 축구",
+    "tag": "훈련",
+    "title": "유소년 지도자가 뽑은 필수 훈련 3가지",
+    "excerpt": "현장에서 가장 많이 쓰이는 기본기 훈련 3가지를 물었다.",
+    "content": [
+      "여러 유소년 지도자에게 물은 결과, 볼 터치·방향 전환·짧은 패스 세 가지가 가장 자주 언급됐다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 4000,
+    "comments": 10,
+    "date": "2026-07-05",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "review-004",
+    "category": "review",
+    "categoryLabel": "축구화 리뷰",
+    "tag": "리뷰",
+    "title": "풋살화 vs 축구화, 구장별 선택 가이드",
+    "excerpt": "인조잔디, 천연잔디, 실내 코트까지. 구장 환경별로 맞는 신발을 정리했다.",
+    "content": [
+      "풋살화와 축구화는 밑창 구조부터 다르다. 구장 환경에 맞지 않는 신발을 신으면 접지력이 떨어지고 부상 위험도 커진다.",
+      "인조잔디에는 AG 스터드, 천연잔디에는 FG 스터드, 실내 코트에는 IC 밑창이 기본이다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 7800,
+    "comments": 33,
+    "date": "2026-07-18",
+    "popular": true,
+    "rank": 3
+  },
+  {
+    "id": "review-001",
+    "category": "review",
+    "categoryLabel": "축구화 리뷰",
+    "tag": "착화감",
+    "title": "신형 축구화 착화감 비교, 어떤 게 나에게 맞을까",
+    "excerpt": "발볼, 무게, 쿠셔닝까지 직접 신어보고 비교했다.",
+    "content": [
+      "최근 출시된 모델들을 발볼 넓이와 무게, 쿠셔닝 기준으로 직접 비교했다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 5600,
+    "comments": 22,
+    "date": "2026-07-04",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "review-002",
+    "category": "review",
+    "categoryLabel": "축구화 리뷰",
+    "tag": "추천",
+    "title": "인조잔디용 축구화 추천 TOP 3",
+    "excerpt": "AG 스터드 모델 중 접지력과 내구성이 좋은 세 가지를 골랐다.",
+    "content": [
+      "인조잔디 구장에서 많이 쓰이는 AG 스터드 모델 중 접지력과 내구성을 기준으로 세 모델을 선정했다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 4900,
+    "comments": 17,
+    "date": "2026-07-03",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "review-003",
+    "category": "review",
+    "categoryLabel": "축구화 리뷰",
+    "tag": "가이드",
+    "title": "축구화 사이즈 선택, 발볼 넓은 사람을 위한 팁",
+    "excerpt": "발볼이 넓다면 이 기준부터 확인하자.",
+    "content": [
+      "발볼이 넓은 편이라면 브랜드별 라스트(신발 골) 차이부터 확인하는 것이 먼저다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 3700,
+    "comments": 9,
+    "date": "2026-07-02",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "review-005",
+    "category": "review",
+    "categoryLabel": "축구화 리뷰",
+    "tag": "가성비",
+    "title": "가성비 축구화 3만원대 vs 10만원대 비교",
+    "excerpt": "가격 차이가 실제 성능 차이로 이어지는지 직접 확인해봤다.",
+    "content": [
+      "가격대별로 소재, 스터드 구조, 내구성을 비교한 결과 가격 차이가 곧바로 체감 성능 차이로 이어지지는 않았다."
+    ],
+    "icon": "boot",
+    "video": false,
+    "duration": null,
+    "views": 4200,
+    "comments": 15,
+    "date": "2026-07-01",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "ranking-001",
+    "category": "ranking",
+    "categoryLabel": "유튜브 랭킹",
+    "tag": "랭킹",
+    "title": "이번 주 급상승 축구 유튜브 채널 TOP 5 공개",
+    "excerpt": "구독자 증가율 기준으로 뽑은 이번 주 급상승 채널 5곳.",
+    "content": [
+      "이번 주 구독자 증가율이 가장 높았던 채널 5곳을 정리했다. 드리블 훈련 콘텐츠를 다루는 채널들의 강세가 눈에 띈다."
+    ],
+    "icon": "video",
+    "video": true,
+    "duration": "6분",
+    "views": 5500,
+    "comments": 20,
+    "date": "2026-07-19",
+    "popular": true,
+    "rank": 5
+  },
+  {
+    "id": "ranking-002",
+    "category": "ranking",
+    "categoryLabel": "유튜브 랭킹",
+    "tag": "채널 분석",
+    "title": "구독자 100만 눈앞, 풋볼튜토리얼의 비결",
+    "excerpt": "1위 채널이 꾸준히 성장할 수 있었던 콘텐츠 전략을 분석했다.",
+    "content": [
+      "풋볼튜토리얼은 짧은 드릴 영상과 긴 분석 영상을 병행하는 전략으로 꾸준한 성장세를 이어가고 있다."
+    ],
+    "icon": "video",
+    "video": false,
+    "duration": null,
+    "views": 3600,
+    "comments": 8,
+    "date": "2026-06-30",
+    "popular": false,
+    "rank": null
+  },
+  {
+    "id": "ranking-003",
+    "category": "ranking",
+    "categoryLabel": "유튜브 랭킹",
+    "tag": "채널 분석",
+    "title": "축구화 리뷰 채널이 뜨는 이유",
+    "excerpt": "리뷰 콘텐츠 카테고리가 최근 빠르게 성장하고 있다.",
+    "content": [
+      "축구화 리뷰 콘텐츠는 구매 결정과 직결되는 정보라는 점에서 시청 완료율이 특히 높게 나타난다."
+    ],
+    "icon": "chart",
+    "video": false,
+    "duration": null,
+    "views": 2900,
+    "comments": 5,
+    "date": "2026-06-29",
+    "popular": false,
+    "rank": null
+  }
+]

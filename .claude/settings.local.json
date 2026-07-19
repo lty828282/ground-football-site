@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "Bash(where python *)",
+      "Bash(ls -la \"/c/Users/lty82/OneDrive/바탕 화면/\")",
+      "Bash(mkdir -p \"/c/Users/lty82/OneDrive/바탕 화면/그라운드-유튜브싱크\")",
+      "Bash(python -c ' *)",
+      "WebSearch",
+      "Bash(python sync_youtube.py)",
+      "Bash(python \"C:\\\\Users\\\\lty82\\\\OneDrive\\\\바탕 화면\\\\그라운드-유튜브싱크\\\\sync_news.py\")",
+      "Bash(python sync_news.py)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(winget list *)",
+      "Bash(where winget *)",
+      "PowerShell(winget install --id GitHub.cli --source winget --accept-source-agreements --accept-package-agreements -e)",
+      "PowerShell($env:Path += \";C:\\\\Program Files\\\\GitHub CLI\"; gh --version)",
+      "PowerShell($env:Path += \";C:\\\\Program Files\\\\GitHub CLI\"; gh auth login --hostname github.com --git-protocol https --web 2>&1)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

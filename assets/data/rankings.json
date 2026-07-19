@@ -1,0 +1,12 @@
+[
+  { "rank": 1, "name": "풋볼튜토리얼", "subs": "84.2만", "delta": 2.1, "category": "드리블 훈련" },
+  { "rank": 2, "name": "킥오프 다이어리", "subs": "61.7만", "delta": 5.4, "category": "축구 정보" },
+  { "rank": 3, "name": "그라운드 키즈", "subs": "39.9만", "delta": -0.8, "category": "유소년 축구" },
+  { "rank": 4, "name": "부츠 리포트", "subs": "28.3만", "delta": 1.2, "category": "축구화 리뷰" },
+  { "rank": 5, "name": "스킬 라운지", "subs": "22.6만", "delta": 3.9, "category": "축구 스킬" },
+  { "rank": 6, "name": "미드필드 매거진", "subs": "19.1만", "delta": 0.6, "category": "축구 정보" },
+  { "rank": 7, "name": "골라인 클립", "subs": "16.4만", "delta": -1.3, "category": "축구 정보" },
+  { "rank": 8, "name": "리프팅 마스터", "subs": "13.8만", "delta": 4.7, "category": "드리블 훈련" },
+  { "rank": 9, "name": "주니어 피치", "subs": "11.2만", "delta": 2.0, "category": "유소년 축구" },
+  { "rank": 10, "name": "스터드 노트", "subs": "9.6만", "delta": 0.9, "category": "축구화 리뷰" }
+]
