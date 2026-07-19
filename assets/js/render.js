@@ -11,28 +11,40 @@ function renderCard(post) {
   );
 }
 
-function renderFeedMain(post) {
+function popularThumb(item, opts) {
+  opts = opts || {};
+  const sizeClass = opts.sm ? ' -sm' : '';
+  if (item.thumb) {
+    const badgeStyle = opts.sm ? ' style="width:18px;height:18px;bottom:5px;right:5px;"' : '';
+    return (
+      '<div class="photo-thumb photo-thumb-img' + sizeClass + '">' +
+        '<img src="' + escapeHtml(item.thumb) + '" alt="" loading="lazy">' +
+        '<div class="play-badge"' + badgeStyle + '>' + PLAY_BADGE_SVG + '</div>' +
+      '</div>'
+    );
+  }
+  return '<div class="photo-thumb' + sizeClass + '">' + iconSvg('chart') + '</div>';
+}
+
+function renderPopularMain(item) {
   return (
-    '<a class="feed-main" href="/pages/article.html?id=' + post.id + '">' +
-      thumbHtml(post) +
+    '<a class="feed-main" href="' + escapeHtml(item.href) + '" target="_blank" rel="noopener">' +
+      popularThumb(item) +
       '<div class="feed-body">' +
         '<span class="rank-badge">01</span>' +
-        '<h3>' + post.title + '</h3>' +
-        '<p>' + post.excerpt + '</p>' +
+        '<h3>' + escapeHtml(item.title) + '</h3>' +
+        '<p>' + escapeHtml(item.excerpt) + '</p>' +
       '</div>' +
     '</a>'
   );
 }
 
-function renderFeedRow(post, rankLabel) {
-  const meta = post.video
-    ? '조회 ' + formatViews(post.views) + ' · ' + post.duration + ' 영상'
-    : '조회 ' + formatViews(post.views) + ' · ' + post.tag;
+function renderPopularRow(item, rankLabel) {
   return (
-    '<a class="feed-row" href="/pages/article.html?id=' + post.id + '">' +
+    '<a class="feed-row" href="' + escapeHtml(item.href) + '" target="_blank" rel="noopener">' +
       '<span class="rank-badge">' + rankLabel + '</span>' +
-      thumbHtml(post, { sm: true }) +
-      '<div class="row-text"><h4>' + post.title + '</h4><span>' + meta + '</span></div>' +
+      popularThumb(item, { sm: true }) +
+      '<div class="row-text"><h4>' + escapeHtml(item.title) + '</h4><span>' + escapeHtml(item.meta) + '</span></div>' +
     '</a>'
   );
 }

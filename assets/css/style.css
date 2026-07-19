@@ -213,6 +213,7 @@ nav{
 }
 .photo-thumb svg{width:42%;height:42%;opacity:0.92;}
 .photo-thumb.-sm svg{width:36%;height:36%;}
+.photo-thumb-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .play-badge{
   position:absolute;bottom:8px;right:8px;
   width:26px;height:26px;border-radius:6px;background:#C0392B;
@@ -234,6 +235,7 @@ nav{
 .section-head h2{font-family:'Black Han Sans',sans-serif;font-size:22px;color:var(--ink);}
 .section-head a{font-size:12px;font-weight:700;color:var(--pitch-dark);}
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.videos-grid{grid-template-columns:repeat(5,1fr);}
 .card{
   border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);display:block;
 }
