@@ -22,9 +22,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://sbskumlrahpilikudfjd.supabase.co")
-SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://sbskumlrahpilikudfjd.supabase.co").strip()
+SUPABASE_SERVICE_ROLE_KEY = (os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
+YOUTUBE_API_KEY = (os.environ.get("YOUTUBE_API_KEY") or "").strip()
 
 SEARCH_QUERY = "유소년 축구"
 SEARCH_PAGES = 2          # 페이지당 최대 25개 채널 → 최대 50개 수집
@@ -36,8 +36,28 @@ YT_BASE = "https://www.googleapis.com/youtube/v3"
 def yt_get(endpoint, params):
     params = dict(params, key=YOUTUBE_API_KEY)
     url = YT_BASE + "/" + endpoint + "?" + urllib.parse.urlencode(params)
-    with urllib.request.urlopen(url, timeout=30) as res:
-        return json.load(res)
+    try:
+        with urllib.request.urlopen(url, timeout=30) as res:
+            return json.load(res)
+    except urllib.error.HTTPError as e:
+        if endpoint == "playlistItems":
+            raise  # 업로드 없는 채널의 404는 호출부에서 처리
+        body = e.read().decode("utf-8", "replace")
+        reason = ""
+        try:
+            reason = json.loads(body)["error"]["errors"][0].get("reason", "")
+        except (ValueError, KeyError, IndexError):
+            pass
+        hints = {
+            "badRequest": "유튜브 API 키가 잘못되었습니다. 키 값을 다시 확인하세요.",
+            "keyInvalid": "유튜브 API 키가 잘못되었습니다. 키 값을 다시 확인하세요.",
+            "accessNotConfigured": "이 키의 Google Cloud 프로젝트에서 'YouTube Data API v3'가 활성화되어 있지 않습니다. "
+                "console.cloud.google.com → API 및 서비스 → 라이브러리에서 YouTube Data API v3를 사용 설정하세요.",
+            "quotaExceeded": "유튜브 API 일일 쿼터를 초과했습니다. 내일 다시 시도하세요.",
+            "forbidden": "유튜브 API 접근이 거부되었습니다. 키 제한(HTTP 리퍼러/IP 제한) 설정을 확인하세요.",
+        }
+        hint = hints.get(reason, body[:300])
+        sys.exit(f"유튜브 API 오류 (HTTP {e.code}, {reason or '원인 미상'}): {hint}")
 
 
 def search_channel_ids():
@@ -131,8 +151,18 @@ def upsert_channels(rows):
         "Content-Type": "application/json",
         "Prefer": "resolution=merge-duplicates",
     })
-    with urllib.request.urlopen(req, timeout=30) as res:
-        res.read()
+    try:
+        with urllib.request.urlopen(req, timeout=30) as res:
+            res.read()
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:300]
+        if e.code == 401 or e.code == 403:
+            sys.exit(f"Supabase 인증 오류 (HTTP {e.code}): secret(service_role) 키가 잘못되었습니다. "
+                     f"대시보드 Settings → API Keys의 Secret key를 다시 복사하세요.\n상세: {detail}")
+        if e.code == 404 or "PGRST205" in detail or "does not exist" in detail:
+            sys.exit(f"Supabase에 youth_channels 테이블이 없습니다 (HTTP {e.code}). "
+                     f"SQL Editor에서 supabase/youth_channels_schema.sql을 먼저 실행하세요.\n상세: {detail}")
+        sys.exit(f"Supabase upsert 실패 (HTTP {e.code}): {detail}")
 
 
 def main():
