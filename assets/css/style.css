@@ -174,7 +174,7 @@ nav{
 .pcard .name{font-size:13px;font-weight:700;color:var(--ink);}
 
 /* ── 실시간 인기글 피드 (썸네일형) ── */
-.feed-section{margin:0 48px 56px;}
+.feed-section{padding:0 48px;margin:0 auto 56px;}
 .feed-head{
   display:flex;align-items:baseline;gap:10px;margin-bottom:18px;
 }
@@ -341,6 +341,14 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .subsection-title{font-family:'Black Han Sans',sans-serif;font-size:18px;color:var(--ink);margin:26px 0 14px;}
 .subsection-title:first-of-type{margin-top:0;}
 
+/* ── 본문 폭 제한 (넓은 화면에서 중앙 정렬, 좌우 여백은 추후 광고 기둥 자리) ── */
+.hero-wrap, .feed-section, .section, .page-hero, .pinned-channel{
+  max-width:1240px;margin-left:auto;margin-right:auto;
+}
+
+/* ── 광고 슬롯 (애드센스 승인 전까지 비표시 · 승인 후 활성화) ── */
+.ad-slot, .ad-rail{display:none;}
+
 /* ── 반응형 ── */
 @media (max-width: 900px){
   nav{padding:14px 20px;}
@@ -349,13 +357,77 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   .feed-section, .section, .page-hero, .article-wrap, .pinned-channel{padding-left:20px;padding-right:20px;}
   .feed-grid{grid-template-columns:1fr;}
   .card-grid{grid-template-columns:repeat(2,1fr);}
+  .videos-grid{grid-template-columns:repeat(3,1fr);}
   .pitch{height:auto;min-height:520px;}
   .formation{position:relative;display:flex;flex-direction:column;gap:14px;padding:20px;}
   .lane{flex-direction:row;height:auto;flex-wrap:wrap;}
   .center-circle{position:relative;left:auto;top:auto;transform:none;margin:0 auto;}
   footer{padding:24px 20px;flex-direction:column;}
 }
-@media (max-width: 560px){
+
+/* ── 모바일: 한 줄 스크롤 메뉴 + 카드형 홈 ── */
+@media (max-width: 600px){
+  .ticker-bar{font-size:12px;}
+
+  /* 상단: 로고+검색 한 줄, 메뉴는 가로 스크롤 한 줄 */
+  nav{padding:10px 16px 0;gap:8px;}
+  .logo{font-size:22px;}
+  .nav-search{order:2;margin-left:auto;}
+  .nav-search input{width:104px;padding:8px 10px;font-size:12px;}
+  .nav-search button{padding:9px 12px;font-size:12px;}
+  .nav-links{
+    order:3;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;gap:20px;
+    padding:6px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{white-space:nowrap;font-size:13px;padding:4px 0;}
+
+  /* 히어로 압축 */
+  .hero-wrap{padding:24px 16px 8px;}
+  .hero-head{margin-bottom:18px;}
+  .hero-head h1{font-size:24px;line-height:1.4;}
+  .hero-head p{font-size:13px;}
+
+  /* 경기장 장식을 걷어내고 바로가기 카드 그리드로 */
+  .pitch{background:none;border:none;min-height:0;height:auto;border-radius:0;overflow:visible;}
+  .pitch::before, .pitch::after, .halfway, .center-circle{display:none;}
+  .formation{position:static;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0;}
+  .lane{display:contents;}
+  .formation .lane:last-child .pcard{grid-column:1 / -1;}
+  .pcard{
+    border:1px solid var(--line);border-radius:12px;background:var(--card);
+    padding:16px 12px;box-shadow:none;
+  }
+  .pcard .role{font-size:10px;}
+  .pcard .name{font-size:14px;}
+
+  /* 피드/섹션 */
+  .feed-section{margin-bottom:36px;}
+  .feed-head h2, .section-head h2{font-size:19px;}
+  .feed-main .photo-thumb{height:190px;}
+  .feed-main .feed-body{padding:14px 16px;}
+  .feed-main h3{font-size:16px;}
+  .section{padding-bottom:36px;}
   .card-grid{grid-template-columns:1fr;}
-  .nav-search input{width:110px;}
+  .videos-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .videos-grid .card-body{padding:10px 12px;}
+  .videos-grid .card-body h3{font-size:12.5px;}
+
+  /* 페이지 공통 */
+  .page-hero{padding-top:24px;}
+  .page-hero h1{font-size:25px;}
+  .article-title{font-size:24px;}
+  .article-hero-thumb{height:200px;}
+
+  /* 표: 여백 압축 + 마지막 열 숨김 */
+  table{font-size:12px;}
+  th, td{padding:10px 10px;}
+  .table-wrap th:nth-child(5), .table-wrap td:nth-child(5){display:none;}
+  .ch-avatar{width:22px;height:22px;}
+  .ch-video{max-width:150px;}
+
+  /* 고정 채널 배너 */
+  .pinned-inner{gap:12px;padding:16px;}
+  .pinned-text b{font-size:14px;}
+  .pinned-cta{width:100%;text-align:right;}
 }
