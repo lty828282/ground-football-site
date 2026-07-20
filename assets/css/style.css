@@ -121,10 +121,6 @@ nav{
   position:relative;margin-top:18px;
   font-family:'Black Han Sans',sans-serif;font-size:26px;color:#FFD54F;
 }
-.hero-desc{
-  position:relative;margin-top:10px;font-size:15px;
-  color:rgba(255,255,255,0.72);max-width:520px;line-height:1.7;
-}
 .hero-menu{
   max-width:1240px;margin:0 auto;
   border-top:1px solid rgba(255,255,255,0.14);
@@ -351,7 +347,6 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   .hero-inner{padding:36px 16px 30px;}
   .hero-title{font-size:34px;letter-spacing:-0.5px;}
   .hero-ko{font-size:19px;margin-top:14px;}
-  .hero-desc{font-size:13px;}
   .hero-goal{font-size:70px;right:8px;bottom:2px;}
   .hero-stripe{width:160px;right:-40px;}
   .hero-menu{grid-template-columns:1fr 1fr;}
