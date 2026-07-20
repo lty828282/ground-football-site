@@ -1,6 +1,6 @@
 function renderCard(post) {
   return (
-    '<a class="card" href="/pages/article.html?id=' + post.id + '">' +
+    '<a class="card" href="' + SITE_BASE + 'pages/article.html?id=' + post.id + '">' +
       '<div class="card-thumb">' + thumbHtml(post) + '</div>' +
       '<div class="card-body">' +
         '<div class="tag">' + post.tag + '</div>' +

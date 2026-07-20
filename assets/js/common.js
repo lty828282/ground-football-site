@@ -1,10 +1,20 @@
+// '/pages/...' 처럼 루트 기준으로 적힌 링크를 실제 배포 경로에 맞게 고쳐준다
+function rewriteRootLinks(scope) {
+  scope.querySelectorAll('a[href^="/"]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!href.startsWith('//')) a.setAttribute('href', SITE_BASE + href.slice(1));
+  });
+}
+
 async function loadPartials() {
   const headerSlot = document.getElementById('site-header');
   const footerSlot = document.getElementById('site-footer');
+  rewriteRootLinks(document);
 
   if (headerSlot) {
-    const res = await fetch('/partials/header.html');
+    const res = await fetch(SITE_BASE + 'partials/header.html');
     headerSlot.innerHTML = await res.text();
+    rewriteRootLinks(headerSlot);
     try {
       await initTicker();
     } catch (e) {
@@ -14,8 +24,9 @@ async function loadPartials() {
     highlightActiveNav();
   }
   if (footerSlot) {
-    const res = await fetch('/partials/footer.html');
+    const res = await fetch(SITE_BASE + 'partials/footer.html');
     footerSlot.innerHTML = await res.text();
+    rewriteRootLinks(footerSlot);
   }
 }
 
@@ -44,7 +55,7 @@ function initSearch() {
     e.preventDefault();
     const q = input.value.trim();
     if (!q) return;
-    window.location.href = '/pages/search.html?q=' + encodeURIComponent(q);
+    window.location.href = SITE_BASE + 'pages/search.html?q=' + encodeURIComponent(q);
   });
 }
 
@@ -91,7 +102,7 @@ async function fetchYouthChannels() {
 }
 
 async function fetchCategories() {
-  const res = await fetch('/assets/data/categories.json');
+  const res = await fetch(SITE_BASE + 'assets/data/categories.json');
   return res.json();
 }
 
