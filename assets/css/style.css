@@ -62,6 +62,11 @@ nav{
   flex:none;
 }
 .logo span{color:var(--gold-deep);}
+.logo-tag{
+  font-style:normal;font-family:'Pretendard',sans-serif;font-size:10px;font-weight:800;
+  color:#fff;background:var(--pitch-dark);padding:3px 8px;border-radius:999px;
+  margin-left:8px;vertical-align:middle;letter-spacing:1px;
+}
 .nav-links{display:flex;gap:28px;font-size:14px;font-weight:600;flex-wrap:wrap;}
 .nav-links a{padding:6px 0;border-bottom:2px solid transparent;}
 .nav-links a:hover{border-bottom:2px solid var(--gold);}
@@ -256,11 +261,43 @@ tr td:first-child{font-family:'IBM Plex Mono',monospace;font-weight:600;color:va
 .delta-down{color:#B3452F;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;}
 .ch-name{font-weight:700;}
 
+/* ── 유소년 채널 랭킹 ── */
+.rank-note{font-size:12px;color:var(--muted);font-weight:600;}
+.ch-cell{display:inline-flex;align-items:center;gap:10px;}
+.ch-cell:hover{color:var(--gold-deep);}
+.ch-avatar{width:26px;height:26px;border-radius:50%;object-fit:cover;flex:none;background:var(--pitch-dark);}
+.ch-link{font-size:12px;font-weight:700;color:var(--gold-deep);white-space:nowrap;}
+.ch-video{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;max-width:360px;}
+.ch-video:hover{color:var(--gold-deep);}
+.pin-chip{
+  display:inline-block;font-size:10px;font-weight:800;color:#fff;background:var(--gold-deep);
+  padding:2px 7px;border-radius:999px;letter-spacing:0.5px;vertical-align:middle;
+}
+.empty-cell{text-align:center;color:var(--muted);padding:36px 16px !important;font-family:'Pretendard',sans-serif !important;font-weight:400 !important;width:auto !important;}
+
 footer{
   background:var(--ink);color:rgba(255,255,255,0.6);
   padding:32px 48px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 }
 footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
+
+/* ── 고정 채널 배너 (kickofflife) ── */
+.pinned-channel{padding:0 48px 48px;}
+.pinned-inner{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;
+  padding:20px 24px;background:var(--card);
+}
+.pinned-inner:hover{border-color:var(--gold);}
+.pinned-yt{
+  width:42px;height:42px;border-radius:50%;background:#C4302B;flex:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.pinned-yt svg{width:18px;height:18px;fill:#fff;}
+.pinned-text{flex:1;min-width:200px;}
+.pinned-text b{display:block;font-size:16px;font-family:'IBM Plex Mono',monospace;margin-bottom:4px;}
+.pinned-text > span{font-size:12px;color:var(--muted);}
+.pinned-cta{font-size:12px;font-weight:700;color:var(--gold-deep);white-space:nowrap;}
 
 /* ── 페이지 헤더 (카테고리 / 검색 / 상세 공통) ── */
 .page-hero{padding:40px 48px 8px;}
@@ -308,7 +345,7 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   nav{padding:14px 20px;}
   .hero-wrap{padding:32px 20px 24px;}
   .hero-head h1{font-size:32px;}
-  .feed-section, .section, .page-hero, .article-wrap{padding-left:20px;padding-right:20px;}
+  .feed-section, .section, .page-hero, .article-wrap, .pinned-channel{padding-left:20px;padding-right:20px;}
   .feed-grid{grid-template-columns:1fr;}
   .card-grid{grid-template-columns:repeat(2,1fr);}
   .pitch{height:auto;min-height:520px;}

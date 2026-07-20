@@ -49,17 +49,48 @@ function renderPopularRow(item, rankLabel) {
   );
 }
 
-function renderRankingRow(item) {
-  const deltaClass = item.delta >= 0 ? 'delta-up' : 'delta-down';
-  const arrow = item.delta >= 0 ? '▲' : '▼';
-  const deltaText = Math.abs(item.delta).toFixed(1) + '%';
+function channelUrl(ch) {
+  return ch.handle
+    ? 'https://www.youtube.com/' + ch.handle
+    : 'https://www.youtube.com/channel/' + ch.channel_id;
+}
+
+function channelCell(ch) {
+  const avatar = ch.thumbnail_url
+    ? '<img class="ch-avatar" src="' + escapeHtml(ch.thumbnail_url) + '" alt="" loading="lazy">'
+    : ytChip();
+  const pin = ch.is_pinned ? '<span class="pin-chip">고정</span>' : '';
+  return (
+    '<td class="ch-name"><a class="ch-cell" href="' + escapeHtml(channelUrl(ch)) + '" target="_blank" rel="noopener">' +
+      avatar + escapeHtml(ch.name) + pin +
+    '</a></td>'
+  );
+}
+
+function renderYouthSubsRow(ch, rank) {
   return (
     '<tr>' +
-      '<td>' + item.rank + '</td>' +
-      '<td class="ch-name">' + ytChip() + item.name + '</td>' +
-      '<td>' + item.subs + '</td>' +
-      '<td class="' + deltaClass + '">' + arrow + ' ' + deltaText + '</td>' +
-      '<td>' + item.category + '</td>' +
+      '<td>' + rank + '</td>' +
+      channelCell(ch) +
+      '<td>' + formatViews(ch.subs_count || 0) + '</td>' +
+      '<td>' + (ch.latest_upload_at ? timeAgo(ch.latest_upload_at) : '—') + '</td>' +
+      '<td><a class="ch-link" href="' + escapeHtml(channelUrl(ch)) + '" target="_blank" rel="noopener">바로가기 ↗</a></td>' +
+    '</tr>'
+  );
+}
+
+function renderYouthRecentRow(ch, rank) {
+  const videoHref = ch.latest_video_id
+    ? 'https://www.youtube.com/watch?v=' + encodeURIComponent(ch.latest_video_id)
+    : channelUrl(ch);
+  return (
+    '<tr>' +
+      '<td>' + rank + '</td>' +
+      channelCell(ch) +
+      '<td><a class="ch-video" href="' + escapeHtml(videoHref) + '" target="_blank" rel="noopener">' +
+        escapeHtml(ch.latest_video_title || '최근 영상') + ' ↗</a></td>' +
+      '<td>' + timeAgo(ch.latest_upload_at) + '</td>' +
+      '<td>' + formatViews(ch.subs_count || 0) + '</td>' +
     '</tr>'
   );
 }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>그라운드 — 축구 콘텐츠 허브</title>
+<title>그라운드 — 유소년 축구 전문 허브</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
@@ -14,9 +14,9 @@
 
   <div class="hero-wrap">
     <div class="hero-head">
-      <div class="eyebrow">Kick-off</div>
-      <h1>오늘의 축구, 한 경기장 안에 모았다</h1>
-      <p>훈련 영상부터 축구화 리뷰, 실시간 유튜브 랭킹까지 — 포지션별로 정리된 축구 콘텐츠를 한눈에 확인하세요.</p>
+      <div class="eyebrow">Youth Football</div>
+      <h1>유소년 축구의 모든 것, 한 경기장 안에</h1>
+      <p>유소년 훈련 영상부터 장비 리뷰, '유소년 축구' 유튜브 채널 랭킹까지 — 자라나는 선수와 부모님을 위한 콘텐츠를 한눈에 확인하세요.</p>
     </div>
 
     <div class="pitch">
@@ -26,17 +26,17 @@
       </div>
       <div class="formation">
         <div class="lane single">
-          <a class="pcard" href="/pages/ranking.html"><div class="role">GK · 데이터</div><div class="name">유튜브 랭킹</div></a>
+          <a class="pcard" href="/pages/ranking.html"><div class="role">GK · 데이터</div><div class="name">유소년 채널 랭킹</div></a>
         </div>
         <div class="lane">
           <a class="pcard" href="/pages/videos.html?section=review"><div class="role">DF · 장비</div><div class="name">축구화 리뷰</div></a>
-          <a class="pcard" href="/pages/videos.html?section=youth"><div class="role">DF · 기초</div><div class="name">유소년 축구</div></a>
+          <a class="pcard" href="/pages/news.html"><div class="role">DF · 이슈</div><div class="name">축구 정보</div></a>
         </div>
         <div class="lane single">
           <a class="pcard" href="/pages/videos.html?section=training"><div class="role">MF · 기본기</div><div class="name">축구 훈련</div></a>
         </div>
         <div class="lane single">
-          <a class="pcard" href="/pages/news.html"><div class="role">FW · 이슈</div><div class="name">축구 정보</div></a>
+          <a class="pcard" href="/pages/videos.html?section=youth"><div class="role">FW · 메인</div><div class="name">유소년 축구</div></a>
         </div>
       </div>
     </div>
@@ -50,23 +50,25 @@
   </div>
 
   <div class="section">
+    <div class="section-head"><h2>유소년 축구 영상</h2><a href="/pages/videos.html?section=youth">더보기 →</a></div>
+    <div class="card-grid" id="youth-cards"></div>
+  </div>
+
+  <div class="section">
     <div class="section-head"><h2>축구 정보</h2><a href="/pages/news.html">더보기 →</a></div>
     <div class="news-list" id="home-news"></div>
   </div>
 
   <div class="section">
-    <div class="section-head"><h2>축구 훈련</h2><a href="/pages/videos.html?section=training">더보기 →</a></div>
-    <div class="card-grid" id="training-cards"></div>
-  </div>
-
-  <div class="section">
-    <div class="section-head"><h2>유튜브 채널 랭킹</h2><a href="/pages/ranking.html">전체 순위 →</a></div>
+    <div class="section-head"><h2>유소년 채널 랭킹</h2><a href="/pages/ranking.html">전체 순위 →</a></div>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>순위</th><th>채널</th><th>구독자</th><th>주간 증감</th><th>카테고리</th></tr>
+          <tr><th>순위</th><th>채널</th><th>구독자</th><th>최근 업로드</th><th>채널 보기</th></tr>
         </thead>
-        <tbody id="ranking-rows"></tbody>
+        <tbody id="ranking-rows">
+          <tr><td colspan="5" class="empty-cell">불러오는 중…</td></tr>
+        </tbody>
       </table>
     </div>
   </div>

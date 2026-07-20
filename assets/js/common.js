@@ -5,7 +5,11 @@ async function loadPartials() {
   if (headerSlot) {
     const res = await fetch('/partials/header.html');
     headerSlot.innerHTML = await res.text();
-    await initTicker();
+    try {
+      await initTicker();
+    } catch (e) {
+      console.error('ticker init failed', e);
+    }
     initSearch();
     highlightActiveNav();
   }
@@ -75,13 +79,12 @@ async function fetchPosts() {
   return data;
 }
 
-async function fetchRankings() {
+async function fetchYouthChannels() {
   const { data, error } = await supabaseClient
-    .from('rankings')
-    .select('*')
-    .order('rank', { ascending: true });
+    .from('youth_channels')
+    .select('*');
   if (error) {
-    console.error('rankings load failed', error);
+    console.error('youth channels load failed', error);
     return [];
   }
   return data;

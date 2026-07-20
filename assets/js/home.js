@@ -35,26 +35,32 @@ function renderPopularFeed(allVideos, news) {
 }
 
 async function renderHome() {
-  const [trainingVideos, youthVideos, reviewVideos, news, rankings] = await Promise.all([
+  const [trainingVideos, youthVideos, reviewVideos, news, channels] = await Promise.all([
     fetchVideos('training'),
     fetchVideos('youth'),
     fetchVideos('review'),
     fetchNews(4),
-    fetchRankings(),
+    fetchYouthChannels(),
   ]);
 
-  renderPopularFeed(trainingVideos.concat(youthVideos, reviewVideos), news);
+  renderPopularFeed(youthVideos.concat(trainingVideos, reviewVideos), news);
 
   document.getElementById('home-news').innerHTML = news.length
     ? news.map(renderNewsRow).join('')
     : '<div class="empty-state">아직 수집된 기사가 없습니다.</div>';
 
-  const topTraining = trainingVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 3);
-  document.getElementById('training-cards').innerHTML = topTraining.length
-    ? topTraining.map(renderVideoCard).join('')
+  const topYouth = youthVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 3);
+  document.getElementById('youth-cards').innerHTML = topYouth.length
+    ? topYouth.map(renderVideoCard).join('')
     : '<div class="empty-state">아직 수집된 영상이 없습니다.</div>';
 
-  document.getElementById('ranking-rows').innerHTML = rankings.slice(0, 5).map(renderRankingRow).join('');
+  const topChannels = channels
+    .slice()
+    .sort((a, b) => (b.subs_count || 0) - (a.subs_count || 0))
+    .slice(0, 5);
+  document.getElementById('ranking-rows').innerHTML = topChannels.length
+    ? topChannels.map((ch, i) => renderYouthSubsRow(ch, i + 1)).join('')
+    : '<tr><td colspan="5" class="empty-cell">아직 수집된 채널이 없습니다.</td></tr>';
 }
 
 document.addEventListener('DOMContentLoaded', renderHome);
