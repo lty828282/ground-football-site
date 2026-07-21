@@ -68,6 +68,8 @@ function highlightActiveNav() {
     activeKey = 'ranking';
   } else if (path.endsWith('/pages/news.html')) {
     activeKey = 'news';
+  } else if (path.indexOf('/pages/guide') !== -1 || path.indexOf('/pages/cardnews') !== -1) {
+    activeKey = 'guides';
   } else if (path.endsWith('/pages/videos.html')) {
     activeKey = params.get('section');
   } else if (path.endsWith('/pages/category.html')) {
