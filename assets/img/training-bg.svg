@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 피치 라인 -->
+  <path d="M0 372 H600" stroke-width="4" opacity="0.7"/>
+  <path d="M40 372 A60 60 0 0 1 160 372" stroke-width="4" opacity="0.7"/>
+
+  <!-- 드리블 경로 (콘 사이 지그재그) -->
+  <path d="M255 320 Q 330 350 380 322 T 500 330" stroke-width="5" stroke-dasharray="4 16" opacity="0.85"/>
+
+  <!-- 훈련용 콘 3개 -->
+  <g fill="#ffffff" stroke="none">
+    <path d="M356 356 L366 326 L346 326 Z"/>
+    <ellipse cx="356" cy="357" rx="15" ry="4"/>
+    <path d="M436 360 L446 330 L426 330 Z"/>
+    <ellipse cx="436" cy="361" rx="15" ry="4"/>
+    <path d="M516 360 L526 330 L506 330 Z"/>
+    <ellipse cx="516" cy="361" rx="15" ry="4"/>
+  </g>
+
+  <!-- 선수 실루엣 (드리블 자세) -->
+  <circle cx="196" cy="120" r="20" fill="#ffffff" stroke="none"/>
+  <path d="M196 142 L206 214" stroke-width="17"/>
+  <path d="M206 214 L172 292" stroke-width="14"/>
+  <path d="M206 214 L248 254 L252 300" stroke-width="14"/>
+  <path d="M200 162 L242 150" stroke-width="12"/>
+  <path d="M200 162 L162 190" stroke-width="12"/>
+
+  <!-- 축구공 -->
+  <g stroke="#ffffff">
+    <circle cx="286" cy="306" r="20" fill="#ffffff" stroke="none"/>
+    <path d="M286 294 l11 8 -4 13 h-14 l-4 -13 z" fill="none" stroke-width="3" opacity="0.5"/>
+  </g>
+</svg>
