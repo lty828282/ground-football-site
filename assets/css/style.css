@@ -312,6 +312,26 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 /* ── 광고 슬롯 (애드센스 승인 전까지 비표시 · 승인 후 활성화) ── */
 .ad-slot, .ad-rail{display:none;}
 
+/* ── 정적 문서 페이지 (소개/약관/개인정보/문의) ── */
+.static-page{max-width:820px;margin:0 auto;padding:8px 48px 64px;}
+.static-page .doc-updated{font-size:13px;color:var(--muted);margin-bottom:24px;}
+.static-page h2{
+  font-family:'Black Han Sans',sans-serif;font-size:20px;color:var(--ink);
+  margin:34px 0 12px;padding-top:6px;
+}
+.static-page h2:first-of-type{margin-top:8px;}
+.static-page p{font-size:15px;line-height:1.85;color:var(--ink);margin-bottom:14px;}
+.static-page ul{margin:0 0 16px;padding-left:20px;}
+.static-page li{font-size:15px;line-height:1.8;color:var(--ink);margin-bottom:8px;}
+.static-page a{color:var(--gold-deep);font-weight:600;text-decoration:underline;}
+.contact-box{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;
+  padding:20px 24px;background:var(--card);margin:8px 0 24px;
+}
+.contact-label{font-size:12px;font-weight:800;color:#fff;background:var(--pitch-dark);padding:5px 12px;border-radius:999px;}
+.contact-mail{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;}
+
 /* ── 반응형 ── */
 @media (max-width: 900px){
   nav{padding:14px 20px;}
@@ -319,7 +339,7 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   .hero-title{font-size:44px;}
   .hero-ko{font-size:22px;}
   .hero-goal{font-size:100px;right:20px;}
-  .feed-section, .section, .page-hero, .article-wrap, .pinned-channel{padding-left:20px;padding-right:20px;}
+  .feed-section, .section, .page-hero, .article-wrap, .pinned-channel, .static-page{padding-left:20px;padding-right:20px;}
   .feed-grid{grid-template-columns:1fr;}
   .card-grid{grid-template-columns:repeat(2,1fr);}
   .videos-grid{grid-template-columns:repeat(3,1fr);}
