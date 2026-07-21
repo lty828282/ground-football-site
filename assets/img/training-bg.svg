@@ -1,32 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-  <!-- 피치 라인 -->
-  <path d="M0 372 H600" stroke-width="4" opacity="0.7"/>
-  <path d="M40 372 A60 60 0 0 1 160 372" stroke-width="4" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 피치 라인 & 페널티 아크 -->
+  <path d="M0 372 H640" stroke-width="4" opacity="0.6"/>
+  <path d="M60 372 A70 70 0 0 1 200 372" stroke-width="4" opacity="0.55"/>
 
-  <!-- 드리블 경로 (콘 사이 지그재그) -->
-  <path d="M255 320 Q 330 350 380 322 T 500 330" stroke-width="5" stroke-dasharray="4 16" opacity="0.85"/>
-
-  <!-- 훈련용 콘 3개 -->
-  <g fill="#ffffff" stroke="none">
-    <path d="M356 356 L366 326 L346 326 Z"/>
-    <ellipse cx="356" cy="357" rx="15" ry="4"/>
-    <path d="M436 360 L446 330 L426 330 Z"/>
-    <ellipse cx="436" cy="361" rx="15" ry="4"/>
-    <path d="M516 360 L526 330 L506 330 Z"/>
-    <ellipse cx="516" cy="361" rx="15" ry="4"/>
+  <!-- 골대 (오른쪽) + 네트 -->
+  <g stroke-width="6" opacity="0.85">
+    <path d="M545 150 H628"/>
+    <path d="M545 150 V372"/>
+    <path d="M628 150 V372"/>
+  </g>
+  <g stroke-width="2.2" opacity="0.4">
+    <path d="M545 185 H628 M545 220 H628 M545 255 H628 M545 290 H628 M545 325 H628"/>
+    <path d="M560 150 V372 M580 150 V372 M600 150 V372 M615 150 V372"/>
   </g>
 
-  <!-- 선수 실루엣 (드리블 자세) -->
-  <circle cx="196" cy="120" r="20" fill="#ffffff" stroke="none"/>
-  <path d="M196 142 L206 214" stroke-width="17"/>
-  <path d="M206 214 L172 292" stroke-width="14"/>
-  <path d="M206 214 L248 254 L252 300" stroke-width="14"/>
-  <path d="M200 162 L242 150" stroke-width="12"/>
-  <path d="M200 162 L162 190" stroke-width="12"/>
+  <!-- 공 궤적 (슛) -->
+  <path d="M300 300 Q 430 210 540 240" stroke-width="4" stroke-dasharray="3 15" opacity="0.8"/>
+
+  <!-- 훈련용 콘 -->
+  <g fill="#ffffff" stroke="none">
+    <path d="M120 360 L130 332 L110 332 Z"/><ellipse cx="120" cy="361" rx="14" ry="4"/>
+    <path d="M196 362 L206 334 L186 334 Z"/><ellipse cx="196" cy="363" rx="14" ry="4"/>
+  </g>
+
+  <!-- 선수 실루엣 (슛 동작) -->
+  <circle cx="212" cy="112" r="19" fill="#ffffff" stroke="none"/>
+  <path d="M212 133 L224 205" stroke-width="17"/>            <!-- 몸통 -->
+  <path d="M224 205 L206 285" stroke-width="14"/>            <!-- 디딤발 -->
+  <path d="M224 205 L268 232 L296 296" stroke-width="14"/>   <!-- 차는 다리 -->
+  <path d="M218 152 L258 138" stroke-width="12"/>            <!-- 앞 팔 -->
+  <path d="M218 152 L182 176" stroke-width="12"/>            <!-- 뒤 팔 -->
 
   <!-- 축구공 -->
-  <g stroke="#ffffff">
-    <circle cx="286" cy="306" r="20" fill="#ffffff" stroke="none"/>
-    <path d="M286 294 l11 8 -4 13 h-14 l-4 -13 z" fill="none" stroke-width="3" opacity="0.5"/>
-  </g>
+  <circle cx="306" cy="302" r="18" fill="#ffffff" stroke="none"/>
+  <path d="M306 291 l10 7 -4 12 h-12 l-4 -12 z" fill="none" stroke="#cbd5cb" stroke-width="2.5"/>
 </svg>
