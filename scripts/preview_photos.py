@@ -13,6 +13,8 @@ import urllib.request
 
 OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "preview", "photo-preview.html")
 KEY = (os.environ.get("PEXELS_API_KEY") or "").strip()
+# Cloudflare(에러 1010)가 기본 파이썬 UA를 차단하므로 브라우저 UA 사용
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36"
 
 
 def pexels(query, n):
@@ -21,7 +23,7 @@ def pexels(query, n):
         return []
     url = "https://api.pexels.com/v1/search?" + urllib.parse.urlencode(
         {"query": query, "per_page": max(n + 4, 10), "orientation": "portrait", "size": "medium"})
-    req = urllib.request.Request(url, headers={"Authorization": KEY})
+    req = urllib.request.Request(url, headers={"Authorization": KEY, "User-Agent": UA})
     print("KEY 길이=%d, 앞4=%s" % (len(KEY), KEY[:4]), file=sys.stderr)
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
@@ -44,7 +46,8 @@ def pexels(query, n):
         if not u:
             continue
         try:
-            with urllib.request.urlopen(u, timeout=60) as r:
+            ireq = urllib.request.Request(u, headers={"User-Agent": UA})
+            with urllib.request.urlopen(ireq, timeout=60) as r:
                 raw = r.read()
         except Exception as e:  # noqa
             print("다운로드 실패:", e, file=sys.stderr)

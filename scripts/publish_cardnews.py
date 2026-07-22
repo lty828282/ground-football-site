@@ -35,6 +35,8 @@ PAGES_DIR = os.path.join(ROOT, "pages")
 IMG_DIR = os.path.join(ROOT, "assets", "img", "cardnews")
 
 PEXELS_API_KEY = (os.environ.get("PEXELS_API_KEY") or "").strip()
+# Cloudflare(에러 1010)가 기본 파이썬 UA를 차단하므로 브라우저 UA 사용
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36"
 
 # 카드 위에 들어가는 브랜딩(그라운드 유소년)
 HANDLE = "groundyouth.com"
@@ -84,7 +86,7 @@ def fetch_photos(query, slug, count, dry_run=False):
         "orientation": "portrait",
         "size": "medium",
     })
-    req = urllib.request.Request(url, headers={"Authorization": PEXELS_API_KEY})
+    req = urllib.request.Request(url, headers={"Authorization": PEXELS_API_KEY, "User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=30) as res:
             payload = json.load(res)
@@ -109,7 +111,8 @@ def fetch_photos(query, slug, count, dry_run=False):
             continue
         fn = "%s-%d.jpg" % (slug, k)
         try:
-            with urllib.request.urlopen(img_url, timeout=60) as res:
+            ireq = urllib.request.Request(img_url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(ireq, timeout=60) as res:
                 data = res.read()
             with open(os.path.join(dest_dir, fn), "wb") as f:
                 f.write(data)
