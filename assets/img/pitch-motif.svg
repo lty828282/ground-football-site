@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none" stroke="#ffffff" stroke-width="2">
+  <rect x="24" y="24" width="352" height="452" rx="4" opacity="0.9"/>
+  <line x1="24" y1="250" x2="376" y2="250" opacity="0.9"/>
+  <circle cx="200" cy="250" r="52" opacity="0.9"/>
+  <circle cx="200" cy="250" r="3" fill="#ffffff" stroke="none"/>
+  <!-- 위쪽 페널티 박스 -->
+  <rect x="110" y="24" width="180" height="86" opacity="0.9"/>
+  <rect x="158" y="24" width="84" height="34" opacity="0.9"/>
+  <path d="M158 110 A48 48 0 0 0 242 110" opacity="0.9"/>
+  <!-- 아래쪽 페널티 박스 -->
+  <rect x="110" y="390" width="180" height="86" opacity="0.9"/>
+  <rect x="158" y="442" width="84" height="34" opacity="0.9"/>
+  <path d="M158 390 A48 48 0 0 1 242 390" opacity="0.9"/>
+</svg>

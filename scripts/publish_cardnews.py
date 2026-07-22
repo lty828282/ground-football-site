@@ -22,6 +22,7 @@
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -36,9 +37,20 @@ IMG_DIR = os.path.join(ROOT, "assets", "img", "cardnews")
 PEXELS_API_KEY = (os.environ.get("PEXELS_API_KEY") or "").strip()
 
 # 카드 위에 들어가는 브랜딩(그라운드 유소년)
-SERIES = "GROUND YOUTH CLASS"
 HANDLE = "groundyouth.com"
 WORDMARK = "GROUND YOUTH"
+
+# 주제별 디자인 컨셉(스킨). queue 항목의 "concept" 로 선택.
+#   cls    : 카드에 붙는 테마 클래스("" 는 기본 그린)
+#   photo  : 기본적으로 사진 배경을 쓸지(False 면 플랫 배경+피치 모티프, Pexels 불필요)
+#   series : 카드 좌상단 시리즈 라벨 기본값(항목 "series" 로 덮어쓰기 가능)
+CONCEPTS = {
+    "green":    {"cls": "",            "photo": True,  "series": "GROUND YOUTH CLASS"},
+    "navy":     {"cls": "cnx-navy",    "photo": False, "series": "MINDSET NOTE"},
+    "tactics":  {"cls": "cnx-tactics", "photo": False, "series": "TACTICS NOTE"},
+    "training": {"cls": "cnx-training", "photo": True, "series": "TRAINING CLASS"},
+    "match":    {"cls": "cnx-match",   "photo": True,  "series": "MATCH ANALYSIS"},
+}
 
 LIST_START = "<!-- CARDNEWS_LIST:START"
 LIST_END = "<!-- CARDNEWS_LIST:END -->"
@@ -118,10 +130,14 @@ def esc_br(s):
     return "<br>".join(esc(p) for p in (s or "").split("<br>"))
 
 
-def _bg_style(theme, img):
-    if img:
-        return "background-color:%s;background-image:url('%s')" % (theme, img)
-    return "background-color:%s" % theme
+def fmt(s):
+    """<br> 유지, HTML 이스케이프, **강조** → 포인트색 span."""
+    out = []
+    for part in (s or "").split("<br>"):
+        p = esc(part)
+        p = re.sub(r"\*\*(.+?)\*\*", r'<span class="cnx-hl">\1</span>', p)
+        out.append(p)
+    return "<br>".join(out)
 
 
 def _dots(total, active):
@@ -130,11 +146,19 @@ def _dots(total, active):
             + "</div>")
 
 
-def _top():
+def _card_open(ctx, img):
+    cls = "cnx-card" + (" " + ctx["cls"] if ctx["cls"] else "")
+    cls += " cnx-flat" if ctx["flat"] else " cnx-photo"
+    style = "" if (ctx["flat"] or not img) else ' style="background-image:url(\'%s\')"' % img
+    motif = '\n      <div class="cnx-motif"></div>' if ctx["flat"] else ""
+    return '    <div class="%s"%s>%s' % (cls, style, motif)
+
+
+def _top(ctx):
     return ('      <div class="cnx-top">\n'
             '        <span class="cnx-series"><i class="cnx-bar"></i>%s</span>\n'
             '        <span class="cnx-handle">%s</span>\n'
-            '      </div>' % (SERIES, HANDLE))
+            '      </div>' % (esc(ctx["series"]), esc(HANDLE)))
 
 
 def _bottom(total, active):
@@ -144,7 +168,7 @@ def _bottom(total, active):
             '      </div>' % (_dots(total, active), WORDMARK))
 
 
-def _cover_card(entry, img, total):
+def _cover_card(entry, ctx, img, total):
     cta = entry.get("coverCta") or "저장해두고 다음 편도 확인하세요"
     main = ('      <div class="cnx-main">\n'
             '        <div class="cnx-kicker">%s</div>\n'
@@ -152,46 +176,58 @@ def _cover_card(entry, img, total):
             '        <span class="cnx-underline"></span>\n'
             '        <div class="cnx-sub">%s</div>\n'
             '        <div class="cnx-cta">%s</div>\n'
-            '      </div>' % (esc(entry.get("kicker", SERIES)), esc_br(entry["coverTitle"]),
-                              esc_br(entry["coverSub"]), esc(cta)))
-    return ('    <div class="cnx-card" style="%s">\n%s\n%s\n%s\n    </div>'
-            % (_bg_style(entry.get("theme", "#0d1a14"), img), _top(), main, _bottom(total, 0)))
+            '      </div>' % (fmt(entry.get("kicker", ctx["series"])), fmt(entry["coverTitle"]),
+                              fmt(entry["coverSub"]), fmt(cta)))
+    return "%s\n%s\n%s\n%s\n    </div>" % (_card_open(ctx, img), _top(ctx), main, _bottom(total, 0))
 
 
-def _content_card(entry, card, number, img, total, active):
+def _content_card(entry, ctx, card, number, img, total, active):
     main = ('      <div class="cnx-main">\n'
             '        <span class="cnx-tick"></span>\n'
             '        <div class="cnx-no">%02d</div>\n'
             '        <h2 class="cnx-title">%s</h2>\n'
             '        <p class="cnx-body">%s</p>\n'
-            '      </div>' % (number, esc_br(card["title"]), esc_br(card["body"])))
-    return ('    <div class="cnx-card" style="%s">\n%s\n%s\n%s\n    </div>'
-            % (_bg_style(entry.get("theme", "#0d1a14"), img), _top(), main, _bottom(total, active)))
+            '      </div>' % (number, fmt(card["title"]), fmt(card["body"])))
+    return "%s\n%s\n%s\n%s\n    </div>" % (_card_open(ctx, img), _top(ctx), main, _bottom(total, active))
 
 
-def _closing_card(entry, img, total):
+def _closing_card(entry, ctx, img, total):
     cta = entry.get("closingCta") or ("팔로우하고 다음 카드뉴스 받아보세요 · %s" % HANDLE)
+    quote = ""
+    if entry.get("quote"):
+        quote = '        <div class="cnx-quote"><span>%s</span></div>\n' % fmt(entry["quote"])
     main = ('      <div class="cnx-main">\n'
             '        <h2 class="cnx-title">%s</h2>\n'
             '        <span class="cnx-underline"></span>\n'
+            '%s'
             '        <div class="cnx-sub">%s</div>\n'
             '        <div class="cnx-cta">%s</div>\n'
-            '      </div>' % (esc_br(entry["closingTitle"]), esc_br(entry["closingBody"]), esc(cta)))
-    return ('    <div class="cnx-card" style="%s">\n%s\n%s\n%s\n    </div>'
-            % (_bg_style(entry.get("theme", "#0d1a14"), img), _top(), main, _bottom(total, total - 1)))
+            '      </div>' % (fmt(entry["closingTitle"]), quote, fmt(entry["closingBody"]), fmt(cta)))
+    return "%s\n%s\n%s\n%s\n    </div>" % (_card_open(ctx, img), _top(ctx), main, _bottom(total, total - 1))
+
+
+def concept_ctx(entry):
+    name = entry.get("concept", "green")
+    conf = CONCEPTS.get(name, CONCEPTS["green"])
+    return {
+        "cls": conf["cls"],
+        "flat": not bool(entry.get("photo", conf["photo"])),
+        "series": entry.get("series") or conf["series"],
+    }
 
 
 def render_page(entry, photos, credits):
     cards = entry["cards"]
     total = len(cards) + 2  # 커버 + 본문 + 마무리
+    ctx = concept_ctx(entry)
 
     def img_at(i):
         return photos[i] if (photos and i < len(photos)) else None
 
-    slides = [_cover_card(entry, img_at(0), total)]
+    slides = [_cover_card(entry, ctx, img_at(0), total)]
     for j, card in enumerate(cards):
-        slides.append(_content_card(entry, card, j + 1, img_at(j + 1), total, j + 1))
-    slides.append(_closing_card(entry, img_at(total - 1), total))
+        slides.append(_content_card(entry, ctx, card, j + 1, img_at(j + 1), total, j + 1))
+    slides.append(_closing_card(entry, ctx, img_at(total - 1), total))
 
     credit_html = ""
     if credits:
@@ -291,10 +327,11 @@ def main():
     entry = queue[0]
     slug = entry["slug"]
     slide_count = len(entry["cards"]) + 2
-    print("발행: %s (%s) · 슬라이드 %d장" % (entry["listTitle"], slug, slide_count))
+    ctx = concept_ctx(entry)
+    print("발행: %s (%s) · 컨셉 %s · 슬라이드 %d장" % (entry["listTitle"], slug, entry.get("concept", "green"), slide_count))
 
     photos, credits = ([], [])
-    if not args.no_photo:
+    if not args.no_photo and not ctx["flat"]:
         photos, credits = fetch_photos(entry.get("photoQuery", entry["listTitle"]), slug, slide_count, dry_run=args.dry_run)
 
     page_html = render_page(entry, photos, credits)
