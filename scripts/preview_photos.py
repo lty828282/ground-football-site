@@ -24,7 +24,6 @@ def pexels(query, n):
     url = "https://api.pexels.com/v1/search?" + urllib.parse.urlencode(
         {"query": query, "per_page": max(n + 4, 10), "orientation": "portrait", "size": "medium"})
     req = urllib.request.Request(url, headers={"Authorization": KEY, "User-Agent": UA})
-    print("KEY 길이=%d, 앞4=%s" % (len(KEY), KEY[:4]), file=sys.stderr)
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             data = json.load(r)
