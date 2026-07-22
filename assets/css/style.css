@@ -399,6 +399,19 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .cn-4{background:#3A6B8A;} .cn-5{background:#8A5A16;} .cn-6{background:#12261E;}
 .cn-7{background:#5B7C5A;} .cn-8{background:#4E6157;}
 
+/* 실제 훈련 사진을 배경으로 쓰는 카드 (매일 자동 발행) */
+.cn-card.cn-photo{background-size:cover;background-position:center;}
+.cn-card.cn-photo::before{display:none;}         /* 사진이 있으면 SVG 모티프는 숨김 */
+.cn-card.cn-photo::after{                          /* 글씨 가독성용 어두운 오버레이 */
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(15,32,25,0.45) 0%,rgba(15,32,25,0.82) 100%);
+}
+.cn-credit{
+  max-width:560px;margin:-6px auto 0;padding:0 20px;
+  text-align:center;font-size:11px;color:var(--muted);
+}
+.cn-credit a{color:inherit;text-decoration:underline;}
+
 /* ── 반응형 ── */
 @media (max-width: 900px){
   nav{padding:14px 20px;}
