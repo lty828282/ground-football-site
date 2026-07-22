@@ -1,29 +1,27 @@
 #!/usr/bin/env python3
-# 카드뉴스 자동 발행 스크립트
+# 카드뉴스 자동 발행 스크립트 (인스타 캐러셀 스타일 · 풀사진 배경)
 #
 # 하는 일 (하루 1회):
 #   1. assets/data/cardnews-queue.json 의 queue 맨 앞에서 카드뉴스 1편을 꺼낸다
-#   2. Pexels API로 주제에 맞는 무료 훈련 사진 1장을 받아 assets/img/cardnews/<slug>.jpg 로 저장
-#   3. pages/cardnews-<slug>.html 페이지를 템플릿으로 생성
+#   2. Pexels API로 주제에 맞는 무료 축구 사진을 슬라이드 수만큼 받아
+#      assets/img/cardnews/<slug>-0.jpg ... 로 저장(슬라이드마다 다른 사진)
+#   3. pages/cardnews-<slug>.html 페이지를 인스타 캐러셀 템플릿으로 생성
 #   4. pages/guides.html 의 카드뉴스 목록(마커 사이)을 다시 만들어 새 글을 노출
 #   5. 발행한 항목을 queue → published(맨 앞)로 옮겨 저장
 #
 # 사전 준비:
 #   - GitHub 저장소 Secrets 에 PEXELS_API_KEY 등록 (https://www.pexels.com/api/ 무료 발급)
-#   - 로컬 실행 예:
-#       export PEXELS_API_KEY="..."
-#       python3 scripts/publish_cardnews.py
+#   - 로컬 실행 예:  export PEXELS_API_KEY="..." ; python3 scripts/publish_cardnews.py
 #
 # 옵션:
 #   --dry-run   실제 파일/큐를 바꾸지 않고 생성 결과만 /tmp 에 써서 미리보기
-#   --no-photo  사진 없이 발행(단색 배경 + 기존 SVG 모티프). API 키가 없거나 실패해도 자동 적용됨
+#   --no-photo  사진 없이 발행(단색 배경). API 키가 없거나 실패해도 자동 적용됨
 #
 # 참고: Pexels 라이선스는 상업적 사용 무료·출처 표기 의무 없음(표기는 권장). 애드센스 사이트에 안전.
 
 import argparse
 import json
 import os
-import re
 import sys
 import urllib.error
 import urllib.parse
@@ -37,9 +35,10 @@ IMG_DIR = os.path.join(ROOT, "assets", "img", "cardnews")
 
 PEXELS_API_KEY = (os.environ.get("PEXELS_API_KEY") or "").strip()
 
-# 본문 카드 배경색 순환 팔레트
-INNER_COLORS = ["#2E7D52", "#B5651D", "#3A6B8A", "#8A5A16", "#5B7C5A", "#4E6157", "#1B4332"]
-CLOSING_COLOR = "#12261E"
+# 카드 위에 들어가는 브랜딩(그라운드 유소년)
+SERIES = "GROUND YOUTH CLASS"
+HANDLE = "groundyouth.com"
+WORDMARK = "GROUND YOUTH"
 
 LIST_START = "<!-- CARDNEWS_LIST:START"
 LIST_END = "<!-- CARDNEWS_LIST:END -->"
@@ -56,15 +55,16 @@ def save_queue(data):
         f.write("\n")
 
 
-def fetch_photo(query, slug, dry_run=False):
-    """Pexels 에서 사진 1장을 받아 저장하고 (상대경로, 크레딧) 반환. 실패 시 (None, None)."""
+def fetch_photos(query, slug, count, dry_run=False):
+    """Pexels 에서 사진을 받아 슬라이드 수(count)만큼 매핑. (relpath 리스트, 촬영자 리스트) 반환."""
     if not PEXELS_API_KEY:
         print("  · PEXELS_API_KEY 없음 → 사진 없이 발행", file=sys.stderr)
-        return None, None
+        return [], []
+
     url = "https://api.pexels.com/v1/search?" + urllib.parse.urlencode({
         "query": query,
-        "per_page": 15,
-        "orientation": "landscape",
+        "per_page": min(80, max(count + 6, 15)),
+        "orientation": "portrait",
         "size": "medium",
     })
     req = urllib.request.Request(url, headers={"Authorization": PEXELS_API_KEY})
@@ -73,36 +73,41 @@ def fetch_photo(query, slug, dry_run=False):
             payload = json.load(res)
     except (urllib.error.URLError, urllib.error.HTTPError, ValueError) as e:
         print("  · Pexels 검색 실패(%s) → 사진 없이 발행" % e, file=sys.stderr)
-        return None, None
+        return [], []
 
     photos = payload.get("photos") or []
     if not photos:
         print("  · '%s' 검색 결과 없음 → 사진 없이 발행" % query, file=sys.stderr)
-        return None, None
+        return [], []
 
-    photo = photos[0]
-    src = photo.get("src") or {}
-    img_url = src.get("large2x") or src.get("large") or src.get("original")
-    if not img_url:
-        return None, None
+    dest_dir = IMG_DIR if not dry_run else "/tmp"
+    os.makedirs(dest_dir, exist_ok=True)
 
-    os.makedirs(IMG_DIR, exist_ok=True)
-    dest = os.path.join(IMG_DIR if not dry_run else "/tmp", slug + ".jpg")
-    try:
-        with urllib.request.urlopen(img_url, timeout=60) as res:
-            data = res.read()
-        with open(dest, "wb") as f:
-            f.write(data)
-    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
-        print("  · 사진 다운로드 실패(%s) → 사진 없이 발행" % e, file=sys.stderr)
-        return None, None
+    n_unique = min(count, len(photos))
+    files, credits = [], []
+    for k in range(n_unique):
+        src = photos[k].get("src") or {}
+        img_url = src.get("large2x") or src.get("large") or src.get("portrait") or src.get("original")
+        if not img_url:
+            continue
+        fn = "%s-%d.jpg" % (slug, k)
+        try:
+            with urllib.request.urlopen(img_url, timeout=60) as res:
+                data = res.read()
+            with open(os.path.join(dest_dir, fn), "wb") as f:
+                f.write(data)
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
+            print("  · 사진 다운로드 실패(%s)" % e, file=sys.stderr)
+            continue
+        files.append("../assets/img/cardnews/%s" % fn)
+        credits.append(photos[k].get("photographer") or "Pexels")
 
-    credit = {
-        "photographer": photo.get("photographer") or "Pexels",
-        "photographer_url": photo.get("photographer_url") or "https://www.pexels.com",
-    }
-    print("  · 사진 저장: %s (© %s / Pexels)" % (os.path.basename(dest), credit["photographer"]))
-    return "../assets/img/cardnews/%s.jpg" % slug, credit
+    if not files:
+        return [], []
+    # 슬라이드 수만큼 순환 매핑(사진이 부족하면 앞에서부터 재사용)
+    mapped = [files[i % len(files)] for i in range(count)]
+    print("  · 사진 %d장 저장 (검색어: %s)" % (len(files), query))
+    return mapped, credits
 
 
 def esc(s):
@@ -110,53 +115,89 @@ def esc(s):
 
 
 def esc_br(s):
-    """<br> 은 그대로 두고 나머지만 이스케이프."""
-    parts = (s or "").split("<br>")
-    return "<br>".join(esc(p) for p in parts)
+    return "<br>".join(esc(p) for p in (s or "").split("<br>"))
 
 
-def render_page(entry, photo_rel, credit):
-    slug = entry["slug"]
-    theme = entry.get("theme", "#1B4332")
-    kicker = esc(entry.get("kicker", "GROUND YOUTH"))
+def _bg_style(theme, img):
+    if img:
+        return "background-color:%s;background-image:url('%s')" % (theme, img)
+    return "background-color:%s" % theme
 
-    if photo_rel:
-        cover_open = ('    <div class="cn-card cover cn-photo" '
-                      'style="background-color:%s;background-image:url(\'%s\')">' % (theme, photo_rel))
-    else:
-        cover_open = '    <div class="cn-card cover" style="background:%s">' % theme
 
-    cards_html = []
-    cards_html.append(cover_open)
-    cards_html.append('      <div class="cn-kicker">%s</div>' % kicker)
-    cards_html.append('      <h2>%s</h2>' % esc_br(entry["coverTitle"]))
-    cards_html.append('      <p>%s</p>' % esc_br(entry["coverSub"]))
-    cards_html.append('      <div class="cn-brand">그라<em>운</em>드 유소년</div>')
-    cards_html.append('    </div>')
+def _dots(total, active):
+    return ('<div class="cnx-dots">'
+            + "".join('<i class="on"></i>' if i == active else "<i></i>" for i in range(total))
+            + "</div>")
 
-    inner_palette = [c for c in INNER_COLORS if c != theme] or INNER_COLORS
-    for i, card in enumerate(entry["cards"]):
-        color = inner_palette[i % len(inner_palette)]
-        cards_html.append('')
-        cards_html.append('    <div class="cn-card" style="background:%s">' % color)
-        cards_html.append('      <div class="cn-no">%02d</div>' % (i + 1))
-        cards_html.append('      <h2>%s</h2>' % esc_br(card["title"]))
-        cards_html.append('      <p>%s</p>' % esc_br(card["body"]))
-        cards_html.append('      <div class="cn-brand">그라<em>운</em>드 유소년</div>')
-        cards_html.append('    </div>')
 
-    cards_html.append('')
-    cards_html.append('    <div class="cn-card" style="background:%s">' % CLOSING_COLOR)
-    cards_html.append('      <div class="cn-kicker">기억하세요</div>')
-    cards_html.append('      <h2>%s</h2>' % esc_br(entry["closingTitle"]))
-    cards_html.append('      <p>%s</p>' % esc_br(entry["closingBody"]))
-    cards_html.append('      <div class="cn-brand">그라<em>운</em>드 유소년 · groundyouth.com</div>')
-    cards_html.append('    </div>')
+def _top():
+    return ('      <div class="cnx-top">\n'
+            '        <span class="cnx-series"><i class="cnx-bar"></i>%s</span>\n'
+            '        <span class="cnx-handle">%s</span>\n'
+            '      </div>' % (SERIES, HANDLE))
+
+
+def _bottom(total, active):
+    return ('      <div class="cnx-bottom">\n'
+            '        %s\n'
+            '        <div class="cnx-mark">%s</div>\n'
+            '      </div>' % (_dots(total, active), WORDMARK))
+
+
+def _cover_card(entry, img, total):
+    cta = entry.get("coverCta") or "저장해두고 다음 편도 확인하세요"
+    main = ('      <div class="cnx-main">\n'
+            '        <div class="cnx-kicker">%s</div>\n'
+            '        <h2 class="cnx-title cnx-hook">%s</h2>\n'
+            '        <span class="cnx-underline"></span>\n'
+            '        <div class="cnx-sub">%s</div>\n'
+            '        <div class="cnx-cta">%s</div>\n'
+            '      </div>' % (esc(entry.get("kicker", SERIES)), esc_br(entry["coverTitle"]),
+                              esc_br(entry["coverSub"]), esc(cta)))
+    return ('    <div class="cnx-card" style="%s">\n%s\n%s\n%s\n    </div>'
+            % (_bg_style(entry.get("theme", "#0d1a14"), img), _top(), main, _bottom(total, 0)))
+
+
+def _content_card(entry, card, number, img, total, active):
+    main = ('      <div class="cnx-main">\n'
+            '        <span class="cnx-tick"></span>\n'
+            '        <div class="cnx-no">%02d</div>\n'
+            '        <h2 class="cnx-title">%s</h2>\n'
+            '        <p class="cnx-body">%s</p>\n'
+            '      </div>' % (number, esc_br(card["title"]), esc_br(card["body"])))
+    return ('    <div class="cnx-card" style="%s">\n%s\n%s\n%s\n    </div>'
+            % (_bg_style(entry.get("theme", "#0d1a14"), img), _top(), main, _bottom(total, active)))
+
+
+def _closing_card(entry, img, total):
+    cta = entry.get("closingCta") or ("팔로우하고 다음 카드뉴스 받아보세요 · %s" % HANDLE)
+    main = ('      <div class="cnx-main">\n'
+            '        <h2 class="cnx-title">%s</h2>\n'
+            '        <span class="cnx-underline"></span>\n'
+            '        <div class="cnx-sub">%s</div>\n'
+            '        <div class="cnx-cta">%s</div>\n'
+            '      </div>' % (esc_br(entry["closingTitle"]), esc_br(entry["closingBody"]), esc(cta)))
+    return ('    <div class="cnx-card" style="%s">\n%s\n%s\n%s\n    </div>'
+            % (_bg_style(entry.get("theme", "#0d1a14"), img), _top(), main, _bottom(total, total - 1)))
+
+
+def render_page(entry, photos, credits):
+    cards = entry["cards"]
+    total = len(cards) + 2  # 커버 + 본문 + 마무리
+
+    def img_at(i):
+        return photos[i] if (photos and i < len(photos)) else None
+
+    slides = [_cover_card(entry, img_at(0), total)]
+    for j, card in enumerate(cards):
+        slides.append(_content_card(entry, card, j + 1, img_at(j + 1), total, j + 1))
+    slides.append(_closing_card(entry, img_at(total - 1), total))
 
     credit_html = ""
-    if photo_rel and credit:
-        credit_html = ('\n  <div class="cn-credit">사진 © <a href="%s" target="_blank" rel="noopener">%s</a> / Pexels</div>\n'
-                       % (esc(credit["photographer_url"]), esc(credit["photographer"])))
+    if credits:
+        uniq = list(dict.fromkeys(credits))
+        credit_html = ('\n  <div class="cn-credit">사진 © %s / <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a></div>\n'
+                       % esc(", ".join(uniq)))
 
     return """<!DOCTYPE html>
 <html lang="ko">
@@ -178,10 +219,10 @@ def render_page(entry, photo_rel, credit):
     <h1>{h1} · 카드뉴스</h1>
   </div>
 
-  <div class="cardnews">
-    <div class="cn-hint">📱 각 카드를 이미지로 저장해 공유해 보세요</div>
+  <div class="cnx-wrap">
+    <div class="cnx-hint">📱 각 카드를 이미지로 저장해 공유해 보세요</div>
 
-{cards}
+{slides}
   </div>
 {credit}
   <div id="site-footer"></div>
@@ -197,7 +238,7 @@ def render_page(entry, photo_rel, credit):
         metaTitle=esc(entry["metaTitle"]),
         metaDesc=esc(entry["metaDesc"]),
         h1=esc(entry["listTitle"]),
-        cards="\n".join(cards_html),
+        slides="\n".join(slides),
         credit=credit_html,
     )
 
@@ -224,21 +265,15 @@ def render_list_item(entry):
 def rewrite_guides_list(published):
     with open(GUIDES_PATH, encoding="utf-8") as f:
         html = f.read()
-
     start = html.find(LIST_START)
     end = html.find(LIST_END)
     if start == -1 or end == -1:
         raise SystemExit("guides.html 에서 CARDNEWS_LIST 마커를 찾지 못했습니다.")
-    # 마커 라인의 끝(개행)까지 포함해 교체
     start_line_end = html.find("\n", start)
     items = "\n".join(render_list_item(e) for e in published)
-    new_block = (
-        html[:start_line_end + 1]
-        + items + "\n"
-        + "      " + html[end:]
-    )
+    new_html = html[:start_line_end + 1] + items + "\n      " + html[end:]
     with open(GUIDES_PATH, "w", encoding="utf-8") as f:
-        f.write(new_block)
+        f.write(new_html)
 
 
 def main():
@@ -255,13 +290,14 @@ def main():
 
     entry = queue[0]
     slug = entry["slug"]
-    print("발행: %s (%s)" % (entry["listTitle"], slug))
+    slide_count = len(entry["cards"]) + 2
+    print("발행: %s (%s) · 슬라이드 %d장" % (entry["listTitle"], slug, slide_count))
 
-    photo_rel, credit = (None, None)
+    photos, credits = ([], [])
     if not args.no_photo:
-        photo_rel, credit = fetch_photo(entry.get("photoQuery", entry["listTitle"]), slug, dry_run=args.dry_run)
+        photos, credits = fetch_photos(entry.get("photoQuery", entry["listTitle"]), slug, slide_count, dry_run=args.dry_run)
 
-    page_html = render_page(entry, photo_rel, credit)
+    page_html = render_page(entry, photos, credits)
 
     if args.dry_run:
         preview = os.path.join("/tmp", "cardnews-%s.html" % slug)
@@ -276,7 +312,6 @@ def main():
         f.write(page_html)
     print("페이지 생성: pages/cardnews-%s.html" % slug)
 
-    # 발행 완료 항목을 목록용 최소 정보로 published 맨 앞에 추가
     published_item = {
         "slug": slug,
         "generated": True,
@@ -284,8 +319,8 @@ def main():
         "listTitle": entry["listTitle"],
         "listDesc": entry["listDesc"],
     }
-    if credit:
-        published_item["photoCredit"] = credit
+    if credits:
+        published_item["photoCredit"] = list(dict.fromkeys(credits))
     data["published"].insert(0, published_item)
     data["queue"] = queue[1:]
     save_queue(data)
