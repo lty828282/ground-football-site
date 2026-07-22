@@ -493,6 +493,38 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   .cnx-title{font-size:30px;} .cnx-title.cnx-hook{font-size:33px;} .cnx-no{font-size:56px;}
 }
 
+/* 밝은 인사이트 테마 — 스카우팅 인포그래픽(크림 + 남색 + 블루) */
+.cnx-insight{
+  --accent:#2f7fd6;--hl:#2f7fd6;--series:#5b74a8;--mark:#0e2350;
+  --bg:#f4efe3;color:#0e2350;
+}
+.cnx-insight::after{background:none;}
+.cnx-insight .cnx-motif{display:none;}
+.cnx-frame{position:absolute;inset:12px;border:2px solid #0e2350;border-radius:12px;z-index:0;pointer-events:none;}
+.cnx-insight .cnx-title{color:#0e2350;text-shadow:none;}
+.cnx-insight .cnx-no{text-shadow:none;}
+.cnx-insight .cnx-kicker,.cnx-insight .cnx-sub{color:#1c3566;text-shadow:none;}
+.cnx-insight .cnx-body,.cnx-insight .cnx-cta{color:#33507f;text-shadow:none;opacity:1;}
+.cnx-insight .cnx-handle{color:#5b74a8;}
+.cnx-insight .cnx-dots i{background:rgba(14,35,80,0.22);}
+.cnx-insight .cnx-quote{background:#0e2350;color:#fff;border-color:#0e2350;}
+.cnx-insight .cnx-quote::before{color:#4f9be6;}
+.cnx-insight .cnx-top,.cnx-insight .cnx-main,.cnx-insight .cnx-bottom{padding-left:34px;padding-right:34px;}
+.cnx-rail{position:absolute;top:0;bottom:0;display:flex;align-items:center;z-index:1;
+  writing-mode:vertical-rl;font-size:10px;font-weight:800;letter-spacing:3px;color:#8a99b8;}
+.cnx-rail.l{left:15px;} .cnx-rail.r{right:15px;transform:rotate(180deg);}
+
+/* 축구 개념 아이콘 (모든 테마 공용) */
+.fi{width:1em;height:1em;display:inline-block;vertical-align:middle;}
+.cnx-icongrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 4px;}
+.cnx-ic{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;}
+.cnx-ic .box{width:100%;aspect-ratio:1/1;max-width:82px;border:1.6px solid var(--accent);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;color:var(--accent);}
+.cnx-ic .box .fi{width:54%;height:54%;}
+.cnx-ic small{font-size:11px;font-weight:800;line-height:1.2;}
+.cnx-insight .cnx-ic .box{border-color:#0e2350;color:#0e2350;}
+.cnx-insight .cnx-ic small{color:#1c3566;}
+
 /* ── 반응형 ── */
 @media (max-width: 900px){
   nav{padding:14px 20px;}

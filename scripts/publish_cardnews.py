@@ -45,12 +45,17 @@ WORDMARK = "GROUND YOUTH"
 #   photo  : 기본적으로 사진 배경을 쓸지(False 면 플랫 배경+피치 모티프, Pexels 불필요)
 #   series : 카드 좌상단 시리즈 라벨 기본값(항목 "series" 로 덮어쓰기 가능)
 CONCEPTS = {
-    "green":    {"cls": "",            "photo": True,  "series": "GROUND YOUTH CLASS"},
-    "navy":     {"cls": "cnx-navy",    "photo": False, "series": "MINDSET NOTE"},
-    "tactics":  {"cls": "cnx-tactics", "photo": False, "series": "TACTICS NOTE"},
-    "training": {"cls": "cnx-training", "photo": True, "series": "TRAINING CLASS"},
-    "match":    {"cls": "cnx-match",   "photo": True,  "series": "MATCH ANALYSIS"},
+    "green":    {"cls": "",             "photo": True,  "series": "GROUND YOUTH CLASS"},
+    "navy":     {"cls": "cnx-navy",     "photo": False, "series": "MINDSET NOTE"},
+    "tactics":  {"cls": "cnx-tactics",  "photo": False, "series": "TACTICS NOTE"},
+    "training": {"cls": "cnx-training", "photo": True,  "series": "TRAINING CLASS"},
+    "match":    {"cls": "cnx-match",    "photo": True,  "series": "MATCH ANALYSIS"},
+    "insight":  {"cls": "cnx-insight",  "photo": False, "series": "SCOUTING INSIGHT", "frame": True,
+                 "rails": ("DEFINE · DEVELOP · DELIVER", "YOUTH · GROWTH · FUTURE")},
 }
+
+# 축구 아이콘 스프라이트(페이지 기준 상대경로). 라벨은 큐에서 지정.
+ICON_SPRITE = "../assets/img/football-icons.svg"
 
 LIST_START = "<!-- CARDNEWS_LIST:START"
 LIST_END = "<!-- CARDNEWS_LIST:END -->"
@@ -146,12 +151,31 @@ def _dots(total, active):
             + "</div>")
 
 
+def _icon_grid(icons):
+    if not icons:
+        return ""
+    cells = []
+    for it in icons:
+        cells.append(
+            '          <div class="cnx-ic"><div class="box">'
+            '<svg class="fi"><use href="%s#%s"></use></svg></div><small>%s</small></div>'
+            % (ICON_SPRITE, esc(it.get("icon", "star")), fmt(it.get("label", "")))
+        )
+    return '\n        <div class="cnx-icongrid">\n' + "\n".join(cells) + "\n        </div>"
+
+
 def _card_open(ctx, img):
     cls = "cnx-card" + (" " + ctx["cls"] if ctx["cls"] else "")
     cls += " cnx-flat" if ctx["flat"] else " cnx-photo"
     style = "" if (ctx["flat"] or not img) else ' style="background-image:url(\'%s\')"' % img
-    motif = '\n      <div class="cnx-motif"></div>' if ctx["flat"] else ""
-    return '    <div class="%s"%s>%s' % (cls, style, motif)
+    extra = ""
+    if ctx["flat"]:
+        extra += '\n      <div class="cnx-motif"></div>'
+    if ctx.get("frame"):
+        extra += '\n      <div class="cnx-frame"></div>'
+    for pos, txt in zip(("l", "r"), ctx.get("rails") or ()):
+        extra += '\n      <div class="cnx-rail %s">%s</div>' % (pos, esc(txt))
+    return '    <div class="%s"%s>%s' % (cls, style, extra)
 
 
 def _top(ctx):
@@ -186,8 +210,8 @@ def _content_card(entry, ctx, card, number, img, total, active):
             '        <span class="cnx-tick"></span>\n'
             '        <div class="cnx-no">%02d</div>\n'
             '        <h2 class="cnx-title">%s</h2>\n'
-            '        <p class="cnx-body">%s</p>\n'
-            '      </div>' % (number, fmt(card["title"]), fmt(card["body"])))
+            '        <p class="cnx-body">%s</p>%s\n'
+            '      </div>' % (number, fmt(card["title"]), fmt(card["body"]), _icon_grid(card.get("icons"))))
     return "%s\n%s\n%s\n%s\n    </div>" % (_card_open(ctx, img), _top(ctx), main, _bottom(total, active))
 
 
@@ -213,6 +237,8 @@ def concept_ctx(entry):
         "cls": conf["cls"],
         "flat": not bool(entry.get("photo", conf["photo"])),
         "series": entry.get("series") or conf["series"],
+        "frame": conf.get("frame", False),
+        "rails": conf.get("rails"),
     }
 
 
