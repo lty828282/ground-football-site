@@ -2,6 +2,19 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "warmup",
+      "generated": true,
+      "theme": "#2E7D52",
+      "listTitle": "경기 전 워밍업 5단계",
+      "listDesc": "차가운 몸으로 뛰면 다치기 쉽습니다. 경기·훈련 전 꼭 챙겨야 할 준비 운동 순서.",
+      "photoCredit": [
+        "nn.TON.nn",
+        "Марина  Шишкина",
+        "Talha Resitoglu",
+        "kübra zehra"
+      ]
+    },
+    {
       "slug": "home-training",
       "generated": true,
       "theme": "#FF7A1A",
@@ -51,43 +64,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "warmup",
-      "concept": "training",
-      "theme": "#2E7D52",
-      "metaTitle": "[카드뉴스] 축구 경기 전 워밍업 5단계",
-      "metaDesc": "부상 없이 100%로 뛰기 위한 유소년 축구 경기 전 워밍업 5단계를 카드뉴스로 정리했습니다.",
-      "listTitle": "경기 전 워밍업 5단계",
-      "listDesc": "차가운 몸으로 뛰면 다치기 쉽습니다. 경기·훈련 전 꼭 챙겨야 할 준비 운동 순서.",
-      "kicker": "GROUND YOUTH · 축구 훈련",
-      "coverTitle": "경기 전<br>워밍업 5단계",
-      "coverSub": "부상 없이, 처음부터 100%로 뛰려면.",
-      "photoQuery": "kids soccer warm up training field",
-      "cards": [
-        {
-          "title": "가볍게<br>뛰기",
-          "body": "먼저 3~5분 조깅으로 체온을 올립니다. 심장이 '이제 운동한다'고 준비하도록 천천히 시작하세요."
-        },
-        {
-          "title": "동적<br>스트레칭",
-          "body": "다리 앞뒤로 흔들기, 무릎 올리기, 사이드 스텝. 멈춰서 당기는 정적 스트레칭보다 '움직이며' 푸는 게 좋아요."
-        },
-        {
-          "title": "발목·무릎<br>돌리기",
-          "body": "가장 많이 다치는 관절. 양방향으로 천천히 돌려 관절액을 돌게 하고 가동 범위를 넓혀 둡니다."
-        },
-        {
-          "title": "볼<br>터치",
-          "body": "짧은 패스와 드리블로 공 감각을 깨웁니다. 발과 공이 오늘 처음 만나는 순간을 부드럽게."
-        },
-        {
-          "title": "짧은<br>스프린트",
-          "body": "70% → 90%로 20m씩 2~3회. 몸에 '전력 질주가 곧 온다'고 미리 신호를 줍니다."
-        }
-      ],
-      "closingTitle": "10분의 준비가<br>부상을 막습니다",
-      "closingBody": "빨리 뛰고 싶어도 워밍업부터. 습관이 되면 몸이 먼저 기억합니다."
-    },
     {
       "slug": "injury-prevention",
       "concept": "navy",
