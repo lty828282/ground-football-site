@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- 축구 개념 라인 아이콘 라이브러리. 사용: <svg class="fi"><use href="/assets/img/football-icons.svg#kick"/></svg>
+       stroke=currentColor 라서 테마 색을 그대로 따릅니다. viewBox 0 0 48 48 통일. -->
+  <defs>
+    <style>
+      symbol{stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+      symbol .fill{fill:currentColor;stroke:none;}
+      symbol .dash{stroke-dasharray:3 4;}
+    </style>
+  </defs>
+
+  <!-- 킥 -->
+  <symbol id="kick" viewBox="0 0 48 48">
+    <circle cx="19" cy="26" r="9"/>
+    <path d="M19 19 L22 24 L17 27 L14 22 Z"/>
+    <path d="M33 15 h7 M31 21 h9 M33 27 h7"/>
+  </symbol>
+
+  <!-- 시야 -->
+  <symbol id="vision" viewBox="0 0 48 48">
+    <path d="M6 24 C13 14 35 14 42 24 C35 34 13 34 6 24 Z"/>
+    <circle cx="24" cy="24" r="5.5"/>
+    <circle class="fill" cx="24" cy="24" r="1.6"/>
+  </symbol>
+
+  <!-- 1대1 돌파 -->
+  <symbol id="onevone" viewBox="0 0 48 48">
+    <circle cx="13" cy="12" r="4"/>
+    <path d="M13 16 v10 M13 19 l-5 4 M13 19 l5 4 M13 26 l-4 8 M13 26 l4 8"/>
+    <path class="dash" d="M20 30 q10 -6 18 0"/>
+    <path d="M38 30 l-4 -2 M38 30 l-4 3"/>
+  </symbol>
+
+  <!-- 수비 집중력 (실드) -->
+  <symbol id="defense" viewBox="0 0 48 48">
+    <path d="M24 6 L38 11 V24 C38 33 32 39 24 42 C16 39 10 33 10 24 V11 Z"/>
+    <path d="M18 24 l4 4 l8 -9"/>
+  </symbol>
+
+  <!-- 오프더볼 움직임 -->
+  <symbol id="offball" viewBox="0 0 48 48">
+    <circle cx="11" cy="34" r="3.2"/>
+    <path class="dash" d="M13 31 C22 20 26 30 37 13"/>
+    <path d="M37 13 l-6 1 M37 13 l-1 6"/>
+  </symbol>
+
+  <!-- 서포트 앵글 -->
+  <symbol id="support" viewBox="0 0 48 48">
+    <path d="M24 10 L38 36 H10 Z"/>
+    <circle class="fill" cx="24" cy="10" r="3"/>
+    <circle class="fill" cx="10" cy="36" r="3"/>
+    <circle class="fill" cx="38" cy="36" r="3"/>
+  </symbol>
+
+  <!-- 공 전환 반응 -->
+  <symbol id="transition" viewBox="0 0 48 48">
+    <path d="M14 18 A12 12 0 0 1 36 18"/>
+    <path d="M36 18 l0 -6 M36 18 l6 0"/>
+    <path d="M34 30 A12 12 0 0 1 12 30"/>
+    <path d="M12 30 l0 6 M12 30 l-6 0"/>
+  </symbol>
+
+  <!-- 포지셔닝 -->
+  <symbol id="positioning" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="12"/>
+    <circle class="fill" cx="24" cy="24" r="3.2"/>
+    <path d="M24 4 v8 M24 36 v8 M4 24 h8 M36 24 h8"/>
+  </symbol>
+
+  <!-- 압박 회피 -->
+  <symbol id="press" viewBox="0 0 48 48">
+    <circle cx="30" cy="16" r="6"/>
+    <path class="dash" d="M30 22 C18 26 18 36 34 38"/>
+    <path d="M34 38 l-6 -1 M34 38 l-2 -6"/>
+    <path d="M9 12 l6 6 M15 12 l-6 6"/>
+  </symbol>
+
+  <!-- 별 (강점/무기) -->
+  <symbol id="star" viewBox="0 0 48 48">
+    <path d="M24 6 l5.3 11.2 12.3 1.6 -9 8.4 2.3 12.1 -10.9 -5.9 -10.9 5.9 2.3 -12.1 -9 -8.4 12.3 -1.6 Z"/>
+  </symbol>
+
+  <!-- 관찰 (돋보기) -->
+  <symbol id="observe" viewBox="0 0 48 48">
+    <circle cx="21" cy="21" r="12"/>
+    <path d="M30 30 l10 10"/>
+  </symbol>
+
+  <!-- 분석 (사고) -->
+  <symbol id="analyze" viewBox="0 0 48 48">
+    <path d="M30 40 v-5 a12 12 0 1 0 -12 0 v5"/>
+    <path d="M18 40 h12"/>
+    <path d="M24 15 v8 M24 23 l4 3"/>
+  </symbol>
+
+  <!-- 발견 (타깃) -->
+  <symbol id="identify" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="13"/>
+    <circle cx="24" cy="24" r="6"/>
+    <circle class="fill" cx="24" cy="24" r="1.8"/>
+  </symbol>
+</svg>
