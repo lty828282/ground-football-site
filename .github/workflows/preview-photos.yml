@@ -1,0 +1,35 @@
+name: Preview Photo Themes
+
+# 사진 테마 미리보기 생성 — 이 워크플로/스크립트가 바뀌어 push 될 때 실행.
+# 러너에서 Pexels 사진을 받아 preview/photo-preview.html(자체 완결형)을 만들어 브랜치에 커밋.
+# 커밋 대상(preview/**)은 트리거 경로가 아니라 무한 루프가 나지 않음.
+
+on:
+  push:
+    paths:
+      - 'scripts/preview_photos.py'
+      - '.github/workflows/preview-photos.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build photo preview
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python3 scripts/preview_photos.py
+      - name: Commit preview
+        run: |
+          if [ -z "$(git status --porcelain preview/)" ]; then
+            echo "미리보기 변경 없음"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add preview/
+          git commit -m "[preview] 사진 테마 미리보기 생성 [skip ci]"
+          git push origin HEAD:${GITHUB_REF_NAME}
