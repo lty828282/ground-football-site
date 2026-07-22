@@ -3,45 +3,51 @@
   "published": [
     {
       "slug": "home-training",
-      "generated": false,
-      "theme": "#2E7D52",
+      "generated": true,
+      "theme": "#FF7A1A",
       "listTitle": "집에서 하는 유소년 기본기 훈련 5가지",
-      "listDesc": "공 하나로 좁은 공간에서 매일 5분. 볼 컨트롤부터 리프팅까지 기본기를 키우는 연습법."
+      "listDesc": "공 하나로 좁은 공간에서 매일 5분. 볼 컨트롤부터 리프팅까지 기본기를 키우는 연습법.",
+      "concept": "training"
     },
     {
       "slug": "soccer-shoes",
-      "generated": false,
-      "theme": "#B5651D",
+      "generated": true,
+      "theme": "#2f7fd6",
       "listTitle": "성장기 아이 축구화, 이렇게 고르세요",
-      "listDesc": "사이즈 여유, 스터드 종류, 소재와 교체 시점까지 — 부모가 꼭 알아야 할 축구화 선택 기준."
+      "listDesc": "사이즈 여유, 스터드 종류, 소재와 교체 시점까지 — 부모가 꼭 알아야 할 축구화 선택 기준.",
+      "concept": "insight"
     },
     {
       "slug": "start-youth",
-      "generated": false,
-      "theme": "#3A6B8A",
+      "generated": true,
+      "theme": "#F5A623",
       "listTitle": "처음 시작할 때, 학부모가 알아야 할 7가지",
-      "listDesc": "클럽 선택부터 준비물, 승패를 대하는 태도까지 — 첫 시작을 위한 부모 체크리스트."
+      "listDesc": "클럽 선택부터 준비물, 승패를 대하는 태도까지 — 첫 시작을 위한 부모 체크리스트.",
+      "concept": "navy"
     },
     {
       "slug": "age-development",
-      "generated": false,
-      "theme": "#8A5A16",
+      "generated": true,
+      "theme": "#2f7fd6",
       "listTitle": "연령별 발달 단계와 부모의 역할",
-      "listDesc": "6세부터 12세까지, 나이에 맞는 기대와 지도. 우리 아이는 지금 어느 단계일까요?"
+      "listDesc": "6세부터 12세까지, 나이에 맞는 기대와 지도. 우리 아이는 지금 어느 단계일까요?",
+      "concept": "insight"
     },
     {
       "slug": "etiquette",
-      "generated": false,
-      "theme": "#5B7C5A",
+      "generated": true,
+      "theme": "#F5A623",
       "listTitle": "훈련 태도와 예절, 실력보다 먼저입니다",
-      "listDesc": "인사, 심판·상대 존중, 페어플레이, 팀워크 — 어린 선수가 배워야 할 기본."
+      "listDesc": "인사, 심판·상대 존중, 페어플레이, 팀워크 — 어린 선수가 배워야 할 기본.",
+      "concept": "navy"
     },
     {
       "slug": "parents",
-      "generated": false,
-      "theme": "#4E6157",
+      "generated": true,
+      "theme": "#F5A623",
       "listTitle": "부모가 꼭 알아야 할 것들",
-      "listDesc": "'두 번째 코치'가 아니라 '안전한 지지자'. 응원과 압박 사이에서 부모의 역할."
+      "listDesc": "'두 번째 코치'가 아니라 '안전한 지지자'. 응원과 압박 사이에서 부모의 역할.",
+      "concept": "navy"
     }
   ],
   "queue": [

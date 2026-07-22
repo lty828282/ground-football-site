@@ -255,6 +255,12 @@ def render_page(entry, photos, credits):
         slides.append(_content_card(entry, ctx, card, j + 1, img_at(j + 1), total, j + 1))
     slides.append(_closing_card(entry, ctx, img_at(total - 1), total))
 
+    guide_html = ""
+    if entry.get("guideSlug"):
+        guide_html = ('\n  <div style="text-align:center;padding:0 20px 40px;">'
+                      '<a class="guide-cta" href="/pages/guide-%s.html">📖 글로 자세히 읽기 →</a></div>\n'
+                      % esc(entry["guideSlug"]))
+
     credit_html = ""
     if credits:
         uniq = list(dict.fromkeys(credits))
@@ -286,7 +292,7 @@ def render_page(entry, photos, credits):
 
 {slides}
   </div>
-{credit}
+{guide}{credit}
   <div id="site-footer"></div>
 
   <script src="../assets/js/icons.js"></script>
@@ -301,6 +307,7 @@ def render_page(entry, photos, credits):
         metaDesc=esc(entry["metaDesc"]),
         h1=esc(entry["listTitle"]),
         slides="\n".join(slides),
+        guide=guide_html,
         credit=credit_html,
     )
 
