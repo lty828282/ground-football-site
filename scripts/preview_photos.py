@@ -22,9 +22,18 @@ def pexels(query, n):
     url = "https://api.pexels.com/v1/search?" + urllib.parse.urlencode(
         {"query": query, "per_page": max(n + 4, 10), "orientation": "portrait", "size": "medium"})
     req = urllib.request.Request(url, headers={"Authorization": KEY})
+    print("KEY 길이=%d, 앞4=%s" % (len(KEY), KEY[:4]), file=sys.stderr)
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             data = json.load(r)
+    except urllib.error.HTTPError as e:
+        body = ""
+        try:
+            body = e.read().decode("utf-8", "replace")[:300]
+        except Exception:  # noqa
+            pass
+        print("검색 실패:", query, "HTTP", e.code, "| 응답:", body, file=sys.stderr)
+        return []
     except Exception as e:  # noqa
         print("검색 실패:", query, e, file=sys.stderr)
         return []
