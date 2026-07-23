@@ -2,6 +2,21 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "soccer-shoes",
+      "generated": true,
+      "theme": "#2f7fd6",
+      "listTitle": "성장기 아이 축구화, 이렇게 고르세요",
+      "listDesc": "사이즈 여유, 스터드 종류, 소재와 교체 시점까지 — 부모가 꼭 알아야 할 축구화 선택 기준.",
+      "photoCredit": [
+        "Justin  Hofer",
+        "Oleksandr Plakhota",
+        "Franco Monsalvo",
+        "Omotayo Samuel",
+        "Nikola Tomašić",
+        "Марина  Шишкина"
+      ]
+    },
+    {
       "slug": "home-training",
       "generated": true,
       "theme": "#FF7A1A",
@@ -30,41 +45,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "soccer-shoes",
-      "concept": "insight",
-      "theme": "#2f7fd6",
-      "series": "유소년 축구화 고르는 방법",
-      "metaTitle": "[카드뉴스] 성장기 아이 축구화 고르는 법",
-      "metaDesc": "성장기 유소년 축구화를 고르는 기준(사이즈·스터드·소재·교체시점)을 카드뉴스로 정리했습니다.",
-      "listTitle": "성장기 아이 축구화, 이렇게 고르세요",
-      "listDesc": "사이즈 여유, 스터드 종류, 소재와 교체 시점까지 — 부모가 꼭 알아야 할 축구화 선택 기준.",
-      "kicker": "FOOTBALL GEAR GUIDE",
-      "coverTitle": "성장기 아이 축구화,<br>이렇게 고르세요",
-      "coverSub": "브랜드보다 **우리 아이 발**과 뛰는 환경이 먼저.",
-      "photoQuery": "soccer cleats boots youth",
-      "guideSlug": "soccer-shoes",
-      "cards": [
-        {
-          "title": "사이즈는<br>반 치수 여유",
-          "body": "발이 빠르게 크는 시기. 딱 맞게보다 **5~10mm 여유**. 단, 10mm를 넘으면 발이 밀려 물집·부상 위험!"
-        },
-        {
-          "title": "스터드는<br>구장에 맞춰서",
-          "body": "FG 천연잔디 · **AG 인조잔디** · TF 범용(입문 추천) · IN 실내풋살. 국내 유소년은 인조잔디가 많아요."
-        },
-        {
-          "title": "소재는<br>합성이 실용적",
-          "body": "천연가죽은 부드럽지만 비싸고 관리가 까다로워요. 빠르게 크는 유소년엔 가볍고 물에 강한 합성 소재가 합리적."
-        },
-        {
-          "title": "비싼 것보다<br>제때 교체를",
-          "body": "1년에 한 치수 이상 크는 시기. 밑창이 닳거나 발가락이 앞에 닿으면 성능·안전을 위해 교체 시점!"
-        }
-      ],
-      "closingTitle": "반 치수 여유 +<br>구장 맞춤 스터드",
-      "closingBody": "합성 소재 + 제때 교체. 우리 아이 발과 환경이 먼저입니다."
-    },
     {
       "slug": "start-youth",
       "concept": "navy",
