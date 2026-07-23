@@ -25,12 +25,12 @@ async function renderVideos() {
     return;
   }
 
-  const byViews = videos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 6);
+  const byViews = videos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 10);
   const topIds = new Set(byViews.map((v) => v.video_id));
   const byRecent = videos
     .filter((v) => !topIds.has(v.video_id))
     .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
-    .slice(0, 6);
+    .slice(0, 10);
 
   topSlot.innerHTML = byViews.map(renderVideoCard).join('');
   recentSlot.innerHTML = byRecent.length

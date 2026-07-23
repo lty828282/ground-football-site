@@ -3,49 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>그라운드 — 축구 콘텐츠 허브</title>
+<title>그라운드 — 유소년 축구 전문 허브</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
   <div id="site-header"></div>
 
-  <div class="hero-wrap">
-    <div class="hero-head">
-      <div class="eyebrow">Kick-off</div>
-      <h1>오늘의 축구, 한 경기장 안에 모았다</h1>
-      <p>훈련 영상부터 축구화 리뷰, 실시간 유튜브 랭킹까지 — 포지션별로 정리된 축구 콘텐츠를 한눈에 확인하세요.</p>
+  <div class="hero-band">
+    <div class="hero-inner">
+      <div class="hero-stripe"></div>
+      <div class="hero-goal">GOAL</div>
+      <h1 class="hero-title">PLAY. <span class="g">LEARN.</span><br><span class="y">GROW.</span></h1>
+      <p class="hero-ko">유소년 축구의 모든 것</p>
     </div>
-
-    <div class="pitch">
-      <div class="halfway"></div>
-      <div class="center-circle">
-        <a class="center-badge" href="/pages/category.html?cat=popular"><small>HUB</small>인기글<br>모아보기</a>
-      </div>
-      <div class="formation">
-        <div class="lane single">
-          <a class="pcard" href="/pages/ranking.html"><div class="role">GK · 데이터</div><div class="name">유튜브 랭킹</div></a>
-        </div>
-        <div class="lane">
-          <a class="pcard" href="/pages/videos.html?section=review"><div class="role">DF · 장비</div><div class="name">축구화 리뷰</div></a>
-          <a class="pcard" href="/pages/videos.html?section=youth"><div class="role">DF · 기초</div><div class="name">유소년 축구</div></a>
-        </div>
-        <div class="lane single">
-          <a class="pcard" href="/pages/videos.html?section=training"><div class="role">MF · 기본기</div><div class="name">축구 훈련</div></a>
-        </div>
-        <div class="lane single">
-          <a class="pcard" href="/pages/news.html"><div class="role">FW · 이슈</div><div class="name">축구 정보</div></a>
-        </div>
-      </div>
+    <div class="hero-menu">
+      <a class="hm" href="/pages/videos.html?section=youth"><span class="no">01</span><span>유소년 축구<small>영상 모아보기</small></span></a>
+      <a class="hm" href="/pages/ranking.html"><span class="no">02</span><span>채널 랭킹<small>구독자 순위</small></span></a>
+      <a class="hm" href="/pages/videos.html?section=training"><span class="no">03</span><span>축구 훈련<small>기본기 연습</small></span></a>
+      <a class="hm" href="/pages/videos.html?section=review"><span class="no">04</span><span>축구화 리뷰<small>장비 고르기</small></span></a>
+      <a class="hm" href="/pages/news.html"><span class="no">05</span><span>축구 정보<small>새 소식</small></span></a>
     </div>
   </div>
 
   <div class="feed-section">
-    <div class="feed-head"><span class="live-dot"></span><h2>실시간 인기</h2></div>
+    <div class="feed-head"><span class="live-dot"></span><h2>실시간 인기</h2><span class="feed-note" id="popular-window-note"></span></div>
     <div class="feed-grid" id="popular-feed">
       <div class="empty-state">불러오는 중…</div>
+    </div>
+  </div>
+
+  <div class="ad-slot" data-ad="home-mid-1"></div>
+
+  <div class="section">
+    <div class="section-head"><h2>유소년 축구 영상</h2><a href="/pages/videos.html?section=youth">더보기 →</a></div>
+    <div class="card-grid" id="youth-cards"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>유소년 축구 가이드</h2><a href="/pages/guides.html">전체 보기 →</a></div>
+    <div class="guide-grid">
+      <a class="guide-card" href="/pages/guide-soccer-shoes.html">
+        <div class="gc-top" style="background:#B5651D"></div>
+        <div class="gc-body">
+          <div class="gc-cat">축구화 리뷰</div>
+          <h3>성장기 아이 축구화, 이렇게 고르세요</h3>
+          <p>사이즈·스터드·소재·교체 시점까지 한 번에.</p>
+          <div class="gc-more">자세히 보기 →</div>
+        </div>
+      </a>
+      <a class="guide-card" href="/pages/guide-home-training.html">
+        <div class="gc-top" style="background:#2E7D52"></div>
+        <div class="gc-body">
+          <div class="gc-cat">축구 훈련</div>
+          <h3>집에서 하는 기본기 훈련 5가지</h3>
+          <p>공 하나로 좁은 공간에서 매일 5분.</p>
+          <div class="gc-more">자세히 보기 →</div>
+        </div>
+      </a>
+      <a class="guide-card" href="/pages/guide-start-youth.html">
+        <div class="gc-top" style="background:#3A6B8A"></div>
+        <div class="gc-body">
+          <div class="gc-cat">유소년 축구</div>
+          <h3>처음 시작할 때 알아야 할 7가지</h3>
+          <p>첫 시작을 위한 학부모 체크리스트.</p>
+          <div class="gc-more">자세히 보기 →</div>
+        </div>
+      </a>
+      <a class="guide-card" href="/pages/guide-age-development.html">
+        <div class="gc-top" style="background:#8A5A16"></div>
+        <div class="gc-body">
+          <div class="gc-cat">축구 정보</div>
+          <h3>연령별 발달 단계와 부모의 역할</h3>
+          <p>우리 아이는 지금 어느 단계일까요?</p>
+          <div class="gc-more">자세히 보기 →</div>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -54,30 +89,29 @@
     <div class="news-list" id="home-news"></div>
   </div>
 
-  <div class="section">
-    <div class="section-head"><h2>축구 훈련</h2><a href="/pages/videos.html?section=training">더보기 →</a></div>
-    <div class="card-grid" id="training-cards"></div>
-  </div>
+  <div class="ad-slot" data-ad="home-mid-2"></div>
 
   <div class="section">
-    <div class="section-head"><h2>유튜브 채널 랭킹</h2><a href="/pages/ranking.html">전체 순위 →</a></div>
+    <div class="section-head"><h2>유소년 채널 랭킹</h2><a href="/pages/ranking.html">전체 순위 →</a></div>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>순위</th><th>채널</th><th>구독자</th><th>주간 증감</th><th>카테고리</th></tr>
+          <tr><th>순위</th><th>채널</th><th>구독자</th><th>최근 업로드</th><th>채널 보기</th></tr>
         </thead>
-        <tbody id="ranking-rows"></tbody>
+        <tbody id="ranking-rows">
+          <tr><td colspan="5" class="empty-cell">불러오는 중…</td></tr>
+        </tbody>
       </table>
     </div>
   </div>
 
   <div id="site-footer"></div>
 
-  <script src="/assets/js/icons.js"></script>
-  <script src="/assets/js/render.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/render.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="/assets/js/supabase-client.js"></script>
-  <script src="/assets/js/common.js"></script>
-  <script src="/assets/js/home.js"></script>
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+name: Publish Cardnews
+
+on:
+  schedule:
+    - cron: '0 22 * * *'   # 매일 한국시간 오전 7시 (UTC 22:00)
+  workflow_dispatch:        # 수동 발행 버튼
+
+permissions:
+  contents: write           # 생성한 페이지를 master 에 커밋
+
+concurrency:
+  group: publish-cardnews
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish next cardnews
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python3 scripts/publish_cardnews.py
+
+      - name: Commit & push if changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "변경 없음 (큐가 비었거나 발행할 게 없음) — 커밋 생략"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          TITLE=$(git diff --cached --name-only | grep -m1 'pages/cardnews-' | sed 's#pages/##;s#.html##' || echo cardnews)
+          git commit -m "카드뉴스 자동 발행: ${TITLE}"
+          git push origin HEAD:master

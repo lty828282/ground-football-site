@@ -18,11 +18,40 @@ function newsToFeedItem(n) {
   };
 }
 
+const POPULAR_WINDOWS = [
+  { days: 1, label: '최근 24시간 기준' },
+  { days: 3, label: '최근 3일 기준' },
+  { days: 7, label: '최근 일주일 기준' },
+  { days: 30, label: '최근 한 달 기준' },
+];
+
+// 최근 하루 영상 중 인기순으로 뽑되, 영상이 모자라면 기간을 넓혀가며 채운다
+function pickRecentPopular(allVideos, count) {
+  for (const w of POPULAR_WINDOWS) {
+    const cutoff = Date.now() - w.days * 86400000;
+    const pool = allVideos.filter(
+      (v) => v.published_at && new Date(v.published_at).getTime() >= cutoff
+    );
+    if (pool.length >= count) {
+      return {
+        videos: pool.sort((a, b) => b.view_count - a.view_count).slice(0, count),
+        label: w.label,
+      };
+    }
+  }
+  return {
+    videos: allVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, count),
+    label: '전체 기간 기준',
+  };
+}
+
 function renderPopularFeed(allVideos, news) {
   const feedSlot = document.getElementById('popular-feed');
-  const topVideos = allVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 3);
+  const picked = pickRecentPopular(allVideos, 3);
+  const note = document.getElementById('popular-window-note');
+  if (note) note.textContent = picked.label;
   const topNews = news.slice(0, 2);
-  const items = topVideos.map(videoToFeedItem).concat(topNews.map(newsToFeedItem));
+  const items = picked.videos.map(videoToFeedItem).concat(topNews.map(newsToFeedItem));
 
   if (!items.length) {
     feedSlot.innerHTML = '<div class="empty-state">아직 인기 콘텐츠가 없습니다.</div>';
@@ -35,26 +64,32 @@ function renderPopularFeed(allVideos, news) {
 }
 
 async function renderHome() {
-  const [trainingVideos, youthVideos, reviewVideos, news, rankings] = await Promise.all([
+  const [trainingVideos, youthVideos, reviewVideos, news, channels] = await Promise.all([
     fetchVideos('training'),
     fetchVideos('youth'),
     fetchVideos('review'),
     fetchNews(4),
-    fetchRankings(),
+    fetchYouthChannels(),
   ]);
 
-  renderPopularFeed(trainingVideos.concat(youthVideos, reviewVideos), news);
+  renderPopularFeed(youthVideos.concat(trainingVideos, reviewVideos), news);
 
   document.getElementById('home-news').innerHTML = news.length
     ? news.map(renderNewsRow).join('')
     : '<div class="empty-state">아직 수집된 기사가 없습니다.</div>';
 
-  const topTraining = trainingVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 3);
-  document.getElementById('training-cards').innerHTML = topTraining.length
-    ? topTraining.map(renderVideoCard).join('')
+  const topYouth = youthVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 3);
+  document.getElementById('youth-cards').innerHTML = topYouth.length
+    ? topYouth.map(renderVideoCard).join('')
     : '<div class="empty-state">아직 수집된 영상이 없습니다.</div>';
 
-  document.getElementById('ranking-rows').innerHTML = rankings.slice(0, 5).map(renderRankingRow).join('');
+  const topChannels = channels
+    .slice()
+    .sort((a, b) => (b.subs_count || 0) - (a.subs_count || 0))
+    .slice(0, 5);
+  document.getElementById('ranking-rows').innerHTML = topChannels.length
+    ? topChannels.map((ch, i) => renderYouthSubsRow(ch, i + 1)).join('')
+    : '<tr><td colspan="5" class="empty-cell">아직 수집된 채널이 없습니다.</td></tr>';
 }
 
 document.addEventListener('DOMContentLoaded', renderHome);

@@ -26,7 +26,8 @@
       "Bash(curl -s http://localhost:8000/assets/js/home.js)",
       "Bash(curl -s http://localhost:8000/assets/js/render.js)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "mcp__Claude_Code_Remote__list_repos"
     ]
   }
 }

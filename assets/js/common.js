@@ -1,17 +1,32 @@
+// '/pages/...' 처럼 루트 기준으로 적힌 링크를 실제 배포 경로에 맞게 고쳐준다
+function rewriteRootLinks(scope) {
+  scope.querySelectorAll('a[href^="/"]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!href.startsWith('//')) a.setAttribute('href', SITE_BASE + href.slice(1));
+  });
+}
+
 async function loadPartials() {
   const headerSlot = document.getElementById('site-header');
   const footerSlot = document.getElementById('site-footer');
+  rewriteRootLinks(document);
 
   if (headerSlot) {
-    const res = await fetch('/partials/header.html');
+    const res = await fetch(SITE_BASE + 'partials/header.html');
     headerSlot.innerHTML = await res.text();
-    await initTicker();
+    rewriteRootLinks(headerSlot);
+    try {
+      await initTicker();
+    } catch (e) {
+      console.error('ticker init failed', e);
+    }
     initSearch();
     highlightActiveNav();
   }
   if (footerSlot) {
-    const res = await fetch('/partials/footer.html');
+    const res = await fetch(SITE_BASE + 'partials/footer.html');
     footerSlot.innerHTML = await res.text();
+    rewriteRootLinks(footerSlot);
   }
 }
 
@@ -40,7 +55,7 @@ function initSearch() {
     e.preventDefault();
     const q = input.value.trim();
     if (!q) return;
-    window.location.href = '/pages/search.html?q=' + encodeURIComponent(q);
+    window.location.href = SITE_BASE + 'pages/search.html?q=' + encodeURIComponent(q);
   });
 }
 
@@ -53,6 +68,8 @@ function highlightActiveNav() {
     activeKey = 'ranking';
   } else if (path.endsWith('/pages/news.html')) {
     activeKey = 'news';
+  } else if (path.indexOf('/pages/guide') !== -1 || path.indexOf('/pages/cardnews') !== -1) {
+    activeKey = 'guides';
   } else if (path.endsWith('/pages/videos.html')) {
     activeKey = params.get('section');
   } else if (path.endsWith('/pages/category.html')) {
@@ -75,20 +92,19 @@ async function fetchPosts() {
   return data;
 }
 
-async function fetchRankings() {
+async function fetchYouthChannels() {
   const { data, error } = await supabaseClient
-    .from('rankings')
-    .select('*')
-    .order('rank', { ascending: true });
+    .from('youth_channels')
+    .select('*');
   if (error) {
-    console.error('rankings load failed', error);
+    console.error('youth channels load failed', error);
     return [];
   }
   return data;
 }
 
 async function fetchCategories() {
-  const res = await fetch('/assets/data/categories.json');
+  const res = await fetch(SITE_BASE + 'assets/data/categories.json');
   return res.json();
 }
 

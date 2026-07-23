@@ -1,0 +1,17 @@
+name: Sync Youth Channels
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 매일 한국시간 오전 6시 (UTC 21:00)
+  workflow_dispatch:        # 수동 실행 버튼
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run youth channel sync
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 supabase/sync_youth_channels.py

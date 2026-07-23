@@ -1,3 +1,7 @@
+// 사이트 루트 경로 (로컬 서버에서는 '/', GitHub Pages에서는 '/저장소이름/')
+// icons.js가 {루트}assets/js/에 있는 것을 이용해 어느 호스팅에서든 자동 계산된다.
+const SITE_BASE = new URL('../../', document.currentScript.src).pathname;
+
 const ICONS = {
   ball: '<circle cx="12" cy="12" r="8.5"/><path d="M12 6.2l3 2-1.1 3.2h-3.8L9 8.2z"/><path d="M12 14.7l3.4 2.5M9 14.7l-3 2.8M6 9.4l-3-.9M18 9.4l3-.9"/>',
   boot: '<path d="M12 3l6 16H6L12 3z"/><path d="M9 13h6M8 16.5h8"/>',
