@@ -374,10 +374,16 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   padding:11px 22px;border-radius:999px;
 }
 .aff-pick .buy:hover{background:#B9741A;}
-.brand-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14.5px;}
-.brand-table th,.brand-table td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+.brand-table{width:100%;border-collapse:collapse;margin:0;font-size:14.5px;min-width:600px;}
+.brand-table th,.brand-table td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:middle;}
 .brand-table thead th{background:#F4F6F2;font-size:12.5px;font-weight:800;color:var(--muted);}
-.brand-table td b{color:var(--pitch-dark);}
+.brand-table th:first-child,.brand-table td:first-child{white-space:nowrap;width:140px;}
+.brand-name{display:flex;flex-direction:column;gap:6px;align-items:flex-start;}
+.brand-name b{color:var(--pitch-dark);font-size:15px;line-height:1;}
+.brand-logo{
+  font-family:'Black Han Sans',sans-serif;font-size:12px;letter-spacing:0.5px;color:#fff;
+  padding:3px 9px;border-radius:5px;line-height:1.5;white-space:nowrap;
+}
 .brand-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0;}
 
 /* 가이드 목록 카드 */
