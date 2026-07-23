@@ -463,6 +463,8 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   margin-bottom:16px;color:#fff;background:var(--bg);background-position:center;background-size:cover;
   background-repeat:no-repeat;box-shadow:0 10px 30px rgba(0,0,0,0.20);
   display:flex;flex-direction:column;
+  word-break:keep-all;   /* 한글은 어절(띄어쓰기) 단위로만 줄바꿈 — 한 글자 고아 방지 */
+  overflow-wrap:break-word;
 }
 /* 테마 스킨 — 주제별로 배경·포인트만 교체 */
 .cnx-navy{     /* 동기부여·멘탈 : 남색 + 앰버 */
