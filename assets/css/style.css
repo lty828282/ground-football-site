@@ -354,6 +354,32 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 }
 .guide-cta:hover{background:var(--pitch-dark);}
 
+/* 제휴(어필리에이트) 컴포넌트 */
+.aff-note{
+  background:#FFF8E8;border:1px solid #F0E2BE;border-radius:10px;
+  padding:11px 16px;margin:18px 0;font-size:12.5px;color:#7A6320;line-height:1.6;
+}
+.aff-pick{
+  display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px 20px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,0.04);
+}
+.aff-pick .info{flex:1;min-width:210px;}
+.aff-pick .tag{font-size:11px;font-weight:800;color:var(--gold-deep);letter-spacing:0.5px;}
+.aff-pick .name{font-size:16px;font-weight:800;color:var(--ink);margin:3px 0 5px;}
+.aff-pick .why{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0;}
+.aff-pick .buy{
+  flex:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  background:#D98A1E;color:#fff;font-weight:800;font-size:14px;
+  padding:11px 22px;border-radius:999px;
+}
+.aff-pick .buy:hover{background:#B9741A;}
+.brand-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14.5px;}
+.brand-table th,.brand-table td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+.brand-table thead th{background:#F4F6F2;font-size:12.5px;font-weight:800;color:var(--muted);}
+.brand-table td b{color:var(--pitch-dark);}
+.brand-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0;}
+
 /* 가이드 목록 카드 */
 .guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .guide-card{
