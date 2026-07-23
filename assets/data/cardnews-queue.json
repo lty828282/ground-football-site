@@ -2,6 +2,22 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "etiquette",
+      "generated": true,
+      "theme": "#F5A623",
+      "listTitle": "훈련 태도와 예절, 실력보다 먼저입니다",
+      "listDesc": "인사, 심판·상대 존중, 페어플레이, 팀워크 — 어린 선수가 배워야 할 기본.",
+      "photoCredit": [
+        "Anastasia  Shuraeva",
+        "Andres  Ayrton",
+        "SHVETS production",
+        "Diva Plavalaguna",
+        "Johan Toro",
+        "MD Photography",
+        "sagar sintan"
+      ]
+    },
+    {
       "slug": "age-development",
       "generated": true,
       "theme": "#2f7fd6",
@@ -72,44 +88,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "etiquette",
-      "concept": "navy",
-      "theme": "#F5A623",
-      "metaTitle": "[카드뉴스] 훈련 태도와 예절, 실력보다 먼저입니다",
-      "metaDesc": "유소년 축구에서 실력보다 먼저인 훈련 태도와 예절을 카드뉴스로 정리했습니다.",
-      "listTitle": "훈련 태도와 예절, 실력보다 먼저입니다",
-      "listDesc": "인사, 심판·상대 존중, 페어플레이, 팀워크 — 어린 선수가 배워야 할 기본.",
-      "kicker": "GROUND YOUTH · 유소년 축구",
-      "coverTitle": "훈련 태도와 예절,<br>실력보다 먼저입니다",
-      "coverSub": "기술은 나중에도 배우지만, **태도는 어릴 때** 몸에 밴다.",
-      "photoQuery": "youth soccer team handshake respect",
-      "guideSlug": "etiquette",
-      "cards": [
-        {
-          "title": "인사로 시작하고<br>인사로 끝낸다",
-          "body": "지도자·동료에게 먼저 인사. 경기 전후 상대·심판과의 악수는 승패와 상관없는 스포츠의 일부."
-        },
-        {
-          "title": "심판의 판정을<br>존중한다",
-          "body": "판정이 아쉬워도 항의보다 다음 플레이에 집중. 페어플레이의 핵심은 규칙과 심판을 받아들이는 것."
-        },
-        {
-          "title": "상대를<br>존중한다",
-          "body": "이겼다고 뽐내지 않고, 졌다고 탓하지 않기. 넘어진 상대에게 손 내미는 것이 진짜 강한 선수."
-        },
-        {
-          "title": "성실하게<br>훈련에 임한다",
-          "body": "늦지 않기, 끝까지 듣기, 실수해도 다시 시도하기. 협동·성실·배려가 어린 선수의 덕목."
-        },
-        {
-          "title": "팀을<br>먼저 생각한다",
-          "body": "내 골보다 팀의 승리. 동료가 실수했을 때 탓하기보다 격려하는 한마디가 팀을 강하게 만든다."
-        }
-      ],
-      "closingTitle": "아이는 어른의<br>말과 표정을<br>그대로 배웁니다",
-      "closingBody": "존중은 어른이 먼저 보여줄 때 전해집니다."
-    },
     {
       "slug": "parents",
       "concept": "navy",
