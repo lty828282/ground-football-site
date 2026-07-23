@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 22 * * *'   # 매일 한국시간 오전 7시 (UTC 22:00)
   workflow_dispatch:        # 수동 발행 버튼
+    inputs:
+      count:
+        description: '한 번에 발행할 편수'
+        default: '1'
+        required: false
 
 permissions:
   contents: write           # 생성한 페이지를 master 에 커밋
@@ -18,10 +23,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Publish next cardnews
+      - name: Publish cardnews
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: python3 scripts/publish_cardnews.py
+        run: |
+          N="${{ github.event.inputs.count }}"
+          N="${N:-1}"
+          echo "발행 편수: $N"
+          for i in $(seq 1 "$N"); do
+            python3 scripts/publish_cardnews.py
+          done
 
       - name: Commit & push if changed
         run: |

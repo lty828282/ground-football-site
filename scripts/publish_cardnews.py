@@ -400,6 +400,13 @@ def main():
 
     rewrite_guides_list(data["published"])
     print("가이드 목록 갱신 완료. 남은 큐: %d편" % len(data["queue"]))
+
+    # 새 페이지가 색인되도록 sitemap 갱신
+    try:
+        import gen_sitemap
+        gen_sitemap.main()
+    except Exception as e:  # noqa
+        print("  · sitemap 갱신 건너뜀(%s)" % e, file=sys.stderr)
     return 0
 
 
