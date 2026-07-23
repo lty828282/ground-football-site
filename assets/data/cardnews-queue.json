@@ -2,6 +2,20 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "age-development",
+      "generated": true,
+      "theme": "#2f7fd6",
+      "listTitle": "연령별 발달 단계와 부모의 역할",
+      "listDesc": "6세부터 12세까지, 나이에 맞는 기대와 지도. 우리 아이는 지금 어느 단계일까요?",
+      "photoCredit": [
+        "nn.TON.nn",
+        "Talha Resitoglu",
+        "Thirdman",
+        "Марина  Шишкина",
+        "Sami  Abdullah"
+      ]
+    },
+    {
       "slug": "start-youth",
       "generated": true,
       "theme": "#F5A623",
@@ -58,40 +72,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "age-development",
-      "concept": "insight",
-      "theme": "#2f7fd6",
-      "metaTitle": "[카드뉴스] 연령별 발달 단계와 부모의 역할",
-      "metaDesc": "6세부터 12세까지 유소년 축구 연령별 발달 단계와 부모의 역할을 카드뉴스로 정리했습니다.",
-      "listTitle": "연령별 발달 단계와 부모의 역할",
-      "listDesc": "6세부터 12세까지, 나이에 맞는 기대와 지도. 우리 아이는 지금 어느 단계일까요?",
-      "kicker": "FOOTBALL SCOUTING INSIGHT",
-      "coverTitle": "연령별 발달 단계와<br>부모의 역할",
-      "coverSub": "같은 유소년이라도 **6세와 12세**는 완전히 다릅니다.",
-      "photoQuery": "youth soccer kids playing different ages",
-      "guideSlug": "age-development",
-      "cards": [
-        {
-          "title": "놀이로서의<br>축구",
-          "body": "**(6~8세)** 공과 친해지고 몸 쓰는 즐거움을 배우는 단계. 승부·포지션보다 자유롭게 뛰노는 경험이 중요해요."
-        },
-        {
-          "title": "기본기의<br>황금기",
-          "body": "**(9~10세)** 기술 흡수가 가장 빠른 시기! 드리블·패스·트래핑을 재미있게 반복하기 좋아요. 양발 사용을 의식."
-        },
-        {
-          "title": "이해와<br>전술의 시작",
-          "body": "**(11~12세)** '왜 그렇게 움직이는지' 이해하는 단계. 포지션 역할, 간단한 전술, 팀 플레이를 배우기 좋아요."
-        },
-        {
-          "title": "모든 시기<br>공통",
-          "body": "휴식·식사·수분·부상 예방. 한 종목만 과하게 반복하기보다 다양한 신체 활동을 병행하는 것이 장기 성장에 도움."
-        }
-      ],
-      "closingTitle": "늦게 피는<br>아이도 많습니다",
-      "closingBody": "성장 속도의 차이를 실력의 차이로 오해하지 마세요. 나이에 맞는 기대가 좋은 응원의 시작입니다."
-    },
     {
       "slug": "etiquette",
       "concept": "navy",
