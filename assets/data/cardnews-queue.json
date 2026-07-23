@@ -2,6 +2,20 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "intro",
+      "generated": true,
+      "theme": "#1B4332",
+      "listTitle": "그라운드 유소년이란",
+      "listDesc": "유소년 축구 부모와 선수를 위한 매일의 가이드.",
+      "photoCredit": [
+        "nn.TON.nn",
+        "Thirdman",
+        "Марина  Шишкина",
+        "Kampus Production",
+        "Pew Nguyen"
+      ]
+    },
+    {
       "slug": "injury-prevention",
       "generated": true,
       "theme": "#3A6B8A",
@@ -195,40 +209,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "intro",
-      "concept": "green",
-      "photo": true,
-      "quote": "이기는 아이보다, 오래 사랑하는 아이.",
-      "metaTitle": "[카드뉴스] 그라운드 유소년이란",
-      "metaDesc": "유소년 축구 부모와 선수를 위한 그라운드 유소년 소개. 훈련·동기부여·장비 가이드를 매일 카드뉴스로 전합니다.",
-      "listTitle": "그라운드 유소년이란",
-      "listDesc": "유소년 축구 부모와 선수를 위한 매일의 가이드.",
-      "kicker": "GROUND YOUTH",
-      "coverTitle": "유소년 축구,<br>부모가 든든해집니다",
-      "coverSub": "그라운드 유소년 이야기.",
-      "photoQuery": "happy kids playing soccer team youth",
-      "cards": [
-        {
-          "title": "우리는<br>이런 곳",
-          "body": "훈련·동기부여·장비까지, 유소년 축구 부모와 선수에게 필요한 것을 매일 보기 쉽게 정리합니다."
-        },
-        {
-          "title": "매일<br>카드뉴스",
-          "body": "집에서 하는 훈련, 부모 마인드셋, 축구화 고르는 법을 저장하기 좋은 카드 한 장으로."
-        },
-        {
-          "title": "실전<br>가이드",
-          "body": "'우리 아이 축구화 어떻게 고르지?' 같은 진짜 고민에 바로 쓰는 답을 드려요."
-        },
-        {
-          "title": "함께<br>자라요",
-          "body": "이기는 아이보다 **오래 축구를 사랑하는 아이**. 그 여정을 부모와 함께합니다."
-        }
-      ],
-      "closingTitle": "매일 아침, 새 카드뉴스<br>팔로우하고 받아보세요",
-      "closingBody": "groundyouth.com · 훈련·동기부여·장비 가이드"
-    },
     {
       "slug": "shooting",
       "concept": "training",
