@@ -104,6 +104,111 @@
   ],
   "queue": [
     {
+      "slug": "effort",
+      "concept": "navy",
+      "photo": true,
+      "guideSlug": "effort",
+      "quote": "재능은 출발선을, 노력은 결승선을 정한다.",
+      "metaTitle": "[카드뉴스] 노력은 배신하지 않는다",
+      "metaDesc": "재능보다 오래 남는 것은 노력하는 습관입니다. 유소년 선수와 부모를 위한 동기부여 카드뉴스.",
+      "listTitle": "노력은 배신하지 않는다",
+      "listDesc": "재능보다 오래 남는 것 — 노력하는 습관에 대하여.",
+      "kicker": "GROUND YOUTH · 동기부여",
+      "coverTitle": "노력은<br>배신하지 않는다",
+      "coverSub": "재능보다 오래 남는 것.",
+      "photoQuery": "young soccer player training hard determination",
+      "cards": [
+        {
+          "title": "재능은<br>시작점일 뿐",
+          "body": "어릴 때 재능은 '조금 빠른 출발'입니다. 성장기엔 순위가 계속 바뀌어요. 매일 쌓는 아이가 결국 앞섭니다."
+        },
+        {
+          "title": "'아직'의<br>힘",
+          "body": "'못 해'가 아니라 '**아직** 못 해'. 이 한 단어가 실패를 '나는 안 되는 사람'이 아니라 '연습이 덜 된 부분'으로 바꿉니다."
+        },
+        {
+          "title": "재미가<br>연료다",
+          "body": "노력은 이 악물고 참는 게 아니에요. 좋아하니까 반복하고, 반복하니까 늘어요. 재미가 살아있는 노력이 오래갑니다."
+        },
+        {
+          "title": "노력의<br>신호를 보기",
+          "body": "진 경기에도 끝까지 뛰었는가, 실수 뒤 다음 플레이에 집중했는가. 점수판에 안 찍히는 이 신호가 멀리 데려갑니다."
+        }
+      ],
+      "closingTitle": "매일 쌓는 아이는<br>반드시 도착한다",
+      "closingBody": "부모가 할 일은 재촉이 아니라, 그 걸음을 알아봐 주고 믿어주는 것."
+    },
+    {
+      "slug": "failure",
+      "concept": "navy",
+      "photo": true,
+      "guideSlug": "failure",
+      "quote": "넘어지는 건 실력이 아니다. 다시 일어나는 것이 실력이다.",
+      "metaTitle": "[카드뉴스] 실패를 대하는 법",
+      "metaDesc": "실수와 패배, 벤치를 대하는 태도가 선수의 크기를 결정합니다. 유소년 동기부여 카드뉴스.",
+      "listTitle": "실패를 대하는 법",
+      "listDesc": "실수·패배·벤치를 대하는 태도가 선수의 크기를 정한다.",
+      "kicker": "GROUND YOUTH · 동기부여",
+      "coverTitle": "실패를<br>대하는 법",
+      "coverSub": "진짜 강한 선수의 조건.",
+      "photoQuery": "young athlete getting up after fall determination",
+      "cards": [
+        {
+          "title": "실패는<br>과정이다",
+          "body": "넘어지지 않고 자전거를 배운 사람은 없어요. 실패는 '나는 못하는 사람'이 아니라 '이 부분이 **아직** 부족하다'는 정보."
+        },
+        {
+          "title": "다음 공에<br>집중하기",
+          "body": "지나간 실수는 못 바꿔도, 바로 다음 플레이는 내 것. '괜찮아, 다음 공' 한마디로 시선을 현재로 되돌립니다."
+        },
+        {
+          "title": "벤치를<br>대하는 법",
+          "body": "벤치는 끝이 아니라 '아직 차례가 안 온 것'. 기회가 왔을 때 준비된 아이는 벤치에서도 준비하고 있던 아이입니다."
+        },
+        {
+          "title": "패배에서<br>배우기",
+          "body": "'왜 졌어?' 대신 '**오늘 뭘 배웠어?**' 질문이 바뀌면 패배가 창피한 일이 아니라 다음을 위한 재료가 됩니다."
+        }
+      ],
+      "closingTitle": "다시 일어나는 것이<br>실력이다",
+      "closingBody": "넘어지는 건 누구나 한다. 다시 서는 힘이 어린 스포츠가 주는 가장 큰 선물."
+    },
+    {
+      "slug": "consistency",
+      "concept": "navy",
+      "photo": true,
+      "guideSlug": "consistency",
+      "quote": "기적처럼 보이는 성장은, 지루한 반복의 다른 이름이다.",
+      "metaTitle": "[카드뉴스] 꾸준함의 힘",
+      "metaDesc": "재능은 시작이고 꾸준함은 완성입니다. 작은 습관이 복리로 쌓이는 힘에 대한 유소년 동기부여 카드뉴스.",
+      "listTitle": "꾸준함의 힘",
+      "listDesc": "매일 조금씩의 기적 — 작은 습관이 복리로 쌓인다.",
+      "kicker": "GROUND YOUTH · 동기부여",
+      "coverTitle": "꾸준함의<br>힘",
+      "coverSub": "매일 조금씩의 기적.",
+      "photoQuery": "kid practicing soccer alone dedication evening",
+      "cards": [
+        {
+          "title": "하루는 작지만<br>1년은 크다",
+          "body": "하루 10분의 차이는 안 보여요. 하지만 일 년, 이 년 쌓이면 따라잡기 힘든 격차가 됩니다. 이게 '복리'입니다."
+        },
+        {
+          "title": "재능은 시작<br>꾸준함은 완성",
+          "body": "반짝 사라지는 선수와 끝까지 남는 선수의 차이. '재능 있다'보다 '**꾸준하다**'가 더 좋은 칭찬인 이유."
+        },
+        {
+          "title": "아주 작게<br>시작하기",
+          "body": "'30분'은 못 지켜도 '공 한 번 만지기'는 지켜요. 문턱을 낮추면 습관이 붙고, 양은 저절로 늘어납니다."
+        },
+        {
+          "title": "지치지 않고<br>계속하기",
+          "body": "완벽을 목표로 삼지 말고, 하루 빠져도 다음 날 이어가기. 잘 쉬는 것도 계획에. 지속 가능한 리듬이 이깁니다."
+        }
+      ],
+      "closingTitle": "매일 조금씩,<br>거르지 않고, 오래",
+      "closingBody": "오늘 눈에 안 보여도 괜찮아요. 그 평범한 반복이 가장 특별한 결과로 돌아옵니다."
+    },
+    {
       "slug": "injury-prevention",
       "concept": "navy",
       "theme": "#3A6B8A",
