@@ -48,11 +48,11 @@ WORDMARK = "GROUND YOUTH"
 #   series : 카드 좌상단 시리즈 라벨 기본값(항목 "series" 로 덮어쓰기 가능)
 CONCEPTS = {
     "green":    {"cls": "",             "photo": True,  "series": "GROUND YOUTH CLASS"},
-    "navy":     {"cls": "cnx-navy",     "photo": False, "series": "MINDSET NOTE"},
-    "tactics":  {"cls": "cnx-tactics",  "photo": False, "series": "TACTICS NOTE"},
+    "navy":     {"cls": "cnx-navy",     "photo": True,  "series": "MINDSET NOTE"},
+    "tactics":  {"cls": "cnx-tactics",  "photo": True,  "series": "TACTICS NOTE"},
     "training": {"cls": "cnx-training", "photo": True,  "series": "TRAINING CLASS"},
     "match":    {"cls": "cnx-match",    "photo": True,  "series": "MATCH ANALYSIS"},
-    "insight":  {"cls": "cnx-insight",  "photo": False, "series": "SCOUTING INSIGHT", "frame": True,
+    "insight":  {"cls": "cnx-insight",  "photo": True,  "series": "SCOUTING INSIGHT", "frame": True,
                  "rails": ("DEFINE · DEVELOP · DELIVER", "YOUTH · GROWTH · FUTURE")},
 }
 

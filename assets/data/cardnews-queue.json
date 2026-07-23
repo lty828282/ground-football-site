@@ -13,58 +13,230 @@
         "Talha Resitoglu",
         "kübra zehra"
       ]
-    },
-    {
-      "slug": "home-training",
-      "generated": true,
-      "theme": "#FF7A1A",
-      "listTitle": "집에서 하는 유소년 기본기 훈련 5가지",
-      "listDesc": "공 하나로 좁은 공간에서 매일 5분. 볼 컨트롤부터 리프팅까지 기본기를 키우는 연습법.",
-      "concept": "training"
-    },
-    {
-      "slug": "soccer-shoes",
-      "generated": true,
-      "theme": "#2f7fd6",
-      "listTitle": "성장기 아이 축구화, 이렇게 고르세요",
-      "listDesc": "사이즈 여유, 스터드 종류, 소재와 교체 시점까지 — 부모가 꼭 알아야 할 축구화 선택 기준.",
-      "concept": "insight",
-      "series": "유소년 축구화 고르는 방법"
-    },
-    {
-      "slug": "start-youth",
-      "generated": true,
-      "theme": "#F5A623",
-      "listTitle": "처음 시작할 때, 학부모가 알아야 할 7가지",
-      "listDesc": "클럽 선택부터 준비물, 승패를 대하는 태도까지 — 첫 시작을 위한 부모 체크리스트.",
-      "concept": "navy"
-    },
-    {
-      "slug": "age-development",
-      "generated": true,
-      "theme": "#2f7fd6",
-      "listTitle": "연령별 발달 단계와 부모의 역할",
-      "listDesc": "6세부터 12세까지, 나이에 맞는 기대와 지도. 우리 아이는 지금 어느 단계일까요?",
-      "concept": "insight"
-    },
-    {
-      "slug": "etiquette",
-      "generated": true,
-      "theme": "#F5A623",
-      "listTitle": "훈련 태도와 예절, 실력보다 먼저입니다",
-      "listDesc": "인사, 심판·상대 존중, 페어플레이, 팀워크 — 어린 선수가 배워야 할 기본.",
-      "concept": "navy"
-    },
-    {
-      "slug": "parents",
-      "generated": true,
-      "theme": "#F5A623",
-      "listTitle": "부모가 꼭 알아야 할 것들",
-      "listDesc": "'두 번째 코치'가 아니라 '안전한 지지자'. 응원과 압박 사이에서 부모의 역할.",
-      "concept": "navy"
     }
   ],
   "queue": [
+    {
+      "slug": "home-training",
+      "concept": "training",
+      "theme": "#FF7A1A",
+      "metaTitle": "[카드뉴스] 집에서 하는 유소년 기본기 훈련 5가지",
+      "metaDesc": "집에서 공 하나로 할 수 있는 유소년 축구 기본기 훈련 5가지를 카드뉴스로 정리했습니다.",
+      "listTitle": "집에서 하는 유소년 기본기 훈련 5가지",
+      "listDesc": "공 하나로 좁은 공간에서 매일 5분. 볼 컨트롤부터 리프팅까지 기본기를 키우는 연습법.",
+      "kicker": "GROUND YOUTH · 축구 훈련",
+      "coverTitle": "집에서 하는<br>기본기 훈련 5가지",
+      "coverSub": "공 하나로, 좁은 공간에서, **매일 5분**.",
+      "photoQuery": "kids soccer ball control training",
+      "guideSlug": "home-training",
+      "cards": [
+        {
+          "title": "발바닥<br>볼 굴리기",
+          "body": "공 위에 발바닥을 올리고 앞뒤·좌우로. 공을 '내 것으로' 다루는 감각의 출발점. 시선은 정면!"
+        },
+        {
+          "title": "인·아웃<br>터치",
+          "body": "발 안쪽·바깥쪽으로 번갈아 톡톡. 방향 전환의 기초. 세게 차지 말고 부드럽게 '미는' 느낌으로."
+        },
+        {
+          "title": "벽 패스",
+          "body": "벽에서 2~3m, 인사이드로 정확히. 돌아온 공을 한 번에 멈추고 다시 패스. 패스+트래핑 동시 훈련!"
+        },
+        {
+          "title": "콘 드리블<br>(지그재그)",
+          "body": "페트병·신발로 장애물 세우고 지그재그 통과. 좁은 간격에서 공 다루기와 방향 전환 감각."
+        },
+        {
+          "title": "리프팅",
+          "body": "땅에 떨어뜨리지 않고 튕기기. 한 번 → 두 번 → 세 번, 기록 세우는 재미로 스스로 반복하게 돼요."
+        }
+      ],
+      "closingTitle": "정확도 먼저,<br>매일 조금씩!",
+      "closingBody": "하루 5~10분이라도 꾸준히. 공과 친해지는 속도가 달라집니다."
+    },
+    {
+      "slug": "soccer-shoes",
+      "concept": "insight",
+      "theme": "#2f7fd6",
+      "series": "유소년 축구화 고르는 방법",
+      "metaTitle": "[카드뉴스] 성장기 아이 축구화 고르는 법",
+      "metaDesc": "성장기 유소년 축구화를 고르는 기준(사이즈·스터드·소재·교체시점)을 카드뉴스로 정리했습니다.",
+      "listTitle": "성장기 아이 축구화, 이렇게 고르세요",
+      "listDesc": "사이즈 여유, 스터드 종류, 소재와 교체 시점까지 — 부모가 꼭 알아야 할 축구화 선택 기준.",
+      "kicker": "FOOTBALL GEAR GUIDE",
+      "coverTitle": "성장기 아이 축구화,<br>이렇게 고르세요",
+      "coverSub": "브랜드보다 **우리 아이 발**과 뛰는 환경이 먼저.",
+      "photoQuery": "soccer cleats boots youth",
+      "guideSlug": "soccer-shoes",
+      "cards": [
+        {
+          "title": "사이즈는<br>반 치수 여유",
+          "body": "발이 빠르게 크는 시기. 딱 맞게보다 **5~10mm 여유**. 단, 10mm를 넘으면 발이 밀려 물집·부상 위험!"
+        },
+        {
+          "title": "스터드는<br>구장에 맞춰서",
+          "body": "FG 천연잔디 · **AG 인조잔디** · TF 범용(입문 추천) · IN 실내풋살. 국내 유소년은 인조잔디가 많아요."
+        },
+        {
+          "title": "소재는<br>합성이 실용적",
+          "body": "천연가죽은 부드럽지만 비싸고 관리가 까다로워요. 빠르게 크는 유소년엔 가볍고 물에 강한 합성 소재가 합리적."
+        },
+        {
+          "title": "비싼 것보다<br>제때 교체를",
+          "body": "1년에 한 치수 이상 크는 시기. 밑창이 닳거나 발가락이 앞에 닿으면 성능·안전을 위해 교체 시점!"
+        }
+      ],
+      "closingTitle": "반 치수 여유 +<br>구장 맞춤 스터드",
+      "closingBody": "합성 소재 + 제때 교체. 우리 아이 발과 환경이 먼저입니다."
+    },
+    {
+      "slug": "start-youth",
+      "concept": "navy",
+      "theme": "#F5A623",
+      "metaTitle": "[카드뉴스] 축구 처음 시작할 때 학부모가 알아야 할 것",
+      "metaDesc": "유소년 축구를 처음 시작할 때 학부모가 알아야 할 것들을 카드뉴스로 정리했습니다.",
+      "listTitle": "처음 시작할 때, 학부모가 알아야 할 7가지",
+      "listDesc": "클럽 선택부터 준비물, 승패를 대하는 태도까지 — 첫 시작을 위한 부모 체크리스트.",
+      "kicker": "GROUND YOUTH · 유소년 축구",
+      "coverTitle": "축구 처음 시작할 때<br>학부모가 알아야 할 것",
+      "coverSub": "부모의 역할은 감독이 아니라 **응원단**입니다.",
+      "photoQuery": "youth soccer beginner kids team",
+      "guideSlug": "start-youth",
+      "cards": [
+        {
+          "title": "재미가<br>먼저다",
+          "body": "이 시기 가장 중요한 건 실력이 아니라 '**축구를 좋아하게 되는 경험**'. \"오늘 재밌었어?\"를 먼저 물어보세요."
+        },
+        {
+          "title": "기본 준비물",
+          "body": "축구화(구장에 맞게) · **정강이 보호대(필수)** · 축구 양말 · 물통. 처음부터 비싼 장비는 필요 없어요."
+        },
+        {
+          "title": "승패에<br>일희일비 금지",
+          "body": "유소년 경기 점수는 성장의 극히 일부. 진 경기에서도 새 시도를 했다면 그게 발전입니다."
+        },
+        {
+          "title": "비교는<br>어제의 아이와만",
+          "body": "아이마다 성장 속도가 다릅니다. 지금 빠른 아이가 계속 앞서는 것도 아니에요. 남과 비교하지 마세요."
+        },
+        {
+          "title": "수분·컨디션<br>관리",
+          "body": "어린 선수는 체온 조절이 약해요. 운동 전·중·후 충분한 물. 잠과 식사도 훈련만큼 중요합니다."
+        }
+      ],
+      "closingTitle": "재미와 안전이 먼저,<br>실력은 그 위에서",
+      "closingBody": "부모가 가장 든든한 응원단일 때 아이가 가장 잘 자랍니다."
+    },
+    {
+      "slug": "age-development",
+      "concept": "insight",
+      "theme": "#2f7fd6",
+      "metaTitle": "[카드뉴스] 연령별 발달 단계와 부모의 역할",
+      "metaDesc": "6세부터 12세까지 유소년 축구 연령별 발달 단계와 부모의 역할을 카드뉴스로 정리했습니다.",
+      "listTitle": "연령별 발달 단계와 부모의 역할",
+      "listDesc": "6세부터 12세까지, 나이에 맞는 기대와 지도. 우리 아이는 지금 어느 단계일까요?",
+      "kicker": "FOOTBALL SCOUTING INSIGHT",
+      "coverTitle": "연령별 발달 단계와<br>부모의 역할",
+      "coverSub": "같은 유소년이라도 **6세와 12세**는 완전히 다릅니다.",
+      "photoQuery": "youth soccer kids playing different ages",
+      "guideSlug": "age-development",
+      "cards": [
+        {
+          "title": "놀이로서의<br>축구",
+          "body": "**(6~8세)** 공과 친해지고 몸 쓰는 즐거움을 배우는 단계. 승부·포지션보다 자유롭게 뛰노는 경험이 중요해요."
+        },
+        {
+          "title": "기본기의<br>황금기",
+          "body": "**(9~10세)** 기술 흡수가 가장 빠른 시기! 드리블·패스·트래핑을 재미있게 반복하기 좋아요. 양발 사용을 의식."
+        },
+        {
+          "title": "이해와<br>전술의 시작",
+          "body": "**(11~12세)** '왜 그렇게 움직이는지' 이해하는 단계. 포지션 역할, 간단한 전술, 팀 플레이를 배우기 좋아요."
+        },
+        {
+          "title": "모든 시기<br>공통",
+          "body": "휴식·식사·수분·부상 예방. 한 종목만 과하게 반복하기보다 다양한 신체 활동을 병행하는 것이 장기 성장에 도움."
+        }
+      ],
+      "closingTitle": "늦게 피는<br>아이도 많습니다",
+      "closingBody": "성장 속도의 차이를 실력의 차이로 오해하지 마세요. 나이에 맞는 기대가 좋은 응원의 시작입니다."
+    },
+    {
+      "slug": "etiquette",
+      "concept": "navy",
+      "theme": "#F5A623",
+      "metaTitle": "[카드뉴스] 훈련 태도와 예절, 실력보다 먼저입니다",
+      "metaDesc": "유소년 축구에서 실력보다 먼저인 훈련 태도와 예절을 카드뉴스로 정리했습니다.",
+      "listTitle": "훈련 태도와 예절, 실력보다 먼저입니다",
+      "listDesc": "인사, 심판·상대 존중, 페어플레이, 팀워크 — 어린 선수가 배워야 할 기본.",
+      "kicker": "GROUND YOUTH · 유소년 축구",
+      "coverTitle": "훈련 태도와 예절,<br>실력보다 먼저입니다",
+      "coverSub": "기술은 나중에도 배우지만, **태도는 어릴 때** 몸에 밴다.",
+      "photoQuery": "youth soccer team handshake respect",
+      "guideSlug": "etiquette",
+      "cards": [
+        {
+          "title": "인사로 시작하고<br>인사로 끝낸다",
+          "body": "지도자·동료에게 먼저 인사. 경기 전후 상대·심판과의 악수는 승패와 상관없는 스포츠의 일부."
+        },
+        {
+          "title": "심판의 판정을<br>존중한다",
+          "body": "판정이 아쉬워도 항의보다 다음 플레이에 집중. 페어플레이의 핵심은 규칙과 심판을 받아들이는 것."
+        },
+        {
+          "title": "상대를<br>존중한다",
+          "body": "이겼다고 뽐내지 않고, 졌다고 탓하지 않기. 넘어진 상대에게 손 내미는 것이 진짜 강한 선수."
+        },
+        {
+          "title": "성실하게<br>훈련에 임한다",
+          "body": "늦지 않기, 끝까지 듣기, 실수해도 다시 시도하기. 협동·성실·배려가 어린 선수의 덕목."
+        },
+        {
+          "title": "팀을<br>먼저 생각한다",
+          "body": "내 골보다 팀의 승리. 동료가 실수했을 때 탓하기보다 격려하는 한마디가 팀을 강하게 만든다."
+        }
+      ],
+      "closingTitle": "아이는 어른의<br>말과 표정을<br>그대로 배웁니다",
+      "closingBody": "존중은 어른이 먼저 보여줄 때 전해집니다."
+    },
+    {
+      "slug": "parents",
+      "concept": "navy",
+      "theme": "#F5A623",
+      "metaTitle": "[카드뉴스] 부모가 꼭 알아야 할 것들",
+      "metaDesc": "유소년 축구 학부모가 꼭 알아야 할 응원과 지지의 원칙을 카드뉴스로 정리했습니다.",
+      "listTitle": "부모가 꼭 알아야 할 것들",
+      "listDesc": "'두 번째 코치'가 아니라 '안전한 지지자'. 응원과 압박 사이에서 부모의 역할.",
+      "kicker": "GROUND YOUTH · 유소년 축구",
+      "coverTitle": "부모가 꼭<br>알아야 할 것들",
+      "coverSub": "응원과 압박, 그 **한 끗 차이**.",
+      "photoQuery": "soccer parents watching kids match sideline",
+      "guideSlug": "parents",
+      "cards": [
+        {
+          "title": "'두 번째 코치'가<br>아니라 '지지자'",
+          "body": "부모가 지도까지 대신하면 아이는 '내 축구가 부모의 과제'라 느껴요. 기술은 지도자에게 맡기세요."
+        },
+        {
+          "title": "결과보다<br>노력을 칭찬",
+          "body": "\"몇 골 넣었어?\" 대신 \"오늘 뭐가 제일 재밌었어?\" 노력·도전·감정을 인정하는 칭찬이 아이를 키워요."
+        },
+        {
+          "title": "조언은<br>'먼저 물어보고'",
+          "body": "\"축구 얘기 좀 해도 될까?\" 아이의 동의를 구하면 조언은 통제가 아니라 대화가 됩니다."
+        },
+        {
+          "title": "사이드라인<br>예절",
+          "body": "쉼 없는 지시는 아이를 공보다 부모 목소리에 신경 쓰게 만들어요. 심판·상대 비난은 절대 금지."
+        },
+        {
+          "title": "비교는<br>어제의 아이와만",
+          "body": "성장 속도는 저마다 달라요. 남과의 비교는 자신감을 갉아먹고, 어제보다 나아진 점은 아이를 나아가게 해요."
+        }
+      ],
+      "closingTitle": "한 걸음 물러나<br>믿고 기다릴 때<br>아이는 더 큽니다",
+      "closingBody": "오늘의 결과가 아니라 몇 년 뒤의 성장을 바라보세요."
+    },
     {
       "slug": "injury-prevention",
       "concept": "navy",

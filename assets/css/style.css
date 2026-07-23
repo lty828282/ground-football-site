@@ -510,6 +510,18 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .cnx-insight .cnx-quote{background:#0e2350;color:#fff;border-color:#0e2350;}
 .cnx-insight .cnx-quote::before{color:#4f9be6;}
 .cnx-insight .cnx-top,.cnx-insight .cnx-main,.cnx-insight .cnx-bottom{padding-left:34px;padding-right:34px;}
+/* insight 테마 + 실사진 배경: 크림 프레임은 유지하되 글자는 사진 위에서 읽히도록 흰색으로 전환 */
+.cnx-insight.cnx-photo{color:#fff;--ov:linear-gradient(180deg,rgba(10,22,48,0.55) 0%,rgba(10,22,48,0.22) 42%,rgba(10,22,48,0.88) 100%);}
+.cnx-insight.cnx-photo::after{background:var(--ov);}
+.cnx-insight.cnx-photo .cnx-title,.cnx-insight.cnx-photo .cnx-kicker,.cnx-insight.cnx-photo .cnx-sub{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.5);}
+.cnx-insight.cnx-photo .cnx-no{color:var(--accent);text-shadow:0 2px 14px rgba(0,0,0,0.45);}
+.cnx-insight.cnx-photo .cnx-body,.cnx-insight.cnx-photo .cnx-cta{color:rgba(255,255,255,0.94);text-shadow:0 2px 12px rgba(0,0,0,0.5);opacity:1;}
+.cnx-insight.cnx-photo .cnx-handle,.cnx-insight.cnx-photo .cnx-series{color:rgba(255,255,255,0.88);}
+.cnx-insight.cnx-photo .cnx-dots i{background:rgba(255,255,255,0.38);}
+.cnx-insight.cnx-photo .cnx-frame{border-color:rgba(255,255,255,0.85);}
+.cnx-insight.cnx-photo .cnx-rail{color:rgba(255,255,255,0.75);}
+.cnx-insight.cnx-photo .cnx-ic .box{border-color:#fff;color:#fff;}
+.cnx-insight.cnx-photo .cnx-ic small{color:#fff;}
 .cnx-rail{position:absolute;top:0;bottom:0;display:flex;align-items:center;z-index:1;
   writing-mode:vertical-rl;font-size:10px;font-weight:800;letter-spacing:3px;color:#8a99b8;}
 .cnx-rail.l{left:15px;} .cnx-rail.r{right:15px;transform:rotate(180deg);}
