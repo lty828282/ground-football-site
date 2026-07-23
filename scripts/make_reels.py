@@ -237,6 +237,7 @@ def build_B():
                     "-f", "lavfi", "-t", str(total), "-i", "anullsrc=r=44100:cl=stereo",
                     "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{len(clips)}:a",
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30",
+                    "-crf", "30", "-maxrate", "3M", "-bufsize", "6M", "-preset", "medium",
                     "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(dst)],
                    check=True)
     print("B 완성:", dst)
