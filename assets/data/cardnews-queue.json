@@ -2,6 +2,19 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "start-youth",
+      "generated": true,
+      "theme": "#F5A623",
+      "listTitle": "처음 시작할 때, 학부모가 알아야 할 7가지",
+      "listDesc": "클럽 선택부터 준비물, 승패를 대하는 태도까지 — 첫 시작을 위한 부모 체크리스트.",
+      "photoCredit": [
+        "nn.TON.nn",
+        "Johan Toro",
+        "Talha Resitoglu",
+        "Марина  Шишкина"
+      ]
+    },
+    {
       "slug": "soccer-shoes",
       "generated": true,
       "theme": "#2f7fd6",
@@ -45,44 +58,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "start-youth",
-      "concept": "navy",
-      "theme": "#F5A623",
-      "metaTitle": "[카드뉴스] 축구 처음 시작할 때 학부모가 알아야 할 것",
-      "metaDesc": "유소년 축구를 처음 시작할 때 학부모가 알아야 할 것들을 카드뉴스로 정리했습니다.",
-      "listTitle": "처음 시작할 때, 학부모가 알아야 할 7가지",
-      "listDesc": "클럽 선택부터 준비물, 승패를 대하는 태도까지 — 첫 시작을 위한 부모 체크리스트.",
-      "kicker": "GROUND YOUTH · 유소년 축구",
-      "coverTitle": "축구 처음 시작할 때<br>학부모가 알아야 할 것",
-      "coverSub": "부모의 역할은 감독이 아니라 **응원단**입니다.",
-      "photoQuery": "youth soccer beginner kids team",
-      "guideSlug": "start-youth",
-      "cards": [
-        {
-          "title": "재미가<br>먼저다",
-          "body": "이 시기 가장 중요한 건 실력이 아니라 '**축구를 좋아하게 되는 경험**'. \"오늘 재밌었어?\"를 먼저 물어보세요."
-        },
-        {
-          "title": "기본 준비물",
-          "body": "축구화(구장에 맞게) · **정강이 보호대(필수)** · 축구 양말 · 물통. 처음부터 비싼 장비는 필요 없어요."
-        },
-        {
-          "title": "승패에<br>일희일비 금지",
-          "body": "유소년 경기 점수는 성장의 극히 일부. 진 경기에서도 새 시도를 했다면 그게 발전입니다."
-        },
-        {
-          "title": "비교는<br>어제의 아이와만",
-          "body": "아이마다 성장 속도가 다릅니다. 지금 빠른 아이가 계속 앞서는 것도 아니에요. 남과 비교하지 마세요."
-        },
-        {
-          "title": "수분·컨디션<br>관리",
-          "body": "어린 선수는 체온 조절이 약해요. 운동 전·중·후 충분한 물. 잠과 식사도 훈련만큼 중요합니다."
-        }
-      ],
-      "closingTitle": "재미와 안전이 먼저,<br>실력은 그 위에서",
-      "closingBody": "부모가 가장 든든한 응원단일 때 아이가 가장 잘 자랍니다."
-    },
     {
       "slug": "age-development",
       "concept": "insight",
