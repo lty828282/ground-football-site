@@ -36,8 +36,11 @@ img{max-width:100%;}
   padding-left:100%;
   animation:scroll-left 26s linear infinite;
 }
-.ticker-track span{margin-right:56px;}
-.ticker-track span b{color:#fff;margin-right:8px;}
+.ticker-track span,.ticker-track a.tk{margin-right:56px;}
+.ticker-track span b,.ticker-track a.tk b{color:#fff;margin-right:8px;}
+.ticker-track a.tk{color:var(--gold);text-decoration:none;transition:color .15s;}
+.ticker-track a.tk:hover{color:#fff;text-decoration:underline;}
+.ticker-bar:hover .ticker-track{animation-play-state:paused;}  /* 마우스 올리면 멈춰 클릭 가능 */
 @keyframes scroll-left{
   from{transform:translateX(0);}
   to{transform:translateX(-100%);}

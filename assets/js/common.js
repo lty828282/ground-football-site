@@ -33,16 +33,24 @@ async function loadPartials() {
 async function initTicker() {
   const track = document.getElementById('ticker-track');
   if (!track) return;
-  const { data, error } = await supabaseClient
-    .from('ticker_items')
-    .select('label, text')
-    .order('sort_order', { ascending: true });
-  if (error) {
-    console.error('ticker load failed', error);
+  let items = [];
+  try {
+    const res = await fetch(SITE_BASE + 'assets/data/ticker.json');
+    items = await res.json();
+  } catch (e) {
+    console.error('ticker load failed', e);
     return;
   }
-  const html = data
-    .map((t) => '<span><b>' + t.label + '</b>' + t.text + '</span>')
+  if (!Array.isArray(items) || !items.length) return;
+  const html = items
+    .map((t) => {
+      const inner = '<b>' + t.label + '</b>' + t.text;
+      if (t.url) {
+        const href = SITE_BASE + String(t.url).replace(/^\//, '');
+        return '<a class="tk" href="' + href + '">' + inner + '</a>';
+      }
+      return '<span>' + inner + '</span>';
+    })
     .join('');
   track.innerHTML = html + html;
 }
