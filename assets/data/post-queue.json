@@ -1,0 +1,24 @@
+{
+  "published": [],
+  "queue": [
+    {
+      "id": "d1-intro-carousel",
+      "type": "carousel",
+      "platforms": [
+        "instagram",
+        "threads"
+      ],
+      "media": [
+        "/exports/intro/slide1.jpg",
+        "/exports/intro/slide2.jpg",
+        "/exports/intro/slide3.jpg",
+        "/exports/intro/slide4.jpg",
+        "/exports/intro/slide5.jpg",
+        "/exports/intro/slide6.jpg"
+      ],
+      "caption": "⚽ 유소년 축구, 부모가 든든해지는 계정\n\n훈련 · 동기부여 · 장비 선택까지\n우리 아이 축구, 매일 카드 한 장으로 쉽게 정리해 드려요.\n\n저장해두고 필요할 때 꺼내 보세요 📌\n👉 프로필 링크에서 더 많은 자료 (groundyouth.com)\n\n#유소년축구 #축구맘 #축구아빠 #유소년축구교실 #축구화 #풋살 #초등축구 #축구부모 #그라운드유소년 #아들축구",
+      "threads_text": "⚽ 유소년 축구, 부모가 든든해지는 계정을 시작했어요.\n\n훈련·동기부여·장비 선택까지 우리 아이 축구에 필요한 걸 매일 카드 한 장으로 정리합니다.\n\n저장해두고 필요할 때 꺼내 보세요 📌 (groundyouth.com)",
+      "_done": []
+    }
+  ]
+}

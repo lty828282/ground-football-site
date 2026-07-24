@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          pip install playwright
+          pip install playwright pillow
           playwright install --with-deps chromium
 
       - name: Export cards

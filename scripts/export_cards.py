@@ -66,6 +66,13 @@ def main():
             page.wait_for_timeout(150)
             fp = out_dir / f"slide{i}.png"
             card.screenshot(path=str(fp))
+            # 인스타 그래프 API는 JPEG만 허용 → JPG도 함께 저장
+            try:
+                from PIL import Image
+                Image.open(fp).convert("RGB").save(out_dir / f"slide{i}.jpg",
+                                                   quality=90, optimize=True)
+            except Exception as e:
+                print(f"  jpg 변환 실패: {e}")
             n = i
             print(f"saved {fp.relative_to(ROOT)}")
         browser.close()
