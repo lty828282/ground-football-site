@@ -78,6 +78,10 @@ function highlightActiveNav() {
     activeKey = 'news';
   } else if (path.endsWith('/pages/training-videos.html')) {
     activeKey = 'tvideos';
+  } else if (path.endsWith('/pages/nutrition.html') || path.indexOf('/pages/guide-nutrition') !== -1
+             || path.indexOf('/pages/guide-match-meals') !== -1 || path.indexOf('/pages/guide-supplements') !== -1
+             || path.indexOf('/pages/guide-snacks') !== -1) {
+    activeKey = 'nutrition';
   } else if (path.indexOf('/pages/guide') !== -1 || path.indexOf('/pages/cardnews') !== -1) {
     activeKey = 'guides';
   } else if (path.endsWith('/pages/videos.html')) {
