@@ -19,6 +19,9 @@ BASE = "https://groundyouth.com"
 
 IG_VER = "v21.0"
 TH_VER = "v1.0"
+# 인스타 API 호스트: 기본은 페이스북 페이지 불필요한 "Instagram 로그인" 방식.
+# 페이지 연동(Facebook 로그인) 방식을 쓰면 IG_API_BASE=graph.facebook.com 로 지정.
+IG_BASE = (os.environ.get("IG_API_BASE") or "graph.instagram.com").strip()
 IG_ID = (os.environ.get("IG_USER_ID") or "").strip()
 IG_TOK = (os.environ.get("IG_ACCESS_TOKEN") or "").strip()
 TH_ID = (os.environ.get("THREADS_USER_ID") or "").strip()
@@ -47,7 +50,7 @@ def media_url(path):
 
 # ── 인스타그램 ───────────────────────────────────────
 def ig_graph(node, params, get=False):
-    url = f"https://graph.facebook.com/{IG_VER}/{node}"
+    url = f"https://{IG_BASE}/{IG_VER}/{node}"
     params = dict(params, access_token=IG_TOK)
     return _get(url, params) if get else _post(url, params)
 
