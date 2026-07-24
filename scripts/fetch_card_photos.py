@@ -17,6 +17,8 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 # 카드 인덱스(파일 home-training-<K>.jpg 기준) → 검색어 후보
 CARD_QUERIES = {
     "home-training": {
+        0: ["child soccer ball backyard", "kid playing football garden",
+            "boy soccer ball home yard", "child practicing football alone"],
         2: ["soccer boy dribbling", "kid dribbling football", "child soccer dribble ball"],
         3: ["soccer ball against wall", "boy kicking football wall", "kid soccer wall"],
         4: ["soccer training cones", "football agility cones", "soccer cone drill kids"],
@@ -52,10 +54,17 @@ def main():
     if not cards:
         print("정의된 검색어 없음:", slug, file=sys.stderr); sys.exit(1)
 
+    # 2번째 인자로 특정 카드만 지정 가능 (예: "0" 또는 "0,3")
+    only = None
+    if len(sys.argv) > 2 and sys.argv[2].strip():
+        only = {int(x) for x in sys.argv[2].split(",") if x.strip()}
+
     out = ROOT / "exports" / "photo-candidates" / slug
     out.mkdir(parents=True, exist_ok=True)
 
     for k, queries in cards.items():
+        if only is not None and k not in only:
+            continue
         cdir = out / f"card{k}"
         cdir.mkdir(exist_ok=True)
         seen, saved = set(), []
