@@ -400,6 +400,22 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .vid-note{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0;}
 @media(max-width:520px){.vid-grid{grid-template-columns:1fr;}}
 
+/* 출처 표기 블록 */
+.guide-sources{
+  margin:32px 0 8px;padding:16px 20px;background:#f4f6f4;border:1px solid var(--line);
+  border-radius:12px;font-size:13px;color:#4a574f;line-height:1.7;
+}
+.guide-sources b{display:block;color:var(--pitch-dark);margin-bottom:6px;font-size:13.5px;}
+.guide-sources a{color:#2E7D52;word-break:break-all;}
+.guide-sources ul{margin:0;padding-left:18px;}
+
+/* 영양 테이블 */
+.nutri-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;}
+.nutri-table th,.nutri-table td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;}
+.nutri-table th{background:#EAF4EC;color:var(--pitch-dark);font-weight:800;}
+.nutri-table td b{color:var(--ink);}
+.table-scroll{overflow-x:auto;}
+
 /* 제휴(어필리에이트) 컴포넌트 */
 .aff-note{
   background:#FFF8E8;border:1px solid #F0E2BE;border-radius:10px;
