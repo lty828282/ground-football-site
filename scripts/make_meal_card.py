@@ -105,10 +105,10 @@ html,body{{width:1080px;height:1350px;overflow:hidden;
   </div>
   <div class="bar"></div>
   <div class="body">
-    <div class="sec"><span class="pill">한 끼</span>{meal_title}</div>
+    <div class="sec"><span class="pill">{meal_tag}</span>{meal_title}</div>
     <div class="grid">{meal_cells}</div>
     <div class="spacer"></div>
-    <div class="sec snack"><span class="pill">간식</span>{snack_title}</div>
+    <div class="sec snack"><span class="pill">{snack_tag}</span>{snack_title}</div>
     <div class="snackgrid">{snack_cells}</div>
     <div class="keys">{keys}</div>
   </div>
@@ -136,6 +136,7 @@ def main():
     keys = "".join(f'<div class="key"><b>{i+1}</b>{k}</div>'
                    for i, k in enumerate(item.get("keypoints", [])))
     html = TPL.format(kicker=item.get("kicker", ""), title=item["title"], hook=item["hook"],
+                      meal_tag=item.get("meal_tag", "한 끼"), snack_tag=item.get("snack_tag", "간식"),
                       meal_title=item["meal"]["title"], meal_cells=meal_cells,
                       snack_title=item["snack"]["title"], snack_cells=snack_cells, keys=keys)
     hp = TMP / (slug + ".html"); hp.write_text(html, encoding="utf-8")
