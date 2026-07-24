@@ -3,32 +3,6 @@
   "published": [],
   "queue": [
     {
-      "slug": "summer-hydration",
-      "kicker": "SUMMER · 여름대회",
-      "title": "땀 많이 흘린 날, 수분 충전",
-      "hook": "여름엔 물만으론 부족해요 — 전해질까지 챙기세요",
-      "meal_tag": "수분",
-      "meal": {
-        "title": "이렇게 채워요",
-        "items": [
-          { "label": "물", "food": "water", "query": "glass of water", "why": "경기 전 미리 · 중간중간" },
-          { "label": "이온음료", "food": "sports_drink", "query": "sports drink bottle", "why": "60분↑·더운 날 전해질" },
-          { "label": "수박", "food": "watermelon", "query": "watermelon slices", "why": "수분 많은 과일 · 시원한 회복" },
-          { "label": "오렌지", "food": "orange", "query": "orange slices", "why": "수분 + 칼륨·비타민C" }
-        ]
-      },
-      "snack_tag": "회복",
-      "snack": {
-        "title": "땀 흘린 뒤, 이 간식",
-        "items": [
-          { "label": "바나나", "food": "banana", "query": "ripe bananas", "why": "칼륨 · 쥐(경련) 예방" },
-          { "label": "초코우유", "food": "choco_milk", "query": "chocolate milkshake glass", "why": "수분+탄수+단백질 한 번에" }
-        ]
-      },
-      "keypoints": ["물 + 전해질 함께", "소변 색 체크", "카페인·탄산 금지"],
-      "affiliate": { "label": "여름 간식·음료 보러가기", "url": "https://groundyouth.com/pages/guide-snacks.html" }
-    },
-    {
       "slug": "pre-match-meal",
       "kicker": "MATCH DAY",
       "title": "경기 전 한 끼",
@@ -269,6 +243,69 @@
       ],
       "affiliate": {
         "label": "추천 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
+    },
+    {
+      "slug": "summer-hydration",
+      "kicker": "SUMMER · 여름대회",
+      "title": "땀 많이 흘린 날, 수분 충전",
+      "hook": "여름엔 물만으론 부족해요 — 전해질까지 챙기세요",
+      "meal_tag": "수분",
+      "meal": {
+        "title": "이렇게 채워요",
+        "items": [
+          {
+            "label": "물",
+            "food": "water",
+            "query": "glass of water",
+            "why": "경기 전 미리 · 중간중간"
+          },
+          {
+            "label": "이온음료",
+            "food": "sports_drink",
+            "query": "sports drink bottle",
+            "why": "60분↑·더운 날 전해질"
+          },
+          {
+            "label": "수박",
+            "food": "watermelon",
+            "query": "watermelon slices",
+            "why": "수분 많은 과일 · 시원한 회복"
+          },
+          {
+            "label": "오렌지",
+            "food": "orange",
+            "query": "orange slices",
+            "why": "수분 + 칼륨·비타민C"
+          }
+        ]
+      },
+      "snack_tag": "회복",
+      "snack": {
+        "title": "땀 흘린 뒤, 이 간식",
+        "items": [
+          {
+            "label": "바나나",
+            "food": "banana",
+            "query": "ripe bananas",
+            "why": "칼륨 · 쥐(경련) 예방"
+          },
+          {
+            "label": "초코우유",
+            "food": "choco_milk",
+            "query": "chocolate milkshake glass",
+            "why": "수분+탄수+단백질 한 번에"
+          }
+        ]
+      },
+      "keypoints": [
+        "물 + 전해질 함께",
+        "소변 색 체크",
+        "카페인·탄산 금지"
+      ],
+      "affiliate": {
+        "label": "여름 간식·음료 보러가기",
         "url": "https://groundyouth.com/pages/guide-snacks.html"
       }
     }
