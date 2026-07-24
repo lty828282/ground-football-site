@@ -410,11 +410,40 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .guide-sources ul{margin:0;padding-left:18px;}
 
 /* 영양 테이블 */
-.nutri-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;}
-.nutri-table th,.nutri-table td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;}
-.nutri-table th{background:#EAF4EC;color:var(--pitch-dark);font-weight:800;}
+.nutri-table{width:100%;border-collapse:collapse;margin:0;font-size:15px;line-height:1.65;word-break:keep-all;}
+.nutri-table th,.nutri-table td{border:1px solid var(--line);padding:14px 18px;text-align:left;vertical-align:top;}
+.nutri-table th{background:#EAF4EC;color:var(--pitch-dark);font-weight:800;white-space:nowrap;}
+.nutri-table tbody tr:nth-child(even) td,.nutri-table tbody tr:nth-child(even) td{background:#fafbfa;}
 .nutri-table td b{color:var(--ink);}
-.table-scroll{overflow-x:auto;}
+/* 숫자 위주 표: 2번째 열부터 가운데·줄바꿈 방지 */
+.nutri-table.center th:not(:first-child),.nutri-table.center td:not(:first-child){text-align:center;white-space:nowrap;}
+.nutri-table.center td:first-child{white-space:nowrap;font-weight:700;}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:22px 0;border-radius:12px;}
+.table-scroll .nutri-table{min-width:480px;}
+
+/* 섹션 제목 아이콘 */
+.guide-wrap h2 .sec-ic,.guide-wrap h3 .sec-ic{width:30px;height:30px;vertical-align:-7px;margin-right:10px;color:var(--pitch-dark);}
+.sec-ic{display:inline-block;}
+.sec-ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;}
+
+/* 건강한 한 끼 접시 인포그래픽 */
+.plate-fig{margin:22px 0;padding:22px;background:#f4f6f4;border:1px solid var(--line);border-radius:16px;text-align:center;}
+.plate-fig svg{max-width:420px;width:100%;height:auto;}
+.plate-fig .cap{font-size:13.5px;color:var(--muted);margin-top:10px;}
+
+/* 영양 히어로 일러스트 띠 */
+.nutri-illus{margin:6px 0 24px;border-radius:16px;overflow:hidden;background:linear-gradient(120deg,#1B4332,#2E7D52);}
+.nutri-illus svg{display:block;width:100%;height:auto;}
+
+/* 매크로 요약 카드 */
+.macro-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0;}
+.macro-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center;}
+.macro-card .mi{width:44px;height:44px;margin:0 auto 8px;color:var(--pitch-dark);}
+.macro-card .mi svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;}
+.macro-card b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px;}
+.macro-card span{font-size:13px;color:var(--muted);line-height:1.5;}
+
+/* 제휴(어필리에이트) 컴포넌트 */
 
 /* 제휴(어필리에이트) 컴포넌트 */
 .aff-note{
