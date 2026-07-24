@@ -58,7 +58,7 @@ TPL = """<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{width:1080px;height:1350px;overflow:hidden;
   font-family:-apple-system,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;}}
-.poster{{width:1080px;height:1350px;background:#FAF7EF;display:flex;flex-direction:column;}}
+.poster{{width:1080px;height:1350px;background:#FAF7EF;display:flex;flex-direction:column;word-break:keep-all;}}
 .top{{background:linear-gradient(120deg,#1B4332,#2E7D52);color:#fff;padding:52px 60px 44px;position:relative;}}
 .kick{{font-size:24px;font-weight:800;letter-spacing:3px;color:#FFD54F;margin-bottom:12px;}}
 .ttl{{font-size:74px;font-weight:900;line-height:1.08;letter-spacing:-1px;}}
@@ -69,12 +69,12 @@ html,body{{width:1080px;height:1350px;overflow:hidden;
 .sec .pill{{font-size:20px;font-weight:800;color:#fff;background:#2E7D52;border-radius:999px;padding:6px 18px;}}
 .sec.snack .pill{{background:#E8A33D;}}
 .grid{{display:grid;grid-template-columns:1fr 1fr;gap:22px;}}
-.cell{{background:#fff;border:1px solid #e7e3d7;border-radius:22px;padding:18px;display:flex;align-items:center;gap:20px;}}
-.cell .ph{{width:132px;height:132px;border-radius:18px;background-size:cover;background-position:center;flex:none;}}
-.cell.big .ph{{width:150px;height:150px;}}
-.cell .lb{{font-size:32px;font-weight:900;color:#14261E;}}
-.cell .wh{{font-size:21px;color:#5F6F67;margin-top:6px;line-height:1.35;}}
-.cell > div:not(.ph){{display:flex;flex-direction:column;}}
+.cell{{background:#fff;border:1px solid #e7e3d7;border-radius:22px;padding:18px 20px;display:flex;align-items:center;gap:18px;}}
+.cell .ph{{width:118px;height:118px;border-radius:18px;background-size:cover;background-position:center;flex:none;}}
+.cell.big .ph{{width:138px;height:138px;}}
+.cell .lb{{font-size:30px;font-weight:900;color:#14261E;white-space:nowrap;}}
+.cell .wh{{font-size:19px;color:#5F6F67;margin-top:5px;line-height:1.35;}}
+.cell > div:not(.ph){{display:flex;flex-direction:column;flex:1;min-width:0;}}
 .snackgrid{{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:6px;}}
 .spacer{{flex:1;min-height:14px;}}
 .keys{{display:flex;gap:14px;margin-top:22px;}}
