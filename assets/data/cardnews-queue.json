@@ -2,6 +2,20 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "shooting",
+      "generated": true,
+      "theme": "#B5651D",
+      "listTitle": "슈팅 기본기 4단계",
+      "listDesc": "세게 차는 것보다 '정확하게'. 골로 이어지는 슈팅 자세의 기본.",
+      "photoCredit": [
+        "Марина  Шишкина",
+        "Alfredo Dacosta",
+        "Jean-Daniel Francoeur",
+        "Anastasia  Shuraeva",
+        "Mateo Franciosi"
+      ]
+    },
+    {
       "slug": "intro",
       "generated": true,
       "theme": "#1B4332",
@@ -209,39 +223,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "shooting",
-      "concept": "training",
-      "theme": "#B5651D",
-      "metaTitle": "[카드뉴스] 유소년 슈팅 기본기 4단계",
-      "metaDesc": "정확하고 강한 슈팅을 만드는 유소년 축구 슈팅 기본기 4단계를 카드뉴스로 정리했습니다.",
-      "listTitle": "슈팅 기본기 4단계",
-      "listDesc": "세게 차는 것보다 '정확하게'. 골로 이어지는 슈팅 자세의 기본.",
-      "kicker": "GROUND YOUTH · 축구 훈련",
-      "coverTitle": "골로 이어지는<br>슈팅의 기본",
-      "coverSub": "힘보다 자세가 먼저입니다.",
-      "photoQuery": "youth soccer player shooting ball goal",
-      "cards": [
-        {
-          "title": "디딤발을<br>공 옆에",
-          "body": "차는 발이 아니라 '디딤발'이 방향을 정합니다. 공 바로 옆, 목표를 향해 딛는 게 시작이에요."
-        },
-        {
-          "title": "발등으로<br>정확히",
-          "body": "강한 슛은 발끝이 아니라 단단한 발등(끈 부분)으로. 발목을 고정하고 공의 가운데를 맞춥니다."
-        },
-        {
-          "title": "상체는<br>공 위로",
-          "body": "몸을 뒤로 젖히면 공이 뜹니다. 상체를 살짝 공 위로 덮으면 낮고 빠른 슛이 나와요."
-        },
-        {
-          "title": "끝까지<br>휘두르기",
-          "body": "맞히고 멈추지 말고 차는 발을 목표 방향으로 끝까지. 팔로스루가 힘과 정확도를 만듭니다."
-        }
-      ],
-      "closingTitle": "정확히 100번이<br>세게 10번보다 낫다",
-      "closingBody": "빈 골대에 정확히 맞추는 연습부터. 힘은 자세가 잡힌 다음에 붙습니다."
-    },
     {
       "slug": "dribbling",
       "concept": "training",
