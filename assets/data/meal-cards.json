@@ -10,17 +10,17 @@
       "meal": {
         "title": "회복 한 끼, 이렇게",
         "items": [
-          { "label": "현미밥", "query": "brown rice bowl", "why": "탄수화물 · 에너지 재충전" },
-          { "label": "닭가슴살", "query": "grilled chicken breast plate", "why": "단백질 · 근육 회복" },
-          { "label": "시금치나물", "query": "cooked spinach dish", "why": "철분 · 비타민" },
-          { "label": "삶은 계란", "query": "boiled eggs", "why": "단백질 · 성장" }
+          { "label": "현미밥", "query": "bowl of cooked rice", "why": "탄수화물 · 에너지 재충전" },
+          { "label": "닭가슴살", "query": "grilled chicken breast", "why": "단백질 · 근육 회복" },
+          { "label": "시금치나물", "query": "sauteed spinach", "why": "철분 · 비타민" },
+          { "label": "삶은 계란", "query": "boiled eggs halved", "why": "단백질 · 성장" }
         ]
       },
       "snack": {
         "title": "30분 안에, 이 간식",
         "items": [
-          { "label": "초코우유", "query": "chocolate milk glass", "why": "수분+탄수화물+단백질 한 번에" },
-          { "label": "바나나", "query": "banana fruit", "why": "빠른 에너지 · 칼륨" }
+          { "label": "초코우유", "query": "chocolate milk", "why": "수분+탄수화물+단백질 한 번에" },
+          { "label": "바나나", "query": "ripe bananas", "why": "빠른 에너지 · 칼륨" }
         ]
       },
       "keypoints": ["탄수화물 + 단백질 함께", "끝나고 30분 안에", "물도 충분히"],
