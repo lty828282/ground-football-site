@@ -7,7 +7,7 @@ meal-cards.json 의 queue[0] 을 읽어, 각 음식의 Pexels 사진을 받아
 필요: PEXELS_API_KEY, Playwright, Pillow
 결과: exports/meal-cards/<slug>.png / .jpg
 """
-import os, sys, json, urllib.parse, urllib.request, pathlib
+import os, sys, json, random, urllib.parse, urllib.request, pathlib
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -41,6 +41,17 @@ def fetch_food(query, name):
     except Exception as e:
         print(f"  사진 실패({query}): {e}", file=sys.stderr)
         return None
+
+
+def resolve_img(item, slug):
+    """음식 라이브러리에 있으면 랜덤으로 한 장(다양성), 없으면 Pexels 실시간 검색."""
+    food = item.get("food")
+    if food:
+        d = ROOT / "assets" / "img" / "food-lib" / food
+        imgs = sorted(d.glob("*.jpg")) if d.exists() else []
+        if imgs:
+            return random.choice(imgs).as_uri()
+    return fetch_food(item["query"], slug + "-" + item["label"])
 
 
 def food_cell(item, big=False):
@@ -118,7 +129,7 @@ def main():
     slug = item["slug"]
 
     for it in item["meal"]["items"] + item["snack"]["items"]:
-        it["_img"] = fetch_food(it["query"], slug + "-" + it["label"])
+        it["_img"] = resolve_img(it, slug)
 
     meal_cells = "".join(food_cell(it) for it in item["meal"]["items"])
     snack_cells = "".join(food_cell(it, big=True) for it in item["snack"]["items"])
@@ -143,6 +154,13 @@ def main():
         Image.open(png).convert("RGB").save(OUT / (slug + ".jpg"), quality=90, optimize=True)
     except Exception as e:
         print("jpg 변환 실패:", e)
+
+    # 주간 회전 — 다음 실행은 큐의 다음 항목을 사용
+    for it in item["meal"]["items"] + item["snack"]["items"]:
+        it.pop("_img", None)
+    data["queue"] = q[1:] + [q[0]]
+    with open(DATA, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2); f.write("\n")
     print(f"RESULT: {slug} 식단 카드 생성")
 
 
