@@ -1,7 +1,8 @@
 [
-  { "label": "속보", "text": "이적시장 마감 D-3, 미드필더 영입설 확산" },
-  { "label": "HOT", "text": "초등부 드리블 훈련 루틴 조회수 12만 돌파" },
-  { "label": "리뷰", "text": "신형 축구화 착화감 비교, 어떤 게 나에게 맞을까" },
-  { "label": "랭킹", "text": "이번 주 급상승 축구 유튜브 채널 TOP 5 공개" },
-  { "label": "인터뷰", "text": "그라운드 키즈 인터뷰, 부모가 알아야 할 것" }
+  { "label": "NEW", "text": "집에서 하는 기본기 훈련 5가지", "url": "/pages/cardnews-home-training.html" },
+  { "label": "영상", "text": "훈련 영상 모음 — 드리블·벽패스·리프팅", "url": "/pages/training-videos.html" },
+  { "label": "가이드", "text": "우리 아이 첫 축구화, 이렇게 고르세요", "url": "/pages/guide-soccer-shoes.html" },
+  { "label": "홈트", "text": "집에서 혼자 하는 축구 훈련 준비물", "url": "/pages/guide-home-training.html" },
+  { "label": "소개", "text": "그라운드 유소년 이야기", "url": "/pages/cardnews-intro.html" },
+  { "label": "동기부여", "text": "노력은 재능을 이깁니다", "url": "/pages/cardnews-effort.html" }
 ]
