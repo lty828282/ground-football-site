@@ -1,15 +1,18 @@
-name: Make Meal Cards
+name: Build Food Library
 
 on:
-  schedule:
-    - cron: '0 22 * * 1'   # 매주 화요일 07:00 KST (주 1회 식단 카드)
   workflow_dispatch:
+    inputs:
+      foods:
+        description: '특정 음식만 (예: choco_milk,banana). 비우면 전체'
+        required: false
+        default: ''
 
 permissions:
   contents: write
 
 jobs:
-  meal:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,24 +21,19 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install deps
-        run: |
-          pip install playwright pillow
-          playwright install --with-deps chromium
-
-      - name: Build meal card
+      - name: Build food library
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: python3 scripts/make_meal_card.py
+        run: python3 scripts/build_food_lib.py "${{ github.event.inputs.foods }}"
 
       - name: Commit
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add exports/meal-cards assets/data/meal-cards.json
+          git add assets/img/food-lib
           if git diff --cached --quiet; then
             echo "no changes"
           else
-            git commit -m "식단 카드 생성"
+            git commit -m "음식 사진 라이브러리 구축"
             git push
           fi

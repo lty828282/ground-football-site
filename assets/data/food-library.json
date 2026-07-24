@@ -1,0 +1,26 @@
+{
+  "_note": "음식 사진 라이브러리 정의. build_food_lib.py가 음식마다 여러 장을 받아 assets/img/food-lib/<slug>/ 에 저장하고, 식단 카드는 매번 랜덤으로 한 장을 골라 다양성을 확보한다.",
+  "per_food": 5,
+  "foods": {
+    "rice":         { "label": "밥", "queries": ["bowl of cooked rice", "brown rice bowl", "steamed rice bowl"] },
+    "chicken":      { "label": "닭가슴살", "queries": ["grilled chicken breast", "sliced chicken breast plate"] },
+    "egg":          { "label": "계란", "queries": ["boiled eggs halved", "boiled eggs plate"] },
+    "spinach":      { "label": "시금치나물", "queries": ["sauteed spinach", "cooked spinach dish"] },
+    "beef":         { "label": "소고기", "queries": ["grilled beef slices", "cooked beef bulgogi"] },
+    "salmon":       { "label": "연어", "queries": ["grilled salmon fillet", "salmon steak plate"] },
+    "tofu":         { "label": "두부", "queries": ["tofu blocks", "cooked tofu dish"] },
+    "broccoli":     { "label": "채소", "queries": ["steamed broccoli", "fresh vegetables plate"] },
+    "banana":       { "label": "바나나", "queries": ["bananas", "peeled banana fruit"] },
+    "apple":        { "label": "사과", "queries": ["red apple fruit", "sliced apple"] },
+    "sweet_potato": { "label": "고구마", "queries": ["roasted sweet potato", "steamed sweet potato"] },
+    "oatmeal":      { "label": "오트밀", "queries": ["oatmeal bowl", "oats breakfast bowl"] },
+    "yogurt":       { "label": "그릭요거트", "queries": ["greek yogurt bowl", "yogurt with fruit"] },
+    "milk":         { "label": "우유", "queries": ["glass of milk", "milk in glass"] },
+    "choco_milk":   { "label": "초코우유", "queries": ["chocolate milkshake glass", "glass of chocolate milk", "cocoa drink glass"] },
+    "soy_milk":     { "label": "두유", "queries": ["soy milk glass", "soy milk carton"] },
+    "energy_bar":   { "label": "에너지바", "queries": ["granola bar", "cereal energy bar"] },
+    "nuts":         { "label": "견과류", "queries": ["mixed nuts bowl", "almonds and nuts"] },
+    "cheese":       { "label": "치즈", "queries": ["cheese cubes", "cheese slices plate"] },
+    "orange_juice": { "label": "오렌지주스", "queries": ["glass of orange juice", "orange juice fresh"] }
+  }
+}
