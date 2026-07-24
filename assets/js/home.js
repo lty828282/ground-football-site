@@ -25,6 +25,21 @@ const POPULAR_WINDOWS = [
   { days: 30, label: '최근 한 달 기준' },
 ];
 
+// 최근 일주일 이내 영상 중 인기순으로 뽑되, 모자라면 기간을 넓혀가며 채운다
+function pickWeeklyPopular(videos, count) {
+  const WINDOWS_DAYS = [7, 14, 30];
+  for (const days of WINDOWS_DAYS) {
+    const cutoff = Date.now() - days * 86400000;
+    const pool = videos.filter(
+      (v) => v.published_at && new Date(v.published_at).getTime() >= cutoff
+    );
+    if (pool.length >= count) {
+      return pool.sort((a, b) => b.view_count - a.view_count).slice(0, count);
+    }
+  }
+  return videos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, count);
+}
+
 // 최근 하루 영상 중 인기순으로 뽑되, 영상이 모자라면 기간을 넓혀가며 채운다
 function pickRecentPopular(allVideos, count) {
   for (const w of POPULAR_WINDOWS) {
@@ -78,7 +93,7 @@ async function renderHome() {
     ? news.map(renderNewsRow).join('')
     : '<div class="empty-state">아직 수집된 기사가 없습니다.</div>';
 
-  const topYouth = youthVideos.slice().sort((a, b) => b.view_count - a.view_count).slice(0, 3);
+  const topYouth = pickWeeklyPopular(youthVideos, 3);
   document.getElementById('youth-cards').innerHTML = topYouth.length
     ? topYouth.map(renderVideoCard).join('')
     : '<div class="empty-state">아직 수집된 영상이 없습니다.</div>';
