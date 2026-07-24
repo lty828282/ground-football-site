@@ -3,30 +3,6 @@
   "published": [],
   "queue": [
     {
-      "slug": "recovery-meal",
-      "kicker": "TRAINING RECOVERY",
-      "title": "훈련 후 회복 한 끼",
-      "hook": "끝나고 30분, 이렇게 먹으면 회복이 빨라져요",
-      "meal": {
-        "title": "회복 한 끼, 이렇게",
-        "items": [
-          { "label": "현미밥", "food": "rice", "query": "bowl of cooked rice", "why": "탄수화물 · 에너지 재충전" },
-          { "label": "닭가슴살", "food": "chicken", "query": "grilled chicken breast", "why": "단백질 · 근육 회복" },
-          { "label": "시금치나물", "food": "spinach", "query": "sauteed spinach", "why": "철분 · 비타민" },
-          { "label": "삶은 계란", "food": "egg", "query": "boiled eggs halved", "why": "단백질 · 성장" }
-        ]
-      },
-      "snack": {
-        "title": "30분 안에, 이 간식",
-        "items": [
-          { "label": "초코우유", "food": "choco_milk", "query": "chocolate milkshake glass", "why": "수분+탄수화물+단백질 한 번에" },
-          { "label": "바나나", "food": "banana", "query": "ripe bananas", "why": "빠른 에너지 · 칼륨" }
-        ]
-      },
-      "keypoints": ["탄수화물 + 단백질 함께", "끝나고 30분 안에", "물도 충분히"],
-      "affiliate": { "label": "추천 간식 보러가기", "url": "https://groundyouth.com/pages/guide-snacks.html" }
-    },
-    {
       "slug": "pre-match-meal",
       "kicker": "MATCH DAY",
       "title": "경기 전 한 끼",
@@ -34,21 +10,58 @@
       "meal": {
         "title": "경기 전, 이렇게",
         "items": [
-          { "label": "잡곡밥", "food": "rice", "query": "bowl of cooked rice", "why": "탄수화물 · 지구력 연료" },
-          { "label": "소고기", "food": "beef", "query": "grilled beef slices", "why": "단백질 · 기름기 적게" },
-          { "label": "채소 반찬", "food": "broccoli", "query": "steamed vegetables", "why": "비타민 · 소화 부담 적게" },
-          { "label": "사과", "food": "apple", "query": "red apple", "why": "가벼운 당 · 수분" }
+          {
+            "label": "잡곡밥",
+            "food": "rice",
+            "query": "bowl of cooked rice",
+            "why": "탄수화물 · 지구력 연료"
+          },
+          {
+            "label": "소고기",
+            "food": "beef",
+            "query": "grilled beef slices",
+            "why": "단백질 · 기름기 적게"
+          },
+          {
+            "label": "채소 반찬",
+            "food": "broccoli",
+            "query": "steamed vegetables",
+            "why": "비타민 · 소화 부담 적게"
+          },
+          {
+            "label": "사과",
+            "food": "apple",
+            "query": "red apple",
+            "why": "가벼운 당 · 수분"
+          }
         ]
       },
       "snack": {
         "title": "1~2시간 전 간식",
         "items": [
-          { "label": "바나나", "food": "banana", "query": "ripe bananas", "why": "소화 쉬운 빠른 에너지" },
-          { "label": "에너지바", "food": "energy_bar", "query": "granola bar", "why": "간편 탄수화물 보충" }
+          {
+            "label": "바나나",
+            "food": "banana",
+            "query": "ripe bananas",
+            "why": "소화 쉬운 빠른 에너지"
+          },
+          {
+            "label": "에너지바",
+            "food": "energy_bar",
+            "query": "granola bar",
+            "why": "간편 탄수화물 보충"
+          }
         ]
       },
-      "keypoints": ["기름진 음식 금지", "익숙한 음식만", "물 미리 채우기"],
-      "affiliate": { "label": "경기용 간식 보러가기", "url": "https://groundyouth.com/pages/guide-snacks.html" }
+      "keypoints": [
+        "기름진 음식 금지",
+        "익숙한 음식만",
+        "물 미리 채우기"
+      ],
+      "affiliate": {
+        "label": "경기용 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
     },
     {
       "slug": "morning-fuel",
@@ -58,21 +71,58 @@
       "meal": {
         "title": "든든한 아침 한 끼",
         "items": [
-          { "label": "오트밀", "food": "oatmeal", "query": "oatmeal bowl", "why": "천천히 타는 탄수화물" },
-          { "label": "계란", "food": "egg", "query": "boiled eggs", "why": "단백질 · 포만감" },
-          { "label": "우유", "food": "milk", "query": "glass of milk", "why": "칼슘 · 단백질" },
-          { "label": "바나나", "food": "banana", "query": "banana", "why": "빠른 에너지 · 칼륨" }
+          {
+            "label": "오트밀",
+            "food": "oatmeal",
+            "query": "oatmeal bowl",
+            "why": "천천히 타는 탄수화물"
+          },
+          {
+            "label": "계란",
+            "food": "egg",
+            "query": "boiled eggs",
+            "why": "단백질 · 포만감"
+          },
+          {
+            "label": "우유",
+            "food": "milk",
+            "query": "glass of milk",
+            "why": "칼슘 · 단백질"
+          },
+          {
+            "label": "바나나",
+            "food": "banana",
+            "query": "banana",
+            "why": "빠른 에너지 · 칼륨"
+          }
         ]
       },
       "snack": {
         "title": "등교·훈련 전 간식",
         "items": [
-          { "label": "그릭요거트", "food": "yogurt", "query": "greek yogurt bowl", "why": "단백질 · 칼슘" },
-          { "label": "고구마", "food": "sweet_potato", "query": "roasted sweet potato", "why": "든든한 탄수화물" }
+          {
+            "label": "그릭요거트",
+            "food": "yogurt",
+            "query": "greek yogurt bowl",
+            "why": "단백질 · 칼슘"
+          },
+          {
+            "label": "고구마",
+            "food": "sweet_potato",
+            "query": "roasted sweet potato",
+            "why": "든든한 탄수화물"
+          }
         ]
       },
-      "keypoints": ["아침 거르지 않기", "탄수화물+단백질", "따뜻한 물 한 잔"],
-      "affiliate": { "label": "아침 대용 간식 보러가기", "url": "https://groundyouth.com/pages/guide-snacks.html" }
+      "keypoints": [
+        "아침 거르지 않기",
+        "탄수화물+단백질",
+        "따뜻한 물 한 잔"
+      ],
+      "affiliate": {
+        "label": "아침 대용 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
     },
     {
       "slug": "growth-dinner",
@@ -82,21 +132,119 @@
       "meal": {
         "title": "성장 저녁 한 끼",
         "items": [
-          { "label": "밥", "food": "rice", "query": "bowl of rice", "why": "에너지 회복" },
-          { "label": "연어", "food": "salmon", "query": "grilled salmon", "why": "단백질 · 오메가-3" },
-          { "label": "두부", "food": "tofu", "query": "tofu blocks", "why": "식물성 단백질" },
-          { "label": "시금치나물", "food": "spinach", "query": "cooked spinach", "why": "철분 · 칼슘" }
+          {
+            "label": "밥",
+            "food": "rice",
+            "query": "bowl of rice",
+            "why": "에너지 회복"
+          },
+          {
+            "label": "연어",
+            "food": "salmon",
+            "query": "grilled salmon",
+            "why": "단백질 · 오메가-3"
+          },
+          {
+            "label": "두부",
+            "food": "tofu",
+            "query": "tofu blocks",
+            "why": "식물성 단백질"
+          },
+          {
+            "label": "시금치나물",
+            "food": "spinach",
+            "query": "cooked spinach",
+            "why": "철분 · 칼슘"
+          }
         ]
       },
       "snack": {
         "title": "자기 전 간식",
         "items": [
-          { "label": "치즈", "food": "cheese", "query": "cheese cubes", "why": "칼슘 · 뼈 성장" },
-          { "label": "견과류", "food": "nuts", "query": "mixed nuts", "why": "건강한 지방 · 소량" }
+          {
+            "label": "치즈",
+            "food": "cheese",
+            "query": "cheese cubes",
+            "why": "칼슘 · 뼈 성장"
+          },
+          {
+            "label": "견과류",
+            "food": "nuts",
+            "query": "mixed nuts",
+            "why": "건강한 지방 · 소량"
+          }
         ]
       },
-      "keypoints": ["칼슘 챙기기", "자기 전 과식 금지", "충분한 수면"],
-      "affiliate": { "label": "성장 간식 보러가기", "url": "https://groundyouth.com/pages/guide-snacks.html" }
+      "keypoints": [
+        "칼슘 챙기기",
+        "자기 전 과식 금지",
+        "충분한 수면"
+      ],
+      "affiliate": {
+        "label": "성장 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
+    },
+    {
+      "slug": "recovery-meal",
+      "kicker": "TRAINING RECOVERY",
+      "title": "훈련 후 회복 한 끼",
+      "hook": "끝나고 30분, 이렇게 먹으면 회복이 빨라져요",
+      "meal": {
+        "title": "회복 한 끼, 이렇게",
+        "items": [
+          {
+            "label": "현미밥",
+            "food": "rice",
+            "query": "bowl of cooked rice",
+            "why": "탄수화물 · 에너지 재충전"
+          },
+          {
+            "label": "닭가슴살",
+            "food": "chicken",
+            "query": "grilled chicken breast",
+            "why": "단백질 · 근육 회복"
+          },
+          {
+            "label": "시금치나물",
+            "food": "spinach",
+            "query": "sauteed spinach",
+            "why": "철분 · 비타민"
+          },
+          {
+            "label": "삶은 계란",
+            "food": "egg",
+            "query": "boiled eggs halved",
+            "why": "단백질 · 성장"
+          }
+        ]
+      },
+      "snack": {
+        "title": "30분 안에, 이 간식",
+        "items": [
+          {
+            "label": "초코우유",
+            "food": "choco_milk",
+            "query": "chocolate milkshake glass",
+            "why": "수분+탄수화물+단백질 한 번에"
+          },
+          {
+            "label": "바나나",
+            "food": "banana",
+            "query": "ripe bananas",
+            "why": "빠른 에너지 · 칼륨"
+          }
+        ]
+      },
+      "keypoints": [
+        "탄수화물 + 단백질 함께",
+        "끝나고 30분 안에",
+        "물도 충분히"
+      ],
+      "affiliate": {
+        "label": "추천 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
     }
   ]
 }
