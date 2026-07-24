@@ -1,0 +1,55 @@
+name: Card Photos
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'fetch(후보 수집) 또는 apply(선택 적용)'
+        required: true
+        default: 'fetch'
+      slug:
+        description: '카드뉴스 슬러그 (예: home-training)'
+        required: true
+        default: 'home-training'
+      picks:
+        description: 'apply 전용 — "카드:후보" 예) 2:3,3:0,4:5,5:1,6:2'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install pillow
+
+      - name: Run
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "apply" ]; then
+            python3 scripts/apply_card_photos.py "${{ github.event.inputs.slug }}" "${{ github.event.inputs.picks }}"
+          else
+            python3 scripts/fetch_card_photos.py "${{ github.event.inputs.slug }}"
+          fi
+
+      - name: Commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add exports/photo-candidates assets/img/cardnews
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "카드 사진 ${{ github.event.inputs.mode }}: ${{ github.event.inputs.slug }}"
+            git push
+          fi
