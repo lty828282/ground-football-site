@@ -401,6 +401,32 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .vid-note{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0;}
 @media(max-width:520px){.vid-grid{grid-template-columns:1fr;}}
 
+/* 경기 결과 */
+.rs-wrap{max-width:900px;margin:0 auto;padding:8px 20px 60px;}
+.rs-updated{font-size:13px;color:var(--muted);margin:0 0 18px;}
+.rs-tour{margin:0 0 34px;}
+.rs-tour-head{border-left:4px solid var(--pitch-dark);padding:2px 0 2px 14px;margin:0 0 14px;}
+.rs-tour-head h2{margin:0;font-size:22px;}
+.rs-meta{font-size:13.5px;color:var(--muted);margin-top:4px;}
+.rs-src a{color:#2E7D52;}
+.rs-date{font-size:14px;font-weight:800;color:var(--pitch-dark);background:#EAF4EC;
+  display:inline-block;padding:5px 14px;border-radius:999px;margin:14px 0 8px;}
+.rs-table{width:100%;border-collapse:collapse;font-size:15px;}
+.rs-table td{border-bottom:1px solid var(--line);padding:12px 8px;vertical-align:middle;}
+.rs-round{color:var(--muted);font-size:12.5px;white-space:nowrap;width:110px;}
+.rs-home{text-align:right;font-weight:700;}
+.rs-away{text-align:left;font-weight:700;}
+.rs-sc{text-align:center;white-space:nowrap;width:92px;}
+.rs-score b{font-size:19px;color:#8a948d;}
+.rs-score b.win{color:#2E7D52;}
+.rs-vs{color:var(--muted);font-size:13px;font-weight:700;}
+.rs-st{width:60px;text-align:right;}
+.rs-badge{font-size:11px;font-weight:800;border-radius:6px;padding:3px 8px;white-space:nowrap;}
+.rs-badge.done{background:#e7edea;color:#41544b;}
+.rs-badge.live{background:#ffe3d6;color:#c0562e;}
+.rs-badge.soon{background:#fbefd8;color:#8A5A16;}
+@media(max-width:520px){.rs-round{display:none;}}
+
 /* 출처 표기 블록 */
 .guide-sources{
   margin:32px 0 8px;padding:16px 20px;background:#f4f6f4;border:1px solid var(--line);
