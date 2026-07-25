@@ -1,6 +1,12 @@
 {
   "_note": "추천 훈련 영상 목록. 새 영상은 videos 배열 맨 앞에 { id, title, cat, note } 한 줄 추가하면 됩니다. id = 유튜브 영상 ID. short:true 는 세로(숏츠) 영상.",
-  "categories": ["볼감각", "드리블", "패스", "리프팅"],
+  "categories": [
+    "볼감각",
+    "슛 & 킥",
+    "드리블",
+    "패스",
+    "리프팅"
+  ],
   "videos": [
     {
       "id": "tdXzY6afvvQ",
@@ -38,6 +44,100 @@
       "title": "리프팅 (저글링)",
       "cat": "리프팅",
       "note": "균형감각 + 종합 볼 컨트롤. 개수 늘리는 재미로 반복."
+    },
+    {
+      "id": "xfUjdkcgSDM",
+      "title": "월클 골키퍼들은 왜 슈팅 전에 점프를할까🤔#골키퍼 #축구 #축구선수 #유소년축구 #골키퍼훈련",
+      "cat": "슛 & 킥",
+      "note": "조회수 10.8만 · 2026.05 · GK 다비드권 | David kwon",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "reAuQC8YbQ0",
+      "title": "마지막 한발의 중요성 #유소년축구 #동계훈련 #스토브리그 #쇼트트랙",
+      "cat": "슛 & 킥",
+      "note": "조회수 2.3만 · 2026.01 · 축구하는 바름이네",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "WK0N1NqN0ew",
+      "title": "킥 못차는 사람 주목‼️킥 잘차는 꿀팁🍯 3가지 #축구기술 #축구훈련 #유소년축구 #킥",
+      "cat": "슛 & 킥",
+      "note": "조회수 2만 · 2026.05 · 초이스 풋볼",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "Eqk7IHTNlBc",
+      "title": "기본기에 목숨거는 일본 유소년들?!🤯",
+      "cat": "드리블",
+      "note": "조회수 15.9만 · 2026.04 · 베이스먼트클럽",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "zu5m7AGIX3Q",
+      "title": "10분! 축구 초보를 위한 5가지 볼감각 훈련",
+      "cat": "드리블",
+      "note": "조회수 9.9만 · 2026.02 · JUSTGO(저스트고 풋볼)",
+      "auto": true
+    },
+    {
+      "id": "1aV3t8M8Ak8",
+      "title": "\"축구선출들이 숨기는\" 볼 감각의 비밀 폭로  I 축구기본기, 축구드리블, 볼마스터리",
+      "cat": "드리블",
+      "note": "조회수 5만 · 2026.05 · 오버헤드킥",
+      "auto": true
+    },
+    {
+      "id": "KEKYSEryXJs",
+      "title": "트레핑과 패스 훈련은 이렇게 #축구",
+      "cat": "패스",
+      "note": "조회수 76.4만 · 2026.03 · 1분풋살",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "kRohoKpSaV4",
+      "title": "U10 Warm up Passing drills pass and go practice youth training #soccer #futbol #practice #futebol",
+      "cat": "패스",
+      "note": "조회수 2.4만 · 2026.04 · FA Spécifique YOUTH SOCCER COACHING FAOUZI HADDAR",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "i-sJ9bBh10Q",
+      "title": "유소년 축구 리프팅 개인연습 더 강해지고 단단해지자 #노력 #초등축구 #초등리프팅 #유소년축구 #축구기본기 #soccer #football #축구",
+      "cat": "패스",
+      "note": "조회수 2.1만 · 2026.05 · 휘파월드컵",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "ek7wi4pgdNI",
+      "title": "일본 선수들의 끝판왕 리프팅 훈련🤯",
+      "cat": "리프팅",
+      "note": "조회수 8.1만 · 2026.05 · 베이스먼트클럽",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "NX0_wS0nsfA",
+      "title": "이제 막 시작한 선수의 기본은 리프팅 100개넘는 그날까지 응원해🫶🔥🔥🔥  #리프팅 #축구리프팅 #U8 #주말훈련 #축구 #축구선수 #8세축구 #축구게임",
+      "cat": "리프팅",
+      "note": "조회수 7.6만 · 2026.03 · 축구도사 권주호⚽️",
+      "auto": true,
+      "short": true
+    },
+    {
+      "id": "GuKJ8ix8jOk",
+      "title": "\"동네 축구에선 절대 모릅니다\" 선출들의 단 하나의 비밀 치트키 l 기본기, 훈련법",
+      "cat": "리프팅",
+      "note": "조회수 6.8만 · 2026.04 · 오버헤드킥",
+      "auto": true
     }
-  ]
+  ],
+  "updated": "2026-07-25"
 }
