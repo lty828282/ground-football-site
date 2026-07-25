@@ -76,6 +76,10 @@ function highlightActiveNav() {
     activeKey = 'ranking';
   } else if (path.endsWith('/pages/news.html')) {
     activeKey = 'news';
+  } else if (path.endsWith('/pages/soccer-videos.html')) {
+    activeKey = 'soccer-videos';
+  } else if (path.endsWith('/pages/gear-videos.html')) {
+    activeKey = 'gear-videos';
   } else if (path.endsWith('/pages/training-videos.html')) {
     activeKey = 'tvideos';
   } else if (path.endsWith('/pages/nutrition.html') || path.indexOf('/pages/guide-nutrition') !== -1
