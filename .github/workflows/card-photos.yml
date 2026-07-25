@@ -39,12 +39,7 @@ jobs:
       - name: Run
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: |
-          if [ "${{ github.event.inputs.mode }}" = "apply" ]; then
-            python3 scripts/apply_card_photos.py "${{ github.event.inputs.slug }}" "${{ github.event.inputs.picks }}"
-          else
-            python3 scripts/fetch_card_photos.py "${{ github.event.inputs.slug }}" "${{ github.event.inputs.cards }}"
-          fi
+        run: python3 scripts/fetch_quote_bg.py "${{ github.event.inputs.cards }}"
 
       - name: Commit
         run: |
