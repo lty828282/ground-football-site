@@ -14,6 +14,8 @@ DATA = os.path.join(ROOT, "assets", "data")
 
 NOW = datetime.datetime.now(datetime.timezone.utc)
 WEEK_AGO = (NOW - datetime.timedelta(days=7)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+# 1주일 이내로 개수가 부족한 니치 카테고리(축구 용품 등)는 아래 기간에서 인기순으로 보충
+WIDE_AGO = (NOW - datetime.timedelta(days=120)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 # 축구 영상: 단일 피드
 SOCCER = {"out": "soccer-videos.json", "title": "축구 영상",
@@ -40,9 +42,9 @@ def yt(endpoint, params):
         sys.exit(f"유튜브 API 오류 (HTTP {e.code}) [{endpoint}]: {e.read().decode('utf-8','replace')[:400]}")
 
 
-def search_ids(q):
+def search_ids(q, after):
     data = yt("search", {"part": "snippet", "q": q, "type": "video", "order": "viewCount",
-                         "maxResults": 25, "publishedAfter": WEEK_AGO,
+                         "maxResults": 25, "publishedAfter": after,
                          "relevanceLanguage": "ko", "regionCode": "KR",
                          "videoEmbeddable": "true", "safeSearch": "strict"})
     return [it["id"]["videoId"] for it in data.get("items", []) if it.get("id", {}).get("videoId")]
@@ -85,10 +87,11 @@ def is_short(iso):
     return (h * 3600 + mnt * 60 + s) <= 65
 
 
-def pick(queries, n, tag, seen):
+def _rows(queries, after, min_pub, max_pub, seen):
+    """after 기간에서 검색 → min_pub<=pub[<max_pub] 조건·필터 통과 영상 rows(조회수순)."""
     cand = []
     for q in queries:
-        cand += search_ids(q)
+        cand += search_ids(q, after)
     cand = list(dict.fromkeys(cand))
     det = details(cand)
     rows = []
@@ -99,19 +102,31 @@ def pick(queries, n, tag, seen):
         st = it.get("status", {})
         if not st.get("embeddable", True) or st.get("privacyStatus") != "public":
             continue
-        if it["snippet"].get("publishedAt", "") < WEEK_AGO:   # 1주일 이내 재확인
+        pub = it["snippet"].get("publishedAt", "")
+        if pub < min_pub or (max_pub and pub >= max_pub):
             continue
-        views = int(it.get("statistics", {}).get("viewCount", 0))
-        rows.append({"id": vid, "views": views,
-                     "pub": it["snippet"].get("publishedAt", ""),
-                     "title": it["snippet"]["title"].strip(),
+        rows.append({"id": vid, "views": int(it.get("statistics", {}).get("viewCount", 0)),
+                     "pub": pub, "title": it["snippet"]["title"].strip(),
                      "channel": it["snippet"]["channelTitle"].strip(),
                      "short": is_short(it.get("contentDetails", {}).get("duration"))})
     rows.sort(key=lambda r: r["views"], reverse=True)
-    chosen = rows[:n]
-    out = []
+    return rows
+
+
+def pick(queries, n, tag, seen):
+    # 1) 최근 1주일 이내 (요청 조건) 우선
+    chosen = _rows(queries, WEEK_AGO, WEEK_AGO, None, seen)[:n]
     for r in chosen:
         seen.add(r["id"])
+    # 2) 부족하면 더 넓은 기간에서 인기순으로 보충(추천 성격)
+    if len(chosen) < n:
+        for r in _rows(queries, WIDE_AGO, WIDE_AGO, WEEK_AGO, seen):
+            chosen.append(r)
+            seen.add(r["id"])
+            if len(chosen) >= n:
+                break
+    out = []
+    for r in chosen:
         note = f"조회수 {fmt_views(r['views'])} · {days_ago(r['pub'])} · {r['channel']}"
         v = {"id": r["id"], "title": r["title"], "tag": tag, "note": note}
         if r["short"]:
