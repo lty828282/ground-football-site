@@ -18,24 +18,31 @@
   const cats = ['전체'].concat(data.categories || []);
   let active = '전체';
 
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
   function thumb(v) {
-    return 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg';
+    return 'https://i.ytimg.com/vi/' + encodeURIComponent(v.id) + '/hqdefault.jpg';
   }
 
   function render() {
     const list = active === '전체' ? videos : videos.filter((v) => v.cat === active);
     grid.innerHTML = list.map(function (v) {
       const vert = v.short ? ' vert' : '';
+      const t = esc(v.title);
       return (
         '<div class="vid-card">' +
-          '<button class="vid-thumb' + vert + '" data-id="' + v.id + '" aria-label="영상 재생: ' + v.title + '">' +
-            '<img loading="lazy" src="' + thumb(v) + '" alt="' + v.title + '">' +
+          '<button class="vid-thumb' + vert + '" data-id="' + esc(v.id) + '" aria-label="영상 재생: ' + t + '">' +
+            '<img loading="lazy" src="' + thumb(v) + '" alt="' + t + '">' +
             '<span class="vid-play"></span>' +
           '</button>' +
           '<div class="vid-meta">' +
-            '<span class="vid-tag">' + v.cat + '</span>' +
-            '<h3 class="vid-title">' + v.title + '</h3>' +
-            '<p class="vid-note">' + (v.note || '') + '</p>' +
+            '<span class="vid-tag">' + esc(v.cat) + '</span>' +
+            '<h3 class="vid-title">' + t + '</h3>' +
+            '<p class="vid-note">' + esc(v.note || '') + '</p>' +
           '</div>' +
         '</div>'
       );

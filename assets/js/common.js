@@ -72,9 +72,7 @@ function highlightActiveNav() {
   const path = window.location.pathname;
   let activeKey = null;
 
-  if (path.endsWith('/pages/results.html')) {
-    activeKey = 'results';
-  } else if (path.endsWith('/pages/ranking.html')) {
+  if (path.endsWith('/pages/ranking.html')) {
     activeKey = 'ranking';
   } else if (path.endsWith('/pages/news.html')) {
     activeKey = 'news';
