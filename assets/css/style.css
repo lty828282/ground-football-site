@@ -359,7 +359,7 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .guide-cta:hover{background:var(--pitch-dark);}
 
 /* 추천 훈련 영상 라이브러리 */
-.vid-wrap{max-width:1080px;margin:0 auto;padding:8px 20px 60px;}
+.vid-wrap{max-width:1280px;margin:0 auto;padding:8px 20px 60px;}
 .vid-lead{font-size:16px;line-height:1.7;color:#33413a;margin:6px 0 20px;}
 .feed-sec{font-family:'Black Han Sans',sans-serif;font-size:22px;color:var(--ink);
   margin:34px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--pitch-dark);}
@@ -372,7 +372,7 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 }
 .vid-chip:hover{background:#dcefe0;}
 .vid-chip.on{background:var(--pitch-dark);color:#fff;border-color:var(--pitch-dark);}
-.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+.vid-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
 .vid-card{
   background:var(--card);border:1px solid var(--line);border-radius:14px;
   overflow:hidden;display:flex;flex-direction:column;
@@ -402,7 +402,10 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
   background:#FBEFD8;border-radius:6px;padding:3px 9px;margin-bottom:8px;}
 .vid-title{font-size:16px;font-weight:800;color:var(--ink);line-height:1.4;margin:0 0 5px;}
 .vid-note{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0;}
-@media(max-width:520px){.vid-grid{grid-template-columns:1fr;}}
+@media(max-width:1120px){.vid-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:880px){.vid-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:620px){.vid-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
+@media(max-width:400px){.vid-grid{grid-template-columns:1fr;}}
 
 
 /* 출처 표기 블록 */
