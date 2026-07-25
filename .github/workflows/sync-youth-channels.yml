@@ -5,13 +5,29 @@ on:
     - cron: '0 21 * * *'   # 매일 한국시간 오전 6시 (UTC 21:00)
   workflow_dispatch:        # 수동 실행 버튼
 
+permissions:
+  contents: write
+
 jobs:
-  sync:
+  fetch-feed-videos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run youth channel sync
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch feed videos
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python3 supabase/sync_youth_channels.py
+        run: python3 scripts/fetch_feed_videos.py
+      - name: Commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/soccer-videos.json assets/data/gear-videos.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "영상 피드 수집: 축구 영상 / 축구화·축구용품 (최근 1주일·조회수순)"
+            git push
+          fi
