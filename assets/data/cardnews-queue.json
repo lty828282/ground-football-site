@@ -2,6 +2,21 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "passing",
+      "generated": true,
+      "theme": "#4E6157",
+      "listTitle": "패스 기본기 4가지",
+      "listDesc": "축구는 혼자 하는 게 아니죠. 팀 플레이의 시작, 정확한 패스의 기본.",
+      "photoCredit": [
+        "Kampus Production",
+        "César O'neill",
+        "Onur Can Elma",
+        "Thirdman",
+        "Sabriye Esen",
+        "jade"
+      ]
+    },
+    {
       "slug": "dribbling",
       "generated": true,
       "theme": "#8A5A16",
@@ -237,40 +252,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "passing",
-      "concept": "tactics",
-      "quote": "좋은 패스 = 다음 장면을 함께 보내는 패스",
-      "theme": "#4E6157",
-      "metaTitle": "[카드뉴스] 유소년 패스 기본기 4가지",
-      "metaDesc": "팀 플레이의 시작인 유소년 축구 패스 기본기 4가지를 카드뉴스로 정리했습니다.",
-      "listTitle": "패스 기본기 4가지",
-      "listDesc": "축구는 혼자 하는 게 아니죠. 팀 플레이의 시작, 정확한 패스의 기본.",
-      "kicker": "GROUND YOUTH · 축구 훈련",
-      "coverTitle": "팀 플레이의<br>시작, 패스",
-      "coverSub": "정확하게, 받기 좋게.",
-      "photoQuery": "kids soccer passing ball teammates",
-      "cards": [
-        {
-          "title": "인사이드로<br>밀기",
-          "body": "짧고 정확한 패스는 발 안쪽 넓은 면으로. 차는 게 아니라 '미는' 느낌이 방향을 정확하게 해요."
-        },
-        {
-          "title": "받는<br>사람 앞으로",
-          "body": "동료가 뛰어갈 '앞 공간'으로. 발밑이 아니라 달려가는 방향으로 줘야 흐름이 끊기지 않습니다."
-        },
-        {
-          "title": "적당한<br>세기",
-          "body": "너무 약하면 뺏기고, 너무 세면 못 받습니다. 거리에 맞는 힘 조절이 좋은 패스의 핵심."
-        },
-        {
-          "title": "패스 후<br>움직이기",
-          "body": "주고 멈추면 끝. 패스 뒤 바로 빈 공간으로 움직이면 다시 공을 받는 '주고 받기'가 됩니다."
-        }
-      ],
-      "closingTitle": "좋은 패스가<br>좋은 팀을 만든다",
-      "closingBody": "둘이서 벽 패스부터. 받기 좋은 공을 주는 선수가 어디서나 환영받습니다."
-    },
     {
       "slug": "first-touch",
       "concept": "training",
