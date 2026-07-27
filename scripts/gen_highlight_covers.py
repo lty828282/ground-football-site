@@ -73,6 +73,10 @@ ICONS = {
    <path d="M27 27 L34 34"/><path d="M73 27 L66 34"/>
    <path d="M27 73 L34 66"/><path d="M73 73 L66 66"/>
  """,
+ "18-heart": """
+   <path d="M50 81 C50 81 15 58 15 34 C15 23 24 15 33 15 C41 15 47 20 50 27
+            C53 20 59 15 67 15 C76 15 85 23 85 34 C85 58 50 81 50 81 Z"/>
+ """,
 }
 
 TPL = """<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
@@ -104,4 +108,5 @@ for name, icon in ICONS.items():
         "--window-size=540,540", f"--screenshot={png}", hp.as_uri()],
         check=True, stderr=subprocess.DEVNULL)
     print("rendered", png.name)
+
 print("DONE")
