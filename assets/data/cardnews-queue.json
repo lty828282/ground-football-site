@@ -2,6 +2,21 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "heading-safety",
+      "generated": true,
+      "theme": "#12261E",
+      "listTitle": "헤딩, 안전하게 배우기",
+      "listDesc": "어린 나이엔 조심해야 할 헤딩. 다치지 않게 배우는 안전 원칙.",
+      "photoCredit": [
+        "Misha Zimin",
+        "Muhammad Syahrul Firdaus",
+        "César O'neill",
+        "Володимир Король",
+        "Bigshow Lamar Campton",
+        "Maurício Mascaro"
+      ]
+    },
+    {
       "slug": "first-touch",
       "generated": true,
       "theme": "#1B4332",
@@ -266,39 +281,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "heading-safety",
-      "concept": "navy",
-      "theme": "#12261E",
-      "metaTitle": "[카드뉴스] 유소년 헤딩, 안전하게 배우기 4가지",
-      "metaDesc": "성장기 어린 선수가 헤딩을 안전하게 배우는 4가지 원칙을 카드뉴스로 정리했습니다.",
-      "listTitle": "헤딩, 안전하게 배우기",
-      "listDesc": "어린 나이엔 조심해야 할 헤딩. 다치지 않게 배우는 안전 원칙.",
-      "kicker": "GROUND YOUTH · 축구 건강",
-      "coverTitle": "헤딩은<br>안전하게 먼저",
-      "coverSub": "성장기엔 '올바른 방법'이 중요합니다.",
-      "photoQuery": "youth soccer training header ball",
-      "cards": [
-        {
-          "title": "이마<br>가운데로",
-          "body": "정수리나 얼굴이 아니라 단단한 이마(헤어라인 아래)로. 눈은 공을 끝까지 보고 맞힙니다."
-        },
-        {
-          "title": "목에<br>힘주기",
-          "body": "목을 고정하고 상체 전체로 미는 느낌. 목만 까딱이면 충격이 커지고 방향도 안 잡혀요."
-        },
-        {
-          "title": "가벼운 공<br>부터",
-          "body": "어린 선수는 부드럽고 가벼운 공, 짧은 거리부터. 세게·자주 하지 않는 게 성장기엔 안전합니다."
-        },
-        {
-          "title": "무리<br>금지",
-          "body": "머리가 아프거나 어지러우면 즉시 중단. 헤딩은 반복 횟수를 정해 두고 조금씩 익히세요."
-        }
-      ],
-      "closingTitle": "안전하게 배우면<br>무기가 됩니다",
-      "closingBody": "어릴 땐 기본기와 안전이 먼저. 성장에 맞춰 천천히 늘려가면 됩니다."
-    },
     {
       "slug": "goalkeeper",
       "concept": "training",
