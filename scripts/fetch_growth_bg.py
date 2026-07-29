@@ -18,7 +18,7 @@ QUERIES = {
     3: ["healthy food children table", "milk eggs healthy breakfast", "kids healthy meal"], # 영양
     4: ["kid playing soccer field", "boy football training", "child running soccer"],     # 운동
     5: ["children playing outdoors sunlight", "kids running park sun", "child outdoor sun"], # 햇빛
-    6: ["youth soccer team sunset", "child soccer silhouette", "football kid sunset"],    # 마무리
+    6: ["empty soccer field sunrise", "soccer ball on grass field", "football pitch morning light"],  # 마무리
 }
 
 
