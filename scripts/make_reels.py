@@ -51,7 +51,8 @@ def wrap(draw, text, font, maxw):
     if cur: lines.append(cur)
     return lines
 
-def ctext(draw, cy, text, font, fill, maxw=920, lh=1.18, shadow=True):
+def ctext(draw, cy, text, font, fill, maxw=920, lh=1.18, shadow=True,
+          stroke_width=0, stroke_fill=(0, 0, 0)):
     lines = []
     for para in text.split("\n"):
         lines += wrap(draw, para, font, maxw)
@@ -61,9 +62,10 @@ def ctext(draw, cy, text, font, fill, maxw=920, lh=1.18, shadow=True):
     for ln in lines:
         w = draw.textlength(ln, font=font)
         x = (W - w) / 2
-        if shadow:
+        if shadow and not stroke_width:
             draw.text((x+3, y+3), ln, font=font, fill=(0, 0, 0, 150))
-        draw.text((x, y), ln, font=font, fill=fill)
+        draw.text((x, y), ln, font=font, fill=fill,
+                  stroke_width=stroke_width, stroke_fill=stroke_fill)
         y += lineh
     return y
 
@@ -208,34 +210,34 @@ def build_A():
 # ── C) 재능<노력 명언 릴스 (스톡영상 + 자막) ─────────
 def beats_quotes():
     def c0_cover(d):
-        ctext(d, 760, "재능일까,\n노력일까", fb(100), WHITE, lh=1.16)
-        ctext(d, 1010, "세계 최고들이 남긴 한마디", fb(50), AMBER)
-        ctext(d, 1560, "끝까지 넘겨보세요 →", fb(44), GREEN)
+        ctext(d, 760, "재능일까,\n노력일까", fb(100), WHITE, lh=1.16, stroke_width=6)
+        ctext(d, 1010, "세계 최고들이 남긴 한마디", fb(50), AMBER, stroke_width=5)
+        ctext(d, 1560, "끝까지 넘겨보세요 →", fb(46), GREEN, stroke_width=5)
 
     def c1_ronaldo(d):
         ctext(d, 860, "“재능이 있어도\n열심히 하지 않으면\n아무것도 아니다”",
-              fb(76), WHITE, lh=1.3)
-        ctext(d, 1230, "— 크리스티아누 호날두", fb(52), AMBER)
+              fb(76), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1240, "— 크리스티아누 호날두", fb(60), AMBER, stroke_width=7)
 
     def c2_pele(d):
         ctext(d, 860, "“성공은\n우연이 아니다.\n노력, 인내,\n그리고 희생이다”",
-              fb(74), WHITE, lh=1.28)
-        ctext(d, 1310, "— 펠레", fb(52), AMBER)
+              fb(74), WHITE, lh=1.28, stroke_width=6)
+        ctext(d, 1320, "— 펠레", fb(60), AMBER, stroke_width=7)
 
     def c3_beckham(d):
         ctext(d, 860, "“내 비결은 연습이다.\n특별한 걸 이루려면\n일하고, 또 일해야 한다”",
-              fb(70), WHITE, lh=1.3)
-        ctext(d, 1230, "— 데이비드 베컴", fb(52), AMBER)
+              fb(70), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1240, "— 데이비드 베컴", fb(60), AMBER, stroke_width=7)
 
     def c4_park(d):
         ctext(d, 860, "“나는 천재가 아니었다.\n그저 남들보다\n더 뛰었을 뿐이다”",
-              fb(74), WHITE, lh=1.3)
-        ctext(d, 1230, "— 박지성", fb(52), AMBER)
+              fb(74), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1240, "— 박지성", fb(60), AMBER, stroke_width=7)
 
     def c5_cta(d):
-        ctext(d, 820, "재능은 시작일 뿐,\n끝까지 가는 건\n노력이다", fb(84), WHITE, lh=1.24)
-        ctext(d, 1180, "우리 아이의 오늘 한 걸음을 응원해요", fr(42), GREY)
-        ctext(d, 1560, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN)
+        ctext(d, 820, "재능은 시작일 뿐,\n끝까지 가는 건\n노력이다", fb(84), WHITE, lh=1.24, stroke_width=6)
+        ctext(d, 1190, "우리 아이의 오늘 한 걸음을 응원해요", fb(50), WHITE, stroke_width=6)
+        ctext(d, 1560, "매일 유소년 축구 이야기 · @groundyouth", fb(44), GREEN, stroke_width=5)
 
     return [
         (beat_q(c0_cover),  0.0,  3.2),
