@@ -1,0 +1,423 @@
+<title>Night Ocean Aurora — Deep Work Background</title>
+<meta name="description" content="Seamless looping deep-work background: slow night ocean, drifting aurora ceiling light, and random shooting stars. Record with OBS for a focus-music video." />
+<style>
+  :root{
+    --night-0:#05060f;
+    --night-1:#0a0d1e;
+    --star:#eef2ff;
+    --moon:#cfd8ff;
+    --ui-bg:rgba(10,13,30,.62);
+    --ui-border:rgba(207,216,255,.16);
+    --ui-text:#c9d2ef;
+    --ui-dim:#7f89ad;
+    --accent:#8a6ff0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:#000;overflow:hidden}
+  body{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans KR",sans-serif;
+    color:var(--ui-text);
+    -webkit-font-smoothing:antialiased;
+  }
+  #scene{display:block;width:100vw;height:100vh}
+
+  /* ---- control panel ---- */
+  #ui{
+    position:fixed;left:16px;bottom:16px;z-index:10;
+    display:flex;flex-direction:column;gap:12px;
+    width:248px;padding:14px 15px;
+    background:var(--ui-bg);
+    border:1px solid var(--ui-border);
+    border-radius:14px;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    box-shadow:0 8px 40px rgba(0,0,0,.5);
+    transition:opacity .5s ease, transform .5s ease;
+    font-size:12px;
+  }
+  #ui.hidden{opacity:0;transform:translateY(10px);pointer-events:none}
+  #ui h1{
+    margin:0;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ui-dim);display:flex;align-items:center;gap:7px;
+  }
+  #ui h1 .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  .row{display:flex;flex-direction:column;gap:5px}
+  .row label{display:flex;justify-content:space-between;color:var(--ui-text)}
+  .row label span{color:var(--ui-dim);font-variant-numeric:tabular-nums}
+  input[type=range]{
+    -webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;
+    background:linear-gradient(90deg,var(--accent),#3a4c8a);outline:none;cursor:pointer;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:14px;height:14px;border-radius:50%;
+    background:#eef2ff;border:2px solid var(--accent);cursor:pointer;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:14px;height:14px;border-radius:50%;background:#eef2ff;border:2px solid var(--accent);cursor:pointer;
+  }
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  button{
+    flex:1;min-width:66px;padding:8px 6px;border-radius:9px;cursor:pointer;
+    background:rgba(207,216,255,.06);border:1px solid var(--ui-border);color:var(--ui-text);
+    font:inherit;font-size:11.5px;transition:background .2s,border-color .2s;
+  }
+  button:hover{background:rgba(138,111,240,.18);border-color:var(--accent)}
+  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .hint{color:var(--ui-dim);font-size:10.5px;line-height:1.5}
+  kbd{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;
+    background:rgba(207,216,255,.1);border:1px solid var(--ui-border);
+    border-radius:4px;padding:1px 5px;color:var(--ui-text);
+  }
+  #peek{
+    position:fixed;left:16px;bottom:16px;z-index:9;
+    padding:7px 11px;border-radius:10px;font-size:11px;color:var(--ui-dim);
+    background:var(--ui-bg);border:1px solid var(--ui-border);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    opacity:0;transition:opacity .4s ease;pointer-events:none;
+  }
+  #peek.show{opacity:1}
+</style>
+
+<canvas id="scene"></canvas>
+
+<div id="ui">
+  <h1><span class="dot"></span>Night Ocean Aurora</h1>
+  <div class="row">
+    <label>천장 색 순환 <span id="v-aurora">1.0×</span></label>
+    <input type="range" id="s-aurora" min="0" max="3" step="0.05" value="1">
+  </div>
+  <div class="row">
+    <label>파도 움직임 <span id="v-wave">1.0×</span></label>
+    <input type="range" id="s-wave" min="0" max="2.5" step="0.05" value="1">
+  </div>
+  <div class="row">
+    <label>별똥별 빈도 <span id="v-shoot">보통</span></label>
+    <input type="range" id="s-shoot" min="0" max="3" step="0.1" value="1">
+  </div>
+  <div class="btns">
+    <button id="b-hide">UI 숨김 (H)</button>
+    <button id="b-full">전체화면 (F)</button>
+  </div>
+  <div class="hint"><kbd>H</kbd> 숨김 · <kbd>F</kbd> 전체화면 · 녹화는 OBS로 이 창을 캡처하세요.</div>
+</div>
+<div id="peek"><kbd>H</kbd> 컨트롤 다시 열기</div>
+
+<script>
+(() => {
+  "use strict";
+  const cv = document.getElementById("scene");
+  const ctx = cv.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let W = 0, H = 0, DPR = 1, horizon = 0;
+  const cfg = { aurora: 1, wave: 1, shoot: 1 };
+
+  // ---- palette: aurora ceiling hues (H,S,L) that slowly rotate through ----
+  const auroraHues = [265, 190, 320, 210, 285]; // purple, teal, magenta, blue, violet
+
+  let stars = [], blobs = [], curtains = [], shooters = [];
+
+  function resize() {
+    DPR = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * DPR; cv.height = H * DPR;
+    cv.style.width = W + "px"; cv.style.height = H + "px";
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    horizon = H * 0.60;
+    buildStars();
+    buildAurora();
+  }
+
+  function buildStars() {
+    stars = [];
+    const n = Math.round((W * horizon) / 5200); // density scales with sky area
+    for (let i = 0; i < n; i++) {
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * (horizon - 6),
+        r: Math.random() * 1.15 + 0.25,
+        base: Math.random() * 0.5 + 0.25,
+        amp: Math.random() * 0.4 + 0.15,
+        ph: Math.random() * Math.PI * 2,
+        sp: Math.random() * 0.7 + 0.25
+      });
+    }
+  }
+
+  function buildAurora() {
+    // large soft "ceiling glow" blobs drifting across the upper sky
+    blobs = [];
+    const nb = 5;
+    for (let i = 0; i < nb; i++) {
+      blobs.push({
+        x: Math.random(),                       // normalized
+        y: Math.random() * 0.42 + 0.02,
+        r: Math.random() * 0.28 + 0.30,         // normalized to W
+        hue: auroraHues[i % auroraHues.length],
+        drift: (Math.random() * 0.4 + 0.15) * (Math.random() < 0.5 ? -1 : 1),
+        pulsePh: Math.random() * Math.PI * 2,
+        pulseSp: Math.random() * 0.3 + 0.15
+      });
+    }
+    // faint vertical aurora curtains for extra life
+    curtains = [];
+    for (let i = 0; i < 3; i++) {
+      curtains.push({
+        x: Math.random(),
+        w: Math.random() * 0.10 + 0.06,
+        hue: auroraHues[(i + 1) % auroraHues.length],
+        drift: (Math.random() * 0.25 + 0.08) * (Math.random() < 0.5 ? -1 : 1),
+        wavePh: Math.random() * Math.PI * 2,
+        top: Math.random() * 0.05,
+        bottom: Math.random() * 0.15 + 0.34
+      });
+    }
+  }
+
+  function spawnShooter() {
+    const fromLeft = Math.random() < 0.5;
+    const dirX = fromLeft ? 1 : -1;
+    const startX = fromLeft ? Math.random() * W * 0.45 : W * 0.55 + Math.random() * W * 0.45;
+    const startY = Math.random() * horizon * 0.55;
+    const speed = Math.random() * 380 + 560;
+    const a = (Math.random() * 22 + 20) * Math.PI / 180; // 20-42deg below horizontal
+    shooters.push({
+      x: startX, y: startY,
+      vx: dirX * Math.cos(a) * speed,
+      vy: Math.sin(a) * speed,
+      life: 0, ttl: Math.random() * 0.5 + 0.7,
+      len: Math.random() * 130 + 120
+    });
+  }
+
+  // scheduling shooting stars at random intervals
+  let nextShoot = 2 + Math.random() * 4;
+
+  // ------- drawing -------
+  function drawSky(t) {
+    // base vertical gradient
+    const g = ctx.createLinearGradient(0, 0, 0, horizon);
+    g.addColorStop(0, "#05060f");
+    g.addColorStop(0.55, "#080b1c");
+    g.addColorStop(1, "#0c1024");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, horizon);
+
+    // aurora ceiling blobs (additive)
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    for (const b of blobs) {
+      b.x += (b.drift * 0.006 * cfg.aurora) / 60;
+      if (b.x < -0.4) b.x = 1.4; if (b.x > 1.4) b.x = -0.4;
+      const hue = b.hue + Math.sin(t * 0.04 * cfg.aurora + b.pulsePh) * 22;
+      const pulse = 0.5 + 0.5 * Math.sin(t * b.pulseSp * cfg.aurora + b.pulsePh);
+      const cx = b.x * W, cy = b.y * H, rad = b.r * W;
+      const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+      const a = (0.10 + pulse * 0.10) * (cfg.aurora > 0 ? 1 : 0.15);
+      rg.addColorStop(0, `hsla(${hue},72%,60%,${a})`);
+      rg.addColorStop(0.5, `hsla(${hue},70%,50%,${a * 0.4})`);
+      rg.addColorStop(1, "hsla(0,0%,0%,0)");
+      ctx.fillStyle = rg;
+      ctx.fillRect(0, 0, W, horizon);
+    }
+    // vertical curtains
+    for (const c of curtains) {
+      c.x += (c.drift * 0.004 * cfg.aurora) / 60;
+      if (c.x < -0.2) c.x = 1.2; if (c.x > 1.2) c.x = -0.2;
+      const sway = Math.sin(t * 0.25 * cfg.aurora + c.wavePh) * W * 0.02;
+      const cx = c.x * W + sway;
+      const hue = c.hue + Math.sin(t * 0.05 + c.wavePh) * 18;
+      const lg = ctx.createLinearGradient(cx, c.top * H, cx, c.bottom * H);
+      lg.addColorStop(0, `hsla(${hue},75%,62%,0)`);
+      lg.addColorStop(0.4, `hsla(${hue},75%,60%,${0.09 * (cfg.aurora ? 1 : 0.1)})`);
+      lg.addColorStop(1, `hsla(${hue},75%,55%,0)`);
+      ctx.fillStyle = lg;
+      ctx.fillRect(cx - c.w * W / 2, c.top * H, c.w * W, (c.bottom - c.top) * H);
+    }
+    ctx.restore();
+
+    // soft moon glow near horizon (light source for the reflection)
+    const mx = W * 0.5, my = horizon - 4;
+    const mg = ctx.createRadialGradient(mx, my, 0, mx, my, W * 0.16);
+    mg.addColorStop(0, "rgba(207,216,255,0.16)");
+    mg.addColorStop(1, "rgba(207,216,255,0)");
+    ctx.fillStyle = mg;
+    ctx.fillRect(0, horizon - W * 0.16, W, W * 0.16);
+  }
+
+  function drawStars(t) {
+    ctx.save();
+    for (const s of stars) {
+      const tw = reduce ? s.base : s.base + Math.sin(t * s.sp + s.ph) * s.amp;
+      ctx.globalAlpha = Math.max(0, Math.min(1, tw));
+      ctx.fillStyle = "#eef2ff";
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function drawShooters(dt) {
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    for (let i = shooters.length - 1; i >= 0; i--) {
+      const s = shooters[i];
+      s.life += dt;
+      s.x += s.vx * dt; s.y += s.vy * dt;
+      const k = s.life / s.ttl;
+      if (k >= 1 || s.y > horizon) { shooters.splice(i, 1); continue; }
+      const fade = Math.sin(Math.min(k, 1) * Math.PI); // in-out
+      const tx = s.x - s.vx * (s.len / Math.hypot(s.vx, s.vy)) / 1;
+      const ty = s.y - s.vy * (s.len / Math.hypot(s.vx, s.vy)) / 1;
+      const grad = ctx.createLinearGradient(tx, ty, s.x, s.y);
+      grad.addColorStop(0, "rgba(207,216,255,0)");
+      grad.addColorStop(1, `rgba(238,242,255,${0.9 * fade})`);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 2;
+      ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(s.x, s.y); ctx.stroke();
+      // bright head
+      ctx.fillStyle = `rgba(255,255,255,${fade})`;
+      ctx.beginPath(); ctx.arc(s.x, s.y, 1.8, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function drawOcean(t) {
+    // water base — reflects the night, darker toward the bottom
+    const g = ctx.createLinearGradient(0, horizon, 0, H);
+    g.addColorStop(0, "#0c1230");
+    g.addColorStop(0.25, "#070a1c");
+    g.addColorStop(1, "#030409");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, horizon, W, H - horizon);
+
+    // faint aurora reflection wash on the water (very subtle)
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    for (const b of blobs) {
+      const cx = b.x * W;
+      const rg = ctx.createLinearGradient(cx, horizon, cx, horizon + (H - horizon) * 0.5);
+      const hue = b.hue;
+      rg.addColorStop(0, `hsla(${hue},65%,55%,0.05)`);
+      rg.addColorStop(1, `hsla(${hue},65%,45%,0)`);
+      ctx.fillStyle = rg;
+      ctx.fillRect(cx - b.r * W * 0.6, horizon, b.r * W * 1.2, (H - horizon) * 0.5);
+    }
+    ctx.restore();
+
+    // moonlight glimmer column — shimmering dashes widening toward the viewer
+    const mx = W * 0.5;
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    const rows = 42;
+    for (let i = 0; i < rows; i++) {
+      const p = i / rows;                          // 0 at horizon -> 1 at bottom
+      const y = horizon + p * (H - horizon);
+      const spread = (0.02 + p * 0.16) * W;        // column widens with distance
+      const seg = 3 + p * 10;
+      const speed = reduce ? 0 : (0.6 + p) * cfg.wave;
+      const jitter = Math.sin(t * speed + i * 1.7) * spread * 0.5;
+      const alpha = (1 - p) * 0.5 * (0.5 + 0.5 * Math.sin(t * (1 + p) * cfg.wave + i));
+      ctx.fillStyle = `rgba(207,216,255,${Math.max(0, alpha) * 0.5})`;
+      const cx = mx + jitter;
+      ctx.fillRect(cx - seg / 2, y, seg, 1.4 + p * 1.6);
+    }
+    ctx.restore();
+
+    // gentle wave crest lines scrolling slowly
+    ctx.save();
+    ctx.strokeStyle = "rgba(160,178,235,0.05)";
+    ctx.lineWidth = 1;
+    const lines = 16;
+    for (let i = 0; i < lines; i++) {
+      const p = i / lines;
+      const y = horizon + p * (H - horizon);
+      const amp = (1 + p * 5) * cfg.wave;
+      const phase = t * (0.3 + p * 0.5) * cfg.wave + i;
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 12) {
+        const yy = y + Math.sin(x * (0.004 + p * 0.004) + phase) * amp;
+        x === 0 ? ctx.moveTo(x, yy) : ctx.lineTo(x, yy);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // ------- loop -------
+  let last = performance.now() / 1000;
+  let tAcc = 0;
+  function frame(now) {
+    now /= 1000;
+    let dt = now - last; last = now;
+    if (dt > 0.1) dt = 0.1;                 // clamp after tab-switch
+    const eff = reduce ? dt * 0.25 : dt;    // honor reduced-motion by slowing
+    tAcc += eff;
+
+    // schedule shooting stars
+    if (cfg.shoot > 0) {
+      nextShoot -= eff * cfg.shoot;
+      if (nextShoot <= 0) {
+        spawnShooter();
+        nextShoot = (2.5 + Math.random() * 6) / Math.max(cfg.shoot, 0.2);
+      }
+    }
+
+    ctx.clearRect(0, 0, W, H);
+    drawSky(tAcc);
+    drawStars(tAcc);
+    drawShooters(eff);
+    drawOcean(tAcc);
+    requestAnimationFrame(frame);
+  }
+
+  // ------- controls -------
+  const ui = document.getElementById("ui");
+  const peek = document.getElementById("peek");
+  const bind = (id, key, fmt) => {
+    const el = document.getElementById(id);
+    const out = document.getElementById("v-" + key);
+    const upd = () => {
+      cfg[key] = parseFloat(el.value);
+      if (out) out.textContent = fmt(cfg[key]);
+    };
+    el.addEventListener("input", upd); upd();
+  };
+  bind("s-aurora", "aurora", v => v.toFixed(1) + "×");
+  bind("s-wave", "wave", v => v.toFixed(1) + "×");
+  bind("s-shoot", "shoot", v => v === 0 ? "없음" : v < 0.7 ? "드묾" : v < 1.6 ? "보통" : "잦음");
+
+  let uiHidden = false;
+  function setUI(hidden) {
+    uiHidden = hidden;
+    ui.classList.toggle("hidden", hidden);
+  }
+  document.getElementById("b-hide").addEventListener("click", () => setUI(true));
+  document.getElementById("b-full").addEventListener("click", () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  });
+  addEventListener("keydown", e => {
+    const k = e.key.toLowerCase();
+    if (k === "h") setUI(!uiHidden);
+    if (k === "f") {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    }
+  });
+  // when UI hidden, brief peek hint on mouse move
+  let peekTimer;
+  addEventListener("mousemove", () => {
+    if (!uiHidden) return;
+    peek.classList.add("show");
+    clearTimeout(peekTimer);
+    peekTimer = setTimeout(() => peek.classList.remove("show"), 1600);
+  });
+
+  addEventListener("resize", resize);
+  resize();
+  requestAnimationFrame(frame);
+})();
+</script>
