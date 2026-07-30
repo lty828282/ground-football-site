@@ -98,6 +98,17 @@
 .mp-cta-box .b1{font-size:17px;font-weight:900;}
 .mp-cta-box .b2{font-size:13px;color:#e7f2ea;margin-top:5px;line-height:1.4;}
 .mp-cta-box .b2 b{color:var(--gold);}
+
+/* 음식 사진 띠 */
+.mp-photos{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding-top:2px;}
+.mp-photos.three{grid-template-columns:repeat(3,1fr);}
+.mp-photos.two{grid-template-columns:repeat(2,1fr);}
+.mp-ph{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;
+  background:#e9e4d6 center/cover no-repeat;border:1px solid var(--line);}
+.mp-photos.two .mp-ph{aspect-ratio:3/2;}
+.mp-ph .cap{position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.68) 100%);
+  color:#fff;font-size:11px;font-weight:800;text-align:center;padding:16px 4px 6px;letter-spacing:-.3px;}
 </style>
 </head>
 <body>
@@ -191,7 +202,6 @@
             <li><b>우유·요거트</b> <span>— 뼈 성장 칼슘</span></li>
             <li><b>제철 과일 한 조각</b> <span>— 비타민·수분</span></li>
           </ul>
-          <div class="mp-note"><b>Tip.</b> 방학이라 늦잠 자도 아침은 꼭! 뇌·근육이 아침 연료로 하루를 시작해요.</div>
         </div>
         <div class="mp-block snack">
           <div class="mp-bh"><span class="badge">10:00</span><span class="t">오전 간식</span><span class="tag">작은 끼니</span></div>
@@ -199,6 +209,12 @@
             <li><b>바나나</b> <span>— 빠른 에너지 + 칼륨</span></li>
             <li><b>무가당 요거트</b> <span>— 단백질·칼슘·유산균</span></li>
           </ul>
+        </div>
+        <div class="mp-photos">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/toast.jpg')"><span class="cap">잡곡밥·토스트</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/egg.jpg')"><span class="cap">계란</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/milk.jpg')"><span class="cap">우유</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/fruit.jpg')"><span class="cap">과일</span></div>
         </div>
       </div>
       <div class="mp-foot">
@@ -230,6 +246,12 @@
           </ul>
           <div class="mp-note"><b>주의.</b> 훈련 직전 기름지고 무거운 음식은 X — 속이 불편해져요.</div>
         </div>
+        <div class="mp-photos">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/rice.jpg')"><span class="cap">밥</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/fish.jpg')"><span class="cap">고기·생선</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/veg.jpg')"><span class="cap">채소</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/soup.jpg')"><span class="cap">국</span></div>
+        </div>
       </div>
       <div class="mp-foot">
         <span class="mp-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></span>
@@ -260,6 +282,11 @@
           </ul>
           <div class="mp-note"><b>Tip.</b> 저녁은 자기 3시간 전까지. 너무 늦은 식사는 숙면을 방해해요.</div>
         </div>
+        <div class="mp-photos three">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/tofu.jpg')"><span class="cap">두부</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/chicken.jpg')"><span class="cap">닭·생선</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/stew.jpg')"><span class="cap">된장국</span></div>
+        </div>
       </div>
       <div class="mp-foot">
         <span class="mp-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span>
@@ -280,9 +307,12 @@
             <li><b>따뜻한 우유</b> <span>— 칼슘 + 편안한 수면</span></li>
             <li><b>견과 약간</b> <span>— 건강한 지방 (야식·단 음료는 X)</span></li>
           </ul>
-          <div class="mp-note"><b>하루 간식 4번.</b> 오전 · 훈련 전 · 훈련 후 · 자기 전 — 타이밍마다 작은 끼니로 채워요.</div>
         </div>
-        <div class="mp-cta-box">
+        <div class="mp-photos two" style="margin-top:0">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/milk.jpg')"><span class="cap">따뜻한 우유</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/nuts.jpg')"><span class="cap">견과 약간</span></div>
+        </div>
+        <div class="mp-cta-box" style="margin-top:auto">
           <div class="b1">가방에 챙길 간식, 골라뒀어요</div>
           <div class="b2">초코우유 · 두유 · 에너지바 · 견과 · 요거트<br><b>추천 간식 보기 → 프로필 링크 · groundyouth.com</b></div>
         </div>
