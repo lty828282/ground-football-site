@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[카드뉴스] 방학 하루 식단표 · 운동하는 우리 아이 | 그라운드 유소년</title>
+<meta name="description" content="방학 특집. 운동하는 유소년을 위한 하루 식단 타임라인 — 아침부터 자기 전까지 끼니와 간식 타이밍을 한눈에. 성장·회복·에너지를 챙기는 인포그래픽 카드뉴스.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358364523971958"
+     crossorigin="anonymous"></script>
+<style>
+/* ── 식단 인포그래픽 테마(밝은 크림) ─────────────────── */
+.cnx-card.mp{
+  --green:#1B4332; --green2:#2E7D52; --leaf:#7ED957;
+  --amber:#E8A33D; --gold:#FFD54F; --ink:#14261E; --muted:#5F6F67;
+  --line:#E7E1D2; --cream:#FAF7EF;
+  background:var(--cream); color:var(--ink);
+  aspect-ratio:4/5; border-radius:18px;
+  font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;
+  display:flex; flex-direction:column;
+}
+.cnx-card.mp::after{display:none!important;}
+.cnx-card.mp *{position:relative; z-index:1;}
+
+/* 공통 헤더/푸터 */
+.mp-head{padding:20px 26px 12px;}
+.mp-eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:var(--amber);text-transform:uppercase;margin-bottom:6px;}
+.mp-h2{font-size:25px;font-weight:900;line-height:1.2;color:var(--ink);letter-spacing:-.5px;}
+.mp-h2 b{color:var(--green2);}
+.mp-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 26px;background:var(--ink);color:#fff;}
+.mp-foot .mk{font-size:13px;font-weight:900;letter-spacing:1px;}
+.mp-foot .mk i{color:var(--leaf);font-style:normal;}
+.mp-foot .cta{font-size:12.5px;font-weight:800;color:var(--gold);}
+.mp-dots{display:flex;gap:6px;}
+.mp-dots i{width:20px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);}
+.mp-dots i.on{background:var(--gold);}
+
+/* ── 표지 ─────────────────────────────── */
+.mp-cover{padding:0;}
+.mp-hero{flex:1;background:linear-gradient(150deg,#1B4332,#2E7D52);color:#fff;
+  padding:52px 40px 40px;display:flex;flex-direction:column;justify-content:center;}
+.mp-hero .tag{display:inline-block;align-self:flex-start;font-size:14px;font-weight:800;
+  letter-spacing:1px;color:var(--ink);background:var(--gold);border-radius:999px;padding:7px 18px;margin-bottom:22px;}
+.mp-hero h1{font-size:52px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;}
+.mp-hero h1 em{font-style:normal;color:var(--gold);}
+.mp-hero .sub{font-size:20px;font-weight:600;line-height:1.5;color:#e7f2ea;margin-top:20px;max-width:92%;}
+.mp-hero .rule{width:64px;height:6px;background:var(--leaf);border-radius:3px;margin:26px 0 0;}
+.mp-hero .go{font-size:16px;font-weight:800;color:var(--gold);margin-top:22px;}
+
+/* ── 타임라인(한눈에) ───────────────────── */
+.mp-tl{flex:1;padding:6px 22px 6px;display:flex;flex-direction:column;justify-content:center;gap:9px;}
+.mp-row{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:10px 14px;}
+.mp-row .tm{flex:none;width:52px;text-align:center;font-family:'IBM Plex Mono',monospace;
+  font-size:15px;font-weight:600;color:var(--green2);}
+.mp-row .dot{flex:none;width:11px;height:11px;border-radius:50%;background:var(--green2);box-shadow:0 0 0 4px rgba(46,125,82,.14);}
+.mp-row .tx{flex:1;min-width:0;}
+.mp-row .nm{font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.15;}
+.mp-row .fd{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.3;}
+.mp-row .pill{flex:none;font-size:11px;font-weight:800;color:var(--green2);background:#EAF4EC;border-radius:999px;padding:4px 10px;}
+.mp-row.snack{background:#FDF4E4;border-color:#F1DFBE;}
+.mp-row.snack .dot{background:var(--amber);box-shadow:0 0 0 4px rgba(232,163,61,.16);}
+.mp-row.snack .tm{color:var(--amber);}
+.mp-row.snack .pill{color:#B4741B;background:#F7E7C9;}
+
+/* ── 상세 카드 ──────────────────────────── */
+.mp-body{flex:1;padding:16px 26px 8px;display:flex;flex-direction:column;gap:14px;}
+.mp-block{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;}
+.mp-block.snack{background:#FDF4E4;border-color:#F1DFBE;}
+.mp-bh{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.mp-bh .badge{flex:none;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+  color:#fff;background:var(--green2);border-radius:8px;padding:5px 9px;}
+.mp-block.snack .mp-bh .badge{background:var(--amber);}
+.mp-bh .t{font-size:21px;font-weight:900;color:var(--ink);line-height:1.1;}
+.mp-bh .tag{margin-left:auto;font-size:11px;font-weight:800;color:var(--green2);background:#EAF4EC;border-radius:999px;padding:4px 10px;white-space:nowrap;}
+.mp-block.snack .mp-bh .tag{color:#B4741B;background:#F7E7C9;}
+.mp-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.mp-list li{display:flex;gap:9px;font-size:14px;line-height:1.35;color:var(--ink);}
+.mp-list li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--leaf);margin-top:6px;}
+.mp-block.snack .mp-list li::before{background:var(--amber);}
+.mp-list li b{font-weight:800;}
+.mp-list li span{color:var(--muted);font-size:12.5px;}
+.mp-note{font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:10px;}
+.mp-note b{color:var(--green2);}
+
+/* 간식 총정리(연계) */
+.mp-sum{display:flex;flex-direction:column;gap:8px;}
+.mp-sum .it{display:flex;align-items:center;gap:11px;background:#FDF4E4;border:1px solid #F1DFBE;
+  border-radius:13px;padding:10px 13px;}
+.mp-sum .it .tm{flex:none;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#B4741B;width:44px;}
+.mp-sum .it .nm{font-size:14.5px;font-weight:900;color:var(--ink);}
+.mp-sum .it .nm span{display:block;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:1px;}
+.mp-cta-box{background:linear-gradient(120deg,#1B4332,#2E7D52);color:#fff;border-radius:16px;
+  padding:16px 18px;text-align:center;}
+.mp-cta-box .b1{font-size:17px;font-weight:900;}
+.mp-cta-box .b2{font-size:13px;color:#e7f2ea;margin-top:5px;line-height:1.4;}
+.mp-cta-box .b2 b{color:var(--gold);}
+
+/* 음식 사진 띠 */
+.mp-photos{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding-top:2px;}
+.mp-photos.three{grid-template-columns:repeat(3,1fr);}
+.mp-photos.two{grid-template-columns:repeat(2,1fr);}
+.mp-ph{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;
+  background:#e9e4d6 center/cover no-repeat;border:1px solid var(--line);}
+.mp-photos.two .mp-ph{aspect-ratio:3/2;}
+.mp-ph .cap{position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.68) 100%);
+  color:#fff;font-size:11px;font-weight:800;text-align:center;padding:16px 4px 6px;letter-spacing:-.3px;}
+</style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb"><a href="/index.html">홈</a> / <a href="/pages/nutrition.html">건강·영양</a> / <span>카드뉴스</span></div>
+    <h1>방학 하루 식단표 · 운동하는 우리 아이</h1>
+  </div>
+
+  <div class="cnx-wrap">
+    <div class="cnx-hint">📱 각 카드를 이미지로 저장해 공유해 보세요</div>
+
+    <!-- 1. 표지 -->
+    <div class="cnx-card mp mp-cover">
+      <div class="mp-hero">
+        <span class="tag">방학 특집 · 성장기 식단</span>
+        <h1>운동하는 우리 아이<br><em>방학 하루 식단표</em></h1>
+        <div class="sub">아침부터 자기 전까지 — 끼니와 <b>간식 타이밍</b>까지 한 장에 정리했어요.</div>
+        <div class="rule"></div>
+        <div class="go">넘겨서 시간대별로 확인하세요 →</div>
+      </div>
+      <div class="mp-foot">
+        <span class="mk">GROUND <i>YOUTH</i></span>
+        <span class="cta">groundyouth.com</span>
+      </div>
+    </div>
+
+    <!-- 2. 하루 타임라인 -->
+    <div class="cnx-card mp">
+      <div class="mp-head">
+        <div class="mp-eyebrow">하루 한눈에</div>
+        <h2 class="mp-h2">우리 아이 <b>하루 식단 타임라인</b></h2>
+      </div>
+      <div class="mp-tl">
+        <div class="mp-row">
+          <span class="tm">07:30</span><span class="dot"></span>
+          <div class="tx"><div class="nm">아침</div><div class="fd">잡곡밥·계란·우유·과일</div></div>
+          <span class="pill">에너지</span>
+        </div>
+        <div class="mp-row snack">
+          <span class="tm">10:00</span><span class="dot"></span>
+          <div class="tx"><div class="nm">오전 간식</div><div class="fd">바나나 · 무가당 요거트</div></div>
+          <span class="pill">간식</span>
+        </div>
+        <div class="mp-row">
+          <span class="tm">12:30</span><span class="dot"></span>
+          <div class="tx"><div class="nm">점심</div><div class="fd">밥·고기/생선·채소·국</div></div>
+          <span class="pill">주 연료</span>
+        </div>
+        <div class="mp-row snack">
+          <span class="tm">15:00</span><span class="dot"></span>
+          <div class="tx"><div class="nm">훈련 전 간식</div><div class="fd">바나나 · 에너지바</div></div>
+          <span class="pill">간식</span>
+        </div>
+        <div class="mp-row snack">
+          <span class="tm">17:30</span><span class="dot"></span>
+          <div class="tx"><div class="nm">훈련 후 회복</div><div class="fd">초코우유 · 주먹밥</div></div>
+          <span class="pill">간식</span>
+        </div>
+        <div class="mp-row">
+          <span class="tm">19:00</span><span class="dot"></span>
+          <div class="tx"><div class="nm">저녁</div><div class="fd">밥·두부/닭/생선·채소·된장국</div></div>
+          <span class="pill">회복·성장</span>
+        </div>
+        <div class="mp-row snack">
+          <span class="tm">21:00</span><span class="dot"></span>
+          <div class="tx"><div class="nm">자기 전</div><div class="fd">따뜻한 우유 · 견과 약간</div></div>
+          <span class="pill">간식</span>
+        </div>
+      </div>
+      <div class="mp-foot">
+        <span class="mp-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        <span class="mk">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 3. 아침 + 오전 간식 -->
+    <div class="cnx-card mp">
+      <div class="mp-head">
+        <div class="mp-eyebrow">Morning · 07:30–10:00</div>
+        <h2 class="mp-h2">아침을 <b>거르지 않기</b></h2>
+      </div>
+      <div class="mp-body">
+        <div class="mp-block">
+          <div class="mp-bh"><span class="badge">07:30</span><span class="t">아침</span><span class="tag">에너지 시동</span></div>
+          <ul class="mp-list">
+            <li><b>잡곡밥·통밀토스트</b> <span>— 오전 활동 탄수화물 연료</span></li>
+            <li><b>계란·두부</b> <span>— 근육의 재료 단백질</span></li>
+            <li><b>우유·요거트</b> <span>— 뼈 성장 칼슘</span></li>
+            <li><b>제철 과일 한 조각</b> <span>— 비타민·수분</span></li>
+          </ul>
+        </div>
+        <div class="mp-block snack">
+          <div class="mp-bh"><span class="badge">10:00</span><span class="t">오전 간식</span><span class="tag">작은 끼니</span></div>
+          <ul class="mp-list">
+            <li><b>바나나</b> <span>— 빠른 에너지 + 칼륨</span></li>
+            <li><b>무가당 요거트</b> <span>— 단백질·칼슘·유산균</span></li>
+          </ul>
+        </div>
+        <div class="mp-photos">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/toast.jpg')"><span class="cap">잡곡밥·토스트</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/egg.jpg')"><span class="cap">계란</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/milk.jpg')"><span class="cap">우유</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/fruit.jpg')"><span class="cap">과일</span></div>
+        </div>
+      </div>
+      <div class="mp-foot">
+        <span class="mp-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span>
+        <span class="mk">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 4. 점심 + 훈련 전 -->
+    <div class="cnx-card mp">
+      <div class="mp-head">
+        <div class="mp-eyebrow">Noon · 12:30–15:00</div>
+        <h2 class="mp-h2">점심은 <b>하루의 주 연료</b></h2>
+      </div>
+      <div class="mp-body">
+        <div class="mp-block">
+          <div class="mp-bh"><span class="badge">12:30</span><span class="t">점심</span><span class="tag">균형 한 끼</span></div>
+          <ul class="mp-list">
+            <li><b>밥(한 공기)</b> <span>— 오후 훈련까지 갈 탄수화물</span></li>
+            <li><b>고기·생선</b> <span>— 회복·성장 단백질</span></li>
+            <li><b>채소 반찬</b> <span>— 비타민·식이섬유</span></li>
+            <li><b>국·물</b> <span>— 수분 보충</span></li>
+          </ul>
+        </div>
+        <div class="mp-block snack">
+          <div class="mp-bh"><span class="badge">15:00</span><span class="t">훈련 전 간식</span><span class="tag">1~2시간 전</span></div>
+          <ul class="mp-list">
+            <li><b>바나나·에너지바</b> <span>— 소화 쉬운 빠른 탄수화물</span></li>
+          </ul>
+          <div class="mp-note"><b>주의.</b> 훈련 직전 기름지고 무거운 음식은 X — 속이 불편해져요.</div>
+        </div>
+        <div class="mp-photos">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/rice.jpg')"><span class="cap">밥</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/fish.jpg')"><span class="cap">고기·생선</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/veg.jpg')"><span class="cap">채소</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/soup.jpg')"><span class="cap">국</span></div>
+        </div>
+      </div>
+      <div class="mp-foot">
+        <span class="mp-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></span>
+        <span class="mk">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 5. 훈련 후 + 저녁 -->
+    <div class="cnx-card mp">
+      <div class="mp-head">
+        <div class="mp-eyebrow">Evening · 17:30–19:00</div>
+        <h2 class="mp-h2">끝나고 <b>30분</b>, 저녁으로 회복</h2>
+      </div>
+      <div class="mp-body">
+        <div class="mp-block snack">
+          <div class="mp-bh"><span class="badge">17:30</span><span class="t">훈련 후 회복</span><span class="tag">30분 안</span></div>
+          <ul class="mp-list">
+            <li><b>초코우유</b> <span>— 탄수+단백질을 한 번에 (간편 회복)</span></li>
+            <li><b>주먹밥·바나나</b> <span>— 소모한 에너지 다시 채우기</span></li>
+          </ul>
+        </div>
+        <div class="mp-block">
+          <div class="mp-bh"><span class="badge">19:00</span><span class="t">저녁</span><span class="tag">회복·성장</span></div>
+          <ul class="mp-list">
+            <li><b>밥</b> <span>— 오늘 쓴 에너지 보충</span></li>
+            <li><b>두부·닭·생선</b> <span>— 자는 동안 근육 회복</span></li>
+            <li><b>채소·된장국</b> <span>— 비타민·수분</span></li>
+          </ul>
+          <div class="mp-note"><b>Tip.</b> 저녁은 자기 3시간 전까지. 너무 늦은 식사는 숙면을 방해해요.</div>
+        </div>
+        <div class="mp-photos three">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/tofu.jpg')"><span class="cap">두부</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/chicken.jpg')"><span class="cap">닭·생선</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/stew.jpg')"><span class="cap">된장국</span></div>
+        </div>
+      </div>
+      <div class="mp-foot">
+        <span class="mp-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span>
+        <span class="mk">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 6. 자기 전 + 간식 총정리(연계) -->
+    <div class="cnx-card mp">
+      <div class="mp-head">
+        <div class="mp-eyebrow">Night · 21:00 · 간식 챙기기</div>
+        <h2 class="mp-h2">잘 자는 것도 <b>성장</b>입니다</h2>
+      </div>
+      <div class="mp-body">
+        <div class="mp-block snack">
+          <div class="mp-bh"><span class="badge">21:00</span><span class="t">자기 전</span><span class="tag">숙면·성장</span></div>
+          <ul class="mp-list">
+            <li><b>따뜻한 우유</b> <span>— 칼슘 + 편안한 수면</span></li>
+            <li><b>견과 약간</b> <span>— 건강한 지방 (야식·단 음료는 X)</span></li>
+          </ul>
+        </div>
+        <div class="mp-photos two" style="margin-top:0">
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/milk.jpg')"><span class="cap">따뜻한 우유</span></div>
+          <div class="mp-ph" style="background-image:url('../assets/img/cardnews/meal/nuts.jpg')"><span class="cap">견과 약간</span></div>
+        </div>
+        <div class="mp-cta-box" style="margin-top:auto">
+          <div class="b1">가방에 챙길 간식, 골라뒀어요</div>
+          <div class="b2">초코우유 · 두유 · 에너지바 · 견과 · 요거트<br><b>추천 간식 보기 → 프로필 링크 · groundyouth.com</b></div>
+        </div>
+      </div>
+      <div class="mp-foot">
+        <span class="mp-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span>
+        <span class="cta">추천 간식 · 프로필 링크</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cn-credit">※ 본 콘텐츠는 일반적인 성장기 영양 정보이며 의학적 진단·처방이 아닙니다. 알레르기 등 개별 상황은 전문의와 상담하세요. 시간은 예시이며 아이 일정에 맞게 조절하세요.</div>
+
+  <div id="site-footer"></div>
+
+  <script src="../assets/js/icons.js"></script>
+  <script src="../assets/js/render.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>
