@@ -2,6 +2,18 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "goalkeeper",
+      "generated": true,
+      "theme": "#3A6B8A",
+      "listTitle": "골키퍼 기본기 4가지",
+      "listDesc": "골문을 지키는 마지막 선수. 어린 골키퍼가 익혀야 할 기본자세.",
+      "photoCredit": [
+        "Franco Monsalvo",
+        "Oleksandr Plakhota",
+        "Victor Chijioke"
+      ]
+    },
+    {
       "slug": "heading-safety",
       "generated": true,
       "theme": "#12261E",
@@ -281,39 +293,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "goalkeeper",
-      "concept": "training",
-      "theme": "#3A6B8A",
-      "metaTitle": "[카드뉴스] 유소년 골키퍼 기본기 4가지",
-      "metaDesc": "골문을 지키는 유소년 축구 골키퍼 기본기 4가지를 카드뉴스로 정리했습니다.",
-      "listTitle": "골키퍼 기본기 4가지",
-      "listDesc": "골문을 지키는 마지막 선수. 어린 골키퍼가 익혀야 할 기본자세.",
-      "kicker": "GROUND YOUTH · 축구 훈련",
-      "coverTitle": "골문을 지키는<br>골키퍼의 기본",
-      "coverSub": "준비 자세부터 캐칭까지.",
-      "photoQuery": "youth soccer goalkeeper saving ball",
-      "cards": [
-        {
-          "title": "준비<br>자세",
-          "body": "무릎을 살짝 굽히고 발은 어깨너비, 손은 앞으로. 어디로든 튀어 나갈 수 있는 자세가 시작입니다."
-        },
-        {
-          "title": "W자로<br>잡기",
-          "body": "높은 공은 두 엄지를 붙여 손으로 'W' 모양. 공을 몸 앞에서 확실히 감싸 안아 흘리지 않게."
-        },
-        {
-          "title": "몸으로<br>막기",
-          "body": "낮은 공은 손 뒤에 몸을 세워 벽을 만듭니다. 혹시 놓쳐도 몸에 맞고 멈추도록."
-        },
-        {
-          "title": "빠른<br>시작",
-          "body": "막은 다음이 진짜 시작. 빠르게 일어나 손이나 발로 안전한 곳에 연결해 역습의 출발이 됩니다."
-        }
-      ],
-      "closingTitle": "든든한 골키퍼가<br>팀을 살린다",
-      "closingBody": "실수해도 괜찮아요. 다시 준비 자세로 돌아오는 침착함이 좋은 골키퍼를 만듭니다."
-    },
     {
       "slug": "agility",
       "concept": "training",
