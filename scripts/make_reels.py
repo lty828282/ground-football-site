@@ -84,6 +84,22 @@ def scrim():
 
 SCRIM = scrim()
 
+def qdim():
+    """명언 릴스용 균일 딤 + 하단 강화(어디에 글자를 놔도 잘 읽히게)."""
+    alpha = Image.new("L", (1, H)); ap = alpha.load()
+    for y in range(H):
+        a = 120  # 전체 균일 딤
+        if y > H * 0.55:
+            a = int(120 + 110 * (y - H*0.55) / (H*0.45))  # 하단 강화
+        if y < 200:
+            a = max(a, 150)  # 상단 워드마크 영역
+        ap[0, y] = min(a, 235)
+    img = Image.new("RGBA", (W, H), (9, 20, 14, 255))
+    img.putalpha(alpha.resize((W, H)))
+    return img
+
+QDIM = qdim()
+
 def brand(draw):
     # 좌상단 워드마크 + 그린 바
     draw.rectangle([70, 96, 132, 106], fill=GREEN)
@@ -92,14 +108,17 @@ def brand(draw):
     h = "@groundyouth"
     draw.text((70, H-96), h, font=fb(38), fill=WHITE)
 
-def beat(fn):
-    img = SCRIM.copy()
+def beat(fn, base=None):
+    img = (base if base is not None else SCRIM).copy()
     d = ImageDraw.Draw(img)
     brand(d)
     fn(d)
     p = TMP / fn.__name__
     img.save(p.with_suffix(".png"))
     return str(p.with_suffix(".png"))
+
+def beat_q(fn):
+    return beat(fn, base=QDIM)
 
 # ── A) 스톡 영상 + 자막 ──────────────────────────────
 def beats_training():
@@ -129,11 +148,11 @@ def beats_training():
         (beat(b4_cta), 13.0, 15.0),
     ]
 
-def fetch_pexels_video():
+def fetch_pexels_video(query="boy soccer training dribbling", name="stock.mp4"):
     if not KEY:
         print("PEXELS_API_KEY 없음", file=sys.stderr); return None
     url = "https://api.pexels.com/videos/search?" + urllib.parse.urlencode({
-        "query": "boy soccer training dribbling", "per_page": 15,
+        "query": query, "per_page": 15,
         "orientation": "portrait", "size": "medium"})
     req = urllib.request.Request(url, headers={"Authorization": KEY, "User-Agent": UA})
     try:
@@ -149,7 +168,7 @@ def fetch_pexels_video():
         if not files:
             continue
         link = files[0]["link"]
-        dst = TMP / "stock.mp4"
+        dst = TMP / name
         try:
             rq = urllib.request.Request(link, headers={"User-Agent": UA})
             with urllib.request.urlopen(rq, timeout=90) as resp, open(dst, "wb") as out:
@@ -184,6 +203,75 @@ def build_A():
            "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(dst)]
     subprocess.run(cmd, check=True)
     print("A 완성:", dst)
+    return dst
+
+# ── C) 재능<노력 명언 릴스 (스톡영상 + 자막) ─────────
+def beats_quotes():
+    def c0_cover(d):
+        ctext(d, 760, "재능일까,\n노력일까", fb(100), WHITE, lh=1.16)
+        ctext(d, 1010, "세계 최고들이 남긴 한마디", fb(50), AMBER)
+        ctext(d, 1560, "끝까지 넘겨보세요 →", fb(44), GREEN)
+
+    def c1_ronaldo(d):
+        ctext(d, 860, "“재능이 있어도\n열심히 하지 않으면\n아무것도 아니다”",
+              fb(76), WHITE, lh=1.3)
+        ctext(d, 1230, "— 크리스티아누 호날두", fb(52), AMBER)
+
+    def c2_pele(d):
+        ctext(d, 860, "“성공은\n우연이 아니다.\n노력, 인내,\n그리고 희생이다”",
+              fb(74), WHITE, lh=1.28)
+        ctext(d, 1310, "— 펠레", fb(52), AMBER)
+
+    def c3_beckham(d):
+        ctext(d, 860, "“내 비결은 연습이다.\n특별한 걸 이루려면\n일하고, 또 일해야 한다”",
+              fb(70), WHITE, lh=1.3)
+        ctext(d, 1230, "— 데이비드 베컴", fb(52), AMBER)
+
+    def c4_park(d):
+        ctext(d, 860, "“나는 천재가 아니었다.\n그저 남들보다\n더 뛰었을 뿐이다”",
+              fb(74), WHITE, lh=1.3)
+        ctext(d, 1230, "— 박지성", fb(52), AMBER)
+
+    def c5_cta(d):
+        ctext(d, 820, "재능은 시작일 뿐,\n끝까지 가는 건\n노력이다", fb(84), WHITE, lh=1.24)
+        ctext(d, 1180, "우리 아이의 오늘 한 걸음을 응원해요", fr(42), GREY)
+        ctext(d, 1560, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN)
+
+    return [
+        (beat_q(c0_cover),  0.0,  3.2),
+        (beat_q(c1_ronaldo), 3.2,  7.2),
+        (beat_q(c2_pele),    7.2, 11.2),
+        (beat_q(c3_beckham),11.2, 15.2),
+        (beat_q(c4_park),   15.2, 19.2),
+        (beat_q(c5_cta),    19.2, 22.0),
+    ]
+
+def build_C():
+    src = fetch_pexels_video("soccer player training sunset", "stock_c.mp4") \
+        or fetch_pexels_video("soccer training", "stock_c.mp4")
+    if not src:
+        print("C 릴스 건너뜀(영상 없음)"); return None
+    bs = beats_quotes()
+    dur = 22
+    inp = ["-stream_loop", "12", "-i", src]
+    for png, _, _ in bs:
+        inp += ["-i", png]
+    fc = (f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
+          f"crop=1080:1920,setsar=1,fps=30,trim=0:{dur},setpts=PTS-STARTPTS[bg];")
+    prev = "bg"
+    for i, (_, s, e) in enumerate(bs, start=1):
+        out = f"v{i}"
+        fc += f"[{prev}][{i}:v]overlay=0:0:enable='between(t,{s},{e})'[{out}];"
+        prev = out
+    fc = fc.rstrip(";")
+    dst = OUT / "C-effort-quotes.mp4"
+    cmd = ["ffmpeg", "-y", *inp,
+           "-f", "lavfi", "-t", str(dur), "-i", "anullsrc=r=44100:cl=stereo",
+           "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{len(bs)+1}:a",
+           "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", "-t", str(dur),
+           "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(dst)]
+    subprocess.run(cmd, check=True)
+    print("C 완성:", dst)
     return dst
 
 # ── B) 카드뉴스 모션 릴스 ────────────────────────────
@@ -247,4 +335,5 @@ if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "both"
     if which in ("A", "both"): build_A()
     if which in ("B", "both"): build_B()
+    if which in ("C", "both"): build_C()
     print("RESULT: reels done")
