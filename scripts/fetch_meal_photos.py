@@ -19,7 +19,7 @@ QUERIES = {
     "egg":   ["boiled eggs plate", "boiled egg halves", "eggs breakfast"],
     "milk":  ["glass of milk", "milk glass wooden table", "fresh milk glass"],
     "fruit": ["fresh cut fruit plate", "sliced fruit bowl", "assorted fruit plate"],
-    "rice":  ["white rice in bowl isolated", "bowl of jasmine rice", "steamed rice spoon closeup"],
+    "rice":  ["plate of white rice", "white steamed rice closeup", "sushi rice white"],
     "fish":  ["grilled salmon fillet plate", "grilled fish dish", "cooked fish fillet"],
     "veg":   ["steamed broccoli florets", "assorted fresh vegetables", "grilled vegetables plate"],
     "soup":  ["miso soup bowl", "vegetable soup bowl top view", "bowl of soup closeup"],
