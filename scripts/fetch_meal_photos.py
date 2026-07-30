@@ -63,18 +63,29 @@ def main():
     for key, qs in QUERIES.items():
         if only is not None and key not in only:
             continue
-        photo = used = None
+        saved = False
         for q in qs:
-            ps = search(q)
-            if ps:
-                photo, used = ps[0], q
+            if saved:
                 break
-        if not photo:
-            print(f"  ✗ {key}: 결과 없음"); continue
-        src = photo["src"].get("medium") or photo["src"].get("large") or photo["src"]["original"]
-        cover(download(src)).save(DEST / f"{key}.jpg", quality=86, optimize=True)
-        creds.append(f'{photo.get("photographer","?")} / Pexels')
-        print(f"  ✓ meal/{key} ({used}) by {creds[-1]}")
+            for photo in search(q):
+                s = photo.get("src") or {}
+                # medium 변형은 간혹 422 → large/original 우선
+                for variant in ("large", "original", "large2x", "medium"):
+                    u = s.get(variant)
+                    if not u:
+                        continue
+                    try:
+                        cover(download(u)).save(DEST / f"{key}.jpg", quality=86, optimize=True)
+                    except Exception as e:
+                        print(f"    · {key} {variant} 실패: {e}", file=sys.stderr); continue
+                    creds.append(f'{photo.get("photographer","?")} / Pexels')
+                    print(f"  ✓ meal/{key} ({q}) by {creds[-1]}")
+                    saved = True
+                    break
+                if saved:
+                    break
+        if not saved:
+            print(f"  ✗ {key}: 사진 실패")
     print("CREDITS:", " · ".join(dict.fromkeys(creds)))
     print("DONE")
 
