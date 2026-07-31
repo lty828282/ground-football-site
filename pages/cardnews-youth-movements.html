@@ -11,11 +11,12 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358364523971958"
      crossorigin="anonymous"></script>
 <style>
-/* ── 기본기·전술 카드(다크 + 네온 그린) ───────────────── */
+/* ── 기본기·전술 카드(밝은 그린·크림) ───────────────── */
 .cnx-card.tx{
-  --neon:#27E36A; --neon2:#6ff0a0; --ink:#eaf5ee; --dim:#9fb4a7;
-  --field:#0e2018; --line2:#20402e; --opp:#5a6670;
-  background:radial-gradient(120% 80% at 72% 8%,#0f1c14,#060b08);
+  --green:#1F7A46; --green2:#2E7D52; --leaf:#43B265; --gold:#E8A33D;
+  --ink:#16281E; --dim:#5F7266; --line:#E3E8DD;
+  --field:#E6F2E9; --fline:#C4DFCC; --fmid:#D2E7D8; --opp:#AEB9C0;
+  background:linear-gradient(180deg,#F5FBF6,#E9F3EC);
   color:var(--ink); aspect-ratio:4/5; border-radius:18px;
   font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;
   display:flex; flex-direction:column;
@@ -23,45 +24,53 @@
 .cnx-card.tx::after{display:none!important;}
 .cnx-card.tx *{position:relative; z-index:1;}
 .tx-head{padding:20px 26px 8px;}
-.tx-eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:var(--neon);text-transform:uppercase;}
+.tx-eyebrow{font-size:13.5px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
 .tx-numrow{display:flex;align-items:baseline;gap:12px;margin-top:8px;}
-.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:40px;line-height:.9;color:var(--neon);}
+.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:46px;line-height:.9;color:var(--green);}
 .tx-tt{display:flex;flex-direction:column;}
-.tx-title{font-size:27px;font-weight:900;line-height:1.12;letter-spacing:-.5px;}
-.tx-en{font-size:13px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:2px;}
-.tx-body{flex:1;padding:6px 24px 8px;display:flex;flex-direction:column;gap:12px;}
-.tx-diagram{background:var(--field);border:1px solid var(--line2);border-radius:16px;padding:10px;}
+.tx-title{font-size:31px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
+.tx-en{font-size:14px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
+.tx-body{flex:1;padding:6px 24px 8px;display:flex;flex-direction:column;gap:13px;}
+.tx-diagram{background:var(--field);border:1px solid var(--fline);border-radius:16px;padding:10px;}
 .tx-diagram svg{display:block;width:100%;height:auto;}
 .tx-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.tx-list li{display:flex;gap:10px;font-size:14.5px;line-height:1.4;color:var(--ink);}
-.tx-list li::before{content:"";flex:none;width:9px;height:9px;border-radius:2px;background:var(--neon);margin-top:6px;transform:rotate(45deg);}
-.tx-list li b{color:var(--neon2);font-weight:800;}
-.tx-why{background:rgba(39,227,106,.10);border-left:3px solid var(--neon);border-radius:8px;
-  padding:11px 14px;font-size:13.5px;line-height:1.5;color:#d7f5e3;}
-.tx-why b{color:var(--neon);}
+.tx-list li{display:flex;gap:10px;font-size:16.5px;line-height:1.42;color:var(--ink);}
+.tx-list li::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--leaf);margin-top:7px;transform:rotate(45deg);}
+.tx-list li b{color:var(--green);font-weight:800;}
+.tx-why{background:#EAF5EC;border-left:4px solid var(--green);border-radius:8px;
+  padding:12px 15px;font-size:15.5px;line-height:1.5;color:#1c5c3a;}
+.tx-why b{color:var(--green);}
 .tx-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 26px;}
 .tx-dots{display:flex;gap:6px;}
-.tx-dots i{width:20px;height:3px;border-radius:2px;background:rgba(255,255,255,.22);}
-.tx-dots i.on{background:var(--neon);}
-.tx-mark{font-size:13px;font-weight:900;letter-spacing:1px;color:#cfe9d8;}
-.tx-mark i{color:var(--neon);font-style:normal;}
+.tx-dots i{width:20px;height:3px;border-radius:2px;background:rgba(22,40,30,.16);}
+.tx-dots i.on{background:var(--green);}
+.tx-mark{font-size:13px;font-weight:900;letter-spacing:1px;color:var(--ink);}
+.tx-mark i{color:var(--leaf);font-style:normal;}
 /* 다이어그램 텍스트 */
-.d-lab{font:700 12px 'Pretendard',sans-serif;fill:#dff7e8;}
-.d-lab-s{font:700 10.5px 'Pretendard',sans-serif;fill:#9fb4a7;}
-.d-us{font:800 12px 'Pretendard',sans-serif;fill:#06210f;}
-.d-op{font:800 11px 'Pretendard',sans-serif;fill:#e7edf1;}
+.d-lab{font:800 14px 'Pretendard',sans-serif;fill:#16281E;}
+.d-lab-s{font:700 12.5px 'Pretendard',sans-serif;fill:#5F7266;}
+.d-us{font:800 13.5px 'Pretendard',sans-serif;fill:#ffffff;}
+.d-op{font:800 12.5px 'Pretendard',sans-serif;fill:#37434B;}
 
-/* ── 표지 ─────────────────────────── */
+/* ── 표지 / 마무리(그린 그라데이션) ─────────────── */
 .tx-cover{padding:0;}
-.tx-hero{flex:1;padding:52px 34px 34px;display:flex;flex-direction:column;justify-content:center;}
-.tx-hero .tag{align-self:flex-start;font-size:13px;font-weight:800;letter-spacing:1px;color:#06210f;
-  background:var(--neon);border-radius:999px;padding:7px 16px;margin-bottom:22px;}
+.tx-hero{flex:1;padding:52px 34px 34px;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(150deg,#1B4332,#2E7D52);color:#fff;}
+.tx-hero .tag{align-self:flex-start;font-size:13px;font-weight:800;letter-spacing:1px;color:#16281E;
+  background:#FFD54F;border-radius:999px;padding:7px 16px;margin-bottom:22px;}
 .tx-hero h1{font-size:50px;font-weight:900;line-height:1.08;letter-spacing:-1.5px;}
-.tx-hero h1 em{font-style:normal;color:var(--neon);}
-.tx-hero .sub{font-size:18px;font-weight:600;line-height:1.55;color:#b9d8c5;margin-top:20px;max-width:94%;}
-.tx-hero .rule{width:60px;height:5px;background:var(--neon);border-radius:3px;margin:24px 0 0;}
-.tx-hero .go{font-size:15px;font-weight:800;color:var(--neon);margin-top:20px;}
-.tx-list.big li{font-size:16px;}
+.tx-hero h1 em{font-style:normal;color:#FFD54F;}
+.tx-hero .sub{font-size:19.5px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
+.tx-hero .sub b{color:#9be7b6;}
+.tx-hero .rule{width:60px;height:5px;background:#43B265;border-radius:3px;margin:24px 0 0;}
+.tx-hero .go{font-size:15px;font-weight:800;color:#FFD54F;margin-top:20px;}
+.tx-hero .tx-list li{color:#eaf6ee;}
+.tx-hero .tx-list li::before{background:#FFD54F;}
+.tx-hero .tx-list li b{color:#FFD54F;}
+.tx-list.big li{font-size:18.5px;}
+.tx-cover .tx-foot .tx-mark{color:#fff;}
+.tx-cover .tx-foot .tx-dots i{background:rgba(255,255,255,.3);}
+.tx-cover .tx-foot .tx-dots i.on{background:#FFD54F;}
 </style>
 </head>
 <body>
@@ -81,7 +90,7 @@
       <div class="tx-hero">
         <span class="tag">기본기 · 전술 노트</span>
         <h1>유소년이 익혀야 할<br><em>핵심 움직임 5가지</em></h1>
-        <div class="sub">기술보다 먼저 배우는 건 <b style="color:#27E36A">'움직임'과 '보는 눈'</b>. 프로 코칭이 강조하는 5가지를 그림으로 정리했어요.</div>
+        <div class="sub">기술보다 먼저 배우는 건 <b>'움직임'과 '보는 눈'</b>. 프로 코칭이 강조하는 5가지를 그림으로 정리했어요.</div>
         <div class="rule"></div>
         <div class="go">넘겨서 하나씩 확인하세요 →</div>
       </div>
@@ -101,21 +110,21 @@
       <div class="tx-body">
         <div class="tx-diagram">
           <svg viewBox="0 0 340 200" role="img" aria-label="스캐닝 다이어그램">
-            <rect x="6" y="6" width="328" height="188" rx="12" fill="#0e2018" stroke="#20402e"/>
-            <line x1="170" y1="6" x2="170" y2="194" stroke="#1b3427" stroke-width="1"/>
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <line x1="170" y1="6" x2="170" y2="194" stroke="#D2E7D8" stroke-width="1.5"/>
             <!-- 시선 라인 -->
-            <g stroke="#27E36A" stroke-width="1.6" stroke-dasharray="4 4" opacity="0.85">
+            <g stroke="#1F7A46" stroke-width="1.8" stroke-dasharray="4 4" opacity="0.9">
               <line x1="176" y1="140" x2="95" y2="60"/>
               <line x1="176" y1="140" x2="250" y2="58"/>
               <line x1="176" y1="140" x2="255" y2="128"/>
             </g>
             <!-- 상대 -->
-            <g><circle cx="90" cy="55" r="13" fill="#5a6670"/><text x="90" y="59" text-anchor="middle" class="d-op">상대</text></g>
-            <g><circle cx="252" cy="52" r="13" fill="#5a6670"/><text x="252" y="56" text-anchor="middle" class="d-op">상대</text></g>
-            <g><circle cx="262" cy="128" r="13" fill="#5a6670"/><text x="262" y="132" text-anchor="middle" class="d-op">상대</text></g>
+            <g><circle cx="90" cy="55" r="15" fill="#AEB9C0"/><text x="90" y="59" text-anchor="middle" class="d-op">상대</text></g>
+            <g><circle cx="252" cy="52" r="15" fill="#AEB9C0"/><text x="252" y="56" text-anchor="middle" class="d-op">상대</text></g>
+            <g><circle cx="262" cy="128" r="15" fill="#AEB9C0"/><text x="262" y="132" text-anchor="middle" class="d-op">상대</text></g>
             <!-- 우리 선수 + 공 -->
-            <circle cx="170" cy="150" r="15" fill="#27E36A"/><text x="170" y="154" text-anchor="middle" class="d-us">ME</text>
-            <circle cx="188" cy="162" r="5" fill="#fff" stroke="#0e2018"/>
+            <circle cx="170" cy="150" r="16" fill="#1F7A46"/><text x="170" y="154" text-anchor="middle" class="d-us">ME</text>
+            <circle cx="188" cy="162" r="5" fill="#fff" stroke="#16281E"/>
             <text x="24" y="182" class="d-lab-s">공이 오기 전, 어깨 너머로 ×2</text>
           </svg>
         </div>
@@ -141,20 +150,20 @@
       <div class="tx-body">
         <div class="tx-diagram">
           <svg viewBox="0 0 340 200" role="img" aria-label="오픈바디 다이어그램">
-            <rect x="6" y="6" width="328" height="188" rx="12" fill="#0e2018" stroke="#20402e"/>
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
             <!-- 골(오른쪽 전방) -->
-            <rect x="322" y="70" width="8" height="60" fill="none" stroke="#2c5540" stroke-width="2"/>
+            <rect x="322" y="70" width="8" height="60" fill="none" stroke="#7FB894" stroke-width="2.5"/>
             <!-- 시야 콘 -->
-            <path d="M175 150 L322 66 L322 150 Z" fill="#27E36A" opacity="0.14"/>
+            <path d="M175 150 L322 66 L322 150 Z" fill="#1F7A46" opacity="0.14"/>
             <!-- 공 도착 -->
-            <line x1="40" y1="150" x2="150" y2="150" stroke="#e7edf1" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#ah2)"/>
-            <circle cx="40" cy="150" r="5" fill="#fff" stroke="#0e2018"/>
+            <line x1="40" y1="150" x2="150" y2="150" stroke="#5F7266" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#ah2)"/>
+            <circle cx="40" cy="150" r="5" fill="#fff" stroke="#16281E"/>
             <!-- 우리 선수(열린 몸) -->
-            <circle cx="172" cy="150" r="15" fill="#27E36A"/><text x="172" y="154" text-anchor="middle" class="d-us">ME</text>
-            <path d="M172 150 L300 105" stroke="#27E36A" stroke-width="3" marker-end="url(#ah2)"/>
+            <circle cx="172" cy="150" r="16" fill="#1F7A46"/><text x="172" y="154" text-anchor="middle" class="d-us">ME</text>
+            <path d="M172 150 L300 105" stroke="#1F7A46" stroke-width="3.4" marker-end="url(#ah2)"/>
             <text x="205" y="92" class="d-lab">전방 시야 + 전진</text>
             <text x="46" y="140" class="d-lab-s">공 도착</text>
-            <defs><marker id="ah2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27E36A"/></marker></defs>
+            <defs><marker id="ah2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
           </svg>
         </div>
         <ul class="tx-list">
@@ -179,21 +188,21 @@
       <div class="tx-body">
         <div class="tx-diagram">
           <svg viewBox="0 0 340 200" role="img" aria-label="첫 터치 다이어그램">
-            <rect x="6" y="6" width="328" height="188" rx="12" fill="#0e2018" stroke="#20402e"/>
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
             <!-- 빈 공간 표시 -->
-            <ellipse cx="95" cy="66" rx="52" ry="34" fill="#27E36A" opacity="0.12"/>
+            <ellipse cx="95" cy="66" rx="52" ry="34" fill="#1F7A46" opacity="0.13"/>
             <text x="95" y="70" text-anchor="middle" class="d-lab-s">빈 공간</text>
             <!-- 공 도착 -->
-            <line x1="40" y1="150" x2="160" y2="150" stroke="#e7edf1" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#ah3)"/>
-            <circle cx="40" cy="150" r="5" fill="#fff" stroke="#0e2018"/>
+            <line x1="40" y1="150" x2="160" y2="150" stroke="#5F7266" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#ah3)"/>
+            <circle cx="40" cy="150" r="5" fill="#fff" stroke="#16281E"/>
             <!-- 우리 선수 -->
-            <circle cx="180" cy="150" r="15" fill="#27E36A"/><text x="180" y="154" text-anchor="middle" class="d-us">ME</text>
+            <circle cx="180" cy="150" r="16" fill="#1F7A46"/><text x="180" y="154" text-anchor="middle" class="d-us">ME</text>
             <!-- 수비(뒤·오른쪽) -->
-            <circle cx="214" cy="140" r="13" fill="#5a6670"/><text x="214" y="144" text-anchor="middle" class="d-op">수비</text>
+            <circle cx="214" cy="140" r="15" fill="#AEB9C0"/><text x="214" y="144" text-anchor="middle" class="d-op">수비</text>
             <!-- 첫 터치(압박 반대) -->
-            <path d="M178 146 L108 92" stroke="#27E36A" stroke-width="3.4" marker-end="url(#ah3)"/>
-            <text x="120" y="128" class="d-lab">첫 터치 →</text>
-            <defs><marker id="ah3" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27E36A"/></marker></defs>
+            <path d="M178 146 L108 92" stroke="#1F7A46" stroke-width="3.6" marker-end="url(#ah3)"/>
+            <text x="118" y="126" class="d-lab">첫 터치 →</text>
+            <defs><marker id="ah3" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
           </svg>
         </div>
         <ul class="tx-list">
@@ -213,23 +222,23 @@
       <div class="tx-head">
         <div class="tx-eyebrow">전술 · 볼 없는 움직임</div>
         <div class="tx-numrow"><span class="tx-no">04</span>
-          <span class="tx-tt"><span class="tx-title">패스 각을 만들기</span><span class="tx-en">SUPPORT & ANGLES</span></span></div>
+          <span class="tx-tt"><span class="tx-title">패스 각을 만들기</span><span class="tx-en">SUPPORT &amp; ANGLES</span></span></div>
       </div>
       <div class="tx-body">
         <div class="tx-diagram">
           <svg viewBox="0 0 340 200" role="img" aria-label="지원 각도 다이어그램">
-            <rect x="6" y="6" width="328" height="188" rx="12" fill="#0e2018" stroke="#20402e"/>
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
             <!-- 볼 소유 동료 -->
-            <circle cx="80" cy="150" r="15" fill="#27E36A"/><text x="80" y="154" text-anchor="middle" class="d-us">A</text>
-            <circle cx="97" cy="162" r="5" fill="#fff" stroke="#0e2018"/>
+            <circle cx="80" cy="150" r="16" fill="#1F7A46"/><text x="80" y="154" text-anchor="middle" class="d-us">A</text>
+            <circle cx="97" cy="162" r="5" fill="#fff" stroke="#16281E"/>
             <!-- 수비(가운데) -->
-            <circle cx="170" cy="120" r="13" fill="#5a6670"/><text x="170" y="124" text-anchor="middle" class="d-op">수비</text>
+            <circle cx="170" cy="120" r="15" fill="#AEB9C0"/><text x="170" y="124" text-anchor="middle" class="d-op">수비</text>
             <!-- 지원 선수(각도) -->
-            <circle cx="250" cy="70" r="15" fill="#27E36A"/><text x="250" y="74" text-anchor="middle" class="d-us">ME</text>
+            <circle cx="250" cy="70" r="16" fill="#1F7A46"/><text x="250" y="74" text-anchor="middle" class="d-us">ME</text>
             <!-- 패스 각(수비 피해서) -->
-            <path d="M95 146 Q150 80 235 72" fill="none" stroke="#27E36A" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#ah4)"/>
+            <path d="M95 146 Q150 80 235 72" fill="none" stroke="#1F7A46" stroke-width="3.2" stroke-dasharray="7 5" marker-end="url(#ah4)"/>
             <text x="150" y="176" class="d-lab-s">'구경꾼 모드' 금지 — 각을 만들어라</text>
-            <defs><marker id="ah4" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27E36A"/></marker></defs>
+            <defs><marker id="ah4" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
           </svg>
         </div>
         <ul class="tx-list">
@@ -254,26 +263,26 @@
       <div class="tx-body">
         <div class="tx-diagram">
           <svg viewBox="0 0 340 200" role="img" aria-label="체킹 침투 다이어그램">
-            <rect x="6" y="6" width="328" height="188" rx="12" fill="#0e2018" stroke="#20402e"/>
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
             <!-- 수비 라인 -->
-            <line x1="40" y1="96" x2="300" y2="96" stroke="#3a4750" stroke-width="1.5" stroke-dasharray="3 6"/>
-            <circle cx="120" cy="96" r="12" fill="#5a6670"/>
-            <circle cx="210" cy="96" r="12" fill="#5a6670"/>
-            <text x="300" y="92" text-anchor="end" class="d-lab-s">수비 라인</text>
+            <line x1="40" y1="96" x2="300" y2="96" stroke="#AEB9C0" stroke-width="1.8" stroke-dasharray="3 6"/>
+            <circle cx="120" cy="96" r="14" fill="#AEB9C0"/>
+            <circle cx="210" cy="96" r="14" fill="#AEB9C0"/>
+            <text x="300" y="90" text-anchor="end" class="d-lab-s">수비 라인</text>
             <!-- 볼 소유 동료 -->
-            <circle cx="70" cy="150" r="15" fill="#27E36A"/><text x="70" y="154" text-anchor="middle" class="d-us">A</text>
-            <circle cx="87" cy="162" r="5" fill="#fff" stroke="#0e2018"/>
+            <circle cx="70" cy="150" r="16" fill="#1F7A46"/><text x="70" y="154" text-anchor="middle" class="d-us">A</text>
+            <circle cx="87" cy="162" r="5" fill="#fff" stroke="#16281E"/>
             <!-- 우리 선수: 체킹 후 침투 -->
-            <circle cx="200" cy="165" r="15" fill="#27E36A"/><text x="200" y="169" text-anchor="middle" class="d-us">ME</text>
-            <path d="M197 152 L165 130" stroke="#6ff0a0" stroke-width="2.6" stroke-dasharray="5 4" marker-end="url(#ah5)"/>
-            <path d="M170 128 Q186 96 232 62" fill="none" stroke="#27E36A" stroke-width="3.2" marker-end="url(#ah5)"/>
+            <circle cx="200" cy="165" r="16" fill="#1F7A46"/><text x="200" y="169" text-anchor="middle" class="d-us">ME</text>
+            <path d="M197 152 L165 130" stroke="#43B265" stroke-width="2.8" stroke-dasharray="5 4" marker-end="url(#ah5)"/>
+            <path d="M170 128 Q186 96 232 62" fill="none" stroke="#1F7A46" stroke-width="3.4" marker-end="url(#ah5)"/>
             <!-- 침투 패스 -->
-            <path d="M88 146 Q170 40 240 58" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="6 5" opacity="0.65" marker-end="url(#ah5w)"/>
+            <path d="M88 146 Q170 40 240 58" fill="none" stroke="#E8A33D" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#ah5g)"/>
             <text x="150" y="150" class="d-lab-s">① 체킹</text>
             <text x="238" y="52" class="d-lab">② 침투</text>
             <defs>
-              <marker id="ah5" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#27E36A"/></marker>
-              <marker id="ah5w" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fff"/></marker>
+              <marker id="ah5" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker>
+              <marker id="ah5g" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E8A33D"/></marker>
             </defs>
           </svg>
         </div>
