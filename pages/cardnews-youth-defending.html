@@ -24,21 +24,21 @@
 .cnx-card.tx::after{display:none!important;}
 .cnx-card.tx *{position:relative; z-index:1;}
 .tx-head{padding:20px 26px 8px;}
-.tx-eyebrow{font-size:13.5px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+.tx-eyebrow{font-size:15px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
 .tx-numrow{display:flex;align-items:baseline;gap:12px;margin-top:8px;}
-.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:46px;line-height:.9;color:var(--green);}
+.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:50px;line-height:.9;color:var(--green);}
 .tx-tt{display:flex;flex-direction:column;}
-.tx-title{font-size:31px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
-.tx-en{font-size:14px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
-.tx-body{flex:1;padding:6px 24px 8px;display:flex;flex-direction:column;gap:13px;}
+.tx-title{font-size:34px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
+.tx-en{font-size:15px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
+.tx-body{flex:1;padding:8px 24px 10px;display:flex;flex-direction:column;gap:15px;}
 .tx-diagram{background:var(--field);border:1px solid var(--fline);border-radius:16px;padding:10px;}
 .tx-diagram svg{display:block;width:100%;height:auto;}
 .tx-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.tx-list li{display:flex;gap:10px;font-size:16.5px;line-height:1.42;color:var(--ink);}
+.tx-list li{display:flex;gap:11px;font-size:18px;line-height:1.44;color:var(--ink);}
 .tx-list li::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--leaf);margin-top:7px;transform:rotate(45deg);}
 .tx-list li b{color:var(--green);font-weight:800;}
 .tx-why{background:#EAF5EC;border-left:4px solid var(--green);border-radius:8px;
-  padding:12px 15px;font-size:15.5px;line-height:1.5;color:#1c5c3a;}
+  padding:13px 16px;font-size:17px;line-height:1.5;color:#1c5c3a;}
 .tx-why b{color:var(--green);}
 .tx-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 26px;}
 .tx-dots{display:flex;gap:6px;}
@@ -47,12 +47,12 @@
 .tx-mark{font-size:13px;font-weight:900;letter-spacing:1px;color:var(--ink);}
 .tx-mark i{color:var(--leaf);font-style:normal;}
 /* 다이어그램 텍스트 */
-.d-lab{font:800 14px 'Pretendard',sans-serif;fill:#16281E;}
-.d-lab-s{font:700 12.5px 'Pretendard',sans-serif;fill:#5F7266;}
-.d-us{font:800 13.5px 'Pretendard',sans-serif;fill:#ffffff;}
-.d-op{font:800 12.5px 'Pretendard',sans-serif;fill:#37434B;}
-.d-amb{font:800 12.5px 'Pretendard',sans-serif;fill:#B4741B;}
-.d-blk{font:800 12.5px 'Pretendard',sans-serif;fill:#C9573F;}
+.d-lab{font:800 15.5px 'Pretendard',sans-serif;fill:#16281E;}
+.d-lab-s{font:700 13.5px 'Pretendard',sans-serif;fill:#5F7266;}
+.d-us{font:800 14.5px 'Pretendard',sans-serif;fill:#ffffff;}
+.d-op{font:800 13.5px 'Pretendard',sans-serif;fill:#37434B;}
+.d-amb{font:800 13.5px 'Pretendard',sans-serif;fill:#B4741B;}
+.d-blk{font:800 13.5px 'Pretendard',sans-serif;fill:#C9573F;}
 
 /* ── 표지 / 마무리(그린 그라데이션) ─────────────── */
 .tx-cover{padding:0;}
@@ -62,14 +62,14 @@
   background:#FFD54F;border-radius:999px;padding:7px 16px;margin-bottom:22px;}
 .tx-hero h1{font-size:48px;font-weight:900;line-height:1.08;letter-spacing:-1.5px;}
 .tx-hero h1 em{font-style:normal;color:#FFD54F;}
-.tx-hero .sub{font-size:19.5px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
+.tx-hero .sub{font-size:21px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
 .tx-hero .sub b{color:#9be7b6;}
 .tx-hero .rule{width:60px;height:5px;background:#43B265;border-radius:3px;margin:24px 0 0;}
 .tx-hero .go{font-size:15px;font-weight:800;color:#FFD54F;margin-top:20px;}
 .tx-hero .tx-list li{color:#eaf6ee;}
 .tx-hero .tx-list li::before{background:#FFD54F;}
 .tx-hero .tx-list li b{color:#FFD54F;}
-.tx-list.big li{font-size:18.5px;}
+.tx-list.big li{font-size:20.5px;}
 .tx-cover .tx-foot .tx-mark{color:#fff;}
 .tx-cover .tx-foot .tx-dots i{background:rgba(255,255,255,.3);}
 .tx-cover .tx-foot .tx-dots i.on{background:#FFD54F;}
@@ -131,7 +131,7 @@
         </div>
         <ul class="tx-list">
           <li>공을 가진 상대에게 바로 달려들지 않기 — 물러서며 <b>지연</b></li>
-          <li>골 쪽(goal-side)에 서서 <b>터치 거리</b> 유지 · 낮은 자세·발끝</li>
+          <li>골 쪽에 서서 <b>터치 거리</b> 유지 · 낮은 자세</li>
         </ul>
         <div class="tx-why"><b>왜?</b> 동료가 복귀할 <b>시간</b>을 버는 게 1차 목표.</div>
       </div>
@@ -282,8 +282,8 @@
           </svg>
         </div>
         <ul class="tx-list">
-          <li>동료가 압박하면 나는 <b>뒤를 커버</b> (비스듬히 위치)</li>
-          <li>계속 <b>콜</b>: “커버!” “압박!” · 뺏기면 즉시 <b>리커버리 런</b></li>
+          <li>동료가 압박하면, 나는 <b>뒤를 커버</b></li>
+          <li>계속 <b>콜</b>하고, 뺏기면 즉시 <b>리커버리 런</b></li>
         </ul>
         <div class="tx-why"><b>왜?</b> 혼자 막지 않는다. <b>둘이 한 명을</b> 가둔다.</div>
       </div>

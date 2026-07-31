@@ -24,21 +24,21 @@
 .cnx-card.tx::after{display:none!important;}
 .cnx-card.tx *{position:relative; z-index:1;}
 .tx-head{padding:20px 26px 8px;}
-.tx-eyebrow{font-size:13.5px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+.tx-eyebrow{font-size:15px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
 .tx-numrow{display:flex;align-items:baseline;gap:12px;margin-top:8px;}
-.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:46px;line-height:.9;color:var(--green);}
+.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:50px;line-height:.9;color:var(--green);}
 .tx-tt{display:flex;flex-direction:column;}
-.tx-title{font-size:31px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
-.tx-en{font-size:14px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
-.tx-body{flex:1;padding:6px 24px 8px;display:flex;flex-direction:column;gap:13px;}
+.tx-title{font-size:34px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
+.tx-en{font-size:15px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
+.tx-body{flex:1;padding:8px 24px 10px;display:flex;flex-direction:column;gap:15px;}
 .tx-diagram{background:var(--field);border:1px solid var(--fline);border-radius:16px;padding:10px;}
 .tx-diagram svg{display:block;width:100%;height:auto;}
 .tx-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.tx-list li{display:flex;gap:10px;font-size:16.5px;line-height:1.42;color:var(--ink);}
+.tx-list li{display:flex;gap:11px;font-size:18px;line-height:1.44;color:var(--ink);}
 .tx-list li::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--leaf);margin-top:7px;transform:rotate(45deg);}
 .tx-list li b{color:var(--green);font-weight:800;}
 .tx-why{background:#EAF5EC;border-left:4px solid var(--green);border-radius:8px;
-  padding:12px 15px;font-size:15.5px;line-height:1.5;color:#1c5c3a;}
+  padding:13px 16px;font-size:17px;line-height:1.5;color:#1c5c3a;}
 .tx-why b{color:var(--green);}
 .tx-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 26px;}
 .tx-dots{display:flex;gap:6px;}
@@ -47,10 +47,10 @@
 .tx-mark{font-size:13px;font-weight:900;letter-spacing:1px;color:var(--ink);}
 .tx-mark i{color:var(--leaf);font-style:normal;}
 /* 다이어그램 텍스트 */
-.d-lab{font:800 14px 'Pretendard',sans-serif;fill:#16281E;}
-.d-lab-s{font:700 12.5px 'Pretendard',sans-serif;fill:#5F7266;}
-.d-us{font:800 13.5px 'Pretendard',sans-serif;fill:#ffffff;}
-.d-op{font:800 12.5px 'Pretendard',sans-serif;fill:#37434B;}
+.d-lab{font:800 15.5px 'Pretendard',sans-serif;fill:#16281E;}
+.d-lab-s{font:700 13.5px 'Pretendard',sans-serif;fill:#5F7266;}
+.d-us{font:800 14.5px 'Pretendard',sans-serif;fill:#ffffff;}
+.d-op{font:800 13.5px 'Pretendard',sans-serif;fill:#37434B;}
 
 /* ── 표지 / 마무리(그린 그라데이션) ─────────────── */
 .tx-cover{padding:0;}
@@ -60,14 +60,14 @@
   background:#FFD54F;border-radius:999px;padding:7px 16px;margin-bottom:22px;}
 .tx-hero h1{font-size:50px;font-weight:900;line-height:1.08;letter-spacing:-1.5px;}
 .tx-hero h1 em{font-style:normal;color:#FFD54F;}
-.tx-hero .sub{font-size:19.5px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
+.tx-hero .sub{font-size:21px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
 .tx-hero .sub b{color:#9be7b6;}
 .tx-hero .rule{width:60px;height:5px;background:#43B265;border-radius:3px;margin:24px 0 0;}
 .tx-hero .go{font-size:15px;font-weight:800;color:#FFD54F;margin-top:20px;}
 .tx-hero .tx-list li{color:#eaf6ee;}
 .tx-hero .tx-list li::before{background:#FFD54F;}
 .tx-hero .tx-list li b{color:#FFD54F;}
-.tx-list.big li{font-size:18.5px;}
+.tx-list.big li{font-size:20.5px;}
 .tx-cover .tx-foot .tx-mark{color:#fff;}
 .tx-cover .tx-foot .tx-dots i{background:rgba(255,255,255,.3);}
 .tx-cover .tx-foot .tx-dots i.on{background:#FFD54F;}
@@ -129,7 +129,7 @@
           </svg>
         </div>
         <ul class="tx-list">
-          <li>공이 오기 <b>전에</b> 주변을 최소 <b>2번</b> 확인 — 어깨 너머로</li>
+          <li>공 오기 <b>전에</b> 어깨 너머로 <b>2번 이상</b> 확인</li>
           <li>수비수 위치·빈 공간·동료를 미리 '사진 찍듯' 저장</li>
         </ul>
         <div class="tx-why"><b>왜?</b> 미리 보면, 공을 받자마자 <b>무엇을 할지 이미 안다.</b></div>
@@ -243,7 +243,7 @@
         </div>
         <ul class="tx-list">
           <li>패스하고 <b>멈추지 않기</b> — 볼 주변에 다이아몬드 각을 형성</li>
-          <li>수비가 둘을 동시에 못 막는 위치 · <b>2초 안 도달</b> 거리로</li>
+          <li>수비가 둘 다 못 막는 위치 · <b>2초</b> 거리로</li>
         </ul>
         <div class="tx-why"><b>왜?</b> 각을 만들면 동료에게 <b>시간과 선택지</b>를 준다.</div>
       </div>
@@ -287,8 +287,8 @@
           </svg>
         </div>
         <ul class="tx-list">
-          <li>공쪽으로 짧게 <b>나왔다가(체킹)</b> 수비 뒤 공간으로 <b>침투</b></li>
-          <li>동료가 잡기 <b>전에</b> 미리 움직여라 (써드맨 런)</li>
+          <li>짧게 <b>나왔다가(체킹)</b> 수비 뒤로 <b>침투</b></li>
+          <li>패스 <b>전에</b> 미리 움직인다 (써드맨 런)</li>
         </ul>
         <div class="tx-why"><b>왜?</b> 멈추면 패스 길이 사라진다. <b>움직임이 공간을 연다.</b></div>
       </div>
