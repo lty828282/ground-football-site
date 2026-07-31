@@ -2,6 +2,19 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "recovery-nutrition",
+      "generated": true,
+      "theme": "#B5651D",
+      "listTitle": "경기 후 회복과 영양",
+      "listDesc": "잘 쉬고 잘 먹어야 큽니다. 운동만큼 중요한 회복 관리.",
+      "photoCredit": [
+        "Thirdman",
+        "RDNE Stock project",
+        "ANH LÊ",
+        "nn.TON.nn"
+      ]
+    },
+    {
       "slug": "youth-movements",
       "generated": true,
       "theme": "#1F7A46",
@@ -320,39 +333,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "recovery-nutrition",
-      "concept": "navy",
-      "theme": "#B5651D",
-      "metaTitle": "[카드뉴스] 유소년 축구 회복과 영양 4가지",
-      "metaDesc": "운동만큼 중요한 유소년 축구 회복과 영양 관리 4가지를 카드뉴스로 정리했습니다.",
-      "listTitle": "경기 후 회복과 영양",
-      "listDesc": "잘 쉬고 잘 먹어야 큽니다. 운동만큼 중요한 회복 관리.",
-      "kicker": "GROUND YOUTH · 축구 건강",
-      "coverTitle": "잘 쉬는 것도<br>훈련입니다",
-      "coverSub": "회복과 영양, 실력의 절반.",
-      "photoQuery": "kids soccer players drinking water rest",
-      "cards": [
-        {
-          "title": "운동 뒤<br>쿨다운",
-          "body": "끝나자마자 앉지 말고 가벼운 걷기와 스트레칭. 뭉친 근육을 풀어 다음 날 몸이 가볍습니다."
-        },
-        {
-          "title": "물·수분<br>챙기기",
-          "body": "운동 전·중·후로 나눠 조금씩. 목마를 때 마시면 이미 늦어요. 성장기엔 특히 탈수에 주의."
-        },
-        {
-          "title": "골고루<br>먹기",
-          "body": "밥·고기·채소·과일을 균형 있게. 운동 후 30분~1시간 안에 먹으면 회복이 더 빨라집니다."
-        },
-        {
-          "title": "충분한<br>잠",
-          "body": "성장 호르몬은 잘 때 나옵니다. 하루 9~11시간, 규칙적인 수면이 최고의 회복이자 성장 비결."
-        }
-      ],
-      "closingTitle": "회복까지가<br>훈련의 끝",
-      "closingBody": "열심히 뛴 만큼 잘 쉬고 잘 먹기. 몸이 자라야 실력도 자랍니다."
-    },
     {
       "slug": "positions",
       "concept": "tactics",
