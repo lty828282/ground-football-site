@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[카드뉴스] 유소년 수비수가 익혀야 할 기술 5가지 | 그라운드 유소년</title>
+<meta name="description" content="지연 수비·방향 강제·접근 각도·태클 타이밍·커버. 유소년 수비수가 반드시 익혀야 할 5가지 수비 기술을 피치 다이어그램으로 정리한 기본기·전술 카드뉴스.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358364523971958"
+     crossorigin="anonymous"></script>
+<style>
+/* ── 기본기·전술 카드(밝은 그린·크림) ───────────────── */
+.cnx-card.tx{
+  --green:#1F7A46; --green2:#2E7D52; --leaf:#43B265; --gold:#E8A33D;
+  --ink:#16281E; --dim:#5F7266; --line:#E3E8DD;
+  --field:#E6F2E9; --fline:#C4DFCC; --fmid:#D2E7D8; --opp:#AEB9C0;
+  background:linear-gradient(180deg,#F5FBF6,#E9F3EC);
+  color:var(--ink); aspect-ratio:4/5; border-radius:18px;
+  font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;
+  display:flex; flex-direction:column;
+}
+.cnx-card.tx::after{display:none!important;}
+.cnx-card.tx *{position:relative; z-index:1;}
+.tx-head{padding:20px 26px 8px;}
+.tx-eyebrow{font-size:13.5px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+.tx-numrow{display:flex;align-items:baseline;gap:12px;margin-top:8px;}
+.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:46px;line-height:.9;color:var(--green);}
+.tx-tt{display:flex;flex-direction:column;}
+.tx-title{font-size:31px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
+.tx-en{font-size:14px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
+.tx-body{flex:1;padding:6px 24px 8px;display:flex;flex-direction:column;gap:13px;}
+.tx-diagram{background:var(--field);border:1px solid var(--fline);border-radius:16px;padding:10px;}
+.tx-diagram svg{display:block;width:100%;height:auto;}
+.tx-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.tx-list li{display:flex;gap:10px;font-size:16.5px;line-height:1.42;color:var(--ink);}
+.tx-list li::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--leaf);margin-top:7px;transform:rotate(45deg);}
+.tx-list li b{color:var(--green);font-weight:800;}
+.tx-why{background:#EAF5EC;border-left:4px solid var(--green);border-radius:8px;
+  padding:12px 15px;font-size:15.5px;line-height:1.5;color:#1c5c3a;}
+.tx-why b{color:var(--green);}
+.tx-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 26px;}
+.tx-dots{display:flex;gap:6px;}
+.tx-dots i{width:20px;height:3px;border-radius:2px;background:rgba(22,40,30,.16);}
+.tx-dots i.on{background:var(--green);}
+.tx-mark{font-size:13px;font-weight:900;letter-spacing:1px;color:var(--ink);}
+.tx-mark i{color:var(--leaf);font-style:normal;}
+/* 다이어그램 텍스트 */
+.d-lab{font:800 14px 'Pretendard',sans-serif;fill:#16281E;}
+.d-lab-s{font:700 12.5px 'Pretendard',sans-serif;fill:#5F7266;}
+.d-us{font:800 13.5px 'Pretendard',sans-serif;fill:#ffffff;}
+.d-op{font:800 12.5px 'Pretendard',sans-serif;fill:#37434B;}
+.d-amb{font:800 12.5px 'Pretendard',sans-serif;fill:#B4741B;}
+.d-blk{font:800 12.5px 'Pretendard',sans-serif;fill:#C9573F;}
+
+/* ── 표지 / 마무리(그린 그라데이션) ─────────────── */
+.tx-cover{padding:0;}
+.tx-hero{flex:1;padding:52px 34px 34px;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(150deg,#1B4332,#2E7D52);color:#fff;}
+.tx-hero .tag{align-self:flex-start;font-size:13px;font-weight:800;letter-spacing:1px;color:#16281E;
+  background:#FFD54F;border-radius:999px;padding:7px 16px;margin-bottom:22px;}
+.tx-hero h1{font-size:48px;font-weight:900;line-height:1.08;letter-spacing:-1.5px;}
+.tx-hero h1 em{font-style:normal;color:#FFD54F;}
+.tx-hero .sub{font-size:19.5px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
+.tx-hero .sub b{color:#9be7b6;}
+.tx-hero .rule{width:60px;height:5px;background:#43B265;border-radius:3px;margin:24px 0 0;}
+.tx-hero .go{font-size:15px;font-weight:800;color:#FFD54F;margin-top:20px;}
+.tx-hero .tx-list li{color:#eaf6ee;}
+.tx-hero .tx-list li::before{background:#FFD54F;}
+.tx-hero .tx-list li b{color:#FFD54F;}
+.tx-list.big li{font-size:18.5px;}
+.tx-cover .tx-foot .tx-mark{color:#fff;}
+.tx-cover .tx-foot .tx-dots i{background:rgba(255,255,255,.3);}
+.tx-cover .tx-foot .tx-dots i.on{background:#FFD54F;}
+</style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb"><a href="/index.html">홈</a> / <a href="/pages/training.html">축구 영상</a> / <span>카드뉴스</span></div>
+    <h1>유소년 수비수가 익혀야 할 기술 5가지</h1>
+  </div>
+
+  <div class="cnx-wrap">
+    <div class="cnx-hint">📱 각 카드를 이미지로 저장해 공유해 보세요</div>
+
+    <!-- 표지 -->
+    <div class="cnx-card tx tx-cover">
+      <div class="tx-hero">
+        <span class="tag">기본기 · 전술 노트 · 수비 편</span>
+        <h1>유소년 수비수가<br><em>익혀야 할 기술 5가지</em></h1>
+        <div class="sub">잘 뺏는 것보다 먼저, 잘 <b>지연·유도</b>하는 법. 프로 코칭이 강조하는 수비 5가지를 그림으로 정리했어요.</div>
+        <div class="rule"></div>
+        <div class="go">넘겨서 하나씩 확인하세요 →</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 01 지연 수비 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">수비 기본 · 지연</div>
+        <div class="tx-numrow"><span class="tx-no">01</span>
+          <span class="tx-tt"><span class="tx-title">달려들지 말고 지연</span><span class="tx-en">JOCKEYING</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="지연 수비 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 골(오른쪽) -->
+            <rect x="322" y="72" width="8" height="56" fill="none" stroke="#7FB894" stroke-width="2.5"/>
+            <!-- 공격수 + 공 -->
+            <circle cx="92" cy="112" r="16" fill="#AEB9C0"/><text x="92" y="116" text-anchor="middle" class="d-op">공격</text>
+            <circle cx="110" cy="122" r="5" fill="#fff" stroke="#16281E"/>
+            <line x1="116" y1="112" x2="168" y2="112" stroke="#5F7266" stroke-width="2.6" marker-end="url(#agD)"/>
+            <!-- 수비(골 쪽) + 물러서기 -->
+            <circle cx="212" cy="112" r="16" fill="#1F7A46"/><text x="212" y="116" text-anchor="middle" class="d-us">D</text>
+            <path d="M212 140 Q235 150 258 142" fill="none" stroke="#1F7A46" stroke-width="2.6" stroke-dasharray="5 4" marker-end="url(#agD)"/>
+            <text x="214" y="170" class="d-lab-s">물러서며 지연</text>
+            <!-- 터치 거리 -->
+            <line x1="176" y1="96" x2="196" y2="96" stroke="#B4741B" stroke-width="1.6"/>
+            <text x="150" y="92" class="d-amb">터치 거리</text>
+            <defs><marker id="agD" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>공을 가진 상대에게 바로 달려들지 않기 — 물러서며 <b>지연</b></li>
+          <li>골 쪽(goal-side)에 서서 <b>터치 거리</b> 유지 · 낮은 자세·발끝</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 동료가 복귀할 <b>시간</b>을 버는 게 1차 목표.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 02 방향 강제 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">수비 기본 · 방향 강제</div>
+        <div class="tx-numrow"><span class="tx-no">02</span>
+          <span class="tx-tt"><span class="tx-title">한쪽으로 몰기</span><span class="tx-en">SHOW ONE WAY</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="방향 강제 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 공격수 + 공 -->
+            <circle cx="150" cy="104" r="16" fill="#AEB9C0"/><text x="150" y="108" text-anchor="middle" class="d-op">공격</text>
+            <circle cx="168" cy="114" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- 수비(중앙 차단) -->
+            <circle cx="205" cy="86" r="16" fill="#1F7A46"/><text x="205" y="90" text-anchor="middle" class="d-us">D</text>
+            <!-- 막는 방향(중앙·위험) -->
+            <line x1="164" y1="94" x2="236" y2="54" stroke="#C9573F" stroke-width="2.4" stroke-dasharray="5 4"/>
+            <g stroke="#C9573F" stroke-width="2.6"><line x1="243" y1="49" x2="255" y2="61"/><line x1="255" y1="49" x2="243" y2="61"/></g>
+            <text x="196" y="44" class="d-blk">중앙 차단</text>
+            <!-- 유도 방향(바깥) -->
+            <path d="M142 116 L92 162" stroke="#E8A33D" stroke-width="3.4" marker-end="url(#aaA)"/>
+            <text x="60" y="150" class="d-amb">유도 →</text>
+            <defs><marker id="aaA" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E8A33D"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>몸을 비스듬히 열어 <b>한쪽을 막고</b> 반대로 몬다</li>
+          <li>위험한 <b>중앙</b>을 막고, <b>터치라인·약한 발</b> 쪽으로</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 수비는 '뺏기'보다 <b>덜 위험한 곳으로 몰기</b>가 먼저.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 03 접근 각도·거리 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">수비 기본 · 접근</div>
+        <div class="tx-numrow"><span class="tx-no">03</span>
+          <span class="tx-tt"><span class="tx-title">각도와 거리</span><span class="tx-en">ANGLE &amp; DISTANCE</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="접근 각도 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 공격수 + 공 -->
+            <circle cx="108" cy="118" r="16" fill="#AEB9C0"/><text x="108" y="122" text-anchor="middle" class="d-op">공격</text>
+            <circle cx="126" cy="128" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- 곡선 접근 경로 -->
+            <path d="M262 172 Q210 150 172 122" fill="none" stroke="#1F7A46" stroke-width="2.8" stroke-dasharray="6 5" marker-end="url(#adG)"/>
+            <text x="230" y="185" class="d-lab-s">곡선으로 접근</text>
+            <!-- 수비 도착 -->
+            <circle cx="166" cy="118" r="16" fill="#1F7A46"/><text x="166" y="122" text-anchor="middle" class="d-us">D</text>
+            <!-- 거리 표시 -->
+            <line x1="132" y1="100" x2="150" y2="100" stroke="#B4741B" stroke-width="1.6" marker-start="url(#adA)" marker-end="url(#adA)"/>
+            <text x="112" y="94" class="d-amb">1~1.5m</text>
+            <defs>
+              <marker id="adG" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker>
+              <marker id="adA" markerWidth="7" markerHeight="7" refX="3" refY="3" orient="auto"><path d="M0,0 L5,3 L0,6 Z" fill="#B4741B"/></marker>
+            </defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>일직선이 아니라 <b>곡선</b>으로 접근해 한쪽을 닫기</li>
+          <li><b>손 닿을 거리(1~1.5m)</b>에서 멈춰 무게중심 낮추기</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 너무 가까우면 제쳐지고, 너무 멀면 <b>슛·패스</b>를 준다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 04 태클 타이밍 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">수비 기본 · 인내</div>
+        <div class="tx-numrow"><span class="tx-no">04</span>
+          <span class="tx-tt"><span class="tx-title">성급하게 안 덤빈다</span><span class="tx-en">DON'T DIVE IN</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="태클 타이밍 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 공격수 -->
+            <circle cx="96" cy="116" r="16" fill="#AEB9C0"/><text x="96" y="120" text-anchor="middle" class="d-op">공격</text>
+            <!-- 큰 터치(공이 멀리) -->
+            <circle cx="112" cy="126" r="5" fill="#fff" stroke="#16281E"/>
+            <path d="M120 122 L182 122" stroke="#5F7266" stroke-width="2.2" stroke-dasharray="5 4" marker-end="url(#atG)"/>
+            <circle cx="192" cy="122" r="6" fill="#fff" stroke="#16281E"/>
+            <text x="120" y="150" class="d-lab-s">큰 터치 = 기회</text>
+            <!-- 수비 대기 → 태클 -->
+            <circle cx="256" cy="116" r="16" fill="#1F7A46"/><text x="256" y="120" text-anchor="middle" class="d-us">D</text>
+            <path d="M240 118 L206 121" stroke="#1F7A46" stroke-width="3.4" marker-end="url(#atG)"/>
+            <text x="205" y="98" class="d-lab">태클!</text>
+            <text x="243" y="150" class="d-lab-s">눈은 공에</text>
+            <defs><marker id="atG" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>눈은 <b>공</b>에 — 상대 몸·페인트에 속지 않기</li>
+          <li>상대가 <b>터치를 크게</b> 하거나 실수할 때만 태클</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 성급한 태클 한 번 = <b>한 명이 뚫린다.</b></div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 05 커버 & 소통 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">수비 전술 · 협력</div>
+        <div class="tx-numrow"><span class="tx-no">05</span>
+          <span class="tx-tt"><span class="tx-title">커버하고 소통하기</span><span class="tx-en">COVER &amp; COMMUNICATE</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="커버 소통 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 공격수 + 공 -->
+            <circle cx="88" cy="104" r="16" fill="#AEB9C0"/><text x="88" y="108" text-anchor="middle" class="d-op">공격</text>
+            <circle cx="106" cy="114" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- D1 압박 -->
+            <circle cx="162" cy="104" r="16" fill="#1F7A46"/><text x="162" y="108" text-anchor="middle" class="d-us">D1</text>
+            <text x="140" y="80" class="d-lab-s">압박</text>
+            <!-- D2 커버(뒤·비스듬) -->
+            <circle cx="230" cy="150" r="16" fill="#1F7A46"/><text x="230" y="154" text-anchor="middle" class="d-us">D2</text>
+            <path d="M218 140 L182 116" fill="none" stroke="#1F7A46" stroke-width="2.6" stroke-dasharray="5 4" marker-end="url(#acG)"/>
+            <text x="238" y="176" class="d-lab">"커버!"</text>
+            <defs><marker id="acG" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>동료가 압박하면 나는 <b>뒤를 커버</b> (비스듬히 위치)</li>
+          <li>계속 <b>콜</b>: “커버!” “압박!” · 뺏기면 즉시 <b>리커버리 런</b></li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 혼자 막지 않는다. <b>둘이 한 명을</b> 가둔다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 마무리 -->
+    <div class="cnx-card tx tx-cover">
+      <div class="tx-hero">
+        <span class="tag">한 장 요약</span>
+        <h1 style="font-size:38px">좋은 수비는<br><em>참고, 몰고, 함께</em></h1>
+        <ul class="tx-list big" style="margin-top:22px;gap:10px">
+          <li><b>01</b> 지연 — 달려들지 않는다</li>
+          <li><b>02</b> 방향 — 한쪽으로 몬다</li>
+          <li><b>03</b> 접근 — 곡선·거리 유지</li>
+          <li><b>04</b> 태클 — 큰 터치 때만</li>
+          <li><b>05</b> 커버 — 둘이 한 명을</li>
+        </ul>
+        <div class="rule"></div>
+        <div class="go">더 깊은 훈련 이야기 · groundyouth.com · 저장 · 팔로우</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cn-credit">※ 코칭 일반론을 유소년 눈높이로 정리한 자료입니다. 지도 상황·연령에 맞게 조절하세요. 참고: 유소년 수비 코칭 자료(jockeying·delay·1v1 defending).</div>
+
+  <div id="site-footer"></div>
+
+  <script src="../assets/js/icons.js"></script>
+  <script src="../assets/js/render.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>
