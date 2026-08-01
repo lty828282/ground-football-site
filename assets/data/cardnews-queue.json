@@ -2,6 +2,20 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "positions",
+      "generated": true,
+      "theme": "#5B7C5A",
+      "listTitle": "포지션 이해하기",
+      "listDesc": "어디서 무엇을 하는 자리일까? 축구 포지션의 기본 역할.",
+      "photoCredit": [
+        "nn.TON.nn",
+        "Nataly Leal",
+        "César O'neill",
+        "Daniil Kondrashin",
+        "Марина  Шишкина"
+      ]
+    },
+    {
       "slug": "recovery-nutrition",
       "generated": true,
       "theme": "#B5651D",
@@ -333,40 +347,6 @@
     }
   ],
   "queue": [
-    {
-      "slug": "positions",
-      "concept": "tactics",
-      "quote": "좋은 선수는 위치가 아니라 '역할'로 뛴다",
-      "theme": "#5B7C5A",
-      "metaTitle": "[카드뉴스] 유소년 축구 포지션 이해하기",
-      "metaDesc": "축구 포지션의 기본 역할을 유소년 눈높이로 정리한 카드뉴스입니다.",
-      "listTitle": "포지션 이해하기",
-      "listDesc": "어디서 무엇을 하는 자리일까? 축구 포지션의 기본 역할.",
-      "kicker": "GROUND YOUTH · 축구 정보",
-      "coverTitle": "내 자리는<br>어디일까?",
-      "coverSub": "포지션의 기본 역할 이해하기.",
-      "photoQuery": "youth soccer team on field formation",
-      "cards": [
-        {
-          "title": "골키퍼<br>(GK)",
-          "body": "골문을 지키는 최후의 선수. 손을 쓸 수 있는 유일한 자리로, 침착함과 판단력이 중요합니다."
-        },
-        {
-          "title": "수비수<br>(DF)",
-          "body": "상대 공격을 막고 골키퍼를 돕습니다. 위치 선정과 몸싸움, 그리고 공격의 시작점 역할도 해요."
-        },
-        {
-          "title": "미드필더<br>(MF)",
-          "body": "경기의 '엔진'. 수비와 공격을 잇고 패스를 뿌리며 가장 많이 뛰는 자리입니다."
-        },
-        {
-          "title": "공격수<br>(FW)",
-          "body": "골을 넣는 게 임무. 빈 공간을 찾는 움직임과 슛 마무리, 그리고 앞선 수비가 핵심."
-        }
-      ],
-      "closingTitle": "여러 자리를<br>경험해 보세요",
-      "closingBody": "어릴 땐 한 자리에 가두지 않는 게 좋아요. 다 해봐야 내게 맞는 포지션을 찾습니다."
-    },
     {
       "slug": "mental",
       "concept": "navy",
