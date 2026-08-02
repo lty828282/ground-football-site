@@ -10,6 +10,21 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358364523971958"
      crossorigin="anonymous"></script>
+<style>
+/* 카테고리 필터 칩 */
+.cat-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:6px auto 4px;padding:0 16px;}
+.cat-chip{font-size:14px;font-weight:800;color:#2E7D52;background:#EAF4EC;border:0;border-radius:999px;
+  padding:9px 18px;cursor:pointer;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent;}
+.cat-chip:hover{background:#dcecdf;}
+.cat-chip.on{background:#1B4332;color:#fff;}
+.gsec{margin-top:8px;}
+.gc-hidden{display:none!important;}
+.more-wrap{text-align:center;margin-top:26px;}
+.more-btn{font-size:15px;font-weight:800;color:#1B4332;background:#fff;border:2px solid #1B4332;
+  border-radius:999px;padding:12px 30px;cursor:pointer;transition:background .15s,color .15s;}
+.more-btn:hover{background:#1B4332;color:#fff;}
+.more-btn span{opacity:.7;font-weight:700;}
+</style>
 </head>
 <body>
 
@@ -21,7 +36,16 @@
     <p>자라나는 선수와 부모님을 위해 그라운드가 직접 정리한 콘텐츠입니다.</p>
   </div>
 
+  <div class="cat-bar" id="catBar">
+    <button class="cat-chip on" data-cat="all">전체</button>
+    <button class="cat-chip" data-cat="guide">가이드</button>
+    <button class="cat-chip" data-cat="health">건강·영양</button>
+    <button class="cat-chip" data-cat="motivation">동기부여</button>
+    <button class="cat-chip" data-cat="cardnews">카드뉴스</button>
+  </div>
+
   <div class="section">
+    <div class="gsec" data-cat="guide">
     <h2 class="subsection-title">가이드</h2>
     <div class="guide-grid">
       <a class="guide-card" href="/pages/guide-soccer-shoes.html">
@@ -78,9 +102,20 @@
           <div class="gc-more">자세히 보기 →</div>
         </div>
       </a>
+      <a class="guide-card" href="/pages/guide-positions.html">
+        <div class="gc-top" style="background:#1F7A46"></div>
+        <div class="gc-body">
+          <div class="gc-cat">기본기·전술</div>
+          <h3>유소년 축구 포지션 이해하기</h3>
+          <p>골키퍼·수비수·미드필더·공격수의 역할과, 성장기에 여러 자리를 경험해야 하는 이유.</p>
+          <div class="gc-more">자세히 보기 →</div>
+        </div>
+      </a>
+    </div>
     </div>
 
-    <h2 class="subsection-title" style="margin-top:44px;">건강·영양</h2>
+    <div class="gsec" data-cat="health">
+    <h2 class="subsection-title">건강·영양</h2>
     <div class="guide-grid">
       <a class="guide-card" href="/pages/guide-nutrition.html">
         <div class="gc-top" style="background:#2E7D52"></div>
@@ -118,9 +153,20 @@
           <div class="gc-more">자세히 보기 →</div>
         </div>
       </a>
+      <a class="guide-card" href="/pages/guide-warmup.html">
+        <div class="gc-top" style="background:#43B265"></div>
+        <div class="gc-body">
+          <div class="gc-cat">건강·안전</div>
+          <h3>워밍업 &amp; 부상 예방 루틴</h3>
+          <p>경기 전 5~10분 동적 워밍업으로 부상을 줄이는 법. 정적 스트레칭은 언제 해야 할까?</p>
+          <div class="gc-more">자세히 보기 →</div>
+        </div>
+      </a>
+    </div>
     </div>
 
-    <h2 class="subsection-title" style="margin-top:44px;">동기부여</h2>
+    <div class="gsec" data-cat="motivation">
+    <h2 class="subsection-title">동기부여</h2>
     <div class="guide-grid">
       <a class="guide-card" href="/pages/cardnews-legend-quotes.html">
         <div class="gc-top" style="background:#0c2150"></div>
@@ -186,9 +232,11 @@
         </div>
       </a>
     </div>
+    </div>
 
-    <h2 class="subsection-title" style="margin-top:44px;">카드뉴스</h2>
-    <div class="guide-grid">
+    <div class="gsec" data-cat="cardnews">
+    <h2 class="subsection-title">카드뉴스</h2>
+    <div class="guide-grid" id="cardnewsGrid">
       <!-- CARDNEWS_LIST:START (scripts/publish_cardnews.py 가 자동 관리 — 직접 수정하지 마세요) -->
       <a class="guide-card" href="/pages/cardnews-positions.html">
         <div class="gc-top" style="background:#5B7C5A"></div>
@@ -426,7 +474,47 @@
       </a>
       <!-- CARDNEWS_LIST:END -->
     </div>
+    <div class="more-wrap">
+      <button class="more-btn" id="cardnewsMore" style="display:none;">카드뉴스 더보기 <span id="moreCount"></span></button>
+    </div>
+    </div>
   </div>
+
+  <script>
+  (function () {
+    // 카테고리 필터 칩
+    var bar = document.getElementById('catBar');
+    if (bar) {
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest('.cat-chip');
+        if (!b) return;
+        bar.querySelectorAll('.cat-chip').forEach(function (c) { c.classList.remove('on'); });
+        b.classList.add('on');
+        var cat = b.getAttribute('data-cat');
+        document.querySelectorAll('.gsec').forEach(function (s) {
+          s.style.display = (cat === 'all' || s.getAttribute('data-cat') === cat) ? '' : 'none';
+        });
+      });
+    }
+    // 카드뉴스 더보기 (처음엔 9개만)
+    var grid = document.getElementById('cardnewsGrid');
+    var btn = document.getElementById('cardnewsMore');
+    if (grid && btn) {
+      var LIMIT = 9;
+      var cards = grid.querySelectorAll('.guide-card');
+      if (cards.length > LIMIT) {
+        cards.forEach(function (c, i) { if (i >= LIMIT) c.classList.add('gc-hidden'); });
+        var cnt = document.getElementById('moreCount');
+        if (cnt) cnt.textContent = '(+' + (cards.length - LIMIT) + ')';
+        btn.style.display = '';
+        btn.addEventListener('click', function () {
+          grid.querySelectorAll('.guide-card').forEach(function (c) { c.classList.remove('gc-hidden'); });
+          var w = btn.parentNode; if (w) w.parentNode.removeChild(w);
+        });
+      }
+    }
+  })();
+  </script>
 
   <div id="site-footer"></div>
 
