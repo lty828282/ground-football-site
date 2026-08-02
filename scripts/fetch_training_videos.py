@@ -21,6 +21,8 @@ PUBLISHED_AFTER = MONTHS6.replace(microsecond=0).isoformat().replace("+00:00", "
 
 # 카테고리 = 화면 필터 칩 라벨, queries = 검색 키워드, n = 상위 몇 개
 GROUPS = [
+    {"cat": "볼감각", "queries": ["유소년 축구 볼 컨트롤 훈련", "축구 볼 감각 훈련",
+                                 "축구 퍼스트 터치 훈련", "축구 트래핑 훈련", "볼 리프팅 트래핑 기본기"], "n": 5},
     {"cat": "슛 & 킥", "queries": ["유소년 축구 슛 훈련", "유소년 축구 킥 훈련"], "n": 3},
     {"cat": "드리블", "queries": ["유소년 축구 드리블 훈련"], "n": 3},
     {"cat": "패스", "queries": ["유소년 축구 패스 훈련"], "n": 3},
@@ -57,7 +59,7 @@ def yt(endpoint, params):
 def search_ids(q):
     data = yt("search", {
         "part": "snippet", "q": q, "type": "video", "order": "viewCount",
-        "maxResults": 25, "publishedAfter": PUBLISHED_AFTER,
+        "maxResults": 40, "publishedAfter": PUBLISHED_AFTER,
         "relevanceLanguage": "ko", "regionCode": "KR",
         "videoEmbeddable": "true", "safeSearch": "strict",
     })
@@ -120,12 +122,13 @@ def pick_group(g, seen):
             continue
         if not any(t.lower() in hay for t in TUTORIAL_TOKENS):  # 훈련/강습 성격 필수
             continue
-        views = int(it.get("statistics", {}).get("viewCount", 0))
         dur = parse_dur_seconds(it.get("contentDetails", {}).get("duration"))
+        if dur and dur <= 70:      # 숏츠 제외(롱폼만) — 목록 카드 크기 통일
+            continue
+        views = int(it.get("statistics", {}).get("viewCount", 0))
         rows.append({"id": vid, "views": views, "pub": pub,
                      "title": it["snippet"]["title"].strip(),
-                     "channel": it["snippet"]["channelTitle"].strip(),
-                     "short": dur and dur <= 65})
+                     "channel": it["snippet"]["channelTitle"].strip()})
     rows.sort(key=lambda r: r["views"], reverse=True)
     chosen = rows[:g["n"]]
     for r in chosen:
@@ -152,8 +155,6 @@ def main():
             note = f"조회수 {fmt_views(r['views'])} · {ym} · {r['channel']}"
             print(f"    - {r['id']}  ({fmt_views(r['views'])}, {ym})  {r['title'][:50]}")
             vobj = {"id": r["id"], "title": r["title"], "cat": g["cat"], "note": note, "auto": True}
-            if r["short"]:
-                vobj["short"] = True
             auto.append(vobj)
 
     data["categories"] = CATEGORY_ORDER
