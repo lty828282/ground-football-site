@@ -152,4 +152,59 @@ async function fetchVideos(section) {
   return data;
 }
 
+// ── SEO 메타 자동 주입(canonical·Open Graph·구조화 데이터) ─────────────
+// 정적 head 를 페이지마다 손대지 않아도 되도록, 로드 시 표준 태그를 채운다.
+function injectSeo() {
+  try {
+    const head = document.head;
+    const origin = location.origin;
+    const url = origin + location.pathname.replace(/index\.html$/, '');
+    const title = document.title || '그라운드 유소년';
+    const descEl = document.querySelector('meta[name="description"]');
+    const desc = descEl ? descEl.content : '유소년 축구 전문 정보 허브 · 그라운드 유소년';
+    const ogImg = origin + '/assets/img/brand/profile.png';
+    const isArticle = location.pathname.indexOf('/pages/') > -1;
+
+    if (!document.querySelector('link[rel="canonical"]')) {
+      const l = document.createElement('link');
+      l.rel = 'canonical'; l.href = url; head.appendChild(l);
+    }
+    const props = [
+      ['og:site_name', '그라운드 유소년'],
+      ['og:type', isArticle ? 'article' : 'website'],
+      ['og:title', title],
+      ['og:description', desc],
+      ['og:url', url],
+      ['og:image', ogImg],
+      ['og:locale', 'ko_KR'],
+    ];
+    props.forEach(([p, v]) => {
+      if (document.querySelector(`meta[property="${p}"]`)) return;
+      const m = document.createElement('meta');
+      m.setAttribute('property', p); m.content = v; head.appendChild(m);
+    });
+    [['twitter:card', 'summary'], ['twitter:title', title],
+     ['twitter:description', desc], ['twitter:image', ogImg]].forEach(([n, v]) => {
+      if (document.querySelector(`meta[name="${n}"]`)) return;
+      const m = document.createElement('meta');
+      m.name = n; m.content = v; head.appendChild(m);
+    });
+    if (!document.getElementById('ld-org')) {
+      const ld = document.createElement('script');
+      ld.type = 'application/ld+json'; ld.id = 'ld-org';
+      ld.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          { '@type': 'Organization', name: '그라운드 유소년', url: origin, logo: ogImg },
+          { '@type': 'WebSite', name: '그라운드 유소년', url: origin },
+        ],
+      });
+      head.appendChild(ld);
+    }
+  } catch (e) {
+    console.error('seo inject failed', e);
+  }
+}
+
+injectSeo();
 document.addEventListener('DOMContentLoaded', loadPartials);
