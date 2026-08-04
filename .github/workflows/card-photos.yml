@@ -40,17 +40,13 @@ jobs:
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
-          if [ "${{ github.event.inputs.mode }}" = "apply" ]; then
-            python3 scripts/apply_card_photos.py "${{ github.event.inputs.slug }}" "${{ github.event.inputs.picks }}"
-          else
-            python3 scripts/fetch_card_photos.py "${{ github.event.inputs.slug }}" "${{ github.event.inputs.cards }}"
-          fi
+          python3 scripts/fetch_health_photos.py "${{ github.event.inputs.cards }}"
 
       - name: Commit
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add exports/photo-candidates assets/img/cardnews
+          git add exports/photo-candidates assets/img/cardnews assets/img/health
           if git diff --cached --quiet; then
             echo "no changes"
           else
