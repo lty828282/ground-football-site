@@ -2,6 +2,20 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "mental",
+      "generated": true,
+      "theme": "#4E6157",
+      "listTitle": "멘탈 강한 어린 선수",
+      "listDesc": "실수해도, 져도 괜찮아요. 마음이 단단한 선수로 자라는 법.",
+      "photoCredit": [
+        "César O'neill",
+        "nn.TON.nn",
+        "Марина  Шишкина",
+        "Oscar Medina",
+        "Mica Asato"
+      ]
+    },
+    {
       "slug": "positions",
       "generated": true,
       "theme": "#5B7C5A",
@@ -346,40 +360,5 @@
       ]
     }
   ],
-  "queue": [
-    {
-      "slug": "mental",
-      "concept": "navy",
-      "quote": "즐기는 선수를 이길 수는 없다",
-      "theme": "#4E6157",
-      "metaTitle": "[카드뉴스] 멘탈 강한 어린 선수 되기 4가지",
-      "metaDesc": "실수와 패배 앞에서도 흔들리지 않는, 멘탈이 강한 어린 축구 선수가 되는 4가지를 카드뉴스로 정리했습니다.",
-      "listTitle": "멘탈 강한 어린 선수",
-      "listDesc": "실수해도, 져도 괜찮아요. 마음이 단단한 선수로 자라는 법.",
-      "kicker": "GROUND YOUTH · 유소년 축구",
-      "coverTitle": "마음이 단단한<br>선수가 오래 간다",
-      "coverSub": "실수와 패배를 대하는 법.",
-      "photoQuery": "youth soccer team encouragement teamwork",
-      "cards": [
-        {
-          "title": "실수는<br>배움이다",
-          "body": "누구나 실수합니다. 중요한 건 다음 공. 실수에 멈추지 않고 바로 다음 플레이에 집중하기."
-        },
-        {
-          "title": "남과<br>비교 금지",
-          "body": "친구보다 잘하려는 게 아니라, 어제의 나보다 나아지기. 성장 속도는 저마다 다릅니다."
-        },
-        {
-          "title": "즐기는<br>마음",
-          "body": "재미가 없으면 오래 못 합니다. 이기고 지는 것보다 축구가 좋아서 하는 마음이 먼저예요."
-        },
-        {
-          "title": "끝까지<br>포기 않기",
-          "body": "지고 있어도 마지막 휘슬까지. 결과보다 끝까지 뛴 태도가 진짜 실력을 만듭니다."
-        }
-      ],
-      "closingTitle": "즐기는 선수를<br>이길 수 없다",
-      "closingBody": "잘하는 것보다 좋아하는 것. 그 마음이 가장 멀리까지 데려다줍니다."
-    }
-  ]
+  "queue": []
 }
