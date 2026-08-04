@@ -14,7 +14,7 @@ TW, TH = 1200, 720
 QUERIES = {
     "hydration-hero": ["child drinking water sport", "kid drinking water bottle", "athlete drinking water"],
     "hydration-sweat": ["water bottle sports field", "soccer water bottle grass", "sports drink bottle"],
-    "bones-hero": ["milk and dairy products", "glass of milk dairy", "cheese yogurt milk table"],
+    "bones-hero": ["glass of milk on wooden table", "milk pouring into glass", "glass of milk white background"],
     "bones-sun": ["children playing outdoors sunlight", "kids running park sunny", "child outdoor sunshine"],
     "iron-hero": ["red meat cooked plate", "grilled beef steak plate", "cooked meat protein plate"],
     "iron-greens": ["spinach leafy greens", "cooked spinach bowl", "green vegetables iron"],

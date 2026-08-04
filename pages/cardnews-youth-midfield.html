@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[카드뉴스] 유소년 미드필더가 익혀야 할 움직임 5가지 | 그라운드 유소년</title>
+<meta name="description" content="라인 사이에서 받기·하프턴·삼각 지원·원투 패스·세컨볼 전환. 경기를 잇고 조율하는 미드필더가 반드시 익혀야 할 5가지 움직임을 피치 다이어그램으로 정리한 기본기·전술 카드뉴스.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358364523971958"
+     crossorigin="anonymous"></script>
+<style>
+/* ── 기본기·전술 카드(밝은 그린·크림) ───────────────── */
+.cnx-card.tx{
+  --green:#1F7A46; --green2:#2E7D52; --leaf:#43B265; --gold:#E8A33D;
+  --ink:#16281E; --dim:#5F7266; --line:#E3E8DD;
+  --field:#E6F2E9; --fline:#C4DFCC; --fmid:#D2E7D8; --opp:#AEB9C0;
+  background:linear-gradient(180deg,#F5FBF6,#E9F3EC);
+  color:var(--ink); aspect-ratio:4/5; border-radius:18px;
+  font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;
+  display:flex; flex-direction:column;
+}
+.cnx-card.tx::after{display:none!important;}
+.cnx-card.tx *{position:relative; z-index:1;}
+.tx-head{padding:20px 26px 8px;}
+.tx-eyebrow{font-size:15px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+.tx-numrow{display:flex;align-items:baseline;gap:12px;margin-top:8px;}
+.tx-no{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:50px;line-height:.9;color:var(--green);}
+.tx-tt{display:flex;flex-direction:column;}
+.tx-title{font-size:34px;font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);}
+.tx-en{font-size:15px;font-weight:700;color:var(--dim);letter-spacing:.5px;margin-top:3px;}
+.tx-body{flex:1;padding:8px 24px 10px;display:flex;flex-direction:column;gap:15px;}
+.tx-diagram{background:var(--field);border:1px solid var(--fline);border-radius:16px;padding:10px;}
+.tx-diagram svg{display:block;width:100%;height:auto;}
+.tx-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.tx-list li{display:flex;gap:11px;font-size:18px;line-height:1.44;color:var(--ink);}
+.tx-list li::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--leaf);margin-top:7px;transform:rotate(45deg);}
+.tx-list li b{color:var(--green);font-weight:800;}
+.tx-why{background:#EAF5EC;border-left:4px solid var(--green);border-radius:8px;
+  padding:13px 16px;font-size:17px;line-height:1.5;color:#1c5c3a;}
+.tx-why b{color:var(--green);}
+.tx-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 26px;}
+.tx-dots{display:flex;gap:6px;}
+.tx-dots i{width:20px;height:3px;border-radius:2px;background:rgba(22,40,30,.16);}
+.tx-dots i.on{background:var(--green);}
+.tx-mark{font-size:13px;font-weight:900;letter-spacing:1px;color:var(--ink);}
+.tx-mark i{color:var(--leaf);font-style:normal;}
+/* 다이어그램 텍스트 */
+.d-lab{font:800 15.5px 'Pretendard',sans-serif;fill:#16281E;}
+.d-lab-s{font:700 13.5px 'Pretendard',sans-serif;fill:#5F7266;}
+.d-us{font:800 14.5px 'Pretendard',sans-serif;fill:#ffffff;}
+.d-op{font:800 13.5px 'Pretendard',sans-serif;fill:#37434B;}
+.d-amb{font:800 13.5px 'Pretendard',sans-serif;fill:#B4741B;}
+
+/* ── 표지 / 마무리(그린 그라데이션) ─────────────── */
+.tx-cover{padding:0;}
+.tx-hero{flex:1;padding:52px 34px 34px;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(150deg,#1B4332,#2E7D52);color:#fff;}
+.tx-hero .tag{align-self:flex-start;font-size:13px;font-weight:800;letter-spacing:1px;color:#16281E;
+  background:#FFD54F;border-radius:999px;padding:7px 16px;margin-bottom:22px;}
+.tx-hero h1{font-size:48px;font-weight:900;line-height:1.08;letter-spacing:-1.5px;}
+.tx-hero h1 em{font-style:normal;color:#FFD54F;}
+.tx-hero .sub{font-size:21px;font-weight:600;line-height:1.55;color:#e7f2ea;margin-top:20px;max-width:94%;}
+.tx-hero .sub b{color:#9be7b6;}
+.tx-hero .rule{width:60px;height:5px;background:#43B265;border-radius:3px;margin:24px 0 0;}
+.tx-hero .go{font-size:15px;font-weight:800;color:#FFD54F;margin-top:20px;}
+.tx-hero .tx-list li{color:#eaf6ee;}
+.tx-hero .tx-list li::before{background:#FFD54F;}
+.tx-hero .tx-list li b{color:#FFD54F;}
+.tx-list.big li{font-size:20.5px;}
+.tx-cover .tx-foot .tx-mark{color:#fff;}
+.tx-cover .tx-foot .tx-dots i{background:rgba(255,255,255,.3);}
+.tx-cover .tx-foot .tx-dots i.on{background:#FFD54F;}
+</style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="page-hero">
+    <div class="breadcrumb"><a href="/index.html">홈</a> / <a href="/pages/guides.html">가이드</a> / <span>카드뉴스</span></div>
+    <h1>유소년 미드필더가 익혀야 할 움직임 5가지</h1>
+  </div>
+
+  <div class="cnx-wrap">
+    <div class="cnx-hint">📱 각 카드를 이미지로 저장해 공유해 보세요</div>
+
+    <!-- 표지 -->
+    <div class="cnx-card tx tx-cover">
+      <div class="tx-hero">
+        <span class="tag">기본기 · 전술 노트 · 미드필더 편</span>
+        <h1>미드필더가 익혀야 할<br><em>움직임 5가지</em></h1>
+        <div class="sub">수비와 공격을 잇고 경기를 조율하는 <b>'엔진'</b>. 프로 코칭이 강조하는 미드필더 움직임 5가지를 그림으로 정리했어요.</div>
+        <div class="rule"></div>
+        <div class="go">넘겨서 하나씩 확인하세요 →</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 01 라인 사이에서 받기 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">미드필더 · 위치 선정</div>
+        <div class="tx-numrow"><span class="tx-no">01</span>
+          <span class="tx-tt"><span class="tx-title">라인 사이에서 받기</span><span class="tx-en">BETWEEN THE LINES</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="라인 사이 받기 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 상대 두 라인 -->
+            <line x1="30" y1="58" x2="310" y2="58" stroke="#AEB9C0" stroke-width="1.6" stroke-dasharray="3 6"/>
+            <line x1="30" y1="146" x2="310" y2="146" stroke="#AEB9C0" stroke-width="1.6" stroke-dasharray="3 6"/>
+            <circle cx="115" cy="58" r="13" fill="#AEB9C0"/><circle cx="225" cy="58" r="13" fill="#AEB9C0"/>
+            <circle cx="95" cy="146" r="13" fill="#AEB9C0"/><circle cx="235" cy="146" r="13" fill="#AEB9C0"/>
+            <text x="300" y="52" text-anchor="end" class="d-lab-s">상대 라인</text>
+            <!-- 포켓 강조 + ME -->
+            <ellipse cx="178" cy="102" rx="46" ry="26" fill="#1F7A46" opacity="0.12"/>
+            <circle cx="178" cy="102" r="16" fill="#1F7A46"/><text x="178" y="106" text-anchor="middle" class="d-us">ME</text>
+            <circle cx="196" cy="112" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- 아군 전진 패스 -->
+            <path d="M178 180 L178 124" stroke="#1F7A46" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#amG)"/>
+            <text x="150" y="92" class="d-lab">라인 사이 포켓</text>
+            <defs><marker id="amG" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>상대 <b>수비·미드 라인 사이 '포켓'</b>에 자리 잡기</li>
+          <li>받기 전 <b>어깨 너머 스캔</b>으로 공간·압박을 미리 확인</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 라인 사이에서 받으면 <b>전진 패스 한 번</b>에 경기가 열린다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 02 하프턴으로 전진 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">미드필더 · 받는 자세</div>
+        <div class="tx-numrow"><span class="tx-no">02</span>
+          <span class="tx-tt"><span class="tx-title">하프턴으로 전진</span><span class="tx-en">HALF-TURN</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="하프턴 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 시야 콘(전방) -->
+            <path d="M175 108 L318 44 L318 150 Z" fill="#1F7A46" opacity="0.13"/>
+            <!-- 공 도착(뒤에서) -->
+            <line x1="40" y1="150" x2="150" y2="128" stroke="#5F7266" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#amH)"/>
+            <circle cx="40" cy="150" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- 미드필더(열린 몸) -->
+            <circle cx="172" cy="112" r="16" fill="#1F7A46"/><text x="172" y="116" text-anchor="middle" class="d-us">ME</text>
+            <path d="M174 108 L300 78" stroke="#1F7A46" stroke-width="3.4" marker-end="url(#amH)"/>
+            <text x="206" y="66" class="d-lab">전방으로 전진</text>
+            <text x="44" y="140" class="d-lab-s">먼 발로 받기</text>
+            <defs><marker id="amH" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>뒤돌아 받지 말고 <b>몸을 열어(하프턴)</b> 앞을 본다</li>
+          <li>가려는 방향의 <b>먼 발</b>로 받아 곧바로 전진</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 받고 도는 <b>0.5초</b>가 수비가 못 막는 패스 길을 연다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 03 삼각 지원 각 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">미드필더 · 볼 없는 움직임</div>
+        <div class="tx-numrow"><span class="tx-no">03</span>
+          <span class="tx-tt"><span class="tx-title">삼각 지원 각</span><span class="tx-en">SUPPORT TRIANGLE</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="삼각 지원 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 삼각형 라인 -->
+            <path d="M78 150 L250 84 L180 178 Z" fill="none" stroke="#43B265" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7"/>
+            <!-- 볼 소유 동료 A -->
+            <circle cx="78" cy="150" r="15" fill="#1F7A46"/><text x="78" y="154" text-anchor="middle" class="d-us">A</text>
+            <circle cx="95" cy="160" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- 수비 -->
+            <circle cx="158" cy="120" r="13" fill="#AEB9C0"/><text x="158" y="124" text-anchor="middle" class="d-op">수비</text>
+            <!-- 미드필더 ME + 동료 B -->
+            <circle cx="250" cy="84" r="16" fill="#1F7A46"/><text x="250" y="88" text-anchor="middle" class="d-us">ME</text>
+            <circle cx="180" cy="178" r="14" fill="#1F7A46"/><text x="180" y="182" text-anchor="middle" class="d-us">B</text>
+            <!-- 패스 각 -->
+            <path d="M92 144 Q160 90 234 84" fill="none" stroke="#1F7A46" stroke-width="2.8" stroke-dasharray="7 5" marker-end="url(#amT)"/>
+            <text x="196" y="70" class="d-lab">패스 각</text>
+            <defs><marker id="amT" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>볼 주변에 <b>삼각형</b>을 만들어 항상 패스 옵션 제공</li>
+          <li>일직선 뒤에 숨지 말고 <b>수비 사이</b>로 각을 열기</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 미드필더는 <b>'항상 받을 수 있는 위치'</b>가 곧 실력이다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 04 원투로 라인 돌파 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">미드필더 · 콤비네이션</div>
+        <div class="tx-numrow"><span class="tx-no">04</span>
+          <span class="tx-tt"><span class="tx-title">원투로 라인 돌파</span><span class="tx-en">ONE-TWO</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="원투 패스 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 수비 -->
+            <circle cx="170" cy="104" r="14" fill="#AEB9C0"/><text x="170" y="108" text-anchor="middle" class="d-op">수비</text>
+            <!-- 동료 B(위) -->
+            <circle cx="238" cy="58" r="15" fill="#1F7A46"/><text x="238" y="62" text-anchor="middle" class="d-us">B</text>
+            <!-- 미드필더 ME(아래) -->
+            <circle cx="86" cy="158" r="16" fill="#1F7A46"/><text x="86" y="162" text-anchor="middle" class="d-us">ME</text>
+            <circle cx="102" cy="168" r="5" fill="#fff" stroke="#16281E"/>
+            <!-- ① 주고 -->
+            <path d="M100 150 L222 68" stroke="#1F7A46" stroke-width="3" marker-end="url(#amO)"/>
+            <text x="150" y="96" class="d-lab-s">① 주고</text>
+            <!-- ② 달려 -->
+            <path d="M92 146 Q150 118 210 118" fill="none" stroke="#43B265" stroke-width="2.6" stroke-dasharray="5 4" marker-end="url(#amO)"/>
+            <text x="120" y="140" class="d-lab-s">② 달려</text>
+            <!-- ③ 되받기 -->
+            <path d="M240 74 Q244 100 224 116" fill="none" stroke="#1F7A46" stroke-width="3" marker-end="url(#amO)"/>
+            <text x="250" y="112" class="d-lab">③ 되받기</text>
+            <defs><marker id="amO" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>짧게 <b>주고(①) 곧바로 달려(②)</b> 뒤에서 되받기(③)</li>
+          <li>수비를 <b>두 명이 한 번에</b> 벗기는 벽패스</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 빠른 원투 하나가 <b>수비 라인을 통째로</b> 넘긴다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 05 세컨볼 & 전환 -->
+    <div class="cnx-card tx">
+      <div class="tx-head">
+        <div class="tx-eyebrow">미드필더 · 전환</div>
+        <div class="tx-numrow"><span class="tx-no">05</span>
+          <span class="tx-tt"><span class="tx-title">세컨볼 & 전환</span><span class="tx-en">SECOND BALL</span></span></div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-diagram">
+          <svg viewBox="0 0 340 200" role="img" aria-label="세컨볼 전환 다이어그램">
+            <rect x="6" y="6" width="328" height="188" rx="12" fill="#E6F2E9" stroke="#C4DFCC"/>
+            <!-- 공중 경합(위) -->
+            <circle cx="128" cy="50" r="14" fill="#AEB9C0"/><circle cx="160" cy="50" r="14" fill="#1F7A46"/>
+            <circle cx="144" cy="30" r="5" fill="#fff" stroke="#16281E"/>
+            <text x="196" y="46" class="d-lab-s">공중 경합</text>
+            <!-- 흘러나온 세컨볼 -->
+            <circle cx="150" cy="108" r="6" fill="#fff" stroke="#16281E"/>
+            <path d="M150 66 L150 98" stroke="#AEB9C0" stroke-width="1.6" stroke-dasharray="3 4"/>
+            <!-- 미드필더 회수 -->
+            <circle cx="150" cy="166" r="16" fill="#1F7A46"/><text x="150" y="170" text-anchor="middle" class="d-us">ME</text>
+            <path d="M150 150 L150 122" stroke="#1F7A46" stroke-width="3" marker-end="url(#amS)"/>
+            <text x="90" y="120" class="d-lab-s">① 세컨볼</text>
+            <!-- 빠른 전환 -->
+            <path d="M162 104 Q220 88 264 66" fill="none" stroke="#1F7A46" stroke-width="3.2" marker-end="url(#amS)"/>
+            <text x="246" y="60" class="d-lab">② 전환</text>
+            <defs><marker id="amS" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1F7A46"/></marker></defs>
+          </svg>
+        </div>
+        <ul class="tx-list">
+          <li>경합에서 <b>흘러나온 공(세컨볼)</b>을 미리 예측해 회수</li>
+          <li>빼앗은 즉시 <b>공수 전환</b> — 상대가 정렬되기 전에</li>
+        </ul>
+        <div class="tx-why"><b>왜?</b> 미드필더가 <b>세컨볼을 지배</b>하면 경기 흐름을 가진다.</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+    <!-- 마무리 -->
+    <div class="cnx-card tx tx-cover">
+      <div class="tx-hero">
+        <span class="tag">한 장 요약</span>
+        <h1 style="font-size:38px">미드필더는<br><em>경기를 조율한다</em></h1>
+        <ul class="tx-list big" style="margin-top:22px;gap:10px">
+          <li><b>01</b> 라인 사이 — 포켓에서 받는다</li>
+          <li><b>02</b> 하프턴 — 열고 앞을 본다</li>
+          <li><b>03</b> 삼각 지원 — 항상 각을 준다</li>
+          <li><b>04</b> 원투 — 벽패스로 넘는다</li>
+          <li><b>05</b> 세컨볼 — 전환을 지배한다</li>
+        </ul>
+        <div class="rule"></div>
+        <div class="go">더 깊은 훈련 이야기 · groundyouth.com · 저장 · 팔로우</div>
+      </div>
+      <div class="tx-foot">
+        <span class="tx-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span>
+        <span class="tx-mark">GROUND <i>YOUTH</i></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cn-credit">※ 코칭 일반론을 유소년 눈높이로 정리한 자료입니다. 지도 상황·연령에 맞게 조절하세요. 참고: 유소년 미드필더 코칭 자료(receiving between the lines·half-turn·support).</div>
+
+  <div id="site-footer"></div>
+
+  <script src="../assets/js/icons.js"></script>
+  <script src="../assets/js/render.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>
