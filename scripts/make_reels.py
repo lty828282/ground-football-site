@@ -333,9 +333,107 @@ def build_B():
     print("B 완성:", dst)
     return dst
 
+# ── 공용: 스톡 훈련영상 + 자막 릴스 렌더 ───────────────
+def _render_quote_reel(dst_name, beats, dur, queries, tmp):
+    src = None
+    for q in queries:
+        src = fetch_pexels_video(q, tmp)
+        if src:
+            break
+    if not src:
+        print(f"{dst_name} 건너뜀(영상 없음)"); return None
+    inp = ["-stream_loop", "16", "-i", src]
+    for png, _, _ in beats:
+        inp += ["-i", png]
+    fc = (f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
+          f"crop=1080:1920,setsar=1,fps=30,trim=0:{dur},setpts=PTS-STARTPTS[bg];")
+    prev = "bg"
+    for i, (_, s, e) in enumerate(beats, start=1):
+        out = f"v{i}"
+        fc += f"[{prev}][{i}:v]overlay=0:0:enable='between(t,{s},{e})'[{out}];"
+        prev = out
+    fc = fc.rstrip(";")
+    dst = OUT / dst_name
+    cmd = ["ffmpeg", "-y", *inp,
+           "-f", "lavfi", "-t", str(dur), "-i", "anullsrc=r=44100:cl=stereo",
+           "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{len(beats)+1}:a",
+           "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", "-t", str(dur),
+           "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(dst)]
+    subprocess.run(cmd, check=True)
+    print(f"{dst_name} 완성:", dst)
+    return dst
+
+
+# ── D) 동기부여: 노력의 기준은 옆 사람 ────────────────
+def beats_peers():
+    def d0(d):
+        ctext(d, 830, "네 노력의 기준은", fb(78), WHITE, lh=1.25, stroke_width=6)
+        ctext(d, 945, "네 옆 사람이 정한다", fb(86), AMBER, lh=1.2, stroke_width=6)
+    def d1(d):
+        ctext(d, 850, "사람은 자기도 모르게\n주변의 '평균'을\n내 기준으로 삼는다", fb(72), WHITE, lh=1.36, stroke_width=6)
+    def d2(d):
+        ctext(d, 840, "새벽 훈련을 당연히 여기는\n친구들 사이에 있으면\n그게 나에게도 '기본'이 된다", fb(62), WHITE, lh=1.38, stroke_width=6)
+    def d3(d):
+        ctext(d, 850, "훈련을 하나 더 늘리기 전에\n네가 매일 어울리는\n사람부터 살펴봐라", fb(66), WHITE, lh=1.37, stroke_width=6)
+    def d4(d):
+        ctext(d, 880, "기준이 바뀌면,\n노력의 양은\n저절로 따라온다", fb(76), AMBER, lh=1.32, stroke_width=6)
+    def d5(d):
+        ctext(d, 840, "더 뛰는 사람 곁에 서라", fb(74), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1180, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    return [
+        (beat_q(d0), 0.0, 4.3),
+        (beat_q(d1), 4.1, 8.8),
+        (beat_q(d2), 8.6, 13.7),
+        (beat_q(d3), 13.5, 18.3),
+        (beat_q(d4), 18.1, 22.7),
+        (beat_q(d5), 22.5, 26.5),
+    ]
+
+def build_D():
+    return _render_quote_reel("D-peers.mp4", beats_peers(), 26,
+        ["youth soccer team training", "kids soccer practice group", "soccer training session"],
+        "stock_d.mp4")
+
+
+# ── E) 동기부여: 재능은 출발선, 습관은 결승선 ─────────
+def beats_habit():
+    def e0(d):
+        ctext(d, 820, "재능은 출발선을 정하고", fb(70), WHITE, lh=1.25, stroke_width=6)
+        ctext(d, 945, "습관은 결승선을 정한다", fb(80), AMBER, lh=1.2, stroke_width=6)
+    def e1(d):
+        ctext(d, 880, "재능 있는 아이는\n남들보다\n앞에서 출발한다", fb(74), WHITE, lh=1.34, stroke_width=6)
+    def e2(d):
+        ctext(d, 870, "하지만 경기는\n출발선이 아니라\n결승선에서 판가름 난다", fb(68), WHITE, lh=1.36, stroke_width=6)
+    def e3(d):
+        ctext(d, 850, "열두 살에 최고였던 아이가\n열여덟엔 사라지는 걸\n수도 없이 봤다", fb(62), WHITE, lh=1.38, stroke_width=6)
+    def e4(d):
+        ctext(d, 840, "그때 평범했던 아이가\n매일 같은 시간에 공을 만진다\n그 습관으로 끝까지 남는다", fb(60), WHITE, lh=1.38, stroke_width=6)
+    def e5(d):
+        ctext(d, 870, "재능은 못 골라도\n습관은 오늘\n네가 고를 수 있다", fb(72), AMBER, lh=1.34, stroke_width=6)
+    def e6(d):
+        ctext(d, 850, "나는 재능보다\n습관에 미래를 건다", fb(76), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1200, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    return [
+        (beat_q(e0), 0.0, 4.5),
+        (beat_q(e1), 4.3, 8.9),
+        (beat_q(e2), 8.7, 13.3),
+        (beat_q(e3), 13.1, 18.1),
+        (beat_q(e4), 17.9, 23.1),
+        (beat_q(e5), 22.9, 27.5),
+        (beat_q(e6), 27.3, 31.5),
+    ]
+
+def build_E():
+    return _render_quote_reel("E-habit.mp4", beats_habit(), 31,
+        ["boy soccer training alone", "soccer player practicing sunrise", "youth soccer solo training"],
+        "stock_e.mp4")
+
+
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "both"
     if which in ("A", "both"): build_A()
     if which in ("B", "both"): build_B()
     if which in ("C", "both"): build_C()
+    if which in ("D", "both", "DE"): build_D()
+    if which in ("E", "both", "DE"): build_E()
     print("RESULT: reels done")
