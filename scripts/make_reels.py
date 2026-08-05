@@ -413,19 +413,20 @@ def beats_habit():
     def e6(d):
         ctext(d, 850, "나는 재능보다\n습관에 미래를 건다", fb(76), WHITE, lh=1.3, stroke_width=6)
         ctext(d, 1200, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    # between()은 양끝 포함이라 끝=시작이면 1프레임 겹침 → 사이에 0.1s 공백을 둬 겹침 완전 제거
     return [
-        (beat_q(e0), 0.0, 4.5),
-        (beat_q(e1), 4.3, 8.9),
-        (beat_q(e2), 8.7, 13.3),
-        (beat_q(e3), 13.1, 18.1),
-        (beat_q(e4), 17.9, 23.1),
-        (beat_q(e5), 22.9, 27.5),
-        (beat_q(e6), 27.3, 31.5),
+        (beat_q(e0), 0.0, 4.4),
+        (beat_q(e1), 4.5, 8.9),
+        (beat_q(e2), 9.0, 13.5),
+        (beat_q(e3), 13.6, 18.6),
+        (beat_q(e4), 18.7, 23.8),
+        (beat_q(e5), 23.9, 28.1),
+        (beat_q(e6), 28.2, 31.0),
     ]
 
 def build_E():
     return _render_quote_reel("E-habit.mp4", beats_habit(), 31,
-        ["boy soccer training alone", "soccer player practicing sunrise", "youth soccer solo training"],
+        ["soccer freestyle training outdoor", "teenager soccer player training field", "football skills training pitch"],
         "stock_e.mp4")
 
 
