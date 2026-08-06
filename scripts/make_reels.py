@@ -122,6 +122,24 @@ def beat(fn, base=None):
 def beat_q(fn):
     return beat(fn, base=QDIM)
 
+def qbase_png():
+    """지속 베이스: 딤 + 워드마크만(자막 없음). 전체 구간에 계속 깔아 자막 전환 시 배경/브랜드가 깜빡이지 않게."""
+    img = QDIM.copy()
+    d = ImageDraw.Draw(img)
+    brand(d)
+    p = TMP / "qbase.png"
+    img.save(p.with_suffix(".png"))
+    return str(p.with_suffix(".png"))
+
+def beat_qtext(fn):
+    """자막만 그린 투명 오버레이(딤/브랜드 없음). 지속 베이스 위에 얹어 전환 시 텍스트만 사라지게."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    fn(d)
+    p = TMP / ("t_" + fn.__name__)
+    img.save(p.with_suffix(".png"))
+    return str(p.with_suffix(".png"))
+
 # ── A) 스톡 영상 + 자막 ──────────────────────────────
 def beats_training():
     def b0_hook(d):
@@ -334,7 +352,7 @@ def build_B():
     return dst
 
 # ── 공용: 스톡 훈련영상 + 자막 릴스 렌더 ───────────────
-def _render_quote_reel(dst_name, beats, dur, queries, tmp):
+def _render_quote_reel(dst_name, beats, dur, queries, tmp, persist_base=None):
     src = None
     for q in queries:
         src = fetch_pexels_video(q, tmp)
@@ -343,20 +361,30 @@ def _render_quote_reel(dst_name, beats, dur, queries, tmp):
     if not src:
         print(f"{dst_name} 건너뜀(영상 없음)"); return None
     inp = ["-stream_loop", "16", "-i", src]
+    # 지속 베이스(딤+브랜드)를 먼저 입력으로 추가 → 전체 구간 상시 표시
+    if persist_base:
+        inp += ["-i", persist_base]
     for png, _, _ in beats:
         inp += ["-i", png]
     fc = (f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
           f"crop=1080:1920,setsar=1,fps=30,trim=0:{dur},setpts=PTS-STARTPTS[bg];")
     prev = "bg"
-    for i, (_, s, e) in enumerate(beats, start=1):
-        out = f"v{i}"
-        fc += f"[{prev}][{i}:v]overlay=0:0:enable='between(t,{s},{e})'[{out}];"
-        prev = out
+    idx = 1
+    if persist_base:
+        fc += f"[{prev}][{idx}:v]overlay=0:0[b0];"
+        prev = "b0"; idx += 1
+    for j, (_, s, e) in enumerate(beats, start=1):
+        out = f"v{j}"
+        fc += f"[{prev}][{idx}:v]overlay=0:0:enable='between(t,{s},{e})'[{out}];"
+        prev = out; idx += 1
     fc = fc.rstrip(";")
     dst = OUT / dst_name
+    # anullsrc(무음)는 모든 영상 입력 뒤에 붙으므로 그 입력 인덱스는 idx와 같다.
+    # persist_base가 입력을 하나 더 밀어내므로 len(beats)+1 하드코딩 대신 idx를 쓴다.
+    audio_idx = idx
     cmd = ["ffmpeg", "-y", *inp,
            "-f", "lavfi", "-t", str(dur), "-i", "anullsrc=r=44100:cl=stereo",
-           "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{len(beats)+1}:a",
+           "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{audio_idx}:a",
            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", "-t", str(dur),
            "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(dst)]
     subprocess.run(cmd, check=True)
@@ -413,20 +441,22 @@ def beats_habit():
     def e6(d):
         ctext(d, 850, "나는 재능보다\n습관에 미래를 건다", fb(76), WHITE, lh=1.3, stroke_width=6)
         ctext(d, 1200, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    # 딤/브랜드는 지속 베이스가 상시 담당 → 자막은 '텍스트만' 오버레이.
+    # 사이에 0.1s 공백을 둬 전환 시 겹침 완전 제거(베이스가 있어 배경 깜빡임 없음).
     return [
-        (beat_q(e0), 0.0, 4.5),
-        (beat_q(e1), 4.3, 8.9),
-        (beat_q(e2), 8.7, 13.3),
-        (beat_q(e3), 13.1, 18.1),
-        (beat_q(e4), 17.9, 23.1),
-        (beat_q(e5), 22.9, 27.5),
-        (beat_q(e6), 27.3, 31.5),
+        (beat_qtext(e0), 0.0, 4.4),
+        (beat_qtext(e1), 4.5, 8.9),
+        (beat_qtext(e2), 9.0, 13.5),
+        (beat_qtext(e3), 13.6, 18.6),
+        (beat_qtext(e4), 18.7, 23.8),
+        (beat_qtext(e5), 23.9, 28.1),
+        (beat_qtext(e6), 28.2, 31.0),
     ]
 
 def build_E():
     return _render_quote_reel("E-habit.mp4", beats_habit(), 31,
-        ["boy soccer training alone", "soccer player practicing sunrise", "youth soccer solo training"],
-        "stock_e.mp4")
+        ["soccer freestyle training outdoor", "teenager soccer player training field", "football skills training pitch"],
+        "stock_e.mp4", persist_base=qbase_png())
 
 
 if __name__ == "__main__":

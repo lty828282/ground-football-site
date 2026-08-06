@@ -1,0 +1,20 @@
+name: Sync Home Videos
+
+on:
+  schedule:
+    - cron: '0 20 * * *'   # 매일 한국시간 오전 5시 (UTC 20:00) — 홈 '실시간 인기' 갱신
+  workflow_dispatch:        # 수동 실행 버튼
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sync home popular videos
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 supabase/sync_home_videos.py
