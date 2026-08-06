@@ -199,6 +199,73 @@ def fetch_pexels_video(query="boy soccer training dribbling", name="stock.mp4"):
             print("다운로드 실패:", e, file=sys.stderr); continue
     return None
 
+def fetch_pexels_clips(queries, n, prefix):
+    """여러 검색어에서 '서로 다른' 세로 클립 n개를 모은다(중복 영상 ID 제외)."""
+    if not KEY:
+        print("PEXELS_API_KEY 없음", file=sys.stderr); return []
+    got, seen = [], set()
+    for q in queries:
+        if len(got) >= n:
+            break
+        url = "https://api.pexels.com/videos/search?" + urllib.parse.urlencode({
+            "query": q, "per_page": 15,
+            "orientation": "portrait", "size": "medium"})
+        req = urllib.request.Request(url, headers={"Authorization": KEY, "User-Agent": UA})
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                data = json.load(r)
+        except Exception as e:
+            print("Pexels 실패:", e, file=sys.stderr); continue
+        for v in data.get("videos") or []:
+            if len(got) >= n:
+                break
+            vid = v.get("id")
+            if vid in seen:
+                continue
+            files = [f for f in v.get("video_files", []) if (f.get("height") or 0) >= 1200
+                     and (f.get("width") or 0) <= (f.get("height") or 0)]
+            files.sort(key=lambda f: f.get("height", 0))
+            if not files:
+                continue
+            dst = TMP / f"{prefix}_{len(got)}.mp4"
+            try:
+                rq = urllib.request.Request(files[0]["link"], headers={"User-Agent": UA})
+                with urllib.request.urlopen(rq, timeout=90) as resp, open(dst, "wb") as out:
+                    out.write(resp.read())
+            except Exception as e:
+                print("다운로드 실패:", e, file=sys.stderr); continue
+            seen.add(vid)
+            got.append(str(dst))
+            print("stock clip:", vid, files[0]["width"], "x", files[0]["height"])
+    return got
+
+
+def build_bg_concat(srcs, dur, seg_max, prefix):
+    """여러 클립을 각각 1080x1920/30fps로 정규화(최대 seg_max초)한 뒤 이어붙여
+    반복 없는 배경 하나를 만든다. 총 길이가 dur보다 짧아도 렌더 단계에서 loop로 채운다."""
+    segs = []
+    for i, s in enumerate(srcs):
+        seg = TMP / f"{prefix}_seg{i}.mp4"
+        cmd = ["ffmpeg", "-y", "-i", s, "-t", str(seg_max),
+               "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,"
+                      "crop=1080:1920,setsar=1,fps=30",
+               "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)]
+        try:
+            subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            segs.append(seg)
+        except subprocess.CalledProcessError:
+            print(f"세그먼트 정규화 실패({s}) 건너뜀", file=sys.stderr)
+    if not segs:
+        return None
+    listfile = TMP / f"{prefix}_list.txt"
+    listfile.write_text("".join(f"file '{p}'\n" for p in segs))
+    out = TMP / f"{prefix}_bg.mp4"
+    subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(listfile),
+                    "-c", "copy", str(out)], check=True,
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return str(out)
+
+
 def build_A():
     src = fetch_pexels_video()
     if not src:
@@ -353,14 +420,18 @@ def build_B():
 
 # ── 공용: 스톡 훈련영상 + 자막 릴스 렌더 ───────────────
 def _render_quote_reel(dst_name, beats, dur, queries, tmp, persist_base=None):
-    src = None
-    for q in queries:
-        src = fetch_pexels_video(q, tmp)
-        if src:
-            break
-    if not src:
+    prefix = tmp.rsplit(".", 1)[0]  # 파일명 충돌 방지용 접두어
+    # 서로 다른 클립 여러 개를 모아 이어붙여 배경으로 사용 → 같은 장면 반복을 줄인다.
+    clips = fetch_pexels_clips(queries, n=4, prefix=prefix)
+    if not clips:
         print(f"{dst_name} 건너뜀(영상 없음)"); return None
-    inp = ["-stream_loop", "16", "-i", src]
+    if len(clips) >= 2:
+        seg_max = max(6, -(-dur // len(clips)) + 3)  # 클립당 상한(초): 총합이 dur을 넉넉히 넘게
+        bg = build_bg_concat(clips, dur, seg_max, prefix)
+        # 이어붙인 배경이 혹시 dur보다 짧아도 무한 loop로 안전하게 채운다.
+        inp = ["-stream_loop", "-1", "-i", bg] if bg else ["-stream_loop", "16", "-i", clips[0]]
+    else:
+        inp = ["-stream_loop", "16", "-i", clips[0]]
     # 지속 베이스(딤+브랜드)를 먼저 입력으로 추가 → 전체 구간 상시 표시
     if persist_base:
         inp += ["-i", persist_base]
