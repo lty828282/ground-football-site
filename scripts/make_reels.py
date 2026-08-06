@@ -379,9 +379,12 @@ def _render_quote_reel(dst_name, beats, dur, queries, tmp, persist_base=None):
         prev = out; idx += 1
     fc = fc.rstrip(";")
     dst = OUT / dst_name
+    # anullsrc(무음)는 모든 영상 입력 뒤에 붙으므로 그 입력 인덱스는 idx와 같다.
+    # persist_base가 입력을 하나 더 밀어내므로 len(beats)+1 하드코딩 대신 idx를 쓴다.
+    audio_idx = idx
     cmd = ["ffmpeg", "-y", *inp,
            "-f", "lavfi", "-t", str(dur), "-i", "anullsrc=r=44100:cl=stereo",
-           "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{len(beats)+1}:a",
+           "-filter_complex", fc, "-map", f"[{prev}]", "-map", f"{audio_idx}:a",
            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", "-t", str(dur),
            "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(dst)]
     subprocess.run(cmd, check=True)
