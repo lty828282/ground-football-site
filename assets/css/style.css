@@ -1,11 +1,15 @@
 :root{
+  /* ── 브랜드 시스템: 대표 그린 + 옐로 포인트 (통일 팔레트) ── */
+  --brand:#2E7D52;         /* 대표색 — 잔디 그린 */
+  --brand-deep:#1B4332;    /* 딥그린(먹) — 헤딩·텍스트 강조 */
+  --accent:#F2C037;        /* 포인트 — 브랜드 옐로 */
   --pitch-dark:#1B4332;
   --pitch-light:#204A38;
   --ink:#12261E;
   --chalk:#FAFAF7;
   --card:#FFFFFF;
-  --gold:#E8A33D;
-  --gold-deep:#8A5A16;
+  --gold:#F2C037;          /* 포인트 옐로(구 앰버 → 브랜드 옐로로 통일: 티커·밑줄) */
+  --gold-deep:#1B4332;     /* 텍스트 강조는 딥그린으로 통일(로고·활성탭·태그·순위) */
   --muted:#5F6F67;
   --line:#DCE3DC;
 }
@@ -565,8 +569,8 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 }
 /* 공통 카드 골격 + 기본 테마 변수(그린) */
 .cnx-card{
-  --accent:#E63946;            /* 포인트(바·밑줄·번호·활성 점) */
-  --hl:#FFB020;                /* 강조 단어 색 */
+  --accent:#2E7D52;            /* 포인트(바·밑줄·번호·활성 점) — 브랜드 그린 */
+  --hl:#F2C037;                /* 강조 단어 색 — 브랜드 옐로 */
   --bg:linear-gradient(180deg,#12241c,#0b1712);
   --series:rgba(255,255,255,0.85);
   --mark:#ffffff;
