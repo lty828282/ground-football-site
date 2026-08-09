@@ -248,6 +248,9 @@ footer{
   padding:32px 48px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 }
 footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
+.ft-brand{flex-basis:100%;font-family:'Pretendard',sans-serif;font-weight:900;
+  font-size:20px;letter-spacing:2px;color:#fff;margin-bottom:2px;}
+.ft-brand span{color:var(--gold);}
 
 /* ── 고정 채널 배너 (kickofflife) ── */
 .pinned-channel{padding:0 48px 48px;}
