@@ -530,6 +530,76 @@ def build_E():
         "stock_e.mp4", persist_base=qbase_png())
 
 
+# ── F) 동기부여 3편: 실수를 대하는 태도 ──────────────
+def beats_fail():
+    def f0(d):
+        ctext(d, 820, "넘어지는 건", fb(74), WHITE, lh=1.25, stroke_width=6)
+        ctext(d, 945, "지는 게 아니다", fb(84), AMBER, lh=1.2, stroke_width=6)
+    def f1(d):
+        ctext(d, 870, "경기에서 실수 한 번\n안 해 본 선수는\n한 명도 없다", fb(66), WHITE, lh=1.36, stroke_width=6)
+    def f2(d):
+        ctext(d, 860, "잘하는 선수는\n실수를 안 하는 게 아니라\n실수 뒤가 빠른 선수다", fb(62), WHITE, lh=1.38, stroke_width=6)
+    def f3(d):
+        ctext(d, 870, "고개 숙이는 3초 동안\n상대는 벌써\n다음 공을 잡는다", fb(64), WHITE, lh=1.36, stroke_width=6)
+    def f4(d):
+        ctext(d, 860, "실수한 직후에\n제일 먼저 뛰는 선수를\n감독은 기억한다", fb(64), WHITE, lh=1.38, stroke_width=6)
+    def f5(d):
+        ctext(d, 870, "넘어진 횟수가 아니라\n다시 일어선 횟수가\n네 실력이다", fb(66), AMBER, lh=1.36, stroke_width=6)
+    def f6(d):
+        ctext(d, 850, "나는 실수를\n두려워하지 않기로 했다", fb(74), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1200, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    return [
+        (beat_qtext(f0), 0.0, 4.4),
+        (beat_qtext(f1), 4.5, 8.9),
+        (beat_qtext(f2), 9.0, 13.5),
+        (beat_qtext(f3), 13.6, 18.6),
+        (beat_qtext(f4), 18.7, 23.8),
+        (beat_qtext(f5), 23.9, 28.1),
+        (beat_qtext(f6), 28.2, 31.0),
+    ]
+
+def build_F():
+    return _render_quote_reel("F-fail.mp4", beats_fail(), 31,
+        ["soccer player determination training", "youth football sprint practice",
+         "soccer training night lights", "football player running pitch"],
+        "stock_f.mp4", persist_base=qbase_png())
+
+
+# ── G) 동기부여 4편: 비교는 어제의 나하고만 ───────────
+def beats_compare():
+    def g0(d):
+        ctext(d, 820, "네 진짜 상대는", fb(74), WHITE, lh=1.25, stroke_width=6)
+        ctext(d, 945, "어제의 너다", fb(84), AMBER, lh=1.2, stroke_width=6)
+    def g1(d):
+        ctext(d, 870, "옆 친구가 나보다\n잘하는 건\n오늘 하루의 일이다", fb(66), WHITE, lh=1.36, stroke_width=6)
+    def g2(d):
+        ctext(d, 860, "비교가 시작되면\n내 플레이가 아니라\n남의 눈치를 보게 된다", fb(62), WHITE, lh=1.38, stroke_width=6)
+    def g3(d):
+        ctext(d, 860, "축구는 열두 살에\n끝나지 않는다\n늦게 피는 아이가 더 많다", fb(62), WHITE, lh=1.38, stroke_width=6)
+    def g4(d):
+        ctext(d, 860, "어제보다 터치 하나,\n한 걸음이 빨라졌다면\n오늘 넌 이긴 거다", fb(64), WHITE, lh=1.38, stroke_width=6)
+    def g5(d):
+        ctext(d, 860, "남과의 비교는 너를 깎고\n어제와의 비교는\n너를 키운다", fb(64), AMBER, lh=1.36, stroke_width=6)
+    def g6(d):
+        ctext(d, 850, "나는 어제의 나하고만\n경쟁한다", fb(74), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1200, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    return [
+        (beat_qtext(g0), 0.0, 4.4),
+        (beat_qtext(g1), 4.5, 8.9),
+        (beat_qtext(g2), 9.0, 13.5),
+        (beat_qtext(g3), 13.6, 18.6),
+        (beat_qtext(g4), 18.7, 23.8),
+        (beat_qtext(g5), 23.9, 28.1),
+        (beat_qtext(g6), 28.2, 31.0),
+    ]
+
+def build_G():
+    return _render_quote_reel("G-compare.mp4", beats_compare(), 31,
+        ["boy playing football sunset", "youth soccer skills grass field",
+         "kids football match action", "soccer solo training ball control"],
+        "stock_g.mp4", persist_base=qbase_png())
+
+
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "both"
     if which in ("A", "both"): build_A()
@@ -537,4 +607,6 @@ if __name__ == "__main__":
     if which in ("C", "both"): build_C()
     if which in ("D", "both", "DE"): build_D()
     if which in ("E", "both", "DE"): build_E()
+    if which in ("F", "both", "FG"): build_F()
+    if which in ("G", "both", "FG"): build_G()
     print("RESULT: reels done")
