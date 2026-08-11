@@ -362,7 +362,7 @@ footer a{color:rgba(255,255,255,0.8);margin-right:16px;}
 .guide-fig.hero{margin-top:6px;}
 /* 데이터 표 */
 .guide-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px;}
-.guide-table th,.guide-table td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;}
+.guide-table th,.guide-table td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;word-break:keep-all;}
 .guide-table th{background:#EAF4EC;font-weight:800;color:var(--pitch-dark);}
 .guide-table tr:nth-child(even) td{background:#faf9f4;}
 .guide-wrap .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
