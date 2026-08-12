@@ -2,6 +2,13 @@
   "_comment": "카드뉴스 자동 발행 큐. scripts/publish_cardnews.py 가 매일 queue 맨 앞에서 1편을 꺼내 발행하고 published 맨 앞에 옮깁니다. generated=false 인 항목은 손으로 만든 페이지라 스크립트가 파일을 건드리지 않고 목록에만 노출합니다. 큐가 떨어지면 queue 배열에 항목만 추가하면 됩니다.",
   "published": [
     {
+      "slug": "weak-foot",
+      "generated": true,
+      "theme": "#1F7A46",
+      "listTitle": "약한 발도 무기가 된다 · 약발 훈련 5단계",
+      "listDesc": "볼 굴리기·벽 패스·인아웃·리프팅·마무리 — 양발잡이로 가는 약발 훈련을 그림으로"
+    },
+    {
       "slug": "youth-forward",
       "generated": true,
       "theme": "#1F7A46",
