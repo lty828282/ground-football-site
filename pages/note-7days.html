@@ -207,6 +207,34 @@
   .poschips .pc{ font-size:11.5px; font-weight:700; color:var(--deep); border:1.3px solid #cfe0d3; background:#F4F8F4; border-radius:8px; padding:5px 10px; }
   @media (max-width:560px){ .skills{ grid-template-columns:1fr; } }
 
+  /* 부록 divider */
+  .divider{ position:relative; overflow:hidden; margin:16px 0; border-radius:18px; background:linear-gradient(150deg,#1B4332,#2E7D52); color:#fff; text-align:center; padding:56px 26px; }
+  .divider .dt{ font-family:'Black Han Sans',sans-serif; font-size:38px; line-height:1.18; letter-spacing:1px; }
+  .divider .dt em{ font-style:normal; color:var(--yellow); }
+  .divider .ds{ margin-top:16px; font-size:14px; color:rgba(255,255,255,0.88); word-break:keep-all; }
+  /* 부록 챕터 */
+  .chaphead{ display:inline-block; background:#EAF4EC; border-radius:10px; padding:9px 14px; margin-bottom:6px; }
+  .chaphead .cn{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:700; color:var(--brand); display:block; letter-spacing:1px; }
+  .chaphead .ct{ font-size:19px; font-weight:800; color:var(--deep); }
+  .chapsub{ font-size:12.5px; color:var(--muted); font-weight:700; margin:2px 0 12px; }
+  .chap p{ font-size:14px; color:#33413a; line-height:1.75; margin-bottom:9px; word-break:keep-all; }
+  .chap p.lead2{ font-weight:800; color:var(--deep); font-size:15px; }
+  .connect{ background:#F1F8F2; border:1px solid #cfe6d4; border-left:4px solid var(--brand); border-radius:10px; padding:12px 14px; margin-top:10px; font-size:13px; color:#2b3a33; word-break:keep-all; }
+  .connect b{ color:var(--brand); }
+  .statbox{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0; }
+  .statbox .sb{ background:#F4F8F4; border:1px solid #dce8de; border-radius:10px; padding:12px; text-align:center; }
+  .statbox .sb .bn{ font-size:19px; font-weight:800; color:var(--brand); }
+  .statbox .sb .bl{ font-size:11px; color:#4a5a52; line-height:1.5; margin-top:4px; word-break:keep-all; }
+  /* 큰 전술 보드 */
+  .bigpitch{ width:100%; max-width:420px; height:auto; display:block; margin:6px auto 0; }
+  /* 뒤표지 */
+  .backcover{ position:relative; overflow:hidden; background:radial-gradient(120% 90% at 50% 10%,#2E7D52,#1B4332 60%,#10291B); color:#fff; text-align:center; padding:76px 30px; border-radius:26px; margin-top:22px; }
+  .backcover .bq{ font-size:16.5px; line-height:1.95; color:rgba(255,255,255,0.95); word-break:keep-all; }
+  .backcover .bq b{ color:var(--yellow); }
+  .backcover .bemblem{ margin-bottom:20px; }
+  .backcover .bbrand{ margin-top:26px; font-family:'IBM Plex Mono',monospace; letter-spacing:2px; font-size:12px; color:rgba(255,255,255,0.82); }
+  @media (max-width:560px){ .statbox{ grid-template-columns:1fr; } .divider .dt{ font-size:30px; } }
+
   @media print{
     body{ background:#fff; }
     .wrap{ padding:0; max-width:none; }
@@ -214,6 +242,7 @@
     .page{ border:none; box-shadow:none; border-radius:0; padding:26px 8px; break-after:page; page-break-after:always; }
     .how, .cta{ break-inside:avoid; }
     .intro, .plan, .prof{ break-after:page; page-break-after:always; }
+    .divider, .backcover{ break-before:page; page-break-before:always; }
   }
 </style>
 </head>
@@ -382,11 +411,151 @@
 
     <div id="days"></div>
 
+    <!-- ─────────── 부록: 축구지능 × 마음 개념서 ─────────── -->
+    <div class="divider">
+      <div class="dt">생각하는 발이<br><em>가장 빠른 발</em>이다</div>
+      <div class="ds">네가 그라운드에서 몸으로 익힌 감각을, 이제 ‘개념’으로 바꿀 시간.<br>— 부록 · 읽을거리 —</div>
+    </div>
+
+    <div class="intro">
+      <div class="eyebrow">GROUND YOUTH · 부록 읽을거리</div>
+      <h2>몸이 먼저 알았던 것을, 이제 말로</h2>
+      <div class="suben">축구지능 × 마음 — 6개의 짧은 개념서</div>
+      <p class="lead">훈련일지를 다 채운 너에게.<br>그라운드에서 몸으로 익힌 감각이 <b>‘개념(언어)’</b>이 되는 순간, 다음 판단은 0.5초 더 빨라진다.</p>
+      <p class="lead" style="margin-top:8px">그리고 이 개념들은 앞의 <b>‘실행 체크 7’·필사</b>와 하나로 이어진다. 읽고 끝이 아니라, <b>읽고 내일 실행</b>하기 위한 글이야.</p>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 01</span><span class="ct">스캐닝 — 보이지 않는 기술</span></div>
+      <div class="chapsub">경기를 읽는 눈의 핵심 메커니즘</div>
+      <p class="lead2">공이 오기 전에 이미 알고 있는 선수가 있다. 그 비밀은 눈의 움직임에 있다.</p>
+      <p>스캐닝은 단순히 “주변을 본다”가 아니다. 공을 받기 2~3초 전, 어깨 너머로 여러 번 확인하며 팀원의 위치·상대 수비·빈 공간을 머릿속에 지도처럼 새기는 것이다. 이 지도가 그려지면, 공이 발에 닿는 순간 결정은 이미 내려져 있다.</p>
+      <p>연구(Jordet 교수팀)에 따르면 <b>스캔을 자주·제때 하는 선수일수록 패스 성공률과 경기력이 높다.</b> 핵심은 ‘많이’가 아니라 ‘언제’ — 상대 압박이 집중되기 직전에 스캔을 완료해야 한다.</p>
+      <p>무엇보다 스캐닝은 타고나는 게 아니라 <b>훈련된다.</b> 좁은 공간의 빠른 게임(SSG)이 이 습관을 만든다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 실행 체크 ④ “공 받기 전 고개 들어 주변을 스캔했는가”</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 02</span><span class="ct">오프 더 볼 — 공간은 만드는 것</span></div>
+      <div class="chapsub">공 없이 경기를 지배하는 사고방식</div>
+      <p class="lead2">경기 중 공을 실제로 가진 시간은 평균 1~2분. 나머지 88분, 너는 공 없이 경기한다.</p>
+      <p>최고의 선수는 공 없이 지능적으로 움직인다. 공간을 ① 차지하고(빈 공간 선점) ② 만들고(달려가 수비를 끌어냄) ③ 지운다(패스 길목 차단). 직접 공을 받지 않아도, 수비를 끌어냄으로써 팀원의 공간을 여는 ‘디코이 런’이 지능의 가장 높은 형태다.</p>
+      <p>여기서 <b>타이밍이 전부</b>다. 너무 일찍이면 오프사이드, 너무 늦으면 공은 이미 다른 곳에 있다. 최고의 선수는 반사가 아니라 패턴으로 그 순간을 읽는다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 실행 체크 ⑤ “전진·돌파할 용기” + 앞면 축구장 그림칸에 오프더볼 움직임 그리기</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 03</span><span class="ct">전환 — 0.5초가 경기를 바꾼다</span></div>
+      <div class="chapsub">공수 전환의 결정적 타이밍</div>
+      <p class="lead2">공이 한 팀에서 다른 팀으로 넘어가는 순간이 가장 혼란스럽고, 가장 위험하다.</p>
+      <p>공을 방금 뺏긴 팀이 아이러니하게도 가장 취약하다. 선수는 제자리를 벗어나 있고, 대형은 무너져 있다. 클롭의 게겐프레싱(역습 압박)은 이 순간을 포착한다 — <b>공을 잃은 즉시, 지연 없이 압박.</b></p>
+      <div class="statbox">
+        <div class="sb"><div class="bn">약 6초</div><div class="bl">뺏긴 팀이 대형을 회복하는 평균 시간</div></div>
+        <div class="sb"><div class="bn">3~5초</div><div class="bl">역습 압박이 노리는 탈환 시간</div></div>
+        <div class="sb"><div class="bn">즉시</div><div class="bl">공을 잃은 선수의 압박 시작 — 지연 없음</div></div>
+      </div>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 실행 체크 ② “공을 뺏긴 즉시 수비로 전환했는가”</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 04</span><span class="ct">하프 스페이스 — 비밀 공간</span></div>
+      <div class="chapsub">왜 최고의 선수는 늘 그 자리에 있는가</div>
+      <p class="lead2">피치를 세로 5레인으로 나누면: 와이드 — 하프스페이스 — 센터 — 하프스페이스 — 와이드.</p>
+      <p>하프스페이스는 중앙과 측면 사이의 두 채널이다. 여기서 공을 가진 선수는 앞·뒤·중앙·바깥 <b>모든 방향으로 패스가 가능</b>하다. 수비 입장에선 이 선수를 막기 위해 풀백이 들어와야 할지, 센터백이 나와야 할지 판단하기 어렵다. 그 판단의 틈새가 하프스페이스의 무기다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 그림칸에 하프스페이스 활용 그려보기 · 프로필의 ‘선호 포지션’과 연결</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 05</span><span class="ct">축구 IQ — 세 번째 능력</span></div>
+      <div class="chapsub">기술도 체력도 아닌, 경기를 읽는 눈</div>
+      <p class="lead2">똑같은 기술·체력인데, 한 선수는 늘 좋은 자리에 있고 다른 선수는 늘 한발 늦다. 그 차이가 축구 IQ다.</p>
+      <p>축구 IQ는 예측(Anticipation)·포지셔닝·판단(Decision-Making)·분산주의(여러 정보 동시 처리)·패턴 인식으로 이뤄진다. 그리고 이건 <b>타고나기도, 훈련되기도</b> 한다 — 뇌는 반복하는 판단 상황에 따라 재조직된다(신경가소성).</p>
+      <p><b>그래서 노트가 존재한다.</b> 기록은 단순한 메모가 아니라 경험을 ‘패턴’으로 굳히는 행위다. 오늘 어떤 판단을 했고 왜 잘됐는지·아쉬웠는지 <b>언어로 적는 순간</b>, 암묵적 경험이 명시적 이해로 바뀌고 — 다음 비슷한 상황에서 더 빠른 판단으로 돌아온다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 매일의 기록·복기 전부가 네 축구 IQ를 키운다</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 06 · 그라운드유스</span><span class="ct">멘탈 근육 — 흔들려도 다시 서는 힘</span></div>
+      <div class="chapsub">전술이 채우지 못하는 마지막 한 칸</div>
+      <p class="lead2">좋은 선수는 실수하지 않는 선수가 아니라, 실수 뒤 다시 다음 플레이로 돌아오는 선수다.</p>
+      <p>이 회복의 ‘속도’가 회복탄력성이다. 그리고 멘탈은 타고나는 게 아니라 <b>근육처럼 훈련된다.</b> 실수한 뒤 스스로에게 건네는 한마디가 다음 플레이를 결정한다 — “역시 난 안 돼”는 망치가 되고, “여기만 고치면 돼”는 숫돌이 된다.</p>
+      <p>재능은 출발선을, 습관은 결승선을 정한다. 매일의 <b>필사·감정 기록·긍정의 말</b>이 눈에 안 보이는 마음 근육을 만든다. 전술을 아는 머리 위에, 흔들리지 않는 마음이 얹힐 때 선수는 완성된다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 필사(따라쓰기) · 감정 체크 · “나에게 해주는 긍정의 말”</div>
+    </div>
+
+    <div class="intro">
+      <div class="eyebrow">GROUND YOUTH · 부록 맺음</div>
+      <h2>몸이 먼저, 머리가 나중,<br>그리고 <span style="color:var(--brand)">마음이 끝까지</span></h2>
+      <p class="lead" style="margin-top:10px">스캐닝, 오프더볼, 전환, 하프스페이스, 축구 IQ, 그리고 멘탈.<br>이 여섯은 별개가 아니라 하나의 연결 고리다.</p>
+      <p class="lead">스캔이 없으면 판단이 늦고, 판단이 흔들리면 멘탈이 무너진다.<br>반대로, 단단한 마음은 흔들리는 순간에도 배운 것을 실행하게 한다.</p>
+      <div class="pull">“네가 이 노트에 채운 모든 기록 —<br>그것이 이 모든 개념의 살아있는 증거다.”</div>
+    </div>
+
+    <!-- 자유 전술 보드 -->
+    <div class="page">
+      <div class="p-head"><span class="day">자유 전술 보드</span><span class="side">FREE TACTICAL BOARD</span></div>
+      <div class="sublabel" style="margin:8px 0 0">✎ 오늘의 장면·전술을 자유롭게 그려보세요 (범례 사용)</div>
+      <svg class="bigpitch" viewBox="0 0 120 172" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <rect x="4" y="4" width="112" height="164" rx="3" fill="#F5FAF5" stroke="#b7cabb" stroke-width="1.5"/>
+        <line x1="4" y1="86" x2="116" y2="86" stroke="#b7cabb" stroke-width="1.2"/>
+        <circle cx="60" cy="86" r="18" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <circle cx="60" cy="86" r="1.8" fill="#b7cabb"/>
+        <rect x="32" y="4" width="56" height="28" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="46" y="4" width="28" height="11" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="32" y="140" width="56" height="28" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="46" y="157" width="28" height="11" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="51" y="1.5" width="18" height="3" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="51" y="167.5" width="18" height="3" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+      </svg>
+      <div class="plegend" style="justify-content:center; margin-top:12px">
+        <span><b>★</b> 나</span><span><b>○</b> 우리팀</span><span><b>✕</b> 상대</span><span><b>●</b> 공</span>
+        <span><b>→</b> 패스</span><span><b>⇢</b> 롱패스</span><span><b>∿</b> 드리블</span><span><b>↑</b> 침투</span><span><b>⇒</b> 슛</span>
+      </div>
+    </div>
+
+    <!-- 경기 후 복기 -->
+    <div class="page">
+      <div class="p-head"><span class="day">경기 후 복기</span><span class="side">MATCH REFLECTION</span></div>
+      <div class="meta">
+        <span class="m">경기 결과 <span class="u"></span></span>
+        <span class="m">스코어 <span class="u"></span></span>
+        <span class="m">출전 포지션 <span class="u"></span></span>
+        <span class="m">출전 시간 <span class="u"></span></span>
+      </div>
+      <div class="sec"><div class="t">① 오늘 가장 기억나는 장면 <span class="hint">— 아래 축구장에 그려보세요</span></div>
+        <svg class="bigpitch" style="max-width:340px" viewBox="0 0 120 172" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <rect x="4" y="4" width="112" height="164" rx="3" fill="#F5FAF5" stroke="#b7cabb" stroke-width="1.5"/>
+          <line x1="4" y1="86" x2="116" y2="86" stroke="#b7cabb" stroke-width="1.2"/>
+          <circle cx="60" cy="86" r="16" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+          <rect x="34" y="4" width="52" height="26" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+          <rect x="34" y="142" width="52" height="26" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="two">
+        <div class="box good"><div class="bt">👍 오늘 잘한 판단</div><div class="ln sm"></div><div class="ln sm"></div></div>
+        <div class="box fix"><div class="bt">✍ 아쉬웠던 판단</div><div class="ln sm"></div><div class="ln sm"></div></div>
+      </div>
+      <div class="sec" style="margin-top:14px"><div class="t">💬 코치님 피드백 &amp; 내가 이해한 것</div><div class="ln"></div><div class="ln"></div></div>
+      <div class="sec"><div class="t">🎯 다음 경기에서 바꿀 행동 1가지</div><div class="ln"></div></div>
+      <div class="sec"><div class="t">💚 오늘의 감정</div>
+        <div class="emo"><span class="e">기쁨</span><span class="e">아쉬움</span><span class="e">화남</span><span class="e">불안</span><span class="e">자신감</span><span class="e">뿌듯함</span></div>
+      </div>
+    </div>
+
     <div class="cta">
       <h2>7일, 잘 해냈나요? <span>이제 30일입니다.</span></h2>
       <p>정식판 「그라운드유스 훈련일지」는 30일 기록 + 주간 회고 + 성장 그래프 + 부모 가이드가 담깁니다.<br>가장 먼저 소식을 받아보세요.</p>
       <a class="btn" href="#">정식판 예약 · 매일 문구 받기 →</a>
       <div class="small">* 예약 링크는 준비되는 대로 연결됩니다.</div>
+    </div>
+    <div class="backcover">
+      <svg class="bemblem" viewBox="0 0 120 132" width="70" height="77" aria-hidden="true">
+        <path d="M60 6 L110 22 V64 C110 96 88 117 60 127 C32 117 10 96 10 64 V22 Z" fill="none" stroke="#F2C037" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="60" cy="57" r="17" fill="none" stroke="#fff" stroke-width="3"/>
+        <polygon points="60,47 70,55 66,67 54,67 50,55" fill="#fff"/>
+      </svg>
+      <div class="bq">“이 노트의 마지막 페이지는 끝이 아니다.<br>더 나은 선수로 나아가는 <b>다음 장의 시작</b>이다.”<br><br>너의 오늘이, 내일의 너를 만든다.<br>네 발자취가 곧 <b>너의 역사</b>가 된다.</div>
+      <div class="bbrand">GROUND YOUTH · 그라운드유스 · © 2026</div>
     </div>
     <div class="foot">© 2026 그라운드유스 · 이 샘플은 자유롭게 인쇄해 사용하세요.</div>
   </div>
