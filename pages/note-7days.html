@@ -62,6 +62,12 @@
   .ln{ border-bottom:1.5px dotted var(--dot); height:30px; }
   .ln.sm{ height:26px; }
 
+  /* 훈련 내용: 왼쪽 기록 / 오른쪽 그림 */
+  .train2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+  .sublabel{ font-size:11px; font-weight:700; color:var(--muted); margin-bottom:7px; }
+  .pitch{ width:100%; height:auto; display:block; border-radius:8px; }
+  @media (max-width:520px){ .train2{ grid-template-columns:1fr; } }
+
   /* 필사 */
   .quote{ position:relative; font-size:16.5px; font-weight:800; line-height:1.5; color:var(--deep); background:#F4F8F4; border-left:4px solid var(--yellow); border-radius:8px; padding:12px 14px 12px 30px; margin-bottom:8px; word-break:keep-all; }
   .quote::before{ content:"\201C"; position:absolute; left:8px; top:2px; font-size:32px; color:var(--yellow); line-height:1; }
@@ -278,6 +284,21 @@
 
   function lines(n, cls){ var s=''; for(var i=0;i<n;i++){ s+='<div class="ln'+(cls?' '+cls:'')+'"></div>'; } return s; }
 
+  // 연한 축구장(그림 그리기용) — 세로형
+  var PITCH = ''
+    + '<svg class="pitch" viewBox="0 0 120 172" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
+    +   '<rect x="4" y="4" width="112" height="164" rx="3" fill="#F2F7F2" stroke="#c2d3c5" stroke-width="1.5"/>'
+    +   '<line x1="4" y1="86" x2="116" y2="86" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<circle cx="60" cy="86" r="16" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<circle cx="60" cy="86" r="1.8" fill="#c2d3c5"/>'
+    +   '<rect x="34" y="4" width="52" height="26" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="48" y="4" width="24" height="10" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="34" y="142" width="52" height="26" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="48" y="158" width="24" height="10" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="52" y="1.5" width="16" height="3" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="52" y="167.5" width="16" height="3" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    + '</svg>';
+
   function front(no, cat, quote, expl){
     return ''
     + '<div class="page">'
@@ -296,7 +317,11 @@
     +     '<div class="ln"></div></div>'
     +   '<div class="sec"><div class="t">🧘 훈련 전 마음가짐 <span class="hint">— 오늘 어떤 마음으로 나왔나요?</span></div>'+lines(2)+'</div>'
     +   '<div class="focus"><div class="t">🔥 오늘 이것만은! <span class="hint">— 딱 한 가지에 집중</span></div>'+lines(1)+'</div>'
-    +   '<div class="sec"><div class="t">📋 오늘의 훈련 내용 <span class="hint">— 무엇을 훈련했나요?</span></div>'+lines(4)+'</div>'
+    +   '<div class="sec"><div class="t">📋 오늘의 훈련 내용 <span class="hint">— 적고, 그려 보세요</span></div>'
+    +     '<div class="train2">'
+    +       '<div class="tr-notes"><div class="sublabel">✍ 오늘 한 훈련</div>'+lines(5,'sm')+'</div>'
+    +       '<div class="tr-pitch"><div class="sublabel">✎ 그림으로 (움직임·포지션)</div>'+PITCH+'</div>'
+    +     '</div></div>'
     + '</div>';
   }
 
