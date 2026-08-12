@@ -600,6 +600,41 @@ def build_G():
         "stock_g.mp4", persist_base=qbase_png())
 
 
+# ── H) 훈련 동기부여: 약발은 만들어진다 ───────────────
+def beats_weakfoot():
+    def h0(d):
+        ctext(d, 820, "약한 발은", fb(78), WHITE, lh=1.25, stroke_width=6)
+        ctext(d, 945, "타고나는 게 아니다", fb(80), AMBER, lh=1.2, stroke_width=6)
+    def h1(d):
+        ctext(d, 870, "왼발잡이·오른발잡이는\n있어도\n'양발잡이'는 만들어진다", fb(62), WHITE, lh=1.36, stroke_width=6)
+    def h2(d):
+        ctext(d, 870, "약발이 어색한 건\n재능이 없어서가 아니라\n덜 써봤기 때문이다", fb(64), WHITE, lh=1.38, stroke_width=6)
+    def h3(d):
+        ctext(d, 870, "매일 딱 10분,\n약발로만 공을 만져라\n벽 패스가 가장 쉽다", fb(64), WHITE, lh=1.36, stroke_width=6)
+    def h4(d):
+        ctext(d, 880, "잘 쓰는 발로 하던 걸\n약발로 똑같이\n하루 5분씩", fb(66), WHITE, lh=1.34, stroke_width=6)
+    def h5(d):
+        ctext(d, 870, "6개월 뒤, 수비는\n네가 어디로 갈지\n모르게 된다", fb(66), AMBER, lh=1.36, stroke_width=6)
+    def h6(d):
+        ctext(d, 850, "약발을 가진 선수는\n선택지가 두 배다", fb(74), WHITE, lh=1.3, stroke_width=6)
+        ctext(d, 1200, "매일 유소년 축구 이야기 · @groundyouth", fb(42), GREEN, stroke_width=5)
+    return [
+        (beat_qtext(h0), 0.0, 4.4),
+        (beat_qtext(h1), 4.5, 8.9),
+        (beat_qtext(h2), 9.0, 13.5),
+        (beat_qtext(h3), 13.6, 18.6),
+        (beat_qtext(h4), 18.7, 23.8),
+        (beat_qtext(h5), 23.9, 28.1),
+        (beat_qtext(h6), 28.2, 31.0),
+    ]
+
+def build_H():
+    return _render_quote_reel("H-weakfoot.mp4", beats_weakfoot(), 31,
+        ["soccer player passing ball wall", "kids football dribbling practice cones",
+         "youth soccer ball control training", "football juggling skills solo"],
+        "stock_h.mp4", persist_base=qbase_png())
+
+
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "both"
     if which in ("A", "both"): build_A()
@@ -609,4 +644,5 @@ if __name__ == "__main__":
     if which in ("E", "both", "DE"): build_E()
     if which in ("F", "both", "FG"): build_F()
     if which in ("G", "both", "FG"): build_G()
+    if which in ("H", "both"): build_H()
     print("RESULT: reels done")
