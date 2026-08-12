@@ -144,13 +144,52 @@
   .plan .tail b{ color:var(--deep); }
   .plan .tail .u{ display:inline-block; min-width:40px; border-bottom:1.5px dotted var(--dot); }
 
+  /* 왜 이 일지인가 — 보강 */
+  .suben{ font-size:13px; color:var(--muted); font-weight:700; margin:-4px 0 12px; }
+  .whygrid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  .whygrid .wc .n{ font-family:'IBM Plex Mono',monospace; font-weight:700; color:var(--yellow); font-size:15px; }
+  .whygrid .wc h3{ font-size:15.5px; color:var(--deep); margin:2px 0 6px; }
+  .whygrid .wc p{ font-size:14px; color:#3f4f47; line-height:1.7; word-break:keep-all; }
+  .auth{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:8px; }
+  .auth .a{ background:#F4F8F4; border:1px solid #dce8de; border-radius:10px; padding:11px 12px; }
+  .auth .a .an{ font-size:12px; font-weight:800; color:var(--brand); margin-bottom:4px; }
+  .auth .a .ap{ font-size:11.5px; color:#4a5a52; line-height:1.55; word-break:keep-all; }
+  .loop{ display:flex; align-items:stretch; gap:5px; margin-top:8px; flex-wrap:wrap; }
+  .loop .lstep{ flex:1; min-width:82px; background:var(--deep); color:#fff; border-radius:10px; padding:10px 6px; text-align:center; }
+  .loop .lstep .li{ font-size:17px; }
+  .loop .lstep .lt{ font-size:12.5px; font-weight:800; margin-top:2px; }
+  .loop .lstep .ld{ font-size:10px; color:rgba(255,255,255,0.75); margin-top:2px; line-height:1.35; }
+  .loop .larrow{ align-self:center; color:var(--brand); font-weight:800; }
+  .std{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:12px; }
+  .std .s{ background:#F4F8F4; border:1px solid #dce8de; border-radius:10px; padding:10px 11px; }
+  .std .s .sn{ font-family:'IBM Plex Mono',monospace; font-weight:700; color:var(--brand); font-size:13px; }
+  .std .s .sp{ font-size:11.5px; color:#40514a; line-height:1.5; margin-top:3px; word-break:keep-all; }
+  .how .hh{ font-size:13px; font-weight:800; color:var(--deep); margin:16px 0 2px; }
+
+  /* 선수 프로필 */
+  .prof .pfields{ display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; margin:8px 0 16px; }
+  .pf{ display:flex; align-items:center; gap:9px; }
+  .pf .pl{ font-size:12.5px; font-weight:700; color:var(--deep); white-space:nowrap; }
+  .pf .pu{ flex:1; border-bottom:1.5px dotted var(--dot); height:20px; }
+  .prof .p3{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:6px; }
+  .prof .goalrow{ display:flex; align-items:center; gap:12px; margin:8px 0; }
+  .prof .goalrow .gk{ width:60px; flex:none; font-size:12.5px; font-weight:800; color:var(--brand); background:#F1F8F2; border:1px solid #cfe6d4; border-radius:8px; padding:9px 6px; text-align:center; }
+  .prof .goalrow .gl{ flex:1; border-bottom:1.5px dotted var(--dot); height:26px; }
+  .promise{ border:1.5px solid var(--yellow); background:#FFF7E0; border-radius:12px; padding:14px 16px; margin-top:14px; }
+  .promise .pmt{ font-size:13px; font-weight:800; color:#8a6d12; margin-bottom:10px; }
+  .promise .pf .pl{ color:#8a6d12; }
+  .sigrow{ display:flex; gap:18px; margin-top:12px; }
+  .sigrow .s1,.sigrow .s2{ flex:1; display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:var(--deep); }
+  .sigrow .u{ flex:1; border-bottom:1.5px dotted var(--dot); height:18px; }
+  @media (max-width:560px){ .auth,.std{ grid-template-columns:1fr 1fr; } .whygrid,.prof .pfields,.prof .p3{ grid-template-columns:1fr; } }
+
   @media print{
     body{ background:#fff; }
     .wrap{ padding:0; max-width:none; }
     .cover{ border-radius:0; }
     .page{ border:none; box-shadow:none; border-radius:0; padding:26px 8px; break-after:page; page-break-after:always; }
     .how, .cta{ break-inside:avoid; }
-    .intro, .plan{ break-after:page; page-break-after:always; }
+    .intro, .plan, .prof{ break-after:page; page-break-after:always; }
   }
 </style>
 </head>
@@ -178,15 +217,38 @@
 
   <div class="wrap">
     <div class="intro">
-      <div class="eyebrow">GROUND YOUTH · 여는 글</div>
-      <h2>이 노트를 펼친 너에게</h2>
-      <p class="lead">운동을 잘하고 싶은 마음은 누구에게나 있어.<br>하지만 그 마음을 매일의 <b>기록</b>으로 바꾼 선수만이 진짜로 성장한다.<br>이 노트는 네 마음과 실력을 함께 키우는 작은 훈련장이야.</p>
+      <div class="eyebrow">GROUND YOUTH · 왜 이 일지인가</div>
+      <h2>기록하는 선수가 성장한다</h2>
+      <div class="suben">Why players who plan, focus &amp; reflect grow faster</div>
+      <p class="lead">운동을 잘하고 싶은 마음은 누구에게나 있어.<br>하지만 그 마음을 <b>계획하고, 집중하고, 되돌아보는 기록</b>으로 바꾼 선수만이 진짜로 성장한다.</p>
 
-      <div class="isec"><h3>재능보다 습관</h3><p>재능은 네가 고른 것이 아니야. 하지만 습관은 오늘 아침 네가 직접 고를 수 있어.<br>열두 살에 가장 빛나던 아이가 조용히 사라지고,<br>그때 평범했지만 매일 공을 만지던 아이가 끝까지 남는 걸 우리는 수없이 봤어.</p></div>
+      <div class="whygrid">
+        <div class="wc"><div class="n">01</div><h3>재능보다 습관</h3><p>재능은 네가 고른 게 아니지만, 습관은 오늘 아침 직접 고를 수 있어. 열두 살에 가장 빛나던 아이보다, 매일 공을 만진 아이가 끝까지 남는다.</p></div>
+        <div class="wc"><div class="n">02</div><h3>복기만이 아니라, 계획→실행→복기</h3><p>돌아보기(복기)만으로는 절반이야. 오늘 무엇에 집중할지 정하고, 실제로 실행하고, 그다음 돌아볼 때 성장은 비로소 완성된다.</p></div>
+      </div>
+
+      <div class="isec" style="margin-top:20px"><h3>세계는 이렇게 본다</h3></div>
+      <div class="auth">
+        <div class="a"><div class="an">FIFA</div><div class="ap">경기 지능과 주변 인지(스캔), 스스로 문제를 푸는 능력을 강조</div></div>
+        <div class="a"><div class="an">라 마시아 (Barça)</div><div class="ap">선수 주도 학습 — 스스로 느끼고 판단하며 성장</div></div>
+        <div class="a"><div class="an">IOC</div><div class="ap">청소년 선수의 멘탈·웰빙과 회복탄력성의 중요성</div></div>
+        <div class="a"><div class="an">스포츠심리</div><div class="ap">목표 설정·자기대화·루틴이 경기력을 끌어올린다</div></div>
+      </div>
+
+      <div class="isec" style="margin-top:20px"><h3>그래서 이 일지는 — 5단계 성장 루프</h3></div>
+      <div class="loop">
+        <div class="lstep"><div class="li">📅</div><div class="lt">계획</div><div class="ld">주간·오늘 훈련</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">🔥</div><div class="lt">집중</div><div class="ld">오늘 이것만은</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">✔</div><div class="lt">실행</div><div class="ld">체크 7가지</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">🔎</div><div class="lt">복기</div><div class="ld">잘된점·보완점</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">💪</div><div class="lt">회복</div><div class="ld">마음 리셋·다짐</div></div>
+      </div>
 
       <div class="pull">“재능은 출발선을 정하고,<br>습관은 결승선을 정한다.”</div>
-
-      <div class="isec"><h3>꾸준함의 힘</h3><p>하루의 기록은 티가 안 나.<br>하지만 한 주, 한 달, 일 년의 기록은 아무도 흉내 낼 수 없는 너만의 역사가 된다.<br>매일 ‘조금’이 가끔 ‘많이’를 이긴다. 이 노트에 하루 한 장씩, 네 성장을 쌓아가자.</p></div>
 
       <div class="parents">
         <div class="pt">📌 부모님께</div>
@@ -207,6 +269,57 @@
         <li><b>훈련 중</b> — 뒷면의 <b>실행 체크 7가지</b>를 떠올리며 훈련합니다.</li>
         <li><b>훈련 후 (뒷면)</b> — 체크리스트를 표시하고, 코치님 말씀과 잘된 점·보완할 점을 적어 하루를 마무리합니다.</li>
       </ol>
+      <div class="hh">✅ 좋은 훈련일지의 기준</div>
+      <div class="std">
+        <div class="s"><div class="sn">1</div><div class="sp">매일 짧게 — 하루 3분, 거르지 않기</div></div>
+        <div class="s"><div class="sn">2</div><div class="sp">사실과 느낌을 구분해서 쓰기</div></div>
+        <div class="s"><div class="sn">3</div><div class="sp">나를 비난하지 말고 배우는 태도로</div></div>
+        <div class="s"><div class="sn">4</div><div class="sp">보완점은 ‘다음에 할 행동 1가지’로 구체적으로</div></div>
+      </div>
+    </div>
+
+    <div class="page prof">
+      <div class="p-head"><span class="day">선수 프로필</span><span class="side">PLAYER PROFILE</span></div>
+      <div class="pfields">
+        <div class="pf"><span class="pl">👤 이름</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🎽 등번호</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🧭 포지션</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🦶 주발</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🛡 소속팀</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">⭐ 롤모델</span><span class="pu"></span></div>
+      </div>
+      <div class="p3">
+        <div class="box good"><div class="bt">🏆 나의 강점 3</div>
+          <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        </div>
+        <div class="box fix"><div class="bt">📈 보완할 점 3</div>
+          <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        </div>
+        <div class="box"><div class="bt" style="color:var(--deep)">📋 코치님 강조 포인트</div>
+          <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        </div>
+      </div>
+      <div class="sec"><div class="t">🎯 이번 시즌 나의 목표 <span class="hint">— 구체적으로, 매일 한 걸음</span></div>
+        <div class="goalrow"><span class="gk">기술</span><span class="gl"></span></div>
+        <div class="goalrow"><span class="gk">판단</span><span class="gl"></span></div>
+        <div class="goalrow"><span class="gk">태도</span><span class="gl"></span></div>
+      </div>
+      <div class="promise">
+        <div class="pmt">🤝 나와의 약속 — 오늘의 내가, 내일의 나를 만든다</div>
+        <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        <div class="sigrow">
+          <div class="s1">📅 서명 날짜 <span class="u"></span></div>
+          <div class="s2">✍ 나의 서명 <span class="u"></span></div>
+        </div>
+      </div>
     </div>
 
     <div class="plan">
