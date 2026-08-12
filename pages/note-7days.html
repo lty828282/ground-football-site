@@ -63,7 +63,11 @@
   .ln.sm{ height:26px; }
 
   /* 훈련 내용: 왼쪽 기록 / 오른쪽 그림 */
-  .train2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+  .train2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; }
+  .tr-notes{ display:flex; flex-direction:column; }
+  .tr-box{ border:1px solid var(--line); border-radius:8px; padding:9px 11px; margin-top:10px; min-height:76px; }
+  .tr-box.grow{ flex:1; }
+  .tr-box .bt2{ font-size:11.5px; font-weight:800; color:var(--deep); margin-bottom:4px; }
   .sublabel{ font-size:11px; font-weight:700; color:var(--muted); margin-bottom:7px; }
   .pitch{ width:100%; height:auto; display:block; border-radius:8px; }
   @media (max-width:520px){ .train2{ grid-template-columns:1fr; } }
@@ -471,7 +475,10 @@
     +   '<div class="focus"><div class="t">🔥 오늘 이것만은! <span class="hint">— 딱 한 가지에 집중</span></div>'+lines(1)+'</div>'
     +   '<div class="sec"><div class="t">📋 오늘의 훈련 내용 <span class="hint">— 적고, 그려 보세요</span></div>'
     +     '<div class="train2">'
-    +       '<div class="tr-notes"><div class="sublabel">✍ 오늘 한 훈련</div>'+lines(5,'sm')+'</div>'
+    +       '<div class="tr-notes"><div class="sublabel">✍ 오늘 한 훈련</div>'+lines(5,'sm')
+    +         '<div class="tr-box"><div class="bt2">💡 오늘 새로 배운 것</div></div>'
+    +         '<div class="tr-box grow"><div class="bt2">🎯 다음에 더 연습할 것</div></div>'
+    +       '</div>'
     +       '<div class="tr-pitch"><div class="sublabel">✎ 그림으로 (움직임·포지션)</div>'+PITCH
     +         '<div class="plegend">'
     +           '<span><b>★</b> 나</span><span><b>○</b> 우리팀</span><span><b>✕</b> 상대</span><span><b>●</b> 공</span>'
