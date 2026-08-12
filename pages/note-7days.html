@@ -183,6 +183,26 @@
   .sigrow .u{ flex:1; border-bottom:1.5px dotted var(--dot); height:18px; }
   @media (max-width:560px){ .auth,.std{ grid-template-columns:1fr 1fr; } .whygrid,.prof .pfields,.prof .p3{ grid-template-columns:1fr; } }
 
+  /* 컨디션 미니 */
+  .cond{ display:flex; flex-wrap:wrap; gap:6px 16px; font-size:11.5px; color:var(--muted); margin:9px 0 2px; align-items:center; }
+  .cond .ck{ font-weight:800; color:var(--deep); }
+  .r5{ font-size:13px; letter-spacing:3px; color:#c3d1c6; }
+  /* 피치 전술 범례 */
+  .plegend{ display:flex; flex-wrap:wrap; gap:4px 10px; margin-top:8px; font-size:10px; color:#4a5a52; line-height:1.5; }
+  .plegend span{ white-space:nowrap; }
+  .plegend b{ color:var(--deep); font-size:11px; }
+  /* 감정 칩 */
+  .emo{ display:flex; flex-wrap:wrap; gap:7px; margin-top:2px; }
+  .emo .e{ font-size:12px; color:#31403a; border:1.3px solid #d3ddd5; border-radius:999px; padding:5px 12px; }
+  /* 자기평가 */
+  .skills{ display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; margin-top:4px; }
+  .srow{ display:flex; align-items:center; gap:10px; }
+  .srow .sk{ width:46px; font-size:12.5px; font-weight:700; color:var(--deep); }
+  .srow .sd{ font-size:15px; letter-spacing:4px; color:#c3d1c6; }
+  .poschips{ display:flex; flex-wrap:wrap; gap:7px; margin-top:6px; }
+  .poschips .pc{ font-size:11.5px; font-weight:700; color:var(--deep); border:1.3px solid #cfe0d3; background:#F4F8F4; border-radius:8px; padding:5px 10px; }
+  @media (max-width:560px){ .skills{ grid-template-columns:1fr; } }
+
   @media print{
     body{ background:#fff; }
     .wrap{ padding:0; max-width:none; }
@@ -305,6 +325,21 @@
           <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
         </div>
       </div>
+      <div class="sec"><div class="t">📊 나의 특징 (자기평가) <span class="hint">— 동그라미로 표시</span></div>
+        <div class="skills">
+          <div class="srow"><span class="sk">스피드</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">기술</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">패스</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">드리블</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">슈팅</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">체력</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">멘탈</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">시야</span><span class="sd">○ ○ ○ ○ ○</span></div>
+        </div>
+      </div>
+      <div class="sec"><div class="t">🧭 선호 포지션 <span class="hint">— 원하는 위치에 동그라미</span></div>
+        <div class="poschips"><span class="pc">GK</span><span class="pc">CB</span><span class="pc">FB</span><span class="pc">CDM</span><span class="pc">CM</span><span class="pc">CAM</span><span class="pc">WG</span><span class="pc">ST</span></div>
+      </div>
       <div class="sec"><div class="t">🎯 이번 시즌 나의 목표 <span class="hint">— 구체적으로, 매일 한 걸음</span></div>
         <div class="goalrow"><span class="gk">기술</span><span class="gl"></span></div>
         <div class="goalrow"><span class="gk">판단</span><span class="gl"></span></div>
@@ -422,6 +457,10 @@
     +     '<span class="m">장소 <span class="u"></span></span>'
     +     '<span class="m">함께한 팀/코치 <span class="u"></span></span>'
     +   '</div>'
+    +   '<div class="cond"><span class="ck">오늘 컨디션</span>'
+    +     '<span>수면 <span class="r5">○○○○○</span></span>'
+    +     '<span>몸상태 <span class="r5">○○○○○</span></span>'
+    +     '<span>집중 <span class="r5">○○○○○</span></span></div>'
     +   '<div class="sec"><div class="t"><span class="em">✎</span> 오늘의 한 문장 · 필사 <span class="chip">'+cat+'</span></div>'
     +     '<div class="quote">'+quote+'</div>'
     +     '<div class="explain">'+expl.join('<br>')+'</div>'
@@ -433,7 +472,11 @@
     +   '<div class="sec"><div class="t">📋 오늘의 훈련 내용 <span class="hint">— 적고, 그려 보세요</span></div>'
     +     '<div class="train2">'
     +       '<div class="tr-notes"><div class="sublabel">✍ 오늘 한 훈련</div>'+lines(5,'sm')+'</div>'
-    +       '<div class="tr-pitch"><div class="sublabel">✎ 그림으로 (움직임·포지션)</div>'+PITCH+'</div>'
+    +       '<div class="tr-pitch"><div class="sublabel">✎ 그림으로 (움직임·포지션)</div>'+PITCH
+    +         '<div class="plegend">'
+    +           '<span><b>★</b> 나</span><span><b>○</b> 우리팀</span><span><b>✕</b> 상대</span><span><b>●</b> 공</span>'
+    +           '<span><b>→</b> 패스</span><span><b>⇢</b> 롱패스</span><span><b>∿</b> 드리블</span><span><b>↑</b> 침투</span><span><b>⇒</b> 슛</span>'
+    +         '</div></div>'
     +     '</div></div>'
     + '</div>';
   }
@@ -447,12 +490,20 @@
     +   '<div class="p-head"><span class="day">DAY '+no+'</span><span class="side">훈련 중·후 · 뒷면</span></div>'
     +   '<div class="sec"><div class="t">✔ 훈련 중 실행 체크 <span class="hint">— 오늘 실제로 했는지 표시</span></div>'
     +     '<div class="checks">'+checks+'</div></div>'
+    +   '<div class="sec"><div class="t">🎬 오늘 나의 역할 <span class="hint">— 공/수 전환에서 내가 할 일</span></div>'
+    +     '<div class="two">'
+    +       '<div class="box"><div class="bt" style="color:var(--brand)">⚔ 공격 시</div>'+lines(2,'sm')+'</div>'
+    +       '<div class="box"><div class="bt" style="color:var(--deep)">🛡 수비 시</div>'+lines(2,'sm')+'</div>'
+    +     '</div></div>'
     +   '<div class="sec"><div class="t">💬 가장 기억에 남는 감독·코치님 말씀</div>'+lines(2)+'</div>'
     +   '<div class="sec"><div class="t">🔎 훈련 후 반성</div>'
     +     '<div class="two">'
     +       '<div class="box good"><div class="bt">👍 잘된 점</div>'+lines(3,'sm')+'</div>'
     +       '<div class="box fix"><div class="bt">✍ 보완할 점</div>'+lines(3,'sm')+'</div>'
     +     '</div></div>'
+    +   '<div class="sec"><div class="t">💚 오늘의 감정 &amp; 나에게 한마디 <span class="hint">— 멘탈 리셋</span></div>'
+    +     '<div class="emo"><span class="e">기쁨</span><span class="e">아쉬움</span><span class="e">화남</span><span class="e">불안</span><span class="e">자신감</span><span class="e">뿌듯함</span></div>'
+    +     '<div class="label" style="margin-top:10px">✍ 나에게 해주는 긍정의 말</div>'+lines(1)+'</div>'
     +   '<div class="rate"><span class="t">오늘의 나</span><span class="stars">★ ★ ★ ★ ★</span><span class="wl"></span></div>'
     + '</div>';
   }
