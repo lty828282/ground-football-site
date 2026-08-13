@@ -17,12 +17,12 @@
     },
     {
       "kind": "talk",
-      "chars": [ { "name": "ddal_thinking", "x": 0.24, "scale": 0.52, "flip": false } ],
+      "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.50, "flip": false } ],
       "bubbles": [ { "text": "아빠, ‘일석이조’가\n무슨 뜻이야?", "from": "left" } ]
     },
     {
       "kind": "talk",
-      "chars": [ { "name": "appa_explain", "x": 0.74, "scale": 0.60, "flip": true } ],
+      "chars": [ { "name": "appa_explain", "x": 0.66, "scale": 0.58, "flip": true } ],
       "bubbles": [ { "text": "글자 그대로는\n‘돌 하나로 새 두 마리를 잡는다’\n는 뜻이란다.", "from": "right" } ]
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "kind": "talk",
-      "chars": [ { "name": "ddal_thumbsup", "x": 0.26, "scale": 0.54 } ],
+      "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.52 } ],
       "bubbles": [ { "text": "아하! 아침 산책은\n운동도 되고 기분도 좋아지니까…\n그게 바로 일석이조구나!", "from": "left" } ]
     },
     {

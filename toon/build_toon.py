@@ -9,7 +9,7 @@ content/<slug>.json 을 읽어 캐릭터 에셋을 합성하고 말풍선·자�
 캐릭터는 assets/characters/ 의 배경 투명 PNG (characters.json 참조).
 """
 import sys, json, pathlib
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 ROOT = pathlib.Path(__file__).resolve().parent
 CH = ROOT / "assets" / "characters"
@@ -37,6 +37,55 @@ def hx(c):
     c = c.lstrip("#")
     return tuple(int(c[i:i+2], 16) for i in (0, 2, 4))
 
+# ── 배경/데코 레이어 ─────────────────────────────────
+def _ov(base):
+    return Image.new("RGBA", base.size, (0, 0, 0, 0))
+
+def bg_dots(base, color, step=68, r=4, alpha=20):
+    ov = _ov(base); d = ImageDraw.Draw(ov)
+    off = step // 2
+    for y in range(off, H, step):
+        for x in range(off, W, step):
+            d.ellipse([x - r, y - r, x + r, y + r], fill=color + (alpha,))
+    base.alpha_composite(ov)
+
+def frame(base, color, alpha=90, inset=26, radius=54, width=6):
+    ov = _ov(base)
+    ImageDraw.Draw(ov).rounded_rectangle(
+        [inset, inset, W - inset, H - inset], radius=radius,
+        outline=color + (alpha,), width=width)
+    base.alpha_composite(ov)
+
+def spotlight(base, cx, cy, rw, rh, color, alpha=52, blur=48):
+    ov = _ov(base)
+    ImageDraw.Draw(ov).ellipse([cx - rw, cy - rh, cx + rw, cy + rh], fill=color + (alpha,))
+    base.alpha_composite(ov.filter(ImageFilter.GaussianBlur(blur)))
+
+def ground(base, cx, y, w, color=(60, 45, 35), alpha=55, blur=16):
+    ov = _ov(base)
+    ImageDraw.Draw(ov).ellipse([cx - w // 2, y - 16, cx + w // 2, y + 16], fill=color + (alpha,))
+    base.alpha_composite(ov.filter(ImageFilter.GaussianBlur(blur)))
+
+def sparkle(base, x, y, s, color, alpha=210):
+    ov = _ov(base); k = 0.30
+    ImageDraw.Draw(ov).polygon(
+        [(x, y - s), (x + s * k, y - s * k), (x + s, y), (x + s * k, y + s * k),
+         (x, y + s), (x - s * k, y + s * k), (x - s, y), (x - s * k, y - s * k)],
+        fill=color + (alpha,))
+    base.alpha_composite(ov)
+
+def ring(base, x, y, r, color, width=6, alpha=200):
+    ov = _ov(base)
+    ImageDraw.Draw(ov).ellipse([x - r, y - r, x + r, y + r], outline=color + (alpha,), width=width)
+    base.alpha_composite(ov)
+
+def deco_cluster(base, cx, cy, acc, acc2):
+    """빈 공간을 채우는 반짝이/링 묶음."""
+    sparkle(base, cx, cy, 34, acc2)
+    sparkle(base, cx + 78, cy + 96, 20, acc)
+    sparkle(base, cx - 66, cy + 120, 15, acc2)
+    ring(base, cx - 40, cy - 74, 20, acc, width=6)
+
 # ── 텍스트 헬퍼 ──────────────────────────────────────
 def wrap(draw, text, font, maxw):
     """명시적 \n 은 유지하고, 너무 긴 줄만 어절 단위로 추가 줄바꿈."""
@@ -57,16 +106,23 @@ def mtext(base, xy, text, font, fill, spacing=14, align="center", anchor=None):
                                         spacing=spacing, align=align, anchor=anchor)
 
 # ── 캐릭터 배치 ──────────────────────────────────────
-def place(base, name, xfrac, scale, baseline=H - 40, flip=False):
+def place(base, name, xfrac, scale, baseline=H - 40, flip=False,
+          spot=None, shadow=False):
     im = Image.open(CH / f"{name}.png").convert("RGBA")
     th = int(scale * H)
     tw = max(1, int(im.width * th / im.height))
     im = im.resize((tw, th), Image.LANCZOS)
     if flip:
         im = im.transpose(Image.FLIP_LEFT_RIGHT)
-    x = int(xfrac * W) - tw // 2
-    base.alpha_composite(im, (x, baseline - th))
-    return int(xfrac * W)
+    cx = int(xfrac * W)
+    x = cx - tw // 2
+    y = baseline - th
+    if spot is not None:
+        spotlight(base, cx, y + int(th * 0.52), int(tw * 0.60), int(th * 0.46), spot, alpha=42)
+    if shadow:
+        ground(base, cx, min(baseline - 4, H - 34), int(tw * 0.82))
+    base.alpha_composite(im, (x, y))
+    return cx
 
 # ── 말풍선 ───────────────────────────────────────────
 def bubble(base, text, side, cx, theme, top=110, maxw=640):
@@ -111,8 +167,14 @@ def render(panel, theme, idx, total):
     base = Image.new("RGBA", (W, H), bg + (255,))
     ink, acc, acc2 = hx(theme["ink"]), hx(theme["accent"]), hx(theme["accent2"])
     kind = panel["kind"]
+    bg_dots(base, ink)
 
     if kind == "cover":
+        spotlight(base, W // 2, 430, 430, 300, acc2, alpha=46, blur=64)
+        sparkle(base, 175, 305, 26, acc)
+        sparkle(base, 905, 335, 30, acc2)
+        ring(base, 240, 560, 22, acc2, width=6)
+        sparkle(base, 915, 560, 22, acc)
         pill(base, panel.get("tag", "오늘의 표현"), W // 2, 210, acc, hx("#1E3A24"), f_bold(40))
         mtext(base, (W // 2, 300), panel["title"], f_title(150), ink, anchor="ma")
         if panel.get("hanja"):
@@ -120,13 +182,17 @@ def render(panel, theme, idx, total):
         if panel.get("sub"):
             mtext(base, (W // 2, 600), panel["sub"], f_reg(48), ink, anchor="ma")
         for c in panel.get("chars", []):
-            place(base, c["name"], c["x"], c["scale"], baseline=H - 30, flip=c.get("flip", False))
+            place(base, c["name"], c["x"], c["scale"], baseline=H - 30,
+                  flip=c.get("flip", False), spot=acc, shadow=True)
 
     elif kind == "outro":
         d = ImageDraw.Draw(base)
+        sparkle(base, 150, 270, 26, acc2)
+        sparkle(base, 930, 255, 22, acc)
         # 캐릭터 먼저(하단 배경)
         for c in panel.get("chars", []):
-            place(base, c["name"], c["x"], c["scale"], baseline=H - 40, flip=c.get("flip", False))
+            place(base, c["name"], c["x"], c["scale"], baseline=H - 40,
+                  flip=c.get("flip", False), spot=acc, shadow=True)
         y = 120
         mtext(base, (W // 2, y), panel.get("title", "영어로는?"), f_title(84), ink, anchor="ma")
         y += 150
@@ -151,16 +217,22 @@ def render(panel, theme, idx, total):
 
     else:  # talk
         # 캐릭터 먼저(뒤), 말풍선 나중(앞)
+        chars = panel.get("chars", [])
         cxs = {}
-        for c in panel.get("chars", []):
+        for c in chars:
             cxs[c.get("from", "left" if c["x"] < 0.5 else "right")] = \
-                place(base, c["name"], c["x"], c["scale"], flip=c.get("flip", False))
+                place(base, c["name"], c["x"], c["scale"],
+                      flip=c.get("flip", False), spot=acc, shadow=True)
+        if len(chars) == 1:  # 한 명이면 빈 쪽에 데코
+            emptx = 0.80 if chars[0]["x"] < 0.5 else 0.20
+            deco_cluster(base, int(emptx * W), 620, acc, acc2)
         top = 110
         for b in panel.get("bubbles", []):
             side = b["from"]
             cx = cxs.get(side, int((0.25 if side == "left" else 0.75) * W))
             top = bubble(base, b["text"], side, cx, theme, top=top) + 40
 
+    frame(base, acc, alpha=80)
     page_no(base, idx, total, theme)
     return base.convert("RGB")
 
