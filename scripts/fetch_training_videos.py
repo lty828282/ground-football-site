@@ -20,13 +20,22 @@ MONTHS6 = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days
 PUBLISHED_AFTER = MONTHS6.replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 # 카테고리 = 화면 필터 칩 라벨, queries = 검색 키워드, n = 상위 몇 개
+# must = 제목/채널에 이 중 하나가 반드시 있어야 해당 카테고리에 채택(오분류 방지)
 GROUPS = [
     {"cat": "볼감각", "queries": ["유소년 축구 볼 컨트롤 훈련", "축구 볼 감각 훈련",
-                                 "축구 퍼스트 터치 훈련", "축구 트래핑 훈련", "볼 리프팅 트래핑 기본기"], "n": 5},
-    {"cat": "슛 & 킥", "queries": ["유소년 축구 슛 훈련", "유소년 축구 킥 훈련"], "n": 3},
-    {"cat": "드리블", "queries": ["유소년 축구 드리블 훈련"], "n": 3},
-    {"cat": "패스", "queries": ["유소년 축구 패스 훈련"], "n": 3},
-    {"cat": "리프팅", "queries": ["축구 리프팅 훈련", "축구 저글링 훈련"], "n": 3},
+                                 "축구 퍼스트 터치 훈련", "축구 트래핑 훈련", "볼 리프팅 트래핑 기본기"], "n": 5,
+     "must": ["볼감각", "볼 감각", "볼컨트롤", "볼 컨트롤", "퍼스트 터치", "퍼스트터치",
+              "트래핑", "트레핑", "ball control", "first touch", "볼 다루", "볼터치", "볼 터치"]},
+    {"cat": "슛 & 킥", "queries": ["유소년 축구 슛 훈련", "유소년 축구 슈팅 훈련", "축구 슈팅 연습 방법",
+                                  "축구 킥 자세 훈련", "축구 발리슛 훈련", "축구 슛 기본기"], "n": 3,
+     "must": ["슛", "슈팅", "발리", "킥", "shoot", "finish", "volley", "득점", "골 결정"]},
+    {"cat": "드리블", "queries": ["유소년 축구 드리블 훈련", "축구 드리블 기본기", "축구 개인기 훈련"], "n": 3,
+     "must": ["드리블", "dribbl", "개인기", "페인트", "탈압박", "제치는"]},
+    {"cat": "패스", "queries": ["유소년 축구 패스 훈련", "축구 패스 기본기",
+                               "축구 인사이드 패스 훈련", "축구 롱패스 훈련"], "n": 3,
+     "must": ["패스", "pass", "크로스", "연결", "킥 앤 러쉬"]},
+    {"cat": "리프팅", "queries": ["축구 리프팅 훈련", "축구 저글링 훈련"], "n": 3,
+     "must": ["리프팅", "저글", "juggl", "lifting"]},
 ]
 # 화면에 표시할 카테고리 순서(수동 '볼감각' 포함)
 CATEGORY_ORDER = ["볼감각", "슛 & 킥", "드리블", "패스", "리프팅"]
@@ -121,6 +130,9 @@ def pick_group(g, seen):
         if not any(s.lower() in hay for s in SOCCER_TOKENS):  # 축구 관련성 필수
             continue
         if not any(t.lower() in hay for t in TUTORIAL_TOKENS):  # 훈련/강습 성격 필수
+            continue
+        must = g.get("must")
+        if must and not any(m.lower() in hay for m in must):  # 카테고리 관련성 필수(오분류 방지)
             continue
         dur = parse_dur_seconds(it.get("contentDetails", {}).get("duration"))
         if dur and dur <= 70:      # 숏츠 제외(롱폼만) — 목록 카드 크기 통일
