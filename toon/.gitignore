@@ -1,0 +1,3 @@
+# 대용량 영상 산출물 (필요 시 build_short.py 로 재생성)
+out/**/short_tmp/
+out/**/*.mp4

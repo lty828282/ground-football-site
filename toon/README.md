@@ -44,3 +44,18 @@ python3 toon/build_toon.py ilseokijo
 1. `content/<slug>.json` 작성 (표제어·패널 대본·캐릭터/표정 지정)
 2. `python3 toon/build_toon.py <slug>` 실행
 3. `out/<slug>/_contact.png` 로 전체 확인 후 인스타 캐러셀로 업로드
+
+## 유튜브 쇼츠(9:16) 만들기
+
+```bash
+python3 toon/build_short.py ilseokijo
+# → toon/out/ilseokijo/short.mp4  (1080x1920)
+```
+
+- `build_short.py` 가 캐러셀 패널을 9:16 프레임으로 재구성(상단 표제 배너 +
+  패널 + 하단 핸들 + 진행바)하고 ffmpeg zoompan(켄번즈 줌)·전환·페이드로 조립.
+- 의존성: `ffmpeg`.
+- **보이스(TTS)**: 현재 실행 환경은 외부 네트워크(구글/에지 TTS)가 정책상
+  차단돼 무성으로 생성된다. 나레이션을 붙이려면 (a) 환경에 TTS 네트워크를
+  허용하거나, (b) `audio/<slug>.*` 로 음성 파일을 넣어 믹스하는 경로가 필요.
+- 영상 산출물(`out/**/*.mp4`, `short_tmp/`)은 용량 때문에 git 에서 제외됨.
