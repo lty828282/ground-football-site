@@ -123,21 +123,31 @@ def render(panel, theme, idx, total):
             place(base, c["name"], c["x"], c["scale"], baseline=H - 30, flip=c.get("flip", False))
 
     elif kind == "outro":
-        mtext(base, (W // 2, 150), panel.get("title", "영어로는?"), f_title(84), ink, anchor="ma")
-        # 영어 카드
         d = ImageDraw.Draw(base)
-        sub = panel.get("sub", "")
+        # 캐릭터 먼저(하단 배경)
+        for c in panel.get("chars", []):
+            place(base, c["name"], c["x"], c["scale"], baseline=H - 40, flip=c.get("flip", False))
+        y = 120
+        mtext(base, (W // 2, y), panel.get("title", "영어로는?"), f_title(84), ink, anchor="ma")
+        y += 150
+        # 영어 카드
         font = f_title(74)
-        sub_w = wrap(d, sub, font, 900)
+        sub_w = wrap(d, panel.get("sub", ""), font, 900)
         bb = d.multiline_textbbox((0, 0), sub_w, font=font, spacing=16, align="center")
         cw, ch = bb[2] - bb[0] + 90, bb[3] - bb[1] + 70
-        cx0, cy0 = (W - cw) // 2, 280
-        d.rounded_rectangle([cx0, cy0, cx0 + cw, cy0 + ch], radius=40, fill=acc, outline=ink, width=5)
-        mtext(base, (W // 2, cy0 + 35 - bb[1]), sub_w, font, hx("#12300f"), spacing=16, anchor="ma")
-        for c in panel.get("chars", []):
-            place(base, c["name"], c["x"], c["scale"], baseline=H - 150, flip=c.get("flip", False))
+        cx0 = (W - cw) // 2
+        d.rounded_rectangle([cx0, y, cx0 + cw, y + ch], radius=40, fill=acc, outline=ink, width=5)
+        mtext(base, (W // 2, y + 35 - bb[1]), sub_w, font, hx("#12300f"), spacing=16, anchor="ma")
+        y += ch + 66
+        # 비슷한 우리 속담
+        if panel.get("also"):
+            pill(base, panel.get("also_label", "비슷한 우리 속담"), W // 2, y, acc2, ink, f_bold(38))
+            y += 66
+            for line in panel["also"]:
+                mtext(base, (W // 2, y), line, f_bold(52), ink, anchor="ma")
+                y += 68
         if panel.get("cta"):
-            mtext(base, (W // 2, H - 120), panel["cta"], f_bold(44), ink, anchor="ma")
+            mtext(base, (W // 2, y + 20), panel["cta"], f_bold(38), ink, anchor="ma")
 
     else:  # talk
         # 캐릭터 먼저(뒤), 말풍선 나중(앞)

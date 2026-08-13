@@ -39,8 +39,10 @@
       "kind": "outro",
       "title": "영어로는?",
       "sub": "Kill two birds\nwith one stone",
-      "cta": "매일 하나씩, 쉽게!\n팔로우하고 함께 배워요",
-      "chars": [ { "name": "duo_hold", "x": 0.5, "scale": 0.46 } ]
+      "also_label": "비슷한 우리 속담",
+      "also": [ "꿩 먹고 알 먹고", "도랑 치고 가재 잡고" ],
+      "cta": "매일 하나씩 쉽게!  @toon.daily",
+      "chars": [ { "name": "duo_hold", "x": 0.5, "scale": 0.34 } ]
     }
   ]
 }
