@@ -1,0 +1,231 @@
+{
+  "_comment": "아빠(appa)+딸(ddal) 캐릭터 마스코트 에셋. expression=상반신 표정, pose=전신 포즈, scene=합성용. 배경 투명 PNG. 카드뉴스/릴스 합성에 사용.",
+  "characters": {
+    "ddal": {
+      "name": "딸",
+      "desc": "갈색 양갈래 트윈번, 시스루 앞머리, 볼터치, 노랑 스트라이프 니트+찢청+머스터드 운동화"
+    },
+    "appa": {
+      "name": "아빠",
+      "desc": "검은 단발, 뿔테 안경, 볼터치, 파랑 니트+청바지+회색 스니커즈"
+    }
+  },
+  "assets": [
+    {
+      "file": "ddal_happy.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "활짝 웃음/신남",
+      "w": 286,
+      "h": 333
+    },
+    {
+      "file": "ddal_playful.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "장난(윙크+혀)",
+      "w": 285,
+      "h": 333
+    },
+    {
+      "file": "ddal_thinking.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "고민중",
+      "w": 303,
+      "h": 339
+    },
+    {
+      "file": "ddal_smile.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "잔잔한 미소",
+      "w": 305,
+      "h": 339
+    },
+    {
+      "file": "ddal_surprised.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "놀람",
+      "w": 309,
+      "h": 339
+    },
+    {
+      "file": "ddal_crying.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "울음",
+      "w": 309,
+      "h": 339
+    },
+    {
+      "file": "ddal_talking.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "말하기",
+      "w": 311,
+      "h": 339
+    },
+    {
+      "file": "ddal_smug.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "뿌듯(팔짱)",
+      "w": 311,
+      "h": 339
+    },
+    {
+      "file": "ddal_stand.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "서기(기본)",
+      "w": 201,
+      "h": 392
+    },
+    {
+      "file": "ddal_point.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "가리키기(설명)",
+      "w": 223,
+      "h": 392
+    },
+    {
+      "file": "ddal_read.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "책 읽기",
+      "w": 211,
+      "h": 389
+    },
+    {
+      "file": "ddal_thumbsup.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "엄지척",
+      "w": 223,
+      "h": 390
+    },
+    {
+      "file": "ddal_holdhand.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "손잡기",
+      "w": 306,
+      "h": 392
+    },
+    {
+      "file": "ddal_apple.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "사과 먹기",
+      "w": 202,
+      "h": 388
+    },
+    {
+      "file": "appa_smile.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "온화한 미소",
+      "w": 351,
+      "h": 392
+    },
+    {
+      "file": "appa_smug.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "뿌듯",
+      "w": 351,
+      "h": 392
+    },
+    {
+      "file": "appa_surprised.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "당황(식은땀)",
+      "w": 354,
+      "h": 391
+    },
+    {
+      "file": "appa_laugh.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "크게 웃음",
+      "w": 355,
+      "h": 391
+    },
+    {
+      "file": "appa_talking.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "말하기",
+      "w": 355,
+      "h": 392
+    },
+    {
+      "file": "appa_troubled.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "곤란",
+      "w": 355,
+      "h": 392
+    },
+    {
+      "file": "appa_stand.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "서기(기본)",
+      "w": 304,
+      "h": 431
+    },
+    {
+      "file": "appa_explain.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "설명(손 내밈)",
+      "w": 330,
+      "h": 431
+    },
+    {
+      "file": "appa_point.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "가리키기",
+      "w": 318,
+      "h": 431
+    },
+    {
+      "file": "appa_cook.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "요리(앞치마)",
+      "w": 324,
+      "h": 431
+    },
+    {
+      "file": "appa_thumbsup.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "엄지척",
+      "w": 342,
+      "h": 431
+    },
+    {
+      "file": "duo_hold.png",
+      "char": "duo",
+      "type": "scene",
+      "label": "손잡은 투샷(배경 투명)",
+      "w": 738,
+      "h": 1060
+    },
+    {
+      "file": "scene_autumn.png",
+      "char": "duo",
+      "type": "scene_bg",
+      "label": "가을 씬(배경 포함, 상단 여백=자막 영역)",
+      "w": 848,
+      "h": 1264
+    }
+  ]
+}
