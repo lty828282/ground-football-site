@@ -69,47 +69,46 @@ def main():
     tmp.mkdir(parents=True, exist_ok=True)
 
     durs = durations(ep)
-    total = sum(durs)
     n = len(ep["panels"])
     prog_col = bt.hx(ep["theme"]["accent"])
+    T = 0.5  # 크로스페이드(전환) 길이
 
-    # 1) 9:16 프레임 생성 + 진행바 굽기 → 클립 렌더
-    clips = []
+    # 1) 9:16 프레임 생성(+진행바)
+    frames = []
     for i in range(n):
         fr = frame9(outdir / f"panel{i+1}.png", ep)
-        # 진행바 (하단)
         d = ImageDraw.Draw(fr)
         bw = SW - 120
         x0, y0 = 60, SH - 40
         d.rounded_rectangle([x0, y0, x0 + bw, y0 + 12], radius=6, fill=(0, 0, 0, 40))
-        fillw = int(bw * (i + 1) / n)
-        d.rounded_rectangle([x0, y0, x0 + fillw, y0 + 12], radius=6, fill=prog_col)
+        d.rounded_rectangle([x0, y0, x0 + int(bw * (i + 1) / n), y0 + 12], radius=6, fill=prog_col)
         fp = tmp / f"f{i}.png"
         fr.save(fp)
-        # zoompan 클립 (짝수 줌인 / 홀수 살짝 다른 속도)
-        dur = durs[i]
-        frames = int(dur * FPS)
-        zexpr = f"min(zoom+0.0006,1.10)" if i % 2 == 0 else f"min(zoom+0.0009,1.14)"
-        clip = tmp / f"c{i}.mp4"
-        run(["ffmpeg", "-y", "-loop", "1", "-i", str(fp), "-t", f"{dur}",
-             "-filter_complex",
-             f"zoompan=z='{zexpr}':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={SW}x{SH}:fps={FPS},format=yuv420p",
-             "-r", str(FPS), "-an", str(clip)])
-        clips.append(clip)
+        frames.append(fp)
 
-    # 2) concat (하드컷)
-    listf = tmp / "list.txt"
-    listf.write_text("".join(f"file '{c}'\n" for c in clips))
-    concat = tmp / "concat.mp4"
-    run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(listf), "-c", "copy", str(concat)])
+    # 2) 정지 프레임 + 크로스페이드(xfade). 줌 없음 → 떨림 원천 제거.
+    parts, inputs = [], []
+    for i, fp in enumerate(frames):
+        inputs += ["-loop", "1", "-t", f"{durs[i]}", "-i", str(fp)]
+        parts.append(f"[{i}:v]fps={FPS},format=yuv420p,setsar=1[c{i}]")
+    prev, acc = "c0", durs[0]
+    for i in range(1, n):
+        off = acc - T
+        parts.append(f"[{prev}][c{i}]xfade=transition=fade:duration={T}:offset={off:.3f}[x{i}]")
+        prev = f"x{i}"
+        acc = acc + durs[i] - T
+    total = acc
+    parts.append(f"[{prev}]fade=t=in:st=0:d=0.4,fade=t=out:st={total-0.5:.3f}:d=0.5[vout]")
 
-    # 3) 무성 오디오 + 전체 페이드
+    # 3) 무성 오디오 트랙 + 인코딩
     out_mp4 = outdir / "short.mp4"
-    run(["ffmpeg", "-y", "-i", str(concat),
-         "-f", "lavfi", "-t", f"{total}", "-i", "anullsrc=r=44100:cl=stereo",
-         "-vf", f"fade=t=in:st=0:d=0.4,fade=t=out:st={total-0.5:.2f}:d=0.5",
+    cmd = ["ffmpeg", "-y"] + inputs + \
+        ["-f", "lavfi", "-t", f"{total:.3f}", "-i", "anullsrc=r=44100:cl=stereo",
+         "-filter_complex", ";".join(parts),
+         "-map", "[vout]", "-map", f"{n}:a",
          "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "20",
-         "-c:a", "aac", "-shortest", str(out_mp4)])
+         "-c:a", "aac", "-shortest", str(out_mp4)]
+    run(cmd)
 
     shutil.rmtree(tmp)
     print(f"OK {out_mp4.relative_to(ROOT)}  ({total:.1f}s, {n} panels)")
