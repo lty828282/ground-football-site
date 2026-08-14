@@ -8,6 +8,14 @@
     "appa": {
       "name": "아빠",
       "desc": "검은 단발, 뿔테 안경, 볼터치, 파랑 니트+청바지+회색 스니커즈"
+    },
+    "duo": {
+      "name": "아빠+딸",
+      "desc": "두 캐릭터 상호작용(투샷)"
+    },
+    "prop": {
+      "name": "소품",
+      "desc": "교육용 오브젝트(캐릭터 없음)"
     }
   },
   "assets": [
@@ -226,6 +234,558 @@
       "label": "가을 씬(배경 포함, 상단 여백=자막 영역)",
       "w": 848,
       "h": 1264
+    },
+    {
+      "file": "ddal_pout.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "뾰로통",
+      "w": 232,
+      "h": 300
+    },
+    {
+      "file": "ddal_shy.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "부끄러움",
+      "w": 239,
+      "h": 300
+    },
+    {
+      "file": "ddal_bored.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "지루함",
+      "w": 241,
+      "h": 300
+    },
+    {
+      "file": "ddal_aha.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "유레카/깨달음",
+      "w": 241,
+      "h": 300
+    },
+    {
+      "file": "ddal_worried.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "걱정",
+      "w": 236,
+      "h": 321
+    },
+    {
+      "file": "ddal_giggle.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "키득 웃음",
+      "w": 241,
+      "h": 321
+    },
+    {
+      "file": "ddal_sleepy.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "하품",
+      "w": 241,
+      "h": 321
+    },
+    {
+      "file": "ddal_starry.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "별빛 눈 감동",
+      "w": 240,
+      "h": 321
+    },
+    {
+      "file": "ddal_skeptical.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "갸웃 의심",
+      "w": 229,
+      "h": 321
+    },
+    {
+      "file": "ddal_teary.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "울먹/눈물",
+      "w": 241,
+      "h": 315
+    },
+    {
+      "file": "ddal_relief.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "활짝 웃음",
+      "w": 241,
+      "h": 315
+    },
+    {
+      "file": "ddal_kiss.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "뽀뽀",
+      "w": 241,
+      "h": 315
+    },
+    {
+      "file": "ddal_cheer.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "만세",
+      "w": 210,
+      "h": 298
+    },
+    {
+      "file": "ddal_clap.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "박수",
+      "w": 146,
+      "h": 298
+    },
+    {
+      "file": "ddal_count.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "숫자 세기",
+      "w": 147,
+      "h": 298
+    },
+    {
+      "file": "ddal_sign.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "팻말 들기",
+      "w": 165,
+      "h": 298
+    },
+    {
+      "file": "ddal_globe.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "지구본",
+      "w": 145,
+      "h": 305
+    },
+    {
+      "file": "ddal_jump.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "점프",
+      "w": 207,
+      "h": 308
+    },
+    {
+      "file": "ddal_magnifier.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "돋보기 관찰",
+      "w": 167,
+      "h": 286
+    },
+    {
+      "file": "ddal_write.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "연필로 쓰기",
+      "w": 145,
+      "h": 306
+    },
+    {
+      "file": "ddal_notebook.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "공책 메모",
+      "w": 147,
+      "h": 317
+    },
+    {
+      "file": "ddal_shyhands.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "두 손 모으고 수줍",
+      "w": 147,
+      "h": 317
+    },
+    {
+      "file": "ddal_heart.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "손하트",
+      "w": 147,
+      "h": 317
+    },
+    {
+      "file": "ddal_backpack.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "가방 메고 걷기",
+      "w": 142,
+      "h": 314
+    },
+    {
+      "file": "appa_wink.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "윙크",
+      "w": 207,
+      "h": 295
+    },
+    {
+      "file": "appa_thinking.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "생각중",
+      "w": 217,
+      "h": 294
+    },
+    {
+      "file": "appa_impressed.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "놀람/감탄",
+      "w": 216,
+      "h": 295
+    },
+    {
+      "file": "appa_aha.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "검지 세우며 깨달음",
+      "w": 216,
+      "h": 294
+    },
+    {
+      "file": "appa_eureka.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "유레카(전구)",
+      "w": 203,
+      "h": 291
+    },
+    {
+      "file": "appa_nod.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "끄덕 미소",
+      "w": 241,
+      "h": 293
+    },
+    {
+      "file": "appa_glasses.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "안경 고쳐쓰기",
+      "w": 233,
+      "h": 292
+    },
+    {
+      "file": "appa_shy.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "부끄러움",
+      "w": 215,
+      "h": 293
+    },
+    {
+      "file": "appa_sleepy.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "하품",
+      "w": 218,
+      "h": 283
+    },
+    {
+      "file": "appa_content.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "흐뭇한 미소",
+      "w": 217,
+      "h": 283
+    },
+    {
+      "file": "appa_teary.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "눈물",
+      "w": 216,
+      "h": 283
+    },
+    {
+      "file": "appa_smirk.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "장난스런 미소",
+      "w": 231,
+      "h": 283
+    },
+    {
+      "file": "appa_board.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "칠판 설명",
+      "w": 220,
+      "h": 293
+    },
+    {
+      "file": "appa_readbook.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "책 읽어주기",
+      "w": 241,
+      "h": 292
+    },
+    {
+      "file": "appa_arms.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "팔짱",
+      "w": 119,
+      "h": 293
+    },
+    {
+      "file": "appa_cheer.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "만세",
+      "w": 203,
+      "h": 292
+    },
+    {
+      "file": "appa_hooray.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "두 팔 번쩍 환호",
+      "w": 202,
+      "h": 321
+    },
+    {
+      "file": "appa_magnifier.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "돋보기 관찰",
+      "w": 188,
+      "h": 321
+    },
+    {
+      "file": "appa_idea.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "전구 들기",
+      "w": 169,
+      "h": 321
+    },
+    {
+      "file": "appa_sign.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "팻말 들기",
+      "w": 178,
+      "h": 321
+    },
+    {
+      "file": "appa_standby.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "서기",
+      "w": 130,
+      "h": 317
+    },
+    {
+      "file": "appa_highfive.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "손 흔들기/하이파이브",
+      "w": 174,
+      "h": 317
+    },
+    {
+      "file": "appa_hips.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "양손 허리",
+      "w": 163,
+      "h": 317
+    },
+    {
+      "file": "appa_walk.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "걸어가기",
+      "w": 147,
+      "h": 312
+    },
+    {
+      "file": "duo_sit.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "나란히 앉아 대화",
+      "w": 299,
+      "h": 278
+    },
+    {
+      "file": "duo_highfive.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "하이파이브",
+      "w": 287,
+      "h": 284
+    },
+    {
+      "file": "duo_shoulder.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "어깨에 손 격려",
+      "w": 254,
+      "h": 304
+    },
+    {
+      "file": "duo_cheer.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "함께 만세",
+      "w": 308,
+      "h": 298
+    },
+    {
+      "file": "duo_eyelevel.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "눈높이 설명",
+      "w": 279,
+      "h": 301
+    },
+    {
+      "file": "duo_book.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "함께 책 보기",
+      "w": 234,
+      "h": 313
+    },
+    {
+      "file": "duo_piggyback.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "목말",
+      "w": 217,
+      "h": 311
+    },
+    {
+      "file": "duo_faceface.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "마주보고 대화",
+      "w": 264,
+      "h": 309
+    },
+    {
+      "file": "duo_surprised.png",
+      "char": "duo",
+      "type": "interaction",
+      "label": "함께 놀람",
+      "w": 259,
+      "h": 310
+    },
+    {
+      "file": "prop_book_open.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "펼친 책",
+      "w": 225,
+      "h": 180
+    },
+    {
+      "file": "prop_book_closed.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "닫힌 책",
+      "w": 160,
+      "h": 199
+    },
+    {
+      "file": "prop_globe.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "지구본",
+      "w": 187,
+      "h": 228
+    },
+    {
+      "file": "prop_magnifier.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "돋보기",
+      "w": 163,
+      "h": 208
+    },
+    {
+      "file": "prop_bulb.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "전구",
+      "w": 185,
+      "h": 196
+    },
+    {
+      "file": "prop_trophy.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "트로피",
+      "w": 194,
+      "h": 196
+    },
+    {
+      "file": "prop_board.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "칠판",
+      "w": 236,
+      "h": 170
+    },
+    {
+      "file": "prop_pencil.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "연필",
+      "w": 136,
+      "h": 192
+    },
+    {
+      "file": "prop_question.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "물음표",
+      "w": 126,
+      "h": 194
+    },
+    {
+      "file": "prop_exclaim.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "느낌표",
+      "w": 60,
+      "h": 195
+    },
+    {
+      "file": "prop_star.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "반짝이 별",
+      "w": 178,
+      "h": 197
+    },
+    {
+      "file": "prop_scroll.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "두루마리",
+      "w": 202,
+      "h": 193
     }
   ]
 }
