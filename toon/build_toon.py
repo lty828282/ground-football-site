@@ -122,7 +122,7 @@ def place(base, name, xfrac, scale, baseline=H - 40, flip=False,
     if shadow:
         ground(base, cx, min(baseline - 4, H - 34), int(tw * 0.82))
     base.alpha_composite(im, (x, y))
-    return cx
+    return cx, y  # (가로 중심, 머리 위 y)
 
 
 def place_prop(base, name, xf, yf, scale, flip=False):
@@ -141,26 +141,29 @@ def props_of(base, panel):
         place_prop(base, pr["name"], pr["x"], pr["y"], pr.get("scale", 0.12), pr.get("flip", False))
 
 # ── 말풍선 ───────────────────────────────────────────
-def bubble(base, text, side, cx, theme, top=110, maxw=640):
+def bubble(base, text, side, cx, theme, bottom=None, top=110, maxw=680):
+    """bottom 이 주어지면 말풍선 바닥을 그 y 에 맞춘다(캐릭터 머리 위 앵커).
+    반환값은 말풍선 top(y) — 여러 개일 때 위로 쌓기 용."""
     d = ImageDraw.Draw(base)
     ink, fill = hx(theme["ink"]), hx(theme["bubble"])
-    font = f_bold(46)
+    font = f_bold(50)
     text = wrap(d, text, font, maxw)
     bb = d.multiline_textbbox((0, 0), text, font=font, spacing=14, align="center")
     tw, th = bb[2] - bb[0], bb[3] - bb[1]
-    padx, pady = 46, 38
+    padx, pady = 48, 40
     bw, bh = tw + 2 * padx, th + 2 * pady
     bx = 70 if side == "left" else W - 70 - bw
-    by = top
+    by = (bottom - bh) if bottom is not None else top
+    if by < 40:
+        by = 40
     d.rounded_rectangle([bx, by, bx + bw, by + bh], radius=42, fill=fill, outline=ink, width=5)
-    # 꼬리(말하는 캐릭터 쪽으로)
     tailx = min(max(cx, bx + 60), bx + bw - 60)
     apex = (tailx, by + bh + 46)
     d.polygon([(tailx - 30, by + bh - 2), (tailx + 30, by + bh - 2), apex], fill=fill)
     d.line([(tailx - 30, by + bh - 2), apex], fill=ink, width=5)
     d.line([(tailx + 30, by + bh - 2), apex], fill=ink, width=5)
     mtext(base, (bx + bw // 2, by + pady - bb[1]), text, font, ink, anchor="ma")
-    return by + bh
+    return by
 
 def pill(base, text, cx, cy, bg, ink, font, padx=30, pady=14):
     d = ImageDraw.Draw(base)
@@ -237,19 +240,23 @@ def render(panel, theme, idx, total):
         # 캐릭터 먼저(뒤), 말풍선 나중(앞)
         chars = panel.get("chars", [])
         cxs = {}
+        tops = []
         for c in chars:
-            cxs[c.get("from", "left" if c["x"] < 0.5 else "right")] = \
-                place(base, c["name"], c["x"], c["scale"],
-                      flip=c.get("flip", False), spot=acc, shadow=True)
+            cx, ty = place(base, c["name"], c["x"], c["scale"],
+                           flip=c.get("flip", False), spot=acc, shadow=True)
+            cxs[c.get("from", "left" if c["x"] < 0.5 else "right")] = cx
+            tops.append(ty)
         if len(chars) == 1:  # 한 명이면 빈 쪽에 데코
             emptx = 0.80 if chars[0]["x"] < 0.5 else 0.20
             deco_cluster(base, int(emptx * W), 620, acc, acc2)
         props_of(base, panel)
-        top = 110
+        # 말풍선을 캐릭터 머리 바로 위에 붙임(꼬리가 머리 근처에 닿게)
+        headtop = min(tops) if tops else int(0.46 * H)
+        cursor = max(headtop - 56, 300)  # 말풍선 바닥(꼬리 위). 너무 위로는 안 감
         for b in panel.get("bubbles", []):
             side = b["from"]
             cx = cxs.get(side, int((0.25 if side == "left" else 0.75) * W))
-            top = bubble(base, b["text"], side, cx, theme, top=top) + 40
+            cursor = bubble(base, b["text"], side, cx, theme, bottom=cursor) - 24
 
     frame(base, acc, alpha=80)
     page_no(base, idx, total, theme)

@@ -21,30 +21,30 @@
       "kind": "talk",
       "vo": "아빠, 일석이조가 무슨 뜻이야?",
       "caption": "아빠, 무슨 뜻이야?",
-      "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.50, "flip": false } ],
-      "props": [ { "name": "prop_question", "x": 0.55, "y": 0.42, "scale": 0.15 } ],
+      "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.62, "flip": false } ],
+      "props": [ { "name": "prop_question", "x": 0.60, "y": 0.50, "scale": 0.16 } ],
       "bubbles": [ { "text": "아빠, ‘일석이조’가\n무슨 뜻이야?", "from": "left" } ]
     },
     {
       "kind": "talk",
       "vo": "글자 그대로는, 돌 하나로 새 두 마리를 잡는다는 뜻이란다.",
       "caption": "돌 하나로 새 두 마리!",
-      "chars": [ { "name": "appa_board", "x": 0.60, "scale": 0.60, "flip": false } ],
+      "chars": [ { "name": "appa_board", "x": 0.58, "scale": 0.64, "flip": false } ],
       "bubbles": [ { "text": "글자 그대로는\n‘돌 하나로 새 두 마리를 잡는다’\n는 뜻이란다.", "from": "right" } ]
     },
     {
       "kind": "talk",
       "vo": "한 번의 행동으로, 두 가지 이득을 얻는 걸 말하는 거야!",
       "caption": "한 번의 행동으로 두 가지 이득!",
-      "chars": [ { "name": "appa_talking", "x": 0.74, "scale": 0.44 }, { "name": "ddal_surprised", "x": 0.24, "scale": 0.40 } ],
+      "chars": [ { "name": "appa_talking", "x": 0.72, "scale": 0.52 }, { "name": "ddal_surprised", "x": 0.26, "scale": 0.48 } ],
       "bubbles": [ { "text": "한 번의 행동으로\n두 가지 이득을 얻는 걸\n말하는 거야!", "from": "right" } ]
     },
     {
       "kind": "talk",
       "vo": "아하! 아침 산책은 운동도 되고 기분도 좋아지니까, 그게 바로 일석이조구나!",
       "caption": "산책 = 운동 + 기분! 일석이조!",
-      "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.52 } ],
-      "props": [ { "name": "prop_bulb", "x": 0.56, "y": 0.50, "scale": 0.15 } ],
+      "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.62 } ],
+      "props": [ { "name": "prop_bulb", "x": 0.60, "y": 0.44, "scale": 0.16 } ],
       "bubbles": [ { "text": "아하! 아침 산책은\n운동도 되고 기분도 좋아지니까…\n그게 바로 일석이조구나!", "from": "left" } ]
     },
     {
