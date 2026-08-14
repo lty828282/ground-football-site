@@ -124,6 +124,22 @@ def place(base, name, xfrac, scale, baseline=H - 40, flip=False,
     base.alpha_composite(im, (x, y))
     return cx
 
+
+def place_prop(base, name, xf, yf, scale, flip=False):
+    """소품/오브젝트를 (xf,yf) 중심에 배치. xf,yf,scale 은 캔버스 비율."""
+    im = Image.open(CH / f"{name}.png").convert("RGBA")
+    th = int(scale * H)
+    tw = max(1, int(im.width * th / im.height))
+    im = im.resize((tw, th), Image.LANCZOS)
+    if flip:
+        im = im.transpose(Image.FLIP_LEFT_RIGHT)
+    base.alpha_composite(im, (int(xf * W) - tw // 2, int(yf * H) - th // 2))
+
+
+def props_of(base, panel):
+    for pr in panel.get("props", []):
+        place_prop(base, pr["name"], pr["x"], pr["y"], pr.get("scale", 0.12), pr.get("flip", False))
+
 # ── 말풍선 ───────────────────────────────────────────
 def bubble(base, text, side, cx, theme, top=110, maxw=640):
     d = ImageDraw.Draw(base)
@@ -184,6 +200,7 @@ def render(panel, theme, idx, total):
         for c in panel.get("chars", []):
             place(base, c["name"], c["x"], c["scale"], baseline=H - 30,
                   flip=c.get("flip", False), spot=acc, shadow=True)
+        props_of(base, panel)
 
     elif kind == "outro":
         d = ImageDraw.Draw(base)
@@ -193,6 +210,7 @@ def render(panel, theme, idx, total):
         for c in panel.get("chars", []):
             place(base, c["name"], c["x"], c["scale"], baseline=H - 40,
                   flip=c.get("flip", False), spot=acc, shadow=True)
+        props_of(base, panel)
         y = 120
         mtext(base, (W // 2, y), panel.get("title", "영어로는?"), f_title(84), ink, anchor="ma")
         y += 150
@@ -226,6 +244,7 @@ def render(panel, theme, idx, total):
         if len(chars) == 1:  # 한 명이면 빈 쪽에 데코
             emptx = 0.80 if chars[0]["x"] < 0.5 else 0.20
             deco_cluster(base, int(emptx * W), 620, acc, acc2)
+        props_of(base, panel)
         top = 110
         for b in panel.get("bubbles", []):
             side = b["from"]

@@ -10,7 +10,7 @@
     python3 toon/build_short.py ilseokijo
     → toon/out/ilseokijo/short.mp4
 """
-import sys, json, subprocess, pathlib, shutil
+import sys, os, json, subprocess, pathlib, shutil
 from PIL import Image, ImageDraw
 import build_toon as bt
 
@@ -38,7 +38,26 @@ def have(cmd):
 
 
 # ── 9:16 프레임 ──────────────────────────────────────
-def frame9(panel_png, ep):
+def caption9(base, text, ink):
+    """하단 자막 바(반투명) — 음성 구간과 자동으로 맞물림(패널당 1자막)."""
+    if not text:
+        return
+    d = ImageDraw.Draw(base)
+    font = bt.f_bold(48)
+    txt = bt.wrap(d, text, font, 900)
+    bb = d.multiline_textbbox((0, 0), txt, font=font, spacing=10, align="center")
+    tw, th = bb[2] - bb[0], bb[3] - bb[1]
+    padx, pady = 40, 26
+    bw, bh = tw + 2 * padx, th + 2 * pady
+    cx, cy = SW // 2, 1690
+    x0, y0 = cx - bw // 2, cy - bh // 2
+    ov = Image.new("RGBA", (SW, SH), (0, 0, 0, 0))
+    ImageDraw.Draw(ov).rounded_rectangle([x0, y0, x0 + bw, y0 + bh], radius=26, fill=(28, 22, 18, 200))
+    base.alpha_composite(ov)
+    bt.mtext(base, (cx, y0 + pady - bb[1]), txt, font, (255, 255, 255), spacing=10, anchor="ma")
+
+
+def frame9(panel_png, ep, panel=None):
     th = ep["theme"]
     ink, acc, acc2 = bt.hx(th["ink"]), bt.hx(th["accent"]), bt.hx(th["accent2"])
     base = Image.new("RGBA", (SW, SH), bt.hx(th["bg"]) + (255,))
@@ -53,13 +72,16 @@ def frame9(panel_png, ep):
     pw = 1004
     ph = int(p.height * pw / p.width)
     p = p.resize((pw, ph), Image.LANCZOS)
-    base.alpha_composite(p, ((SW - pw) // 2, 400))
+    base.alpha_composite(p, ((SW - pw) // 2, 360))
+    # 자동 자막: panel.caption 우선(빈 문자열이면 숨김), 없으면 vo 사용
+    if panel is not None:
+        caption9(base, panel.get("caption", panel.get("vo")), ink)
     bt.mtext(base, (SW // 2, SH - 96), ep.get("handle", "@toon.daily"), bt.f_bold(42), ink, anchor="ma")
     return base.convert("RGB")
 
 
-def frame_with_bar(panel_png, ep, i, n):
-    fr = frame9(panel_png, ep)
+def frame_with_bar(panel_png, ep, panel, i, n):
+    fr = frame9(panel_png, ep, panel)
     d = ImageDraw.Draw(fr)
     bw = SW - 120
     x0, y0 = 60, SH - 40
@@ -185,13 +207,14 @@ def main():
 
     frames = []
     for i in range(n):
-        fr = frame_with_bar(outdir / f"panel{i+1}.png", ep, i, n)
+        fr = frame_with_bar(outdir / f"panel{i+1}.png", ep, ep["panels"][i], i, n)
         fp = tmp / f"f{i}.png"
         fr.save(fp)
         frames.append(fp)
 
     out_mp4 = outdir / "short.mp4"
-    wavs = make_voice(ep, slug, tmp)
+    novoice = os.environ.get("TOON_NOVOICE") == "1" or "--novoice" in sys.argv
+    wavs = None if novoice else make_voice(ep, slug, tmp)
     if wavs:
         total = build_voiced(ep, frames, wavs, tmp, out_mp4)
         mode = "음성(espeak-ng/사용자)"
