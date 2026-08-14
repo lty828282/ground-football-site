@@ -64,15 +64,30 @@ def frame9(panel_png, ep, panel=None):
     bt.bg_dots(base, ink)
     bt.sparkle(base, 120, 470, 22, acc2)
     bt.sparkle(base, 965, 500, 26, acc)
-    bt.pill(base, ep.get("tag", "오늘의 표현"), SW // 2, 130, acc, bt.hx("#1E3A24"), bt.f_bold(44))
-    bt.mtext(base, (SW // 2, 190), ep["term"], bt.f_title(108), ink, anchor="ma")
-    if ep.get("hanja"):
-        bt.mtext(base, (SW // 2, 320), ep["hanja"], bt.f_hanja(50), ink, anchor="ma")
+    # 상단: 채널 브랜딩(로고 + 채널명). 표제어는 커버 패널에 이미 있어 중복 제거.
+    brand = ep.get("brand", {})
+    bname = brand.get("name", "데일리 툰")
+    bx, by = SW // 2, 118
+    logo = brand.get("logo")
+    lp = (ROOT / "assets" / logo) if logo else None
+    if lp and lp.exists():
+        lg = Image.open(lp).convert("RGBA")
+        s = 132
+        lg.thumbnail((s, s))
+        d = ImageDraw.Draw(base)
+        tw = d.textlength(bname, font=bt.f_title(66))
+        total = lg.width + 20 + tw
+        lx = int(bx - total / 2)
+        base.alpha_composite(lg, (lx, by - lg.height // 2))
+        bt.mtext(base, (lx + lg.width + 20, by), bname, bt.f_title(66), ink, anchor="lm")
+    else:
+        bt.mtext(base, (bx, by), bname, bt.f_title(70), ink, anchor="mm")
+    ImageDraw.Draw(base).rounded_rectangle([bx - 92, by + 54, bx + 92, by + 62], radius=4, fill=acc)
     p = Image.open(panel_png).convert("RGBA")
     pw = 1004
     ph = int(p.height * pw / p.width)
     p = p.resize((pw, ph), Image.LANCZOS)
-    base.alpha_composite(p, ((SW - pw) // 2, 360))
+    base.alpha_composite(p, ((SW - pw) // 2, 300))
     # 자동 자막: panel.caption 우선(빈 문자열이면 숨김), 없으면 vo 사용
     if panel is not None:
         caption9(base, panel.get("caption", panel.get("vo")), ink)
