@@ -14,6 +14,12 @@ import sys, os, json, subprocess, pathlib, shutil
 from PIL import Image, ImageDraw
 import build_toon as bt
 
+# 프록시 재종단 TLS 신뢰(에이전트 프록시 환경) — edge-tts(aiohttp)가 인증서 검증 통과하도록
+_CA = "/root/.ccr/ca-bundle.crt"
+if os.path.exists(_CA):
+    os.environ.setdefault("SSL_CERT_FILE", _CA)
+    os.environ.setdefault("REQUESTS_CA_BUNDLE", _CA)
+
 ROOT = pathlib.Path(__file__).resolve().parent
 SW, SH, FPS = 1080, 1920, 30
 LEAD, TAIL = 0.25, 0.75  # 음성 앞뒤 여백(초)
@@ -118,24 +124,65 @@ def derive_vo(p, ep):
     return " ".join(b["text"].replace("\n", " ") for b in p.get("bubbles", []))
 
 
+def edge_synth(text, voice, pitch, out):
+    """edge-tts(마이크로소프트 뉴럴)로 mp3 생성. 실패 시 예외."""
+    import asyncio, edge_tts
+    async def go():
+        await edge_tts.Communicate(text, voice, pitch=pitch).save(str(out))
+    asyncio.run(go())
+
+def edge_ok(tmp):
+    try:
+        edge_synth("테스트", "ko-KR-SunHiNeural", "+0Hz", tmp / "_et.mp3")
+        return True
+    except Exception as e:
+        print("edge-tts 사용 불가:", repr(e)[:120])
+        return False
+
+def pick_voice(panel):
+    """패널 화자에 맞는 목소리. 내레이터=SunHi, 아빠=InJoon, 딸=SunHi(피치↑)."""
+    if panel["kind"] in ("cover", "outro"):
+        return ("ko-KR-SunHiNeural", "+0Hz")
+    frm = (panel.get("bubbles") or [{}])[0].get("from")
+    spk = None
+    for c in panel.get("chars", []):
+        side = c.get("from", "left" if c["x"] < 0.5 else "right")
+        if side == frm:
+            spk = c["name"]; break
+    if not spk and panel.get("chars"):
+        spk = panel["chars"][0]["name"]
+    if spk and spk.startswith("appa"):
+        return ("ko-KR-InJoonNeural", "+0Hz")
+    return ("ko-KR-SunHiNeural", "+12Hz")
+
 def make_voice(ep, slug, tmp):
-    """패널별 음성 wav(44100/stereo) 목록. 사용자 오디오 우선, 없으면 espeak-ng."""
+    """패널별 음성 wav(44100/stereo). 우선순위: 사용자 오디오 > edge-tts > espeak-ng."""
     adir = ROOT / "audio" / slug
-    espeak = have("espeak-ng")
+    engine = None
+    if edge_ok(tmp):
+        engine = "edge"
+    elif have("espeak-ng"):
+        engine = "espeak"
+    print(f"음성 엔진: {engine or '없음(무성)'}")
     wavs = []
     for i, p in enumerate(ep["panels"], 1):
         user = None
         for ext in ("mp3", "wav", "m4a"):
             c = adir / f"panel{i}.{ext}"
             if c.exists():
-                user = c
-                break
+                user = c; break
         w = tmp / f"vo{i-1}.wav"
+        text = p.get("vo") or derive_vo(p, ep)
         if user:
             run(["ffmpeg", "-y", "-i", user, "-ar", "44100", "-ac", "2", w])
-        elif espeak:
+        elif engine == "edge":
+            mp3 = tmp / f"raw{i-1}.mp3"
+            voice, pitch = pick_voice(p)
+            edge_synth(text, voice, pitch, mp3)
+            run(["ffmpeg", "-y", "-i", mp3, "-ar", "44100", "-ac", "2", w])
+        elif engine == "espeak":
             raw = tmp / f"raw{i-1}.wav"
-            run(["espeak-ng", "-v", "ko", "-s", "155", "-p", "40", p.get("vo") or derive_vo(p, ep), "-w", raw])
+            run(["espeak-ng", "-v", "ko", "-s", "155", "-p", "40", text, "-w", raw])
             run(["ffmpeg", "-y", "-i", raw, "-ar", "44100", "-ac", "2", w])
         else:
             return None
