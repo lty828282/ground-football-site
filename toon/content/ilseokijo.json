@@ -6,8 +6,8 @@
   "en": "Kill two birds with one stone",
   "tag": "오늘의 고사성어",
   "theme": { "bg": "#FBF3DF", "accent": "#7ED957", "accent2": "#FFD54F", "ink": "#3A2E28", "bubble": "#FFFFFF" },
-  "handle": "@toon.daily",
-  "brand": { "name": "데일리 툰", "handle": "@toon.daily", "logo": null },
+  "handle": "@askpapa",
+  "brand": { "name": "아빠 뭐야?", "handle": "@askpapa", "logo": "brand/askpapa_avatar.png" },
   "panels": [
     {
       "kind": "cover",
