@@ -52,10 +52,26 @@ python3 toon/build_short.py ilseokijo
 # → toon/out/ilseokijo/short.mp4  (1080x1920)
 ```
 
-- `build_short.py` 가 캐러셀 패널을 9:16 프레임으로 재구성(상단 표제 배너 +
-  패널 + 하단 핸들 + 진행바)하고 ffmpeg zoompan(켄번즈 줌)·전환·페이드로 조립.
+- `build_short.py` 가 캐러셀 패널을 9:16 프레임(상단 표제 배너 + 패널 +
+  **하단 자동 자막** + 핸들 + 진행바)으로 재구성하고 ffmpeg 로 조립.
+- 자막은 패널의 `caption`(없으면 `vo`)을 하단 바에 굽는다. 패널당 1자막이라
+  음성 길이에 맞춰 자동 동기화된다.
 - 의존성: `ffmpeg`.
-- **보이스(TTS)**: 현재 실행 환경은 외부 네트워크(구글/에지 TTS)가 정책상
-  차단돼 무성으로 생성된다. 나레이션을 붙이려면 (a) 환경에 TTS 네트워크를
-  허용하거나, (b) `audio/<slug>.*` 로 음성 파일을 넣어 믹스하는 경로가 필요.
-- 영상 산출물(`out/**/*.mp4`, `short_tmp/`)은 용량 때문에 git 에서 제외됨.
+- 무성으로 뽑기: `TOON_NOVOICE=1 python3 toon/build_short.py <slug>`
+
+### 음성(나레이션) 넣기 — 권장 워크플로
+
+이 실행 환경은 외부 TTS 서버(구글/에지/허깅페이스)가 정책상 차단돼 **고품질
+음성을 직접 생성할 수 없다**(오프라인 espeak-ng 은 품질 부적합). 대신 외부에서
+만든 음성을 넣으면 파이프라인이 자동으로 화면·자막을 음성 길이에 맞춘다.
+
+1. 각 패널 대사(`content/<slug>.json` 의 `vo`)를 고품질 한국어 TTS 로 생성.
+   - **edge-tts**(무료, 자연스러움): `pip install edge-tts` 후
+     `edge-tts --voice ko-KR-SunHiNeural --text "..." --write-media panel1.mp3`
+     (아빠 대사는 `ko-KR-InJoonNeural`, 딸 대사는 `--pitch=+30Hz` 로 톤 조절)
+   - 또는 ElevenLabs / Naver CLOVA Voice / Typecast(아동 목소리) 등.
+2. 파일을 `toon/audio/<slug>/panel1.mp3 … panelN.mp3` 로 저장(mp3/wav/m4a).
+3. `python3 toon/build_short.py <slug>` 실행 → 각 패널이 해당 음성 길이에
+   맞춰 재생되고 오디오가 믹스된, **음성+자막 동기화 쇼츠**가 완성된다.
+
+- 영상 산출물(`out/**/*.mp4`, `short_tmp/`)과 `audio/` 는 git 에서 제외됨.
