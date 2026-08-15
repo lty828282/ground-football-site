@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+toon/out/*/tmp/
+toon/out/*/preview/

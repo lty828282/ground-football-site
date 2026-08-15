@@ -1,0 +1,17 @@
+{
+  "title": "일석이조",
+  "subtitle": "아빠와 딸의 주말",
+  "daughter_name": "지안",
+  "lines": [
+    { "speaker": "narrator", "text": "주말 오후, 아빠는 소파에만 붙어 있는 딸이 내심 걱정됐어요." },
+    { "speaker": "dad",      "text": "지안아, 우리 오랜만에 공 한번 차러 나갈까?" },
+    { "speaker": "daughter", "text": "에이 아빠, 나 축구 잘 못하는데…" },
+    { "speaker": "dad",      "text": "괜찮아. 아빠도 잘 못해! 그냥 같이 뛰는 게 재밌는 거지." },
+    { "speaker": "narrator", "text": "공원에 나온 두 사람. 처음엔 조금 어색했지만…" },
+    { "speaker": "daughter", "text": "아빠! 이거 봐, 나 방금 리프팅 세 번이나 했어!" },
+    { "speaker": "dad",      "text": "오, 우리 딸 재능 있는데? 하하." },
+    { "speaker": "narrator", "text": "땀을 흘리며 활짝 웃는 딸을 보며, 아빠는 생각했어요." },
+    { "speaker": "dad",      "text": "운동도 하고, 우리 딸이랑 추억도 쌓고. 이거야말로 일석이조네!" },
+    { "speaker": "narrator", "text": "함께 공을 차는 시간. 건강도, 사랑도 나란히 자랍니다." }
+  ]
+}
