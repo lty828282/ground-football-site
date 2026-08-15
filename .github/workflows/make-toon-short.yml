@@ -1,0 +1,45 @@
+name: Make Toon Short
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: '만들 웹툰 슬러그 (toon/stories/<slug>.json)'
+        required: true
+        default: 'ilseokijo'
+
+permissions:
+  contents: write
+
+jobs:
+  short:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          sudo apt-get update
+          # espeak-ng 는 edge-tts 접속 불가 시 자동 대체용(안전망)
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-nanum fonts-nanum-extra espeak-ng
+          pip install edge-tts pillow numpy
+
+      - name: Build short (edge-tts 신경망 음성)
+        run: python3 toon/build_short.py "${{ github.event.inputs.slug }}"
+
+      - name: Commit short
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          slug="${{ github.event.inputs.slug }}"
+          git add "toon/out/${slug}/short.mp4"
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "toon 쇼츠 생성: ${slug} (edge-tts 음성)"
+            git push
+          fi
