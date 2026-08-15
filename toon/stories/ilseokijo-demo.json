@@ -1,0 +1,10 @@
+{
+  "title": "일석이조 (데모)",
+  "subtitle": "아빠와 딸 목소리 확인용",
+  "daughter_name": "지안",
+  "cards": false,
+  "lines": [
+    { "speaker": "dad",      "text": "지안아, 우리 공 차러 나갈까? 아빠가 골키퍼 해줄게!" },
+    { "speaker": "daughter", "text": "좋아 아빠! 나 리프팅 연습한 거 보여줄게. 하나, 둘, 셋!" }
+  ]
+}

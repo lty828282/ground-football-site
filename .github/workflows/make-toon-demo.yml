@@ -1,0 +1,46 @@
+name: Make Toon Demo
+
+# 데모 대본/스크립트가 이 브랜치에 push 되면 러너에서 edge-tts 신경망 음성으로
+# 10초 데모(short.mp4)를 렌더해 브랜치에 커밋한다. (러너는 edge-tts 접속 가능)
+on:
+  push:
+    branches:
+      - claude/ilseokijo-shorts-voice-n880do
+    paths:
+      - 'toon/stories/ilseokijo-demo.json'
+      - 'toon/build_short.py'
+      - '.github/workflows/make-toon-demo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-nanum fonts-nanum-extra espeak-ng
+          pip install edge-tts pillow numpy
+
+      - name: Build demo short (edge-tts 신경망 음성)
+        run: python3 toon/build_short.py ilseokijo-demo
+
+      - name: Commit demo short
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add toon/out/ilseokijo-demo/short.mp4
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "toon 데모 쇼츠 생성: ilseokijo-demo (edge-tts 음성) [skip ci]"
+            git push
+          fi

@@ -353,6 +353,7 @@ def build(slug):
     title = story.get("title", slug)
     subtitle = story.get("subtitle", "")
     dname = story.get("daughter_name", "딸")
+    cards = story.get("cards", True)   # 인트로/엔딩 카드 사용 여부
     lines = story["lines"]
 
     outdir = TOON / "out" / slug
@@ -370,9 +371,10 @@ def build(slug):
     clips = []
 
     # 인트로 타이틀 카드(무음 1.6s)
-    tpng = tmp / "title.png"; render_title(title, subtitle, tpng)
-    tsil = tmp / "title.wav"; make_silence(1.6, tsil)
-    tclip = tmp / "clip_title.mp4"; av_clip(tpng, tsil, tclip); clips.append(tclip)
+    if cards:
+        tpng = tmp / "title.png"; render_title(title, subtitle, tpng)
+        tsil = tmp / "title.wav"; make_silence(1.6, tsil)
+        tclip = tmp / "clip_title.mp4"; av_clip(tpng, tsil, tclip); clips.append(tclip)
 
     # 대사 씬
     for i, ln in enumerate(lines):
@@ -394,9 +396,10 @@ def build(slug):
         print(f"  [{i+1}/{len(lines)}] {spk['label']:<4} {dur:5.2f}s  {text[:24]}")
 
     # 엔딩 카드(무음 2.2s)
-    opng = tmp / "outro.png"; render_outro(opng)
-    osil = tmp / "outro.wav"; make_silence(2.2, osil)
-    oclip = tmp / "clip_outro.mp4"; av_clip(opng, osil, oclip); clips.append(oclip)
+    if cards:
+        opng = tmp / "outro.png"; render_outro(opng)
+        osil = tmp / "outro.wav"; make_silence(2.2, osil)
+        oclip = tmp / "clip_outro.mp4"; av_clip(opng, osil, oclip); clips.append(oclip)
 
     # 이어붙이기
     listf = tmp / "concat.txt"
