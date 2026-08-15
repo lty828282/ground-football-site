@@ -21,9 +21,11 @@ python3 toon/build_short.py ilseokijo
 
 ## 음성 엔진
 
-- **기본: edge-tts** — 마이크로소프트 온라인 신경망 TTS. 자연스러운 한국어
-  보이스를 화자별로 다르게 사용한다.
-  - 내레이터 `ko-KR-SunHiNeural` · 아빠 `ko-KR-InJoonNeural` · 딸 `ko-KR-YuJinNeural`
+- **기본: edge-tts** — 마이크로소프트 온라인 신경망 TTS. edge-tts 무료
+  엔드포인트가 서비스하는 한국어 보이스는 `ko-KR-SunHiNeural`(여)/
+  `ko-KR-InJoonNeural`(남) 두 개뿐이라, 이를 화자별로 배분한다.
+  - 아빠 `ko-KR-InJoonNeural`(남) · 내레이터 `ko-KR-SunHiNeural`(차분한 여) ·
+    딸 `ko-KR-SunHiNeural`(rate/pitch·피치 시프트로 밝고 어리게 구분)
 - **대체: espeak-ng** — edge-tts 서버 접속이 막힌 환경(사내 프록시/CI 등)에서는
   자동으로 오프라인 엔진으로 전환하고, ffmpeg 피치 시프트로 아빠(낮게)/딸(높게)/
   내레이터(중간)를 구분한다. 이 경우에도 항상 음성이 들어간 mp4 가 나온다.

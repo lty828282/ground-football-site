@@ -59,16 +59,23 @@ def fr(sz):  return _font(REG, sz)
 
 # ── 화자 설정 ────────────────────────────────────────
 # side: left/right/center · edge_*: edge-tts 파라미터 · espeak_*: 오프라인 파라미터
-# shift: 오프라인 피치 시프트(반음). 아빠는 낮게(-), 딸은 높게(+).
+# edge-tts 무료(엣지 읽어주기) 엔드포인트가 서비스하는 한국어 보이스는
+# ko-KR-SunHiNeural(여) / ko-KR-InJoonNeural(남) 두 개뿐이다. 그 외 Azure 보이스는
+# 오디오가 오지 않는다(NoAudioReceived). 그래서 아빠=InJoon(남), 내레이터·딸=SunHi(여)
+# 를 쓰되 rate/pitch 와 피치 시프트로 내레이터(차분)·딸(밝고 높게)을 구분한다.
+# edge_shift/shift: ffmpeg 피치 시프트(반음). 아빠는 낮게(-), 딸은 높게(+).
 SPEAKERS = {
     "narrator": dict(label="내레이션", color=AMBER, side="center",
-                     edge_voice="ko-KR-SunHiNeural", edge_rate="-4%",  edge_pitch="+0Hz",
+                     edge_voice="ko-KR-SunHiNeural", edge_rate="-3%",  edge_pitch="+0Hz",
+                     edge_shift=0.0,
                      espeak_speed=150, espeak_pitch=48, shift=0.0),
     "dad":      dict(label="아빠",     color=DAD_C,  side="left",
-                     edge_voice="ko-KR-InJoonNeural", edge_rate="-3%",  edge_pitch="-2Hz",
+                     edge_voice="ko-KR-InJoonNeural", edge_rate="-4%",  edge_pitch="-3Hz",
+                     edge_shift=-1.0,
                      espeak_speed=140, espeak_pitch=32, shift=-2.5),
     "daughter": dict(label="딸",       color=GIRL_C, side="right",
-                     edge_voice="ko-KR-YuJinNeural",  edge_rate="+9%",  edge_pitch="+18Hz",
+                     edge_voice="ko-KR-SunHiNeural",  edge_rate="+12%", edge_pitch="+15Hz",
+                     edge_shift=2.0,
                      espeak_speed=174, espeak_pitch=82, shift=3.5),
 }
 
@@ -128,7 +135,7 @@ def make_segment(text, spk, engine, raw_path, seg_path, tail=False):
     """대사 → 원음 합성 → (피치 정리 +) 뒤 여백 패딩 → 표준 wav(seg)."""
     if engine == "edge":
         synth_edge(text, spk, raw_path)
-        shift = 0.0                       # edge 보이스는 자체로 구분됨
+        shift = spk.get("edge_shift", 0.0)   # SunHi 공용 보이스 → 화자 구분용 소폭 시프트
     else:
         synth_espeak(text, spk, raw_path)
         shift = spk["shift"]
