@@ -3,67 +3,6 @@
   "published": [],
   "queue": [
     {
-      "slug": "growth-dinner",
-      "kicker": "GROWTH DINNER",
-      "title": "성장 응원 저녁",
-      "hook": "뼈와 근육이 자라는 시간, 저녁이 중요해요",
-      "meal": {
-        "title": "성장 저녁 한 끼",
-        "items": [
-          {
-            "label": "밥",
-            "food": "rice",
-            "query": "bowl of rice",
-            "why": "에너지 회복"
-          },
-          {
-            "label": "연어",
-            "food": "salmon",
-            "query": "grilled salmon",
-            "why": "단백질 · 오메가-3"
-          },
-          {
-            "label": "두부",
-            "food": "tofu",
-            "query": "tofu blocks",
-            "why": "식물성 단백질"
-          },
-          {
-            "label": "시금치나물",
-            "food": "spinach",
-            "query": "cooked spinach",
-            "why": "철분 · 칼슘"
-          }
-        ]
-      },
-      "snack": {
-        "title": "자기 전 간식",
-        "items": [
-          {
-            "label": "치즈",
-            "food": "cheese",
-            "query": "cheese cubes",
-            "why": "칼슘 · 뼈 성장"
-          },
-          {
-            "label": "견과류",
-            "food": "nuts",
-            "query": "mixed nuts",
-            "why": "건강한 지방 · 소량"
-          }
-        ]
-      },
-      "keypoints": [
-        "칼슘 챙기기",
-        "자기 전 과식 금지",
-        "충분한 수면"
-      ],
-      "affiliate": {
-        "label": "성장 간식 보러가기",
-        "url": "https://groundyouth.com/pages/guide-snacks.html"
-      }
-    },
-    {
       "slug": "recovery-meal",
       "kicker": "TRAINING RECOVERY",
       "title": "훈련 후 회복 한 끼",
@@ -306,6 +245,67 @@
       ],
       "affiliate": {
         "label": "아침 대용 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
+    },
+    {
+      "slug": "growth-dinner",
+      "kicker": "GROWTH DINNER",
+      "title": "성장 응원 저녁",
+      "hook": "뼈와 근육이 자라는 시간, 저녁이 중요해요",
+      "meal": {
+        "title": "성장 저녁 한 끼",
+        "items": [
+          {
+            "label": "밥",
+            "food": "rice",
+            "query": "bowl of rice",
+            "why": "에너지 회복"
+          },
+          {
+            "label": "연어",
+            "food": "salmon",
+            "query": "grilled salmon",
+            "why": "단백질 · 오메가-3"
+          },
+          {
+            "label": "두부",
+            "food": "tofu",
+            "query": "tofu blocks",
+            "why": "식물성 단백질"
+          },
+          {
+            "label": "시금치나물",
+            "food": "spinach",
+            "query": "cooked spinach",
+            "why": "철분 · 칼슘"
+          }
+        ]
+      },
+      "snack": {
+        "title": "자기 전 간식",
+        "items": [
+          {
+            "label": "치즈",
+            "food": "cheese",
+            "query": "cheese cubes",
+            "why": "칼슘 · 뼈 성장"
+          },
+          {
+            "label": "견과류",
+            "food": "nuts",
+            "query": "mixed nuts",
+            "why": "건강한 지방 · 소량"
+          }
+        ]
+      },
+      "keypoints": [
+        "칼슘 챙기기",
+        "자기 전 과식 금지",
+        "충분한 수면"
+      ],
+      "affiliate": {
+        "label": "성장 간식 보러가기",
         "url": "https://groundyouth.com/pages/guide-snacks.html"
       }
     }
