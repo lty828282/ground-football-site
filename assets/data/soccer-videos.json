@@ -1,72 +1,74 @@
 {
   "title": "축구 영상",
-  "updated": "2026-08-25",
+  "updated": "2026-08-26",
   "videos": [
     {
       "id": "4DWcza2BjgY",
       "title": "이영표의 손흥민 K리그 활약 예상",
       "tag": "축구",
-      "note": "조회수 334.6만 · 3일 전 · 해축선생",
-      "short": true
-    },
-    {
-      "id": "xgunxxz6r7g",
-      "title": "박지성을 끝까지 경청하게 만든 축구지도자 피해 학부모의 호소",
-      "tag": "축구",
-      "note": "조회수 266.3만 · 6일 전 · 국거리"
-    },
-    {
-      "id": "D9Hicvoydcg",
-      "title": "박지성·이천수·안정환 드리블 스타일ㅋㅋ",
-      "tag": "축구",
-      "note": "조회수 241.3만 · 6일 전 · 킥포피아 KickPopia",
+      "note": "조회수 364만 · 4일 전 · 해축선생",
       "short": true
     },
     {
       "id": "ZVFXpGpCH-o",
       "title": "[라리가] 1R AT. 마드리드 vs 말라가 이강인 주요장면",
       "tag": "축구",
-      "note": "조회수 235만 · 5일 전 · 쿠팡플레이 스포츠"
-    },
-    {
-      "id": "e5pcC2a0Yf8",
-      "title": "현지팬들이 깜짝 놀란 이강인 데뷔골 인터뷰",
-      "tag": "축구",
-      "note": "조회수 216.3만 · 5일 전 · 공감입니다 2.0",
-      "short": true
+      "note": "조회수 236.8만 · 6일 전 · 쿠팡플레이 스포츠"
     },
     {
       "id": "FTDyc5c8pvY",
       "title": "야구팬vs축구팬 오타니는 어디 오씨? #운동 #운동선수 #축구 #야구 #축구선수 #야구선수 #퀴즈",
       "tag": "축구",
-      "note": "조회수 199만 · 5일 전 · 이콩조콩커플",
+      "note": "조회수 234.4만 · 6일 전 · 이콩조콩커플",
       "short": true
     },
     {
       "id": "m-fLOtcJhMs",
       "title": "Edgar Davids’ Glasses Held Him Back 😮",
       "tag": "축구",
-      "note": "조회수 195만 · 4일 전 · Bona Fide Sports",
-      "short": true
-    },
-    {
-      "id": "oJCWdSTLy1A",
-      "title": "이강인 데뷔전 원더골!!!!! l AT. 마드리드 vs 말라가 l 쿠팡플레이",
-      "tag": "축구",
-      "note": "조회수 187만 · 5일 전 · 쿠팡플레이 스포츠"
-    },
-    {
-      "id": "RT9X4r2LDkw",
-      "title": "\"이럴 거면 리그하지 마라\"...박지성 질문에 감독 대답",
-      "tag": "축구",
-      "note": "조회수 186.1만 · 5일 전 · 전북일보",
+      "note": "조회수 216.1만 · 5일 전 · Bona Fide Sports",
       "short": true
     },
     {
       "id": "1pLVkHrFhTU",
       "title": "5연속 슈팅 날리고 무릎 꿇은 여자 축구 유망주",
       "tag": "축구",
-      "note": "조회수 180.5만 · 5일 전 · 사고뭉치들",
+      "note": "조회수 192.7만 · 6일 전 · 사고뭉치들",
+      "short": true
+    },
+    {
+      "id": "SRc-I3vgBWs",
+      "title": "이강인 데뷔 골 보다 극찬받은 장면! 아틀레티코 마드리드",
+      "tag": "축구",
+      "note": "조회수 187.1만 · 5일 전 · 아크써클_축구",
+      "short": true
+    },
+    {
+      "id": "RT9X4r2LDkw",
+      "title": "\"이럴 거면 리그하지 마라\"...박지성 질문에 감독 대답",
+      "tag": "축구",
+      "note": "조회수 186.5만 · 6일 전 · 전북일보",
+      "short": true
+    },
+    {
+      "id": "ABtbfQv_fP8",
+      "title": "악수만 하던 메시가 손흥민에게만 팔을 벌린 순간",
+      "tag": "축구",
+      "note": "조회수 183.6만 · 4일 전 · 슈퍼쏘니",
+      "short": true
+    },
+    {
+      "id": "w-g1AInuLe8",
+      "title": "야구,축구,농구 중 연봉1위 스포츠는?",
+      "tag": "축구",
+      "note": "조회수 162.1만 · 5일 전 · 썰의전쟁",
+      "short": true
+    },
+    {
+      "id": "OJWk9OAeptw",
+      "title": "경기장 난리 난 이승우 vs 김현석 언쟁 ㄷㄷ",
+      "tag": "축구",
+      "note": "조회수 152.6만 · 3일 전 · Riquelme Talking football",
       "short": true
     }
   ]
