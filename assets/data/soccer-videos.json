@@ -1,74 +1,73 @@
 {
   "title": "축구 영상",
-  "updated": "2026-08-26",
+  "updated": "2026-08-28",
   "videos": [
-    {
-      "id": "4DWcza2BjgY",
-      "title": "이영표의 손흥민 K리그 활약 예상",
-      "tag": "축구",
-      "note": "조회수 364만 · 4일 전 · 해축선생",
-      "short": true
-    },
-    {
-      "id": "ZVFXpGpCH-o",
-      "title": "[라리가] 1R AT. 마드리드 vs 말라가 이강인 주요장면",
-      "tag": "축구",
-      "note": "조회수 236.8만 · 6일 전 · 쿠팡플레이 스포츠"
-    },
-    {
-      "id": "FTDyc5c8pvY",
-      "title": "야구팬vs축구팬 오타니는 어디 오씨? #운동 #운동선수 #축구 #야구 #축구선수 #야구선수 #퀴즈",
-      "tag": "축구",
-      "note": "조회수 234.4만 · 6일 전 · 이콩조콩커플",
-      "short": true
-    },
     {
       "id": "m-fLOtcJhMs",
       "title": "Edgar Davids’ Glasses Held Him Back 😮",
       "tag": "축구",
-      "note": "조회수 216.1만 · 5일 전 · Bona Fide Sports",
-      "short": true
-    },
-    {
-      "id": "1pLVkHrFhTU",
-      "title": "5연속 슈팅 날리고 무릎 꿇은 여자 축구 유망주",
-      "tag": "축구",
-      "note": "조회수 192.7만 · 6일 전 · 사고뭉치들",
-      "short": true
-    },
-    {
-      "id": "SRc-I3vgBWs",
-      "title": "이강인 데뷔 골 보다 극찬받은 장면! 아틀레티코 마드리드",
-      "tag": "축구",
-      "note": "조회수 187.1만 · 5일 전 · 아크써클_축구",
-      "short": true
-    },
-    {
-      "id": "RT9X4r2LDkw",
-      "title": "\"이럴 거면 리그하지 마라\"...박지성 질문에 감독 대답",
-      "tag": "축구",
-      "note": "조회수 186.5만 · 6일 전 · 전북일보",
+      "note": "조회수 239.9만 · 6일 전 · Bona Fide Sports",
       "short": true
     },
     {
       "id": "ABtbfQv_fP8",
       "title": "악수만 하던 메시가 손흥민에게만 팔을 벌린 순간",
       "tag": "축구",
-      "note": "조회수 183.6만 · 4일 전 · 슈퍼쏘니",
+      "note": "조회수 227.4만 · 5일 전 · 슈퍼쏘니",
       "short": true
+    },
+    {
+      "id": "SRc-I3vgBWs",
+      "title": "이강인 데뷔 골 보다 극찬받은 장면! 아틀레티코 마드리드",
+      "tag": "축구",
+      "note": "조회수 193.7만 · 6일 전 · 아크써클_축구",
+      "short": true
+    },
+    {
+      "id": "FD6V8UG1nik",
+      "title": "군대축구가 소림축구로 변 한이유 #스케치코미디",
+      "tag": "축구",
+      "note": "조회수 182.6만 · 5일 전 · 천만영화"
     },
     {
       "id": "w-g1AInuLe8",
       "title": "야구,축구,농구 중 연봉1위 스포츠는?",
       "tag": "축구",
-      "note": "조회수 162.1만 · 5일 전 · 썰의전쟁",
+      "note": "조회수 181만 · 6일 전 · 썰의전쟁",
       "short": true
     },
     {
       "id": "OJWk9OAeptw",
       "title": "경기장 난리 난 이승우 vs 김현석 언쟁 ㄷㄷ",
       "tag": "축구",
-      "note": "조회수 152.6만 · 3일 전 · Riquelme Talking football",
+      "note": "조회수 152.7만 · 5일 전 · Riquelme Talking football",
+      "short": true
+    },
+    {
+      "id": "uOux7JaKJSE",
+      "title": "[라리가] 2R AT. 마드리드 vs 비야레알 이강인 주요장면",
+      "tag": "축구",
+      "note": "조회수 146.7만 · 4일 전 · 쿠팡플레이 스포츠"
+    },
+    {
+      "id": "gmHcTNW0xek",
+      "title": "라모스 아우라 모음☠️",
+      "tag": "축구",
+      "note": "조회수 141.1만 · 5일 전 · JUN STUDIO",
+      "short": true
+    },
+    {
+      "id": "9kvBHeezAN4",
+      "title": "김예건의 재능 #축구",
+      "tag": "축구",
+      "note": "조회수 137.6만 · 6일 전 · 축덕존",
+      "short": true
+    },
+    {
+      "id": "Pc_ooDKoSyc",
+      "title": "실력과 외모 둘 중 하나 선택 해야하는 최용수#축구#최용수#안정환#박지성#배성재",
+      "tag": "축구",
+      "note": "조회수 94.8만 · 6일 전 · 1분 터짐",
       "short": true
     }
   ]
