@@ -24,7 +24,23 @@ CARD_QUERIES = {
         4: ["soccer training cones", "football agility cones", "soccer cone drill kids"],
         5: ["soccer juggling ball", "football keepie uppie", "boy juggling soccer"],
         6: ["kid soccer training", "child football practice", "youth soccer drill"],
-    }
+    },
+    "recovery-stretch": {
+        0: ["athlete stretching after workout", "soccer player stretching field",
+            "young athlete cool down stretch", "football player stretching grass"],
+        1: ["hamstring stretch", "seated forward fold stretch", "standing hamstring stretch athlete",
+            "athlete stretching legs hamstring"],
+        2: ["calf stretch wall", "runner calf stretch", "athlete calf stretch",
+            "calf muscle stretch exercise"],
+        3: ["standing quad stretch", "quadriceps stretch athlete", "thigh stretch standing",
+            "athlete stretching thigh front"],
+        4: ["figure four stretch", "glute stretch lying floor", "hip stretch athlete",
+            "athlete stretching hip glute"],
+        5: ["butterfly stretch sitting", "groin stretch floor", "adductor stretch",
+            "athlete inner thigh stretch"],
+        6: ["athlete drinking water rest", "soccer player resting recovery",
+            "athlete foam roller recovery", "young athlete resting water"],
+    },
 }
 
 PER_CARD = 8
