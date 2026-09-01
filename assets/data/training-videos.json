@@ -48,7 +48,7 @@
       "id": "1aV3t8M8Ak8",
       "title": "\"축구선출들이 숨기는\" 볼 감각의 비밀 폭로  I 축구기본기, 축구드리블, 볼마스터리",
       "cat": "볼감각",
-      "note": "조회수 5.7만 · 2026.05 · 오버헤드킥",
+      "note": "조회수 5.8만 · 2026.05 · 오버헤드킥",
       "auto": true
     },
     {
@@ -56,6 +56,13 @@
       "title": "How to Improve Your First Touch in Football (Mannequin Drill)",
       "cat": "볼감각",
       "note": "조회수 1.3만 · 2026.05 · Mehran Rowshan",
+      "auto": true
+    },
+    {
+      "id": "8lwY7IHBH28",
+      "title": "이거 알면 '풋살' 배운 티가 남 | 풋살 퍼스트 터치 [쌈풋강좌EP10]",
+      "cat": "볼감각",
+      "note": "조회수 5.3천 · 2026.08 · 쌈바 풋살 클래스",
       "auto": true
     },
     {
@@ -69,21 +76,14 @@
       "id": "LDjBvxs1HIE",
       "title": "미드필드라면 퍼스트터치 훈련만 해라!",
       "cat": "볼감각",
-      "note": "조회수 3.8천 · 2026.05 · 김보경의 KBK 풋볼",
-      "auto": true
-    },
-    {
-      "id": "XIB3yiLoDAU",
-      "title": "이제 경기장에서 인사이드 트래핑 실수는 그만 이 영상보고 연습하세요 #축구 #개인훈련 #football #레슨",
-      "cat": "볼감각",
-      "note": "조회수 1.4천 · 2026.02 · 축구닥터",
+      "note": "조회수 3.9천 · 2026.05 · 김보경의 KBK 풋볼",
       "auto": true
     },
     {
       "id": "3Vf1NrFwM58",
       "title": "슛팅 연습 1000번 하지 말고 이 영상 5분으로 끝내세요 I  골 결정력 높이는 선출들의 비밀",
       "cat": "슛 & 킥",
-      "note": "조회수 14.1만 · 2026.06 · 오버헤드킥",
+      "note": "조회수 14.3만 · 2026.06 · 오버헤드킥",
       "auto": true
     },
     {
@@ -108,17 +108,17 @@
       "auto": true
     },
     {
+      "id": "XOpG_QNutyQ",
+      "title": "실제축구에서 수비제치는 개인기를 적용하는 방법2",
+      "cat": "드리블",
+      "note": "조회수 4.6만 · 2026.07 · 사커 튜토리얼(Soccer Tutorial)",
+      "auto": true
+    },
+    {
       "id": "lqJYJsWk6Ds",
       "title": "\"다 보여드릴게요\" 드리블 연구가가 알려주는 드리블의 핵심!",
       "cat": "드리블",
       "note": "조회수 4.5만 · 2026.03 · 왼발의 청춘(Leftballer)",
-      "auto": true
-    },
-    {
-      "id": "XOpG_QNutyQ",
-      "title": "실제축구에서 수비제치는 개인기를 적용하는 방법2",
-      "cat": "드리블",
-      "note": "조회수 4.4만 · 2026.07 · 사커 튜토리얼(Soccer Tutorial)",
       "auto": true
     },
     {
@@ -132,7 +132,7 @@
       "id": "LQ9Il1CW4nI",
       "title": "50 Youth soccer drills pass control receive coordination agility dribble finish exercises #soccer",
       "cat": "패스",
-      "note": "조회수 9.9천 · 2026.05 · FA Spécifique YOUTH SOCCER COACHING FAOUZI HADDAR",
+      "note": "조회수 10천 · 2026.05 · FA Spécifique YOUTH SOCCER COACHING FAOUZI HADDAR",
       "auto": true
     },
     {
@@ -160,9 +160,9 @@
       "id": "eCLSX1zMItM",
       "title": "POV: 볼 마스터리 3종& 저글링 개인 축구훈련 #볼마스터리 #저글링 #혼축",
       "cat": "리프팅",
-      "note": "조회수 84 · 2026.08 · DS_Eleven",
+      "note": "조회수 93 · 2026.08 · DS_Eleven",
       "auto": true
     }
   ],
-  "updated": "2026-08-29"
+  "updated": "2026-09-01"
 }
