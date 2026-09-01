@@ -1,75 +1,74 @@
 {
   "title": "축구 영상",
-  "updated": "2026-08-31",
+  "updated": "2026-09-01",
   "videos": [
+    {
+      "id": "M5-wpgvD3tE",
+      "title": "축구 역사상 가장 최악의 골",
+      "tag": "축구",
+      "note": "조회수 306.9만 · 5일 전 · 박광필",
+      "short": true
+    },
     {
       "id": "EHMQ_KA2Iqo",
       "title": "'위치 선정 세계 1위'",
       "tag": "축구",
-      "note": "조회수 243.7만 · 4일 전 · 스포츠라움",
+      "note": "조회수 270만 · 5일 전 · 스포츠라움",
       "short": true
     },
     {
-      "id": "grWUmsClc9M",
-      "title": "호날두가 팀 동료에게 장난을 쳐도 되는 이유",
+      "id": "Lqlg8_Kbs2A",
+      "title": "압도적인 스피드로 승점을 지켜 팀의 우승에 기여한 김민재  | 김민재 25-26 분데스리가 하이라이트",
       "tag": "축구",
-      "note": "조회수 186.4만 · 6일 전 · 사각지대",
-      "short": true
-    },
-    {
-      "id": "SftBNzMHIJs",
-      "title": "손흥민을 본 국가별 여자들 반응",
-      "tag": "축구",
-      "note": "조회수 179.7만 · 6일 전 · JUN STUDIO",
-      "short": true
+      "note": "조회수 199.6만 · 4일 전 · 쿠팡플레이 스포츠"
     },
     {
       "id": "qlHQQTZ2z2M",
       "title": "축구감독이 만든 감동적인 드라마",
       "tag": "축구",
-      "note": "조회수 178.5만 · 5일 전 · 박광필",
+      "note": "조회수 190.9만 · 6일 전 · 박광필",
       "short": true
     },
     {
-      "id": "aPtN3ASgf24",
-      "title": "텐백수비 무너뜨리는 이강인 축구지능",
+      "id": "5cUpE3D35Os",
+      "title": "10년의 세월을 이겨낸 손흥민🔥",
       "tag": "축구",
-      "note": "조회수 125.3만 · 6일 전 · 해축선생",
-      "short": true
-    },
-    {
-      "id": "M-aliOT57I4",
-      "title": "전 세계 축구선수 99%를 쓸 수 없는 레전드 구단 ㄷㄷㄷㄷ",
-      "tag": "축구",
-      "note": "조회수 120.4만 · 5일 전 · 썰포츠",
-      "short": true
-    },
-    {
-      "id": "J2JSLuqnQEg",
-      "title": "신의 손 최강자는? 🤔 네이마르 vs 메시 vs 호날두",
-      "tag": "축구",
-      "note": "조회수 120만 · 4일 전 · 싸커스토리 (후반전)",
-      "short": true
-    },
-    {
-      "id": "C888ie5rYhU",
-      "title": "18살 메시를 처음 봤던 축구 선수들의 리얼 후기 ㄷㄷ  #축구 #스포츠 #messi #메시 #김진규 #이천수 #드리블",
-      "tag": "축구",
-      "note": "조회수 119.7만 · 5일 전 · 웃음스포츠 (웃스)",
+      "note": "조회수 160.8만 · 5일 전 · AmazingBrother",
       "short": true
     },
     {
       "id": "IEAmJUJCTWA",
       "title": "은퇴하면 축구일은 안 할 거라는 손흥민",
       "tag": "축구",
-      "note": "조회수 119.2만 · 3일 전 · SON콕",
+      "note": "조회수 136.6만 · 4일 전 · SON콕",
       "short": true
     },
     {
-      "id": "86FfOUUKX7Y",
-      "title": "Georgina Was Suspicious of Ronaldo, BUT...😥 #football",
+      "id": "SrG2UC6En9M",
+      "title": "밀당의 고수 최용수 감독",
       "tag": "축구",
-      "note": "조회수 109.5만 · 4일 전 · Wolf Football",
+      "note": "조회수 131.2만 · 2일 전 · 동심저장소",
+      "short": true
+    },
+    {
+      "id": "b81ozubx4J8",
+      "title": "유럽 축구선수도 쫄았던 김민재 선수 표정ㄷㄷ",
+      "tag": "축구",
+      "note": "조회수 130.3만 · 2일 전 · 알고포스",
+      "short": true
+    },
+    {
+      "id": "C888ie5rYhU",
+      "title": "18살 메시를 처음 봤던 축구 선수들의 리얼 후기 ㄷㄷ  #축구 #스포츠 #messi #메시 #김진규 #이천수 #드리블",
+      "tag": "축구",
+      "note": "조회수 128.7만 · 6일 전 · 웃음스포츠 (웃스)",
+      "short": true
+    },
+    {
+      "id": "J2JSLuqnQEg",
+      "title": "신의 손 최강자는? 🤔 네이마르 vs 메시 vs 호날두",
+      "tag": "축구",
+      "note": "조회수 126.4만 · 5일 전 · 싸커스토리 (후반전)",
       "short": true
     }
   ]
