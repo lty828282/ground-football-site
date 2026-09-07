@@ -3,67 +3,6 @@
   "published": [],
   "queue": [
     {
-      "slug": "pre-match-meal",
-      "kicker": "MATCH DAY",
-      "title": "경기 전 한 끼",
-      "hook": "경기 3~4시간 전, 잘 뛰게 만드는 식사",
-      "meal": {
-        "title": "경기 전, 이렇게",
-        "items": [
-          {
-            "label": "잡곡밥",
-            "food": "rice",
-            "query": "bowl of cooked rice",
-            "why": "탄수화물 · 지구력 연료"
-          },
-          {
-            "label": "소고기",
-            "food": "beef",
-            "query": "grilled beef slices",
-            "why": "단백질 · 기름기 적게"
-          },
-          {
-            "label": "채소 반찬",
-            "food": "broccoli",
-            "query": "steamed vegetables",
-            "why": "비타민 · 소화 부담 적게"
-          },
-          {
-            "label": "사과",
-            "food": "apple",
-            "query": "red apple",
-            "why": "가벼운 당 · 수분"
-          }
-        ]
-      },
-      "snack": {
-        "title": "1~2시간 전 간식",
-        "items": [
-          {
-            "label": "바나나",
-            "food": "banana",
-            "query": "ripe bananas",
-            "why": "소화 쉬운 빠른 에너지"
-          },
-          {
-            "label": "에너지바",
-            "food": "energy_bar",
-            "query": "granola bar",
-            "why": "간편 탄수화물 보충"
-          }
-        ]
-      },
-      "keypoints": [
-        "기름진 음식 금지",
-        "익숙한 음식만",
-        "물 미리 채우기"
-      ],
-      "affiliate": {
-        "label": "경기용 간식 보러가기",
-        "url": "https://groundyouth.com/pages/guide-snacks.html"
-      }
-    },
-    {
       "slug": "morning-fuel",
       "kicker": "MORNING FUEL",
       "title": "훈련 있는 날 아침",
@@ -306,6 +245,67 @@
       ],
       "affiliate": {
         "label": "여름 간식·음료 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
+    },
+    {
+      "slug": "pre-match-meal",
+      "kicker": "MATCH DAY",
+      "title": "경기 전 한 끼",
+      "hook": "경기 3~4시간 전, 잘 뛰게 만드는 식사",
+      "meal": {
+        "title": "경기 전, 이렇게",
+        "items": [
+          {
+            "label": "잡곡밥",
+            "food": "rice",
+            "query": "bowl of cooked rice",
+            "why": "탄수화물 · 지구력 연료"
+          },
+          {
+            "label": "소고기",
+            "food": "beef",
+            "query": "grilled beef slices",
+            "why": "단백질 · 기름기 적게"
+          },
+          {
+            "label": "채소 반찬",
+            "food": "broccoli",
+            "query": "steamed vegetables",
+            "why": "비타민 · 소화 부담 적게"
+          },
+          {
+            "label": "사과",
+            "food": "apple",
+            "query": "red apple",
+            "why": "가벼운 당 · 수분"
+          }
+        ]
+      },
+      "snack": {
+        "title": "1~2시간 전 간식",
+        "items": [
+          {
+            "label": "바나나",
+            "food": "banana",
+            "query": "ripe bananas",
+            "why": "소화 쉬운 빠른 에너지"
+          },
+          {
+            "label": "에너지바",
+            "food": "energy_bar",
+            "query": "granola bar",
+            "why": "간편 탄수화물 보충"
+          }
+        ]
+      },
+      "keypoints": [
+        "기름진 음식 금지",
+        "익숙한 음식만",
+        "물 미리 채우기"
+      ],
+      "affiliate": {
+        "label": "경기용 간식 보러가기",
         "url": "https://groundyouth.com/pages/guide-snacks.html"
       }
     }
