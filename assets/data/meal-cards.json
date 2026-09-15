@@ -3,67 +3,6 @@
   "published": [],
   "queue": [
     {
-      "slug": "morning-fuel",
-      "kicker": "MORNING FUEL",
-      "title": "훈련 있는 날 아침",
-      "hook": "아침을 거르면 오전 훈련의 질이 떨어져요",
-      "meal": {
-        "title": "든든한 아침 한 끼",
-        "items": [
-          {
-            "label": "오트밀",
-            "food": "oatmeal",
-            "query": "oatmeal bowl",
-            "why": "천천히 타는 탄수화물"
-          },
-          {
-            "label": "계란",
-            "food": "egg",
-            "query": "boiled eggs",
-            "why": "단백질 · 포만감"
-          },
-          {
-            "label": "우유",
-            "food": "milk",
-            "query": "glass of milk",
-            "why": "칼슘 · 단백질"
-          },
-          {
-            "label": "바나나",
-            "food": "banana",
-            "query": "banana",
-            "why": "빠른 에너지 · 칼륨"
-          }
-        ]
-      },
-      "snack": {
-        "title": "등교·훈련 전 간식",
-        "items": [
-          {
-            "label": "그릭요거트",
-            "food": "yogurt",
-            "query": "greek yogurt bowl",
-            "why": "단백질 · 칼슘"
-          },
-          {
-            "label": "고구마",
-            "food": "sweet_potato",
-            "query": "roasted sweet potato",
-            "why": "든든한 탄수화물"
-          }
-        ]
-      },
-      "keypoints": [
-        "아침 거르지 않기",
-        "탄수화물+단백질",
-        "따뜻한 물 한 잔"
-      ],
-      "affiliate": {
-        "label": "아침 대용 간식 보러가기",
-        "url": "https://groundyouth.com/pages/guide-snacks.html"
-      }
-    },
-    {
       "slug": "growth-dinner",
       "kicker": "GROWTH DINNER",
       "title": "성장 응원 저녁",
@@ -306,6 +245,67 @@
       ],
       "affiliate": {
         "label": "경기용 간식 보러가기",
+        "url": "https://groundyouth.com/pages/guide-snacks.html"
+      }
+    },
+    {
+      "slug": "morning-fuel",
+      "kicker": "MORNING FUEL",
+      "title": "훈련 있는 날 아침",
+      "hook": "아침을 거르면 오전 훈련의 질이 떨어져요",
+      "meal": {
+        "title": "든든한 아침 한 끼",
+        "items": [
+          {
+            "label": "오트밀",
+            "food": "oatmeal",
+            "query": "oatmeal bowl",
+            "why": "천천히 타는 탄수화물"
+          },
+          {
+            "label": "계란",
+            "food": "egg",
+            "query": "boiled eggs",
+            "why": "단백질 · 포만감"
+          },
+          {
+            "label": "우유",
+            "food": "milk",
+            "query": "glass of milk",
+            "why": "칼슘 · 단백질"
+          },
+          {
+            "label": "바나나",
+            "food": "banana",
+            "query": "banana",
+            "why": "빠른 에너지 · 칼륨"
+          }
+        ]
+      },
+      "snack": {
+        "title": "등교·훈련 전 간식",
+        "items": [
+          {
+            "label": "그릭요거트",
+            "food": "yogurt",
+            "query": "greek yogurt bowl",
+            "why": "단백질 · 칼슘"
+          },
+          {
+            "label": "고구마",
+            "food": "sweet_potato",
+            "query": "roasted sweet potato",
+            "why": "든든한 탄수화물"
+          }
+        ]
+      },
+      "keypoints": [
+        "아침 거르지 않기",
+        "탄수화물+단백질",
+        "따뜻한 물 한 잔"
+      ],
+      "affiliate": {
+        "label": "아침 대용 간식 보러가기",
         "url": "https://groundyouth.com/pages/guide-snacks.html"
       }
     }
