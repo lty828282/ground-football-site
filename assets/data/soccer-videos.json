@@ -1,72 +1,73 @@
 {
   "title": "축구 영상",
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "videos": [
     {
-      "id": "hbaUTTIVIOE",
-      "title": "[라리가] 6R AT. 마드리드 vs 오사수나 이강인 주요장면",
+      "id": "qU61UqzAeh8",
+      "title": "Son vs Yamal vs Vinicius vs Raphinha vs Ronaldo",
       "tag": "축구",
-      "note": "조회수 418.9만 · 6일 전 · 쿠팡플레이 스포츠"
-    },
-    {
-      "id": "WTDI-RyBVGk",
-      "title": "[남자 축구] 중국 vs 북한｜3분 하이라이트｜아이치-나고야 아시안게임",
-      "tag": "축구",
-      "note": "조회수 348.4만 · 6일 전 · SPOTV"
-    },
-    {
-      "id": "XdYOzidcxM4",
-      "title": "골키퍼들이 손흥민 감차를 못 막는 이유",
-      "tag": "축구",
-      "note": "조회수 305.5만 · 3일 전 · 해축선생",
+      "note": "조회수 722만 · 6일 전 · BallHead Lab",
       "short": true
     },
     {
       "id": "vN3z-po6XLM",
       "title": "다시 보니 소름돋는 박지성 축구지능",
       "tag": "축구",
-      "note": "조회수 304만 · 2일 전 · 해축선생",
+      "note": "조회수 383.1만 · 3일 전 · 해축선생",
+      "short": true
+    },
+    {
+      "id": "XdYOzidcxM4",
+      "title": "골키퍼들이 손흥민 감차를 못 막는 이유",
+      "tag": "축구",
+      "note": "조회수 344.8만 · 4일 전 · 해축선생",
+      "short": true
+    },
+    {
+      "id": "NG4nNP5HNXw",
+      "title": "[라리가] 7R AT. 마드리드 vs 레알 마드리드 이강인 주요장면",
+      "tag": "축구",
+      "note": "조회수 341.3만 · 3일 전 · 쿠팡플레이 스포츠"
+    },
+    {
+      "id": "uommWnZSxIc",
+      "title": "축구 역사상 가장 미친 사진",
+      "tag": "축구",
+      "note": "조회수 307.9만 · 6일 전 · 돌돌숏",
       "short": true
     },
     {
       "id": "Her74WdiuTA",
       "title": "달라진 이강인을 향해 기립박수치는 시메오네감독👏",
       "tag": "축구",
-      "note": "조회수 301.8만 · 5일 전 · 오늘의 숏포츠",
+      "note": "조회수 307.3만 · 6일 전 · 오늘의 숏포츠",
       "short": true
-    },
-    {
-      "id": "uommWnZSxIc",
-      "title": "축구 역사상 가장 미친 사진",
-      "tag": "축구",
-      "note": "조회수 278.7만 · 5일 전 · 돌돌숏",
-      "short": true
-    },
-    {
-      "id": "WjXp_uP5Wrc",
-      "title": "조기축구에서 프로와의 차이를 보여주는 손흥민",
-      "tag": "축구",
-      "note": "조회수 273.4만 · 6일 전 · 슛됐다",
-      "short": true
-    },
-    {
-      "id": "cyRTkxRk7X8",
-      "title": "오른발도 빛나는 이강인의 리그 2호 골 l 라리가 l AT. 마드리드 vs 오사수나",
-      "tag": "축구",
-      "note": "조회수 254.4만 · 6일 전 · 쿠팡플레이 스포츠"
     },
     {
       "id": "0b7j6km8gxM",
       "title": "[MLS] 27R 산호세 vs LAFC 손흥민 주요장면",
       "tag": "축구",
-      "note": "조회수 208.4만 · 2일 전 · 쿠팡플레이 스포츠"
+      "note": "조회수 212.3만 · 3일 전 · 쿠팡플레이 스포츠"
     },
     {
-      "id": "uB91c5e9vM4",
-      "title": "Ronaldo & Mbappe Destroyed Messi & Yamal!# cr7 #football",
+      "id": "YX9PAJfj2S8",
+      "title": "잉글랜드 축구 직관 갔다가 심판 알바 뛴 남자",
       "tag": "축구",
-      "note": "조회수 140.9만 · 3일 전 · saba ball",
+      "note": "조회수 170.9만 · 5일 전 · ㅋㅋㅋ",
       "short": true
+    },
+    {
+      "id": "MYxPGuEG1pw",
+      "title": "The PLAYER Who DIED Standing 💔 #football",
+      "tag": "축구",
+      "note": "조회수 121.4만 · 4일 전 · GFootball",
+      "short": true
+    },
+    {
+      "id": "zqrGqzrsGAI",
+      "title": "[남자 축구] 대한민국 vs 사우디아라비아｜3분 하이라이트｜아이치-나고야 아시안게임",
+      "tag": "축구",
+      "note": "조회수 112.3만 · 1일 전 · SPOTV"
     }
   ]
 }
