@@ -22,6 +22,7 @@
       "kind": "talk",
       "vo": "아빠, 일석이조가 무슨 뜻이야?",
       "caption": "아빠, 무슨 뜻이야?",
+      "bg": "bg_studyroom",
       "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.62, "flip": false } ],
       "props": [ { "name": "prop_question", "x": 0.60, "y": 0.50, "scale": 0.16 } ],
       "bubbles": [ { "text": "아빠, ‘일석이조’가\n무슨 뜻이야?", "from": "left" } ]
@@ -37,6 +38,7 @@
       "kind": "talk",
       "vo": "한 번의 행동으로, 두 가지 이득을 얻는 걸 말하는 거야!",
       "caption": "한 번의 행동으로 두 가지 이득!",
+      "bg": "bg_library",
       "chars": [ { "name": "appa_talking", "x": 0.72, "scale": 0.52 }, { "name": "ddal_surprised", "x": 0.26, "scale": 0.48 } ],
       "bubbles": [ { "text": "한 번의 행동으로\n두 가지 이득을 얻는 걸\n말하는 거야!", "from": "right" } ]
     },
@@ -44,6 +46,7 @@
       "kind": "talk",
       "vo": "아하! 아침 산책은 운동도 되고 기분도 좋아지니까, 그게 바로 일석이조구나!",
       "caption": "산책 = 운동 + 기분! 일석이조!",
+      "bg": "bg_bedroom",
       "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.62 } ],
       "props": [ { "name": "prop_bulb", "x": 0.60, "y": 0.44, "scale": 0.16 } ],
       "bubbles": [ { "text": "아하! 아침 산책은\n운동도 되고 기분도 좋아지니까…\n그게 바로 일석이조구나!", "from": "left" } ]
@@ -56,7 +59,7 @@
       "sub": "Kill two birds\nwith one stone",
       "also_label": "비슷한 우리 속담",
       "also": [ "꿩 먹고 알 먹고", "도랑 치고 가재 잡고" ],
-      "cta": "매일 하나씩 쉽게!  @toon.daily",
+      "cta": "매일 하나씩 쉽게!  @askpapa",
       "chars": [ { "name": "duo_hold", "x": 0.5, "scale": 0.34 } ]
     }
   ]

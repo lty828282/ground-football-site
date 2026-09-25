@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 ROOT = pathlib.Path(__file__).resolve().parent
 CH = ROOT / "assets" / "characters"
+BGDIR = ROOT / "assets" / "backgrounds"
 W, H = 1080, 1350
 
 # ── 폰트 ────────────────────────────────────────────
@@ -140,6 +141,23 @@ def props_of(base, panel):
     for pr in panel.get("props", []):
         place_prop(base, pr["name"], pr["x"], pr["y"], pr.get("scale", 0.12), pr.get("flip", False))
 
+# ── 배경 합성 ────────────────────────────────────────
+def load_bg(name):
+    """배경 이미지를 캔버스(W×H)에 cover-fit."""
+    im = Image.open(BGDIR / f"{name}.png").convert("RGBA")
+    s = max(W / im.width, H / im.height)
+    im = im.resize((max(W, int(im.width * s)), max(H, int(im.height * s))), Image.LANCZOS)
+    x, y = (im.width - W) // 2, (im.height - H) // 2
+    return im.crop((x, y, x + W, y + H))
+
+def top_scrim(base, frac=0.5, alpha=95):
+    """상단(말풍선 영역) 가독성용 은은한 밝은 그라데이션."""
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
+    h = int(H * frac)
+    for y in range(h):
+        od.line([(0, y), (W, y)], fill=(255, 252, 244, int(alpha * (1 - y / h))))
+    base.alpha_composite(ov)
+
 # ── 말풍선 ───────────────────────────────────────────
 def bubble(base, text, side, cx, theme, bottom=None, top=110, maxw=680):
     """bottom 이 주어지면 말풍선 바닥을 그 y 에 맞춘다(캐릭터 머리 위 앵커).
@@ -183,17 +201,24 @@ def page_no(base, i, n, theme):
 # ── 패널 렌더 ────────────────────────────────────────
 def render(panel, theme, idx, total):
     bg = hx(theme["bg"])
-    base = Image.new("RGBA", (W, H), bg + (255,))
     ink, acc, acc2 = hx(theme["ink"]), hx(theme["accent"]), hx(theme["accent2"])
     kind = panel["kind"]
-    bg_dots(base, ink)
+    bg_name = panel.get("bg") or theme.get("bg_image")
+    if bg_name:
+        base = load_bg(bg_name)
+        top_scrim(base)
+    else:
+        base = Image.new("RGBA", (W, H), bg + (255,))
+        bg_dots(base, ink)
+    spot_c = None if bg_name else acc
 
     if kind == "cover":
         spotlight(base, W // 2, 430, 430, 300, acc2, alpha=46, blur=64)
-        sparkle(base, 175, 305, 26, acc)
-        sparkle(base, 905, 335, 30, acc2)
-        ring(base, 240, 560, 22, acc2, width=6)
-        sparkle(base, 915, 560, 22, acc)
+        if not bg_name:
+            sparkle(base, 175, 305, 26, acc)
+            sparkle(base, 905, 335, 30, acc2)
+            ring(base, 240, 560, 22, acc2, width=6)
+            sparkle(base, 915, 560, 22, acc)
         pill(base, panel.get("tag", "오늘의 표현"), W // 2, 210, acc, hx("#1E3A24"), f_bold(40))
         mtext(base, (W // 2, 300), panel["title"], f_title(150), ink, anchor="ma")
         if panel.get("hanja"):
@@ -202,17 +227,18 @@ def render(panel, theme, idx, total):
             mtext(base, (W // 2, 600), panel["sub"], f_reg(48), ink, anchor="ma")
         for c in panel.get("chars", []):
             place(base, c["name"], c["x"], c["scale"], baseline=H - 30,
-                  flip=c.get("flip", False), spot=acc, shadow=True)
+                  flip=c.get("flip", False), spot=spot_c, shadow=True)
         props_of(base, panel)
 
     elif kind == "outro":
         d = ImageDraw.Draw(base)
-        sparkle(base, 150, 270, 26, acc2)
-        sparkle(base, 930, 255, 22, acc)
+        if not bg_name:
+            sparkle(base, 150, 270, 26, acc2)
+            sparkle(base, 930, 255, 22, acc)
         # 캐릭터 먼저(하단 배경)
         for c in panel.get("chars", []):
             place(base, c["name"], c["x"], c["scale"], baseline=H - 40,
-                  flip=c.get("flip", False), spot=acc, shadow=True)
+                  flip=c.get("flip", False), spot=spot_c, shadow=True)
         props_of(base, panel)
         y = 120
         mtext(base, (W // 2, y), panel.get("title", "영어로는?"), f_title(84), ink, anchor="ma")
@@ -243,7 +269,7 @@ def render(panel, theme, idx, total):
         tops = []
         for c in chars:
             cx, ty = place(base, c["name"], c["x"], c["scale"],
-                           flip=c.get("flip", False), spot=acc, shadow=True)
+                           flip=c.get("flip", False), spot=spot_c, shadow=True)
             cxs[c.get("from", "left" if c["x"] < 0.5 else "right")] = cx
             tops.append(ty)
         if len(chars) == 1:  # 한 명이면 빈 쪽에 데코
