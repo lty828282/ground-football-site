@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R0GR87TVH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R0GR87TVH4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7일 축구 훈련일지 (멘탈+훈련) — 유소년 선수 노트 샘플 | 그라운드 유소년</title>
+<meta name="description" content="유소년 축구 선수를 위한 7일 훈련일지 샘플. 하루 앞뒤 한 장 — 명언 필사, 훈련 전 마음가짐, 오늘의 집중 한 가지, 훈련 내용, 훈련 중 실행 체크리스트 7가지, 코치 말씀, 훈련 후 반성.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{ --brand:#2E7D52; --deep:#1B4332; --yellow:#F2C037; --ink:#12261E; --muted:#5F6F67; --line:#DCE3DC; --paper:#FAFAF7; --dot:#b9c6bd; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{ font-family:'Pretendard',system-ui,sans-serif; color:var(--ink); background:#eef1ec; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:820px; margin:0 auto; padding:0 16px 60px; }
+
+  /* 표지 (제품 표지) */
+  .cover{ position:relative; overflow:hidden; color:#fff; text-align:center; border-radius:0 0 30px 30px;
+    padding:44px 26px 38px; background:radial-gradient(125% 90% at 50% -8%, #2E7D52 0%, #1B4332 58%, #10291B 100%); }
+  .cover::before{ content:""; position:absolute; left:50%; top:34px; width:340px; height:340px; transform:translateX(-50%);
+    border:2px solid rgba(255,255,255,0.06); border-radius:50%; }
+  .cover::after{ content:""; position:absolute; left:50%; top:0; bottom:0; width:2px; background:rgba(255,255,255,0.05); transform:translateX(-50%); }
+  .cover > *{ position:relative; z-index:1; }
+  .crest{ display:block; margin:0 auto 12px; filter:drop-shadow(0 5px 12px rgba(0,0,0,0.35)); }
+  .cover .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:3px; font-weight:600; color:var(--yellow); }
+  .cover .title{ font-family:'Black Han Sans',sans-serif; font-size:52px; line-height:1.02; letter-spacing:1px; margin:10px 0 8px; }
+  .cover .tag{ display:inline-block; font-size:11px; font-weight:800; letter-spacing:1px; color:var(--deep); background:var(--yellow); border-radius:999px; padding:5px 13px; margin-bottom:12px; }
+  .cover .tagline{ font-size:16.5px; color:rgba(255,255,255,0.94); font-weight:600; }
+  .cover .divider{ width:46px; height:4px; background:var(--yellow); border-radius:2px; margin:16px auto; }
+  .cover .sub{ font-size:12.5px; color:rgba(255,255,255,0.78); line-height:1.75; max-width:430px; margin:0 auto; word-break:keep-all; }
+  .namecard{ margin:22px auto 6px; max-width:400px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.20); border-radius:14px; padding:12px 18px; }
+  .namecard .nf{ display:flex; align-items:center; gap:10px; padding:8px 0; }
+  .namecard .nf span{ font-size:12px; color:rgba(255,255,255,0.82); white-space:nowrap; font-weight:700; }
+  .namecard .nf i{ flex:1; border-bottom:1.5px dotted rgba(255,255,255,0.55); height:16px; }
+  .cover .brand{ margin-top:18px; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; letter-spacing:2px; color:rgba(255,255,255,0.9); }
+
+  .how{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:22px 0 8px; }
+  .how h2{ font-size:14.5px; color:var(--brand); margin-bottom:8px; }
+  .how ol{ margin-left:18px; font-size:13.5px; color:#33413a; }
+  .how li{ margin:3px 0; }
+
+  /* 한 면(페이지) */
+  .page{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin:16px 0; box-shadow:0 4px 14px rgba(0,0,0,0.05); }
+  .p-head{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--deep); padding-bottom:10px; margin-bottom:6px; }
+  .p-head .day{ font-family:'IBM Plex Mono',ui-monospace,monospace; font-weight:700; font-size:15px; color:var(--deep); letter-spacing:1px; }
+  .p-head .side{ font-size:11px; font-weight:800; color:#fff; background:var(--brand); border-radius:999px; padding:4px 12px; }
+  .meta{ display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--muted); margin:10px 0 4px; }
+  .meta .m{ display:flex; align-items:center; gap:6px; }
+  .meta .u{ display:inline-block; min-width:56px; border-bottom:1px dotted var(--dot); }
+
+  .sec{ margin-top:14px; }
+  .sec .t{ display:flex; align-items:center; gap:7px; font-size:13px; font-weight:800; color:var(--deep); margin-bottom:8px; }
+  .sec .t .em{ color:var(--brand); }
+  .sec .hint{ font-weight:600; font-size:11px; color:var(--muted); }
+  .ln{ border-bottom:1.5px dotted var(--dot); height:30px; }
+  .ln.sm{ height:26px; }
+
+  /* 훈련 내용: 왼쪽 기록 / 오른쪽 그림 */
+  .train2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; }
+  .tr-notes{ display:flex; flex-direction:column; }
+  .tr-box{ border:1px solid var(--line); border-radius:8px; padding:9px 11px; margin-top:10px; min-height:76px; }
+  .tr-box.grow{ flex:1; }
+  .tr-box .bt2{ font-size:11.5px; font-weight:800; color:var(--deep); margin-bottom:4px; }
+  .sublabel{ font-size:11px; font-weight:700; color:var(--muted); margin-bottom:7px; }
+  .pitch{ width:100%; height:auto; display:block; border-radius:8px; }
+  @media (max-width:520px){ .train2{ grid-template-columns:1fr; } }
+
+  /* 필사 */
+  .quote{ position:relative; font-size:16.5px; font-weight:800; line-height:1.5; color:var(--deep); background:#F4F8F4; border-left:4px solid var(--yellow); border-radius:8px; padding:12px 14px 12px 30px; margin-bottom:8px; word-break:keep-all; }
+  .quote::before{ content:"\201C"; position:absolute; left:8px; top:2px; font-size:32px; color:var(--yellow); line-height:1; }
+  .chip{ font-size:10.5px; font-weight:800; color:#fff; background:var(--brand); border-radius:999px; padding:3px 9px; margin-left:6px; }
+  .explain{ font-size:14.5px; color:#3f4f47; line-height:1.8; margin:10px 2px 16px; word-break:keep-all; }
+  .trace-label{ font-size:12px; font-weight:700; color:var(--muted); margin-bottom:8px; }
+  .trace{ font-size:27px; font-weight:800; line-height:2.0; color:#d3dcd5; letter-spacing:1.5px; word-break:keep-all; border-bottom:1.5px dotted var(--dot); padding-bottom:12px; }
+
+  /* 오늘 이것만은 */
+  .focus{ background:#FFF7E0; border:1.5px solid var(--yellow); border-radius:10px; padding:12px 14px; margin-top:14px; }
+  .focus .t{ color:#8a6d12; }
+  .focus .ln{ border-bottom-color:#e6c964; }
+
+  /* 체크리스트 */
+  .checks{ margin-top:6px; }
+  .check{ display:flex; align-items:center; gap:11px; padding:9px 0; border-bottom:1px solid #eef1ec; }
+  .check:last-child{ border-bottom:none; }
+  .check .box{ width:20px; height:20px; border:2px solid var(--brand); border-radius:5px; flex:none; }
+  .check .txt{ font-size:13.5px; color:#2b3a33; }
+  .check .txt b{ color:var(--deep); }
+
+  /* 잘된점/보완점 */
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px; }
+  .box{ border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .box.good{ background:#F1F8F2; border-color:#cfe6d4; }
+  .box.fix{ background:#FBF6EE; border-color:#ecdcc2; }
+  .box .bt{ font-size:12.5px; font-weight:800; margin-bottom:8px; }
+  .box.good .bt{ color:var(--brand); }
+  .box.fix .bt{ color:#9a6a1a; }
+
+  .rate{ display:flex; align-items:center; gap:10px; margin-top:16px; background:#F4F8F4; border-radius:10px; padding:11px 14px; }
+  .rate .t{ font-size:13px; font-weight:800; color:var(--deep); }
+  .rate .stars{ font-size:20px; letter-spacing:4px; color:#cdd9cf; }
+  .rate .wl{ flex:1; border-bottom:1.5px dotted var(--dot); height:18px; }
+
+  .cta{ background:var(--deep); color:#fff; border-radius:18px; padding:30px 26px; text-align:center; margin-top:26px; }
+  .cta h2{ font-size:20px; margin-bottom:8px; }
+  .cta h2 span{ color:var(--yellow); }
+  .cta p{ font-size:13.5px; color:rgba(255,255,255,0.88); margin-bottom:16px; }
+  .cta .btn{ display:inline-block; background:var(--yellow); color:var(--deep); font-weight:800; font-size:14.5px; padding:12px 24px; border-radius:999px; }
+  .cta .small{ margin-top:11px; font-size:11.5px; color:rgba(255,255,255,0.7); }
+  .foot{ text-align:center; font-size:11.5px; color:var(--muted); margin-top:22px; }
+
+  /* 여는 글 */
+  .intro{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:26px 26px 24px; margin:18px 0; box-shadow:0 4px 14px rgba(0,0,0,0.05); }
+  .intro .eyebrow{ font-size:11px; letter-spacing:2px; font-weight:800; color:var(--brand); }
+  .intro h2{ font-size:28px; color:var(--deep); margin:6px 0 14px; font-weight:800; }
+  .intro .lead{ font-size:17.5px; line-height:1.85; color:#31403a; margin-bottom:8px; word-break:keep-all; }
+  .intro .isec{ margin-top:18px; }
+  .intro .isec h3{ font-size:16px; color:var(--brand); margin-bottom:7px; }
+  .intro .isec p{ font-size:16.5px; line-height:1.85; color:#33413a; word-break:keep-all; }
+  .pull{ border-left:5px solid var(--yellow); background:#FFF7E0; border-radius:8px; padding:14px 18px; margin:18px 0; font-weight:800; color:var(--deep); font-size:19px; line-height:1.6; word-break:keep-all; }
+  .parents{ margin-top:20px; border:1.5px solid #cfe6d4; background:#F1F8F2; border-radius:12px; padding:18px 20px; }
+  .parents .pt{ font-size:15.5px; font-weight:800; color:var(--brand); margin-bottom:9px; }
+  .parents ul{ margin-left:18px; font-size:15px; line-height:1.7; color:#31403a; }
+  .parents li{ margin:5px 0; word-break:keep-all; }
+  .sign{ text-align:right; margin-top:16px; font-weight:800; color:var(--deep); font-size:14px; }
+
+  /* 주간 개인훈련 계획 */
+  .plan{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin:16px 0; box-shadow:0 4px 14px rgba(0,0,0,0.05); }
+  .plan .ph{ font-size:17px; font-weight:800; color:var(--deep); }
+  .plan .pd{ font-size:13px; color:var(--muted); margin:4px 0 14px; word-break:keep-all; }
+  .goal{ background:#FFF7E0; border:1.5px solid var(--yellow); border-radius:10px; padding:11px 14px; margin-bottom:14px; }
+  .goal .gt{ font-size:12.5px; font-weight:800; color:#8a6d12; margin-bottom:6px; }
+  .goal .ln{ border-bottom-color:#e6c964; }
+  .ptable{ width:100%; border-collapse:collapse; }
+  .ptable th{ font-size:11.5px; color:var(--muted); text-align:left; padding:6px 6px; border-bottom:2px solid var(--deep); font-weight:700; }
+  .ptable td{ padding:0; border-bottom:1px solid #eef1ec; }
+  .ptable .d{ width:34px; font-weight:800; color:var(--deep); font-size:13px; padding:0 6px; font-family:'IBM Plex Mono',monospace; }
+  .ptable .w .ln{ border-bottom:1.5px dotted var(--dot); height:38px; }
+  .ptable .c{ width:44px; text-align:center; }
+  .ptable .c .box{ display:inline-block; width:20px; height:20px; border:2px solid var(--brand); border-radius:5px; vertical-align:middle; }
+  .plan .tail{ margin-top:14px; background:#F4F8F4; border-radius:10px; padding:11px 14px; font-size:13px; color:#31403a; word-break:keep-all; }
+  .plan .tail b{ color:var(--deep); }
+  .plan .tail .u{ display:inline-block; min-width:40px; border-bottom:1.5px dotted var(--dot); }
+
+  /* 왜 이 일지인가 — 보강 */
+  .suben{ font-size:13px; color:var(--muted); font-weight:700; margin:-4px 0 12px; }
+  .whygrid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  .whygrid .wc .n{ font-family:'IBM Plex Mono',monospace; font-weight:700; color:var(--yellow); font-size:15px; }
+  .whygrid .wc h3{ font-size:15.5px; color:var(--deep); margin:2px 0 6px; }
+  .whygrid .wc p{ font-size:14px; color:#3f4f47; line-height:1.7; word-break:keep-all; }
+  .auth{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:8px; }
+  .auth .a{ background:#F4F8F4; border:1px solid #dce8de; border-radius:10px; padding:11px 12px; }
+  .auth .a .an{ font-size:12px; font-weight:800; color:var(--brand); margin-bottom:4px; }
+  .auth .a .ap{ font-size:11.5px; color:#4a5a52; line-height:1.55; word-break:keep-all; }
+  .loop{ display:flex; align-items:stretch; gap:5px; margin-top:8px; flex-wrap:wrap; }
+  .loop .lstep{ flex:1; min-width:82px; background:var(--deep); color:#fff; border-radius:10px; padding:10px 6px; text-align:center; }
+  .loop .lstep .li{ font-size:17px; }
+  .loop .lstep .lt{ font-size:12.5px; font-weight:800; margin-top:2px; }
+  .loop .lstep .ld{ font-size:10px; color:rgba(255,255,255,0.75); margin-top:2px; line-height:1.35; }
+  .loop .larrow{ align-self:center; color:var(--brand); font-weight:800; }
+  .std{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:12px; }
+  .std .s{ background:#F4F8F4; border:1px solid #dce8de; border-radius:10px; padding:10px 11px; }
+  .std .s .sn{ font-family:'IBM Plex Mono',monospace; font-weight:700; color:var(--brand); font-size:13px; }
+  .std .s .sp{ font-size:11.5px; color:#40514a; line-height:1.5; margin-top:3px; word-break:keep-all; }
+  .how .hh{ font-size:13px; font-weight:800; color:var(--deep); margin:16px 0 2px; }
+
+  /* 선수 프로필 */
+  .prof .pfields{ display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; margin:8px 0 16px; }
+  .pf{ display:flex; align-items:center; gap:9px; }
+  .pf .pl{ font-size:12.5px; font-weight:700; color:var(--deep); white-space:nowrap; }
+  .pf .pu{ flex:1; border-bottom:1.5px dotted var(--dot); height:20px; }
+  .prof .p3{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:6px; }
+  .prof .goalrow{ display:flex; align-items:center; gap:12px; margin:8px 0; }
+  .prof .goalrow .gk{ width:60px; flex:none; font-size:12.5px; font-weight:800; color:var(--brand); background:#F1F8F2; border:1px solid #cfe6d4; border-radius:8px; padding:9px 6px; text-align:center; }
+  .prof .goalrow .gl{ flex:1; border-bottom:1.5px dotted var(--dot); height:26px; }
+  .promise{ border:1.5px solid var(--yellow); background:#FFF7E0; border-radius:12px; padding:14px 16px; margin-top:14px; }
+  .promise .pmt{ font-size:13px; font-weight:800; color:#8a6d12; margin-bottom:10px; }
+  .promise .pf .pl{ color:#8a6d12; }
+  .sigrow{ display:flex; gap:18px; margin-top:12px; }
+  .sigrow .s1,.sigrow .s2{ flex:1; display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:var(--deep); }
+  .sigrow .u{ flex:1; border-bottom:1.5px dotted var(--dot); height:18px; }
+  @media (max-width:560px){ .auth,.std{ grid-template-columns:1fr 1fr; } .whygrid,.prof .pfields,.prof .p3{ grid-template-columns:1fr; } }
+
+  /* 컨디션 미니 */
+  .cond{ display:flex; flex-wrap:wrap; gap:6px 16px; font-size:11.5px; color:var(--muted); margin:9px 0 2px; align-items:center; }
+  .cond .ck{ font-weight:800; color:var(--deep); }
+  .r5{ font-size:13px; letter-spacing:3px; color:#c3d1c6; }
+  /* 피치 전술 범례 */
+  .plegend{ display:flex; flex-wrap:wrap; gap:4px 10px; margin-top:8px; font-size:10px; color:#4a5a52; line-height:1.5; }
+  .plegend span{ white-space:nowrap; }
+  .plegend b{ color:var(--deep); font-size:11px; }
+  /* 감정 칩 */
+  .emo{ display:flex; flex-wrap:wrap; gap:7px; margin-top:2px; }
+  .emo .e{ font-size:12px; color:#31403a; border:1.3px solid #d3ddd5; border-radius:999px; padding:5px 12px; }
+  /* 자기평가 */
+  .skills{ display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; margin-top:4px; }
+  .srow{ display:flex; align-items:center; gap:10px; }
+  .srow .sk{ width:46px; font-size:12.5px; font-weight:700; color:var(--deep); }
+  .srow .sd{ font-size:15px; letter-spacing:4px; color:#c3d1c6; }
+  .poschips{ display:flex; flex-wrap:wrap; gap:7px; margin-top:6px; }
+  .poschips .pc{ font-size:11.5px; font-weight:700; color:var(--deep); border:1.3px solid #cfe0d3; background:#F4F8F4; border-radius:8px; padding:5px 10px; }
+  @media (max-width:560px){ .skills{ grid-template-columns:1fr; } }
+
+  /* 부록 divider */
+  .divider{ position:relative; overflow:hidden; margin:16px 0; border-radius:18px; background:linear-gradient(150deg,#1B4332,#2E7D52); color:#fff; text-align:center; padding:56px 26px; }
+  .divider .dt{ font-family:'Black Han Sans',sans-serif; font-size:38px; line-height:1.18; letter-spacing:1px; }
+  .divider .dt em{ font-style:normal; color:var(--yellow); }
+  .divider .ds{ margin-top:16px; font-size:14px; color:rgba(255,255,255,0.88); word-break:keep-all; }
+  /* 부록 챕터 */
+  .chaphead{ display:inline-block; background:#EAF4EC; border-radius:10px; padding:9px 14px; margin-bottom:6px; }
+  .chaphead .cn{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:700; color:var(--brand); display:block; letter-spacing:1px; }
+  .chaphead .ct{ font-size:19px; font-weight:800; color:var(--deep); }
+  .chapsub{ font-size:12.5px; color:var(--muted); font-weight:700; margin:2px 0 12px; }
+  .chap p{ font-size:14px; color:#33413a; line-height:1.75; margin-bottom:9px; word-break:keep-all; }
+  .chap p.lead2{ font-weight:800; color:var(--deep); font-size:15px; }
+  .connect{ background:#F1F8F2; border:1px solid #cfe6d4; border-left:4px solid var(--brand); border-radius:10px; padding:12px 14px; margin-top:10px; font-size:13px; color:#2b3a33; word-break:keep-all; }
+  .connect b{ color:var(--brand); }
+  .statbox{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0; }
+  .statbox .sb{ background:#F4F8F4; border:1px solid #dce8de; border-radius:10px; padding:12px; text-align:center; }
+  .statbox .sb .bn{ font-size:19px; font-weight:800; color:var(--brand); }
+  .statbox .sb .bl{ font-size:11px; color:#4a5a52; line-height:1.5; margin-top:4px; word-break:keep-all; }
+  /* 출처 */
+  .refs .ref{ font-size:13px; color:#33413a; padding:9px 0; border-bottom:1px solid #eef1ec; line-height:1.6; word-break:keep-all; }
+  .refs .ref b{ color:var(--deep); }
+  .refs .ref i{ color:#4a5a52; }
+  /* 큰 전술 보드 */
+  .bigpitch{ width:100%; max-width:420px; height:auto; display:block; margin:6px auto 0; }
+  /* 뒤표지 */
+  .backcover{ position:relative; overflow:hidden; background:radial-gradient(120% 90% at 50% 10%,#2E7D52,#1B4332 60%,#10291B); color:#fff; text-align:center; padding:76px 30px; border-radius:26px; margin-top:22px; }
+  .backcover .bq{ font-size:16.5px; line-height:1.95; color:rgba(255,255,255,0.95); word-break:keep-all; }
+  .backcover .bq b{ color:var(--yellow); }
+  .backcover .bemblem{ margin-bottom:20px; }
+  .backcover .bbrand{ margin-top:26px; font-family:'IBM Plex Mono',monospace; letter-spacing:2px; font-size:12px; color:rgba(255,255,255,0.82); }
+  @media (max-width:560px){ .statbox{ grid-template-columns:1fr; } .divider .dt{ font-size:30px; } }
+
+  @media print{
+    body{ background:#fff; }
+    .wrap{ padding:0; max-width:none; }
+    .cover{ border-radius:0; }
+    .page{ border:none; box-shadow:none; border-radius:0; padding:26px 8px; break-after:page; page-break-after:always; }
+    .how, .cta{ break-inside:avoid; }
+    .intro, .plan, .prof{ break-after:page; page-break-after:always; }
+    .divider, .backcover{ break-before:page; page-break-before:always; }
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <svg class="crest" viewBox="0 0 120 132" width="94" height="103" aria-hidden="true">
+      <path d="M60 6 L110 22 V64 C110 96 88 117 60 127 C32 117 10 96 10 64 V22 Z" fill="none" stroke="#F2C037" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M60 16 L100 29 V63 C100 90 82 108 60 116 C38 108 20 90 20 63 V29 Z" fill="rgba(242,192,55,0.10)" stroke="rgba(242,192,55,0.45)" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="60" cy="57" r="19" fill="none" stroke="#fff" stroke-width="3"/>
+      <polygon points="60,46 71,54 67,67 53,67 49,54" fill="#fff"/>
+      <path d="M60 90 l2.9 6.6 7.2 0.6 -5.5 4.7 1.7 7-6.3-3.8-6.3 3.8 1.7-7 -5.5-4.7 7.2-0.6z" fill="#F2C037"/>
+    </svg>
+    <div class="kicker">유소년 선수를 위한 · SINCE 2026</div>
+    <div class="title">축구 훈련일지</div>
+    <div class="tag">7-DAY SAMPLE · VOL.1</div>
+    <div class="tagline">마음과 실력을 함께 기록한다</div>
+    <div class="divider"></div>
+    <div class="sub">명언 필사 · 훈련 전 마음가짐 · 오늘의 집중 · 훈련 중 실행 체크 7 · 코치의 말씀 · 훈련 후 반성</div>
+    <div class="namecard">
+      <div class="nf"><span>이 노트의 주인</span><i></i></div>
+      <div class="nf"><span>소속 팀 · 포지션</span><i></i></div>
+    </div>
+    <div class="brand">GROUND YOUTH · 그라운드유스</div>
+  </div>
+
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">GROUND YOUTH · 왜 이 일지인가</div>
+      <h2>기록하는 선수가 성장한다</h2>
+      <div class="suben">Why players who plan, focus &amp; reflect grow faster</div>
+      <p class="lead">운동을 잘하고 싶은 마음은 누구에게나 있어.<br>하지만 그 마음을 <b>계획하고, 집중하고, 되돌아보는 기록</b>으로 바꾼 선수만이 진짜로 성장한다.</p>
+
+      <div class="whygrid">
+        <div class="wc"><div class="n">01</div><h3>재능보다 습관</h3><p>재능은 네가 고른 게 아니지만, 습관은 오늘 아침 직접 고를 수 있어. 열두 살에 가장 빛나던 아이보다, 매일 공을 만진 아이가 끝까지 남는다.</p></div>
+        <div class="wc"><div class="n">02</div><h3>복기만이 아니라, 계획→실행→복기</h3><p>돌아보기(복기)만으로는 절반이야. 오늘 무엇에 집중할지 정하고, 실제로 실행하고, 그다음 돌아볼 때 성장은 비로소 완성된다.</p></div>
+      </div>
+
+      <div class="isec" style="margin-top:20px"><h3>세계는 이렇게 본다</h3></div>
+      <div class="auth">
+        <div class="a"><div class="an">FIFA</div><div class="ap">경기 지능과 주변 인지(스캔), 스스로 문제를 푸는 능력을 강조</div></div>
+        <div class="a"><div class="an">라 마시아 (Barça)</div><div class="ap">선수 주도 학습 — 스스로 느끼고 판단하며 성장</div></div>
+        <div class="a"><div class="an">IOC</div><div class="ap">청소년 선수의 멘탈·웰빙과 회복탄력성의 중요성</div></div>
+        <div class="a"><div class="an">스포츠심리</div><div class="ap">목표 설정·자기대화·루틴이 경기력을 끌어올린다</div></div>
+      </div>
+
+      <div class="isec" style="margin-top:20px"><h3>그래서 이 일지는 — 5단계 성장 루프</h3></div>
+      <div class="loop">
+        <div class="lstep"><div class="li">📅</div><div class="lt">계획</div><div class="ld">주간·오늘 훈련</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">🔥</div><div class="lt">집중</div><div class="ld">오늘 이것만은</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">✔</div><div class="lt">실행</div><div class="ld">체크 7가지</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">🔎</div><div class="lt">복기</div><div class="ld">잘된점·보완점</div></div>
+        <div class="larrow">→</div>
+        <div class="lstep"><div class="li">💪</div><div class="lt">회복</div><div class="ld">마음 리셋·다짐</div></div>
+      </div>
+
+      <div class="pull">“재능은 출발선을 정하고,<br>습관은 결승선을 정한다.”</div>
+
+      <div class="parents">
+        <div class="pt">📌 부모님께</div>
+        <ul>
+          <li>아이의 성장에서 <b>부모의 언어</b>는 코치의 훈련만큼 큽니다. 결과(골·승패)보다 <b>과정(노력·태도)</b>을 칭찬해 주세요.</li>
+          <li>다른 아이와 <b>비교하는 말</b>은 자신감을 한순간에 무너뜨립니다. 기준은 언제나 <b>‘어제의 우리 아이’</b>로.</li>
+          <li>이 노트를 <b>검사하지 마세요.</b> 아이가 스스로 쓰고, 가끔 함께 읽으며 응원해 주세요.</li>
+        </ul>
+      </div>
+
+      <div class="sign">너의 성장을 응원하며 — 그라운드유스 드림</div>
+    </div>
+
+    <div class="how">
+      <h2>이렇게 쓰세요</h2>
+      <ol>
+        <li><b>훈련 전 (앞면)</b> — 오늘의 문장을 필사하고, 마음가짐과 '오늘 이것만은!' 한 가지를 적습니다.</li>
+        <li><b>훈련 중</b> — 뒷면의 <b>실행 체크 7가지</b>를 떠올리며 훈련합니다.</li>
+        <li><b>훈련 후 (뒷면)</b> — 체크리스트를 표시하고, 코치님 말씀과 잘된 점·보완할 점을 적어 하루를 마무리합니다.</li>
+      </ol>
+      <div class="hh">✅ 좋은 훈련일지의 기준</div>
+      <div class="std">
+        <div class="s"><div class="sn">1</div><div class="sp">매일 짧게 — 하루 3분, 거르지 않기</div></div>
+        <div class="s"><div class="sn">2</div><div class="sp">사실과 느낌을 구분해서 쓰기</div></div>
+        <div class="s"><div class="sn">3</div><div class="sp">나를 비난하지 말고 배우는 태도로</div></div>
+        <div class="s"><div class="sn">4</div><div class="sp">보완점은 ‘다음에 할 행동 1가지’로 구체적으로</div></div>
+      </div>
+    </div>
+
+    <div class="page prof">
+      <div class="p-head"><span class="day">선수 프로필</span><span class="side">PLAYER PROFILE</span></div>
+      <div class="pfields">
+        <div class="pf"><span class="pl">👤 이름</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🎽 등번호</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🧭 포지션</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🦶 주발</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">🛡 소속팀</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">⭐ 롤모델</span><span class="pu"></span></div>
+      </div>
+      <div class="p3">
+        <div class="box good"><div class="bt">🏆 나의 강점 3</div>
+          <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        </div>
+        <div class="box fix"><div class="bt">📈 보완할 점 3</div>
+          <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        </div>
+        <div class="box"><div class="bt" style="color:var(--deep)">📋 코치님 강조 포인트</div>
+          <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+          <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        </div>
+      </div>
+      <div class="sec"><div class="t">📊 나의 특징 (자기평가) <span class="hint">— 동그라미로 표시</span></div>
+        <div class="skills">
+          <div class="srow"><span class="sk">스피드</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">기술</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">패스</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">드리블</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">슈팅</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">체력</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">멘탈</span><span class="sd">○ ○ ○ ○ ○</span></div>
+          <div class="srow"><span class="sk">시야</span><span class="sd">○ ○ ○ ○ ○</span></div>
+        </div>
+      </div>
+      <div class="sec"><div class="t">🧭 선호 포지션 <span class="hint">— 원하는 위치에 동그라미</span></div>
+        <div class="poschips"><span class="pc">GK</span><span class="pc">CB</span><span class="pc">FB</span><span class="pc">CDM</span><span class="pc">CM</span><span class="pc">CAM</span><span class="pc">WG</span><span class="pc">ST</span></div>
+      </div>
+      <div class="sec"><div class="t">🎯 이번 시즌 나의 목표 <span class="hint">— 구체적으로, 매일 한 걸음</span></div>
+        <div class="goalrow"><span class="gk">기술</span><span class="gl"></span></div>
+        <div class="goalrow"><span class="gk">판단</span><span class="gl"></span></div>
+        <div class="goalrow"><span class="gk">태도</span><span class="gl"></span></div>
+      </div>
+      <div class="promise">
+        <div class="pmt">🤝 나와의 약속 — 오늘의 내가, 내일의 나를 만든다</div>
+        <div class="pf"><span class="pl">①</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">②</span><span class="pu"></span></div>
+        <div class="pf"><span class="pl">③</span><span class="pu"></span></div>
+        <div class="sigrow">
+          <div class="s1">📅 서명 날짜 <span class="u"></span></div>
+          <div class="s2">✍ 나의 서명 <span class="u"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div class="ph">📅 이번 주 개인훈련 계획</div>
+      <div class="pd">일주일을 시작하기 전, 스스로 계획을 세워보자. 크게 말고 <b>매일 할 수 있는 작은 훈련</b>으로.</div>
+      <div class="goal"><div class="gt">🎯 이번 주 목표 (한 가지)</div><div class="ln"></div></div>
+      <table class="ptable">
+        <thead><tr><th>요일</th><th>오늘의 개인훈련 &nbsp;<span style="font-weight:400">(예: 리프팅 50 · 약발 슈팅 20 · 벽패스 10분)</span></th><th>완료</th></tr></thead>
+        <tbody>
+          <tr><td class="d">월</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+          <tr><td class="d">화</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+          <tr><td class="d">수</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+          <tr><td class="d">목</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+          <tr><td class="d">금</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+          <tr><td class="d">토</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+          <tr><td class="d">일</td><td class="w"><div class="ln"></div></td><td class="c"><span class="box"></span></td></tr>
+        </tbody>
+      </table>
+      <div class="tail"><b>주말 자기점검</b> — 계획한 날 중 며칠 실천했나요? <span class="u"></span> / 7 &nbsp;·&nbsp; 다음 주에 바꿀 점: <span class="u" style="min-width:140px"></span></div>
+    </div>
+
+    <div id="days"></div>
+
+    <!-- ─────────── 부록: 축구지능 × 마음 개념서 ─────────── -->
+    <div class="divider">
+      <div class="dt">생각하는 발이<br><em>가장 빠른 발</em>이다</div>
+      <div class="ds">네가 그라운드에서 몸으로 익힌 감각을, 이제 ‘개념’으로 바꿀 시간.<br>— 부록 · 읽을거리 —</div>
+    </div>
+
+    <div class="intro">
+      <div class="eyebrow">GROUND YOUTH · 부록 읽을거리</div>
+      <h2>몸이 먼저 알았던 것을, 이제 말로</h2>
+      <div class="suben">축구지능 × 마음 — 6개의 짧은 개념서</div>
+      <p class="lead">훈련일지를 다 채운 너에게.<br>그라운드에서 몸으로 익힌 감각이 <b>‘개념(언어)’</b>이 되는 순간, 다음 판단은 0.5초 더 빨라진다.</p>
+      <p class="lead" style="margin-top:8px">그리고 이 개념들은 앞의 <b>‘실행 체크 7’·필사</b>와 하나로 이어진다. 읽고 끝이 아니라, <b>읽고 내일 실행</b>하기 위한 글이야.</p>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 01</span><span class="ct">스캐닝 — 보이지 않는 기술</span></div>
+      <div class="chapsub">경기를 읽는 눈의 핵심 메커니즘</div>
+      <p class="lead2">공이 오기 전에 이미 알고 있는 선수가 있다. 그 비밀은 눈의 움직임에 있다.</p>
+      <p>스캐닝은 단순히 “주변을 본다”가 아니다. 공을 받기 2~3초 전, 어깨 너머로 여러 번 확인하며 팀원의 위치·상대 수비·빈 공간을 머릿속에 지도처럼 새기는 것이다. 이 지도가 그려지면, 공이 발에 닿는 순간 결정은 이미 내려져 있다.</p>
+      <p>연구(Jordet 교수팀)에 따르면 <b>스캔을 자주·제때 하는 선수일수록 패스 성공률과 경기력이 높다.</b> 핵심은 ‘많이’가 아니라 ‘언제’ — 상대 압박이 집중되기 직전에 스캔을 완료해야 한다.</p>
+      <p>무엇보다 스캐닝은 타고나는 게 아니라 <b>훈련된다.</b> 좁은 공간의 빠른 게임(SSG)이 이 습관을 만든다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 실행 체크 ④ “공 받기 전 고개 들어 주변을 스캔했는가”</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 02</span><span class="ct">오프 더 볼 — 공간은 만드는 것</span></div>
+      <div class="chapsub">공 없이 경기를 지배하는 사고방식</div>
+      <p class="lead2">경기 중 공을 실제로 가진 시간은 평균 1~2분. 나머지 88분, 너는 공 없이 경기한다.</p>
+      <p>최고의 선수는 공 없이 지능적으로 움직인다. 공간을 ① 차지하고(빈 공간 선점) ② 만들고(달려가 수비를 끌어냄) ③ 지운다(패스 길목 차단). 직접 공을 받지 않아도, 수비를 끌어냄으로써 팀원의 공간을 여는 ‘디코이 런’이 지능의 가장 높은 형태다.</p>
+      <p>여기서 <b>타이밍이 전부</b>다. 너무 일찍이면 오프사이드, 너무 늦으면 공은 이미 다른 곳에 있다. 최고의 선수는 반사가 아니라 패턴으로 그 순간을 읽는다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 실행 체크 ⑤ “전진·돌파할 용기” + 앞면 축구장 그림칸에 오프더볼 움직임 그리기</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 03</span><span class="ct">전환 — 0.5초가 경기를 바꾼다</span></div>
+      <div class="chapsub">공수 전환의 결정적 타이밍</div>
+      <p class="lead2">공이 한 팀에서 다른 팀으로 넘어가는 순간이 가장 혼란스럽고, 가장 위험하다.</p>
+      <p>공을 방금 뺏긴 팀이 아이러니하게도 가장 취약하다. 선수는 제자리를 벗어나 있고, 대형은 무너져 있다. 클롭의 게겐프레싱(역습 압박)은 이 순간을 포착한다 — <b>공을 잃은 즉시, 지연 없이 압박.</b></p>
+      <div class="statbox">
+        <div class="sb"><div class="bn">약 6초</div><div class="bl">뺏긴 팀이 대형을 회복하는 평균 시간</div></div>
+        <div class="sb"><div class="bn">3~5초</div><div class="bl">역습 압박이 노리는 탈환 시간</div></div>
+        <div class="sb"><div class="bn">즉시</div><div class="bl">공을 잃은 선수의 압박 시작 — 지연 없음</div></div>
+      </div>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 실행 체크 ② “공을 뺏긴 즉시 수비로 전환했는가”</div>
+    </div>
+
+    <div class="divider">
+      <div class="dt">SEE FIRST,<br><em>MOVE FIRST.</em></div>
+      <div class="ds">먼저 보는 사람이, 먼저 움직인다.</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 04</span><span class="ct">하프 스페이스 — 비밀 공간</span></div>
+      <div class="chapsub">왜 최고의 선수는 늘 그 자리에 있는가</div>
+      <p class="lead2">피치를 세로 5레인으로 나누면: 와이드 — 하프스페이스 — 센터 — 하프스페이스 — 와이드.</p>
+      <p>하프스페이스는 중앙과 측면 사이의 두 채널이다. 여기서 공을 가진 선수는 앞·뒤·중앙·바깥 <b>모든 방향으로 패스가 가능</b>하다. 수비 입장에선 이 선수를 막기 위해 풀백이 들어와야 할지, 센터백이 나와야 할지 판단하기 어렵다. 그 판단의 틈새가 하프스페이스의 무기다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 그림칸에 하프스페이스 활용 그려보기 · 프로필의 ‘선호 포지션’과 연결</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 05</span><span class="ct">축구 IQ — 세 번째 능력</span></div>
+      <div class="chapsub">기술도 체력도 아닌, 경기를 읽는 눈</div>
+      <p class="lead2">똑같은 기술·체력인데, 한 선수는 늘 좋은 자리에 있고 다른 선수는 늘 한발 늦다. 그 차이가 축구 IQ다.</p>
+      <p>축구 IQ는 예측(Anticipation)·포지셔닝·판단(Decision-Making)·분산주의(여러 정보 동시 처리)·패턴 인식으로 이뤄진다. 그리고 이건 <b>타고나기도, 훈련되기도</b> 한다 — 뇌는 반복하는 판단 상황에 따라 재조직된다(신경가소성).</p>
+      <p><b>그래서 노트가 존재한다.</b> 기록은 단순한 메모가 아니라 경험을 ‘패턴’으로 굳히는 행위다. 오늘 어떤 판단을 했고 왜 잘됐는지·아쉬웠는지 <b>언어로 적는 순간</b>, 암묵적 경험이 명시적 이해로 바뀌고 — 다음 비슷한 상황에서 더 빠른 판단으로 돌아온다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 매일의 기록·복기 전부가 네 축구 IQ를 키운다</div>
+    </div>
+
+    <div class="page chap">
+      <div class="chaphead"><span class="cn">CHAPTER 06 · 그라운드유스</span><span class="ct">멘탈 근육 — 흔들려도 다시 서는 힘</span></div>
+      <div class="chapsub">전술이 채우지 못하는 마지막 한 칸</div>
+      <p class="lead2">좋은 선수는 실수하지 않는 선수가 아니라, 실수 뒤 다시 다음 플레이로 돌아오는 선수다.</p>
+      <p>이 회복의 ‘속도’가 회복탄력성이다. 그리고 멘탈은 타고나는 게 아니라 <b>근육처럼 훈련된다.</b> 실수한 뒤 스스로에게 건네는 한마디가 다음 플레이를 결정한다 — “역시 난 안 돼”는 망치가 되고, “여기만 고치면 돼”는 숫돌이 된다.</p>
+      <p>재능은 출발선을, 습관은 결승선을 정한다. 매일의 <b>필사·감정 기록·긍정의 말</b>이 눈에 안 보이는 마음 근육을 만든다. 전술을 아는 머리 위에, 흔들리지 않는 마음이 얹힐 때 선수는 완성된다.</p>
+      <div class="connect">🔗 <b>이 일지에서는</b> → 필사(따라쓰기) · 감정 체크 · “나에게 해주는 긍정의 말”</div>
+    </div>
+
+    <div class="divider">
+      <div class="dt">FALL. RISE.<br><em>REPEAT.</em></div>
+      <div class="ds">넘어진 횟수는 기록되지 않는다. 다시 일어난 횟수만 기억된다.</div>
+    </div>
+
+    <div class="intro">
+      <div class="eyebrow">GROUND YOUTH · 부록 맺음</div>
+      <h2>몸이 먼저, 머리가 나중,<br>그리고 <span style="color:var(--brand)">마음이 끝까지</span></h2>
+      <p class="lead" style="margin-top:10px">스캐닝, 오프더볼, 전환, 하프스페이스, 축구 IQ, 그리고 멘탈.<br>이 여섯은 별개가 아니라 하나의 연결 고리다.</p>
+      <p class="lead">스캔이 없으면 판단이 늦고, 판단이 흔들리면 멘탈이 무너진다.<br>반대로, 단단한 마음은 흔들리는 순간에도 배운 것을 실행하게 한다.</p>
+      <div class="pull">“네가 이 노트에 채운 모든 기록 —<br>그것이 이 모든 개념의 살아있는 증거다.”</div>
+    </div>
+
+    <!-- 출처 · 더 읽을거리 -->
+    <div class="page">
+      <div class="p-head"><span class="day">출처 · 더 읽을거리</span><span class="side">REFERENCES</span></div>
+      <p class="chapsub" style="margin:10px 0 12px">부록의 개념은 아래 연구·코칭 자료의 널리 알려진 내용을 유소년 눈높이로 재구성한 것입니다.</p>
+      <div class="refs">
+        <div class="ref"><b>스캐닝 · 시각 탐색</b> — Geir Jordet, 축구 선수의 시각 탐색 행동(scanning) 연구</div>
+        <div class="ref"><b>실행 기능(인지)</b> — Vestberg et al. (2012), <i>Executive Functions Predict the Success of Top-Soccer Players</i>, PLoS ONE</div>
+        <div class="ref"><b>포지셔널 플레이</b> — Pep Guardiola, Juego de Posición(위치 게임)의 원리</div>
+        <div class="ref"><b>전환 · 역압박</b> — Jürgen Klopp, 게겐프레싱(Gegenpressing) 철학</div>
+        <div class="ref"><b>하프 스페이스</b> — 현대 포지셔널 플레이 이론(독일어 Halbraum)</div>
+        <div class="ref"><b>멘탈 · 회복탄력성</b> — 스포츠심리학의 자기대화·성장 마인드셋 개념</div>
+      </div>
+      <div class="connect" style="margin-top:14px">※ 본문의 ‘약 6초’, ‘패스 성공률’ 등 수치는 코칭 현장에서 통용되는 근사치·통념입니다. 정식 판매본에는 원문을 확인해 정확히 표기하세요.</div>
+    </div>
+
+    <!-- 자유 전술 보드 -->
+    <div class="page">
+      <div class="p-head"><span class="day">자유 전술 보드</span><span class="side">FREE TACTICAL BOARD</span></div>
+      <div class="sublabel" style="margin:8px 0 0">✎ 오늘의 장면·전술을 자유롭게 그려보세요 (범례 사용)</div>
+      <svg class="bigpitch" viewBox="0 0 120 172" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <rect x="4" y="4" width="112" height="164" rx="3" fill="#F5FAF5" stroke="#b7cabb" stroke-width="1.5"/>
+        <line x1="4" y1="86" x2="116" y2="86" stroke="#b7cabb" stroke-width="1.2"/>
+        <circle cx="60" cy="86" r="18" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <circle cx="60" cy="86" r="1.8" fill="#b7cabb"/>
+        <rect x="32" y="4" width="56" height="28" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="46" y="4" width="28" height="11" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="32" y="140" width="56" height="28" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="46" y="157" width="28" height="11" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="51" y="1.5" width="18" height="3" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        <rect x="51" y="167.5" width="18" height="3" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+      </svg>
+      <div class="plegend" style="justify-content:center; margin-top:12px">
+        <span><b>★</b> 나</span><span><b>○</b> 우리팀</span><span><b>✕</b> 상대</span><span><b>●</b> 공</span>
+        <span><b>→</b> 패스</span><span><b>⇢</b> 롱패스</span><span><b>∿</b> 드리블</span><span><b>↑</b> 침투</span><span><b>⇒</b> 슛</span>
+      </div>
+    </div>
+
+    <!-- 경기 후 복기 -->
+    <div class="page">
+      <div class="p-head"><span class="day">경기 후 복기</span><span class="side">MATCH REFLECTION</span></div>
+      <div class="meta">
+        <span class="m">경기 결과 <span class="u"></span></span>
+        <span class="m">스코어 <span class="u"></span></span>
+        <span class="m">출전 포지션 <span class="u"></span></span>
+        <span class="m">출전 시간 <span class="u"></span></span>
+      </div>
+      <div class="sec"><div class="t">① 오늘 가장 기억나는 장면 <span class="hint">— 아래 축구장에 그려보세요</span></div>
+        <svg class="bigpitch" style="max-width:340px" viewBox="0 0 120 172" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <rect x="4" y="4" width="112" height="164" rx="3" fill="#F5FAF5" stroke="#b7cabb" stroke-width="1.5"/>
+          <line x1="4" y1="86" x2="116" y2="86" stroke="#b7cabb" stroke-width="1.2"/>
+          <circle cx="60" cy="86" r="16" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+          <rect x="34" y="4" width="52" height="26" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+          <rect x="34" y="142" width="52" height="26" fill="none" stroke="#b7cabb" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="two">
+        <div class="box good"><div class="bt">👍 오늘 잘한 판단</div><div class="ln sm"></div><div class="ln sm"></div></div>
+        <div class="box fix"><div class="bt">✍ 아쉬웠던 판단</div><div class="ln sm"></div><div class="ln sm"></div></div>
+      </div>
+      <div class="sec" style="margin-top:14px"><div class="t">💬 코치님 피드백 &amp; 내가 이해한 것</div><div class="ln"></div><div class="ln"></div></div>
+      <div class="sec"><div class="t">🎯 다음 경기에서 바꿀 행동 1가지</div><div class="ln"></div></div>
+      <div class="sec"><div class="t">💚 오늘의 감정</div>
+        <div class="emo"><span class="e">기쁨</span><span class="e">아쉬움</span><span class="e">화남</span><span class="e">불안</span><span class="e">자신감</span><span class="e">뿌듯함</span></div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>7일, 잘 해냈나요? <span>이제 30일입니다.</span></h2>
+      <p>정식판 「그라운드유스 훈련일지」는 30일 기록 + 주간 회고 + 성장 그래프 + 부모 가이드가 담깁니다.<br>가장 먼저 소식을 받아보세요.</p>
+      <a class="btn" href="#">정식판 예약 · 매일 문구 받기 →</a>
+      <div class="small">* 예약 링크는 준비되는 대로 연결됩니다.</div>
+    </div>
+    <div class="backcover">
+      <svg class="bemblem" viewBox="0 0 120 132" width="70" height="77" aria-hidden="true">
+        <path d="M60 6 L110 22 V64 C110 96 88 117 60 127 C32 117 10 96 10 64 V22 Z" fill="none" stroke="#F2C037" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="60" cy="57" r="17" fill="none" stroke="#fff" stroke-width="3"/>
+        <polygon points="60,47 70,55 66,67 54,67 50,55" fill="#fff"/>
+      </svg>
+      <div class="bq">“이 노트의 마지막 페이지는 끝이 아니다.<br>더 나은 선수로 나아가는 <b>다음 장의 시작</b>이다.”<br><br>너의 오늘이, 내일의 너를 만든다.<br>네 발자취가 곧 <b>너의 역사</b>가 된다.</div>
+      <div class="bbrand">GROUND YOUTH · 그라운드유스 · © 2026</div>
+    </div>
+    <div class="foot">© 2026 그라운드유스 · 이 샘플은 자유롭게 인쇄해 사용하세요.</div>
+  </div>
+
+<script>
+  // 훈련 중 실행 체크리스트 7가지 (매일 동일 — 습관으로 만든다)
+  var CHECKS = [
+    ['🔊', '큰 목소리로 <b>콜</b>(요구·지시·경고)을 했는가'],
+    ['🔁', '공을 <b>뺏긴 즉시 수비로 전환</b>했는가'],
+    ['🎯', '<b>패스에 의도(메시지)</b>를 담아 정확히 연결했는가'],
+    ['👀', '공을 받기 전 <b>고개를 들어 주변을 스캔</b>(상대·동료·빈 공간)했는가'],
+    ['⚡', '안전한 패스에 안주하지 않고 <b>앞으로 전진·돌파할 용기</b>를 냈는가'],
+    ['🔥', '<b>‘평가받고 있다’는 마음</b>으로 매 순간을 실전처럼 — 전력을 다했는가'],
+    ['🤝', '동료에게 <b>짜증 내지 않고 격려</b>하며 소통했는가']
+  ];
+  // 7일 필사 문장 (요일마다 다른 카테고리)
+  var DAYS = [
+    ['노력·기준',   '재능은 출발선을 정하고, 습관은 결승선을 정한다.',
+     ['재능은 네가 고른 게 아니지만, 습관은 오늘 아침 네가 직접 고를 수 있다.',
+      '재능이 반짝이던 아이보다, 매일 공을 만진 아이가 결국 끝까지 남는다.',
+      '오늘의 작은 습관 하나가 너의 결승선을 앞당긴다.']],
+    ['실패·회복',   '넘어진 횟수는 기록되지 않는다. 다시 일어난 횟수만 기억된다.',
+     ['아무도 네가 몇 번 넘어졌는지는 세지 않는다.',
+      '사람들은 네가 몇 번 다시 일어섰는지를 기억한다.',
+      '넘어지는 건 실력의 문제지만, 다시 일어서는 건 마음의 문제 — 그리고 마음은 훈련될 수 있다.']],
+    ['자신감·멘탈', '자신감은 큰 소리가 아니라, 어제 한 준비에서 나온다.',
+     ['자신감은 크게 외친다고 생기지 않는다.',
+      '어제까지 쌓아온 준비의 두께에서 조용히 흘러나온다.',
+      '그러니 마음을 다잡기 전에, 오늘 해야 할 준비부터 성실히 채워라.']],
+    ['꾸준함·인내', "매일 '조금'은 가끔 '많이'를 이긴다.",
+     ['가끔 몰아서 하는 많은 양보다, 매일 거르지 않는 조금이 더 멀리 간다.',
+      '하루 30분이 한 달, 일 년으로 쌓이면 아무도 흉내 낼 수 없는 실력이 된다.',
+      '그 작은 꾸준함이 재능을 이긴다.']],
+    ['팀워크·인성', '실력은 너를 뽑히게 하지만, 인성은 너를 남게 한다.',
+     ['잘하는 선수는 눈에 띄어 기회를 얻는다.',
+      '하지만 그 자리에 오래 남는 건 태도가 좋은 선수다.',
+      '실력은 너를 문 안으로 들여보내고, 인성은 너를 그 방에 머물게 한다.']],
+    ['목표·꿈',     '꿈은 크게, 오늘 할 일은 작게 적어라.',
+     ['큰 꿈은 우리를 설레게 하지만, 꿈만으로는 하루도 바뀌지 않는다.',
+      '꿈은 크게 품되, 오늘 할 수 있는 아주 작은 일로 쪼개 적어라.',
+      '큰 그림은 벽에, 작은 한 걸음은 오늘 노트에.']],
+    ['기본기·과정', '결과는 내 것이 아니지만, 과정은 온전히 내 것이다.',
+     ['이기고 지는 건 내 손을 떠난 일이 많다.',
+      '하지만 오늘 얼마나 집중해 훈련했는지, 그 과정만은 온전히 내 것이다.',
+      '결과에 마음을 뺏기지 말고, 과정에 도장을 찍자.']]
+  ];
+
+  function lines(n, cls){ var s=''; for(var i=0;i<n;i++){ s+='<div class="ln'+(cls?' '+cls:'')+'"></div>'; } return s; }
+
+  // 연한 축구장(그림 그리기용) — 세로형
+  var PITCH = ''
+    + '<svg class="pitch" viewBox="0 0 120 172" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
+    +   '<rect x="4" y="4" width="112" height="164" rx="3" fill="#F2F7F2" stroke="#c2d3c5" stroke-width="1.5"/>'
+    +   '<line x1="4" y1="86" x2="116" y2="86" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<circle cx="60" cy="86" r="16" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<circle cx="60" cy="86" r="1.8" fill="#c2d3c5"/>'
+    +   '<rect x="34" y="4" width="52" height="26" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="48" y="4" width="24" height="10" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="34" y="142" width="52" height="26" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="48" y="158" width="24" height="10" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="52" y="1.5" width="16" height="3" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    +   '<rect x="52" y="167.5" width="16" height="3" fill="none" stroke="#c2d3c5" stroke-width="1.2"/>'
+    + '</svg>';
+
+  function front(no, cat, quote, expl){
+    return ''
+    + '<div class="page">'
+    +   '<div class="p-head"><span class="day">DAY '+no+'</span><span class="side">훈련 전 · 앞면</span></div>'
+    +   '<div class="meta">'
+    +     '<span class="m">날짜 <span class="u"></span></span>'
+    +     '<span class="m">날씨 <span class="u"></span></span>'
+    +     '<span class="m">장소 <span class="u"></span></span>'
+    +     '<span class="m">함께한 팀/코치 <span class="u"></span></span>'
+    +   '</div>'
+    +   '<div class="cond"><span class="ck">오늘 컨디션</span>'
+    +     '<span>수면 <span class="r5">○○○○○</span></span>'
+    +     '<span>몸상태 <span class="r5">○○○○○</span></span>'
+    +     '<span>집중 <span class="r5">○○○○○</span></span></div>'
+    +   '<div class="sec"><div class="t"><span class="em">✎</span> 오늘의 한 문장 · 필사 <span class="chip">'+cat+'</span></div>'
+    +     '<div class="quote">'+quote+'</div>'
+    +     '<div class="explain">'+expl.join('<br>')+'</div>'
+    +     '<div class="trace-label">✎ 아래 흐린 글씨를 따라 써 보세요</div>'
+    +     '<div class="trace">'+quote+'</div>'
+    +     '<div class="ln"></div></div>'
+    +   '<div class="sec"><div class="t">🧘 훈련 전 마음가짐 <span class="hint">— 오늘 어떤 마음으로 나왔나요?</span></div>'+lines(2)+'</div>'
+    +   '<div class="focus"><div class="t">🔥 오늘 이것만은! <span class="hint">— 딱 한 가지에 집중</span></div>'+lines(1)+'</div>'
+    +   '<div class="sec"><div class="t">📋 오늘의 훈련 내용 <span class="hint">— 적고, 그려 보세요</span></div>'
+    +     '<div class="train2">'
+    +       '<div class="tr-notes"><div class="sublabel">✍ 오늘 한 훈련</div>'+lines(5,'sm')
+    +         '<div class="tr-box"><div class="bt2">💡 오늘 새로 배운 것</div></div>'
+    +         '<div class="tr-box grow"><div class="bt2">🎯 다음에 더 연습할 것</div></div>'
+    +       '</div>'
+    +       '<div class="tr-pitch"><div class="sublabel">✎ 그림으로 (움직임·포지션)</div>'+PITCH
+    +         '<div class="plegend">'
+    +           '<span><b>★</b> 나</span><span><b>○</b> 우리팀</span><span><b>✕</b> 상대</span><span><b>●</b> 공</span>'
+    +           '<span><b>→</b> 패스</span><span><b>⇢</b> 롱패스</span><span><b>∿</b> 드리블</span><span><b>↑</b> 침투</span><span><b>⇒</b> 슛</span>'
+    +         '</div></div>'
+    +     '</div></div>'
+    + '</div>';
+  }
+
+  function back(no){
+    var checks = CHECKS.map(function(c){
+      return '<div class="check"><span class="box"></span><span class="txt">'+c[0]+' '+c[1]+'</span></div>';
+    }).join('');
+    return ''
+    + '<div class="page">'
+    +   '<div class="p-head"><span class="day">DAY '+no+'</span><span class="side">훈련 중·후 · 뒷면</span></div>'
+    +   '<div class="sec"><div class="t">✔ 훈련 중 실행 체크 <span class="hint">— 오늘 실제로 했는지 표시</span></div>'
+    +     '<div class="checks">'+checks+'</div></div>'
+    +   '<div class="sec"><div class="t">🎬 오늘 나의 역할 <span class="hint">— 공/수 전환에서 내가 할 일</span></div>'
+    +     '<div class="two">'
+    +       '<div class="box"><div class="bt" style="color:var(--brand)">⚔ 공격 시</div>'+lines(2,'sm')+'</div>'
+    +       '<div class="box"><div class="bt" style="color:var(--deep)">🛡 수비 시</div>'+lines(2,'sm')+'</div>'
+    +     '</div></div>'
+    +   '<div class="sec"><div class="t">💬 가장 기억에 남는 감독·코치님 말씀</div>'+lines(2)+'</div>'
+    +   '<div class="sec"><div class="t">🔎 훈련 후 반성</div>'
+    +     '<div class="two">'
+    +       '<div class="box good"><div class="bt">👍 잘된 점</div>'+lines(3,'sm')+'</div>'
+    +       '<div class="box fix"><div class="bt">✍ 보완할 점</div>'+lines(3,'sm')+'</div>'
+    +     '</div></div>'
+    +   '<div class="sec"><div class="t">💚 오늘의 감정 &amp; 나에게 한마디 <span class="hint">— 멘탈 리셋</span></div>'
+    +     '<div class="emo"><span class="e">기쁨</span><span class="e">아쉬움</span><span class="e">화남</span><span class="e">불안</span><span class="e">자신감</span><span class="e">뿌듯함</span></div>'
+    +     '<div class="label" style="margin-top:10px">✍ 나에게 해주는 긍정의 말</div>'+lines(1)+'</div>'
+    +   '<div class="rate"><span class="t">오늘의 나</span><span class="stars">★ ★ ★ ★ ★</span><span class="wl"></span></div>'
+    + '</div>';
+  }
+
+  var html = '';
+  for(var i=0;i<DAYS.length;i++){
+    html += front(i+1, DAYS[i][0], DAYS[i][1], DAYS[i][2]);
+    html += back(i+1);
+  }
+  document.getElementById('days').innerHTML = html;
+</script>
+</body>
+</html>
