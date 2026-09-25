@@ -1170,6 +1170,102 @@
       "label": "빈 생각풍선",
       "w": 225,
       "h": 214
+    },
+    {
+      "file": "appa_laughbig.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "박장대소",
+      "w": 187,
+      "h": 204
+    },
+    {
+      "file": "appa_shock.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "대경실색(깜짝)",
+      "w": 180,
+      "h": 208
+    },
+    {
+      "file": "appa_movedtears.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "감동의 눈물",
+      "w": 165,
+      "h": 207
+    },
+    {
+      "file": "appa_ponder.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "곰곰 고민",
+      "w": 161,
+      "h": 207
+    },
+    {
+      "file": "appa_skeptical.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "못마땅(팔짱)",
+      "w": 175,
+      "h": 235
+    },
+    {
+      "file": "appa_kindsmile.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "자상한 눈웃음",
+      "w": 180,
+      "h": 235
+    },
+    {
+      "file": "appa_playwink.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "장난스런 윙크",
+      "w": 165,
+      "h": 235
+    },
+    {
+      "file": "appa_tired.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "피곤한 한숨",
+      "w": 173,
+      "h": 235
+    },
+    {
+      "file": "appa_excited.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "신나서 활짝",
+      "w": 235,
+      "h": 235
+    },
+    {
+      "file": "appa_emphasize.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "진지하게 강조",
+      "w": 195,
+      "h": 235
+    },
+    {
+      "file": "appa_reliefwipe.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "안심(휴~)",
+      "w": 160,
+      "h": 235
+    },
+    {
+      "file": "appa_worried.png",
+      "char": "appa",
+      "type": "expression",
+      "label": "걱정스런 눈썹",
+      "w": 149,
+      "h": 235
     }
   ]
 }
