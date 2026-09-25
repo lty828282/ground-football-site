@@ -1,0 +1,33 @@
+{
+  "slug": "geumsangcheomhwa",
+  "category": "고사성어",
+  "term": "금상첨화",
+  "hanja": "錦上添花",
+  "en": "The icing on the cake",
+  "tag": "오늘의 고사성어",
+  "handle": "@askpapa",
+  "brand": { "name": "아빠 뭐야?", "handle": "@askpapa", "logo": "brand/askpapa_avatar.png" },
+  "theme": { "bg": "#FBF3DF", "accent": "#7ED957", "accent2": "#FFD54F", "ink": "#3A2E28", "bubble": "#FFFFFF" },
+  "panels": [
+    { "kind": "cover", "caption": "", "title": "금상첨화", "hanja": "錦上添花", "sub": "좋은데 더 좋아져?",
+      "chars": [ { "name": "ddal_happy", "x": 0.30, "scale": 0.30 }, { "name": "appa_smile", "x": 0.70, "scale": 0.34 } ] },
+    { "kind": "talk", "caption": "아빠, 금상첨화가 뭐야?", "bg": "bg_studyroom",
+      "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.62 } ],
+      "props": [ { "name": "prop_question", "x": 0.60, "y": 0.50, "scale": 0.16 } ],
+      "bubbles": [ { "text": "아빠,\n‘금상첨화’가 뭐야?", "from": "left" } ] },
+    { "kind": "talk", "caption": "좋은 것에 좋은 것을 더!",
+      "chars": [ { "name": "appa_board", "x": 0.58, "scale": 0.64 } ],
+      "bubbles": [ { "text": "비단 위에 꽃을 더한다,\n좋은 것에 좋은 것이\n더해진다는 뜻이야.", "from": "right" } ] },
+    { "kind": "talk", "caption": "케이크에 딸기까지!", "bg": "bg_bedroom",
+      "chars": [ { "name": "appa_excited", "x": 0.72, "scale": 0.52 }, { "name": "ddal_happy", "x": 0.26, "scale": 0.48 } ],
+      "bubbles": [ { "text": "맛있는 케이크에\n딸기까지 얹은\n것처럼 말이야!", "from": "right" } ] },
+    { "kind": "talk", "caption": "소풍날 날씨까지 좋은 것!", "bg": "bg_library",
+      "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.62 } ],
+      "props": [ { "name": "prop_bulb", "x": 0.60, "y": 0.44, "scale": 0.16 } ],
+      "bubbles": [ { "text": "아하! 소풍 가는 날\n날씨까지 좋은 거랑\n똑같네!", "from": "left" } ] },
+    { "kind": "outro", "title": "영어로는?", "sub": "The icing\non the cake",
+      "also_label": "비슷한 우리 속담", "also": [ "좋은 일에 겹경사", "비단에 꽃수 놓기" ],
+      "cta": "매일 하나씩 쉽게!  @askpapa",
+      "chars": [ { "name": "duo_hold", "x": 0.5, "scale": 0.34 } ] }
+  ]
+}

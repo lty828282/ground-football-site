@@ -1,0 +1,33 @@
+{
+  "slug": "jaeopjadeuk",
+  "category": "고사성어",
+  "term": "자업자득",
+  "hanja": "自業自得",
+  "en": "You reap what you sow",
+  "tag": "오늘의 고사성어",
+  "handle": "@askpapa",
+  "brand": { "name": "아빠 뭐야?", "handle": "@askpapa", "logo": "brand/askpapa_avatar.png" },
+  "theme": { "bg": "#FBF3DF", "accent": "#7ED957", "accent2": "#FFD54F", "ink": "#3A2E28", "bubble": "#FFFFFF" },
+  "panels": [
+    { "kind": "cover", "caption": "", "title": "자업자득", "hanja": "自業自得", "sub": "내가 한 대로 돌아와?",
+      "chars": [ { "name": "ddal_happy", "x": 0.30, "scale": 0.30 }, { "name": "appa_smile", "x": 0.70, "scale": 0.34 } ] },
+    { "kind": "talk", "caption": "아빠, 자업자득이 뭐야?", "bg": "bg_studyroom",
+      "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.62 } ],
+      "props": [ { "name": "prop_question", "x": 0.60, "y": 0.50, "scale": 0.16 } ],
+      "bubbles": [ { "text": "아빠,\n‘자업자득’이 뭐야?", "from": "left" } ] },
+    { "kind": "talk", "caption": "내 행동의 결과는 나에게!",
+      "chars": [ { "name": "appa_board", "x": 0.58, "scale": 0.64 } ],
+      "bubbles": [ { "text": "자기가 한 행동의 결과를\n자기가 받는다는\n뜻이란다.", "from": "right" } ] },
+    { "kind": "talk", "caption": "좋은 일엔 좋은 결과가 와!", "bg": "bg_library",
+      "chars": [ { "name": "appa_talking", "x": 0.72, "scale": 0.52 }, { "name": "ddal_surprised", "x": 0.26, "scale": 0.48 } ],
+      "bubbles": [ { "text": "좋은 일을 하면 좋은 결과가,\n나쁜 일을 하면 나쁜 결과가\n나에게 돌아오는 거지.", "from": "right" } ] },
+    { "kind": "talk", "caption": "열심히 한 만큼 돌아오는 거네!", "bg": "bg_studyroom",
+      "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.62 } ],
+      "props": [ { "name": "prop_bulb", "x": 0.60, "y": 0.44, "scale": 0.16 } ],
+      "bubbles": [ { "text": "아하! 열심히 준비한 만큼\n좋은 결과가\n돌아오는 거구나!", "from": "left" } ] },
+    { "kind": "outro", "title": "영어로는?", "sub": "You reap\nwhat you sow",
+      "also_label": "비슷한 우리 속담", "also": [ "뿌린 대로 거둔다", "콩 심은 데 콩 난다" ],
+      "cta": "매일 하나씩 쉽게!  @askpapa",
+      "chars": [ { "name": "duo_hold", "x": 0.5, "scale": 0.34 } ] }
+  ]
+}

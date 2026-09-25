@@ -1,0 +1,33 @@
+{
+  "slug": "yuyusangjong",
+  "category": "고사성어",
+  "term": "유유상종",
+  "hanja": "類類相從",
+  "en": "Birds of a feather flock together",
+  "tag": "오늘의 고사성어",
+  "handle": "@askpapa",
+  "brand": { "name": "아빠 뭐야?", "handle": "@askpapa", "logo": "brand/askpapa_avatar.png" },
+  "theme": { "bg": "#FBF3DF", "accent": "#7ED957", "accent2": "#FFD54F", "ink": "#3A2E28", "bubble": "#FFFFFF" },
+  "panels": [
+    { "kind": "cover", "caption": "", "title": "유유상종", "hanja": "類類相從", "sub": "비슷한 끼리끼리?",
+      "chars": [ { "name": "ddal_happy", "x": 0.30, "scale": 0.30 }, { "name": "appa_smile", "x": 0.70, "scale": 0.34 } ] },
+    { "kind": "talk", "caption": "아빠, 유유상종이 뭐야?", "bg": "bg_library",
+      "chars": [ { "name": "ddal_thinking", "x": 0.31, "scale": 0.62 } ],
+      "props": [ { "name": "prop_question", "x": 0.60, "y": 0.50, "scale": 0.16 } ],
+      "bubbles": [ { "text": "아빠,\n‘유유상종’이 뭐야?", "from": "left" } ] },
+    { "kind": "talk", "caption": "비슷한 것끼리 모인다!",
+      "chars": [ { "name": "appa_board", "x": 0.58, "scale": 0.64 } ],
+      "bubbles": [ { "text": "비슷한 것끼리\n서로 모인다는\n뜻이란다.", "from": "right" } ] },
+    { "kind": "talk", "caption": "취미 같은 친구끼리 어울려!", "bg": "bg_library",
+      "chars": [ { "name": "appa_kindsmile", "x": 0.72, "scale": 0.52 }, { "name": "ddal_happy", "x": 0.26, "scale": 0.48 } ],
+      "bubbles": [ { "text": "취미가 비슷한 친구들이\n자연스럽게 어울리는\n것처럼 말이야.", "from": "right" } ] },
+    { "kind": "talk", "caption": "책 좋아하는 친구끼리 모이는 것!", "bg": "bg_bedroom",
+      "chars": [ { "name": "ddal_thumbsup", "x": 0.33, "scale": 0.62 } ],
+      "props": [ { "name": "prop_bulb", "x": 0.60, "y": 0.44, "scale": 0.16 } ],
+      "bubbles": [ { "text": "아하! 책 좋아하는 친구들끼리\n모이는 거랑\n똑같네!", "from": "left" } ] },
+    { "kind": "outro", "title": "영어로는?", "sub": "Birds of a feather\nflock together",
+      "also_label": "비슷한 우리 속담", "also": [ "끼리끼리 모인다", "초록은 동색" ],
+      "cta": "매일 하나씩 쉽게!  @askpapa",
+      "chars": [ { "name": "duo_hold", "x": 0.5, "scale": 0.34 } ] }
+  ]
+}
