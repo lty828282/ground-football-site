@@ -1,0 +1,33 @@
+{
+  "_comment": "배경(bg_*, 캐릭터 없음·합성용)과 씬(scene_*, 캐릭터 포함). 9:16.",
+  "assets": [
+    {
+      "file": "bg_studyroom.png",
+      "type": "background",
+      "label": "아이 공부방",
+      "w": 768,
+      "h": 1376
+    },
+    {
+      "file": "bg_bedroom.png",
+      "type": "background",
+      "label": "잠자리 침실(밤)",
+      "w": 768,
+      "h": 1376
+    },
+    {
+      "file": "bg_library.png",
+      "type": "background",
+      "label": "어린이 도서관",
+      "w": 768,
+      "h": 1376
+    },
+    {
+      "file": "scene_rainy.png",
+      "type": "scene",
+      "label": "비 오는 날 우산(아빠+딸)",
+      "w": 768,
+      "h": 1376
+    }
+  ]
+}

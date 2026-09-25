@@ -786,6 +786,390 @@
       "label": "두루마리",
       "w": 202,
       "h": 193
+    },
+    {
+      "file": "ddal_crybig.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "엉엉 큰 울음",
+      "w": 231,
+      "h": 206
+    },
+    {
+      "file": "ddal_angry.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "화나서 씩씩",
+      "w": 219,
+      "h": 240
+    },
+    {
+      "file": "ddal_scared.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "겁먹어 무서움",
+      "w": 229,
+      "h": 207
+    },
+    {
+      "file": "ddal_sleepzzz.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "쿨쿨 잠",
+      "w": 236,
+      "h": 209
+    },
+    {
+      "file": "ddal_hungry.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "배고파 침 꼴깍",
+      "w": 222,
+      "h": 219
+    },
+    {
+      "file": "ddal_delighted.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "헤벌쭉 황홀",
+      "w": 239,
+      "h": 219
+    },
+    {
+      "file": "ddal_humming.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "콧노래 흥얼",
+      "w": 241,
+      "h": 225
+    },
+    {
+      "file": "ddal_letdown.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "실망해 시무룩",
+      "w": 232,
+      "h": 245
+    },
+    {
+      "file": "ddal_resolve.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "주먹 불끈 결심",
+      "w": 239,
+      "h": 270
+    },
+    {
+      "file": "ddal_shocked.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "놀라 눈 크게",
+      "w": 241,
+      "h": 270
+    },
+    {
+      "file": "ddal_proud.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "뿌듯 자신만만",
+      "w": 241,
+      "h": 270
+    },
+    {
+      "file": "ddal_plead.png",
+      "char": "ddal",
+      "type": "expression",
+      "label": "두 손 모아 부탁",
+      "w": 240,
+      "h": 270
+    },
+    {
+      "file": "ddal_run.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "달리기",
+      "w": 184,
+      "h": 308
+    },
+    {
+      "file": "ddal_jumprope.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "줄넘기",
+      "w": 230,
+      "h": 305
+    },
+    {
+      "file": "ddal_draw.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "그림 그리기",
+      "w": 241,
+      "h": 280
+    },
+    {
+      "file": "ddal_kickball.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "공차기",
+      "w": 237,
+      "h": 296
+    },
+    {
+      "file": "ddal_umbrella.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "우산 쓰기",
+      "w": 240,
+      "h": 321
+    },
+    {
+      "file": "ddal_wavebag.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "가방 메고 인사",
+      "w": 236,
+      "h": 321
+    },
+    {
+      "file": "ddal_drink.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "물 마시기",
+      "w": 182,
+      "h": 321
+    },
+    {
+      "file": "ddal_sweep.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "빗자루 청소",
+      "w": 203,
+      "h": 321
+    },
+    {
+      "file": "ddal_brushteeth.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "양치질",
+      "w": 201,
+      "h": 304
+    },
+    {
+      "file": "ddal_stretch.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "기지개",
+      "w": 208,
+      "h": 308
+    },
+    {
+      "file": "ddal_dance.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "춤추기",
+      "w": 212,
+      "h": 308
+    },
+    {
+      "file": "ddal_ponder.png",
+      "char": "ddal",
+      "type": "pose",
+      "label": "무릎 안고 골똘히",
+      "w": 241,
+      "h": 298
+    },
+    {
+      "file": "appa_liftup.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "안아 올리기",
+      "w": 199,
+      "h": 319
+    },
+    {
+      "file": "appa_kneel.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "무릎 굽혀 눈맞춤",
+      "w": 224,
+      "h": 271
+    },
+    {
+      "file": "appa_news.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "신문 읽기",
+      "w": 218,
+      "h": 294
+    },
+    {
+      "file": "appa_vacuum.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "청소기",
+      "w": 241,
+      "h": 311
+    },
+    {
+      "file": "appa_bagwave.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "가방 메고 인사",
+      "w": 203,
+      "h": 319
+    },
+    {
+      "file": "appa_stretch.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "스트레칭",
+      "w": 180,
+      "h": 321
+    },
+    {
+      "file": "appa_laptop.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "노트북",
+      "w": 233,
+      "h": 298
+    },
+    {
+      "file": "appa_wave.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "손 흔들기",
+      "w": 171,
+      "h": 317
+    },
+    {
+      "file": "appa_strollback.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "뒷짐 산책",
+      "w": 162,
+      "h": 321
+    },
+    {
+      "file": "appa_pointsky.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "하늘 가리키기",
+      "w": 204,
+      "h": 314
+    },
+    {
+      "file": "appa_coffee.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "커피 한 잔",
+      "w": 228,
+      "h": 313
+    },
+    {
+      "file": "appa_welcome.png",
+      "char": "appa",
+      "type": "pose",
+      "label": "두 팔 벌려 환영",
+      "w": 241,
+      "h": 321
+    },
+    {
+      "file": "prop_clock.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "벽시계",
+      "w": 219,
+      "h": 226
+    },
+    {
+      "file": "prop_calendar.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "달력",
+      "w": 200,
+      "h": 205
+    },
+    {
+      "file": "prop_map.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "지도",
+      "w": 239,
+      "h": 187
+    },
+    {
+      "file": "prop_letter.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "편지봉투",
+      "w": 213,
+      "h": 154
+    },
+    {
+      "file": "prop_crayons.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "크레용",
+      "w": 208,
+      "h": 230
+    },
+    {
+      "file": "prop_ruler.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "자",
+      "w": 209,
+      "h": 248
+    },
+    {
+      "file": "prop_balloon.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "풍선",
+      "w": 228,
+      "h": 300
+    },
+    {
+      "file": "prop_cake.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "생일 케이크",
+      "w": 214,
+      "h": 214
+    },
+    {
+      "file": "prop_medal.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "메달",
+      "w": 172,
+      "h": 246
+    },
+    {
+      "file": "prop_compass.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "나침반",
+      "w": 194,
+      "h": 252
+    },
+    {
+      "file": "prop_bubble.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "빈 말풍선",
+      "w": 224,
+      "h": 184
+    },
+    {
+      "file": "prop_thought.png",
+      "char": "prop",
+      "type": "prop",
+      "label": "빈 생각풍선",
+      "w": 225,
+      "h": 214
     }
   ]
 }
