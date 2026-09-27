@@ -106,6 +106,29 @@ def mtext(base, xy, text, font, fill, spacing=14, align="center", anchor=None):
     ImageDraw.Draw(base).multiline_text(xy, text, font=font, fill=fill,
                                         spacing=spacing, align=align, anchor=anchor)
 
+def hanja_gloss_row(base, hanja, glosses, cy, ink, gloss_col, accent):
+    """한자를 한 자씩 크게 늘어놓고, 각 글자 아래에 훈음(뜻+음)을 표기.
+    예) 自 아래 '스스로 자'. glosses 는 hanja 글자 수에 맞춘 리스트."""
+    chars = list(hanja)
+    n = len(chars)
+    if n == 0:
+        return
+    cellw = min(232, (W - 96) // n)
+    x0 = (W - cellw * n) // 2
+    fh = f_hanja(90)
+    fg = f_bold(34)
+    for i, ch in enumerate(chars):
+        cx = x0 + cellw * i + cellw // 2
+        mtext(base, (cx, cy), ch, fh, ink, anchor="ma")
+        g = glosses[i] if i < len(glosses) else ""
+        if g:
+            mtext(base, (cx, cy + 104), g, fg, gloss_col, anchor="ma")
+        if i < n - 1:
+            # 글자 사이 연결 점
+            dx = x0 + cellw * i + cellw
+            ImageDraw.Draw(base).ellipse([dx - 4, cy + 44, dx + 4, cy + 52],
+                                         fill=accent + (150,))
+
 # ── 캐릭터 배치 ──────────────────────────────────────
 def place(base, name, xfrac, scale, baseline=H - 40, flip=False,
           spot=None, shadow=False):
@@ -221,10 +244,18 @@ def render(panel, theme, idx, total):
             sparkle(base, 915, 560, 22, acc)
         pill(base, panel.get("tag", "오늘의 표현"), W // 2, 210, acc, hx("#1E3A24"), f_bold(40))
         mtext(base, (W // 2, 300), panel["title"], f_title(150), ink, anchor="ma")
-        if panel.get("hanja"):
+        if panel.get("hanja_gloss"):
+            # 한자 한 자씩 + 훈음(뜻+음) 표기 → hanja_gloss 필드가 있는 편만 적용
+            hanja_gloss_row(base, panel.get("hanja", ""), panel["hanja_gloss"],
+                            500, ink, hx("#7A6A56"), acc)
+            sub_y = 712
+        elif panel.get("hanja"):
             mtext(base, (W // 2, 490), panel["hanja"], f_hanja(76), ink, anchor="ma")
+            sub_y = 600
+        else:
+            sub_y = 560
         if panel.get("sub"):
-            mtext(base, (W // 2, 600), panel["sub"], f_reg(48), ink, anchor="ma")
+            mtext(base, (W // 2, sub_y), panel["sub"], f_reg(48), ink, anchor="ma")
         for c in panel.get("chars", []):
             place(base, c["name"], c["x"], c["scale"], baseline=H - 30,
                   flip=c.get("flip", False), spot=spot_c, shadow=True)
