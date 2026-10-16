@@ -48,21 +48,14 @@
       "id": "1aV3t8M8Ak8",
       "title": "\"축구선출들이 숨기는\" 볼 감각의 비밀 폭로  I 축구기본기, 축구드리블, 볼마스터리",
       "cat": "볼감각",
-      "note": "조회수 7.3만 · 2026.05 · 오버헤드킥",
-      "auto": true
-    },
-    {
-      "id": "vAde6CDLD4o",
-      "title": "(믿고 해보세요)당신의 볼 다루는 능력을 압도적으로 향상 시켜줄 '그' 훈련",
-      "cat": "볼감각",
-      "note": "조회수 5.8만 · 2026.09 · 오버헤드킥",
+      "note": "조회수 7.4만 · 2026.05 · 오버헤드킥",
       "auto": true
     },
     {
       "id": "VD8fJEirSUs",
       "title": "Passing + First Touch - 1V1, 2V2 & 3V3 | Football Training - Soccer Drills",
       "cat": "볼감각",
-      "note": "조회수 2.7만 · 2026.09 · Coach Thomas Vlaminck",
+      "note": "조회수 2.8만 · 2026.09 · Coach Thomas Vlaminck",
       "auto": true
     },
     {
@@ -80,10 +73,17 @@
       "auto": true
     },
     {
+      "id": "t-1nvj7uHBc",
+      "title": "볼 감각, 쓰리터치 드리블로 연습해 보세요!",
+      "cat": "볼감각",
+      "note": "조회수 4.1천 · 2026.09 · 오병이어는 축구회사",
+      "auto": true
+    },
+    {
       "id": "3Vf1NrFwM58",
       "title": "슛팅 연습 1000번 하지 말고 이 영상 5분으로 끝내세요 I  골 결정력 높이는 선출들의 비밀",
       "cat": "슛 & 킥",
-      "note": "조회수 24.3만 · 2026.06 · 오버헤드킥",
+      "note": "조회수 25.4만 · 2026.06 · 오버헤드킥",
       "auto": true
     },
     {
@@ -97,7 +97,7 @@
       "id": "GuKJ8ix8jOk",
       "title": "\"동네 축구에선 절대 모릅니다\" 선출들의 단 하나의 비밀 치트키 l 기본기, 훈련법",
       "cat": "슛 & 킥",
-      "note": "조회수 9.9만 · 2026.04 · 오버헤드킥",
+      "note": "조회수 10만 · 2026.04 · 오버헤드킥",
       "auto": true
     },
     {
@@ -111,21 +111,21 @@
       "id": "XOpG_QNutyQ",
       "title": "실제축구에서 수비제치는 개인기를 적용하는 방법2",
       "cat": "드리블",
-      "note": "조회수 8.2만 · 2026.07 · 사커 튜토리얼(Soccer Tutorial)",
+      "note": "조회수 8.3만 · 2026.07 · 사커 튜토리얼(Soccer Tutorial)",
       "auto": true
     },
     {
       "id": "zrRLjs7ptrg",
       "title": "메시처럼 드리블하는 법(인사이드, 아웃사이드만 써도 수비가 다 뚫리는 진짜 이유)",
       "cat": "드리블",
-      "note": "조회수 6.7만 · 2026.09 · 사커 튜토리얼(Soccer Tutorial)",
+      "note": "조회수 6.8만 · 2026.09 · 사커 튜토리얼(Soccer Tutorial)",
       "auto": true
     },
     {
       "id": "fosyUnghjX8",
       "title": "\"동네축구에서 사비됩니다\" 재능 없이도 '패스 마스터' 되는 유일한 방법 l 축구잘하는법, 패스잘하는법, 패스",
       "cat": "패스",
-      "note": "조회수 2.8만 · 2026.05 · 오버헤드킥",
+      "note": "조회수 2.9만 · 2026.05 · 오버헤드킥",
       "auto": true
     },
     {
@@ -153,9 +153,16 @@
       "id": "eCLSX1zMItM",
       "title": "POV: 볼 마스터리 3종& 저글링 개인 축구훈련 #볼마스터리 #저글링 #혼축",
       "cat": "리프팅",
-      "note": "조회수 129 · 2026.08 · DS_Eleven",
+      "note": "조회수 130 · 2026.08 · DS_Eleven",
+      "auto": true
+    },
+    {
+      "id": "wiOE1Iw6svA",
+      "title": "축구 리프팅 연습 땀범벅",
+      "cat": "리프팅",
+      "note": "조회수 98 · 2026.06 · 킥유진TV",
       "auto": true
     }
   ],
-  "updated": "2026-10-13"
+  "updated": "2026-10-16"
 }
