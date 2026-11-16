@@ -28,6 +28,45 @@ async function loadPartials() {
     footerSlot.innerHTML = await res.text();
     rewriteRootLinks(footerSlot);
   }
+  renderRelatedPosts();
+}
+
+// ── 관련 글 추천: 가이드·카드뉴스 글 하단에 "다음에 본 글" 3개 자동 삽입 ──
+async function renderRelatedPosts() {
+  const path = location.pathname;
+  if (!/\/pages\/(guide|cardnews)-/.test(path)) return;
+  const footer = document.getElementById('site-footer');
+  if (!footer || document.querySelector('.related-section')) return;
+  let posts = [];
+  try {
+    const res = await fetch(SITE_BASE + 'assets/data/related-index.json');
+    posts = await res.json();
+  } catch (e) {
+    return;
+  }
+  if (!Array.isArray(posts) || !posts.length) return;
+  const curFile = path.split('/').pop();
+  const cur = posts.find((p) => p.url.split('/').pop() === curFile);
+  const pool = posts.filter((p) => p.url.split('/').pop() !== curFile);
+  const group = cur ? cur.group : null;
+  const shuffle = (a) => a.map((v) => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map((z) => z[1]);
+  const same = shuffle(pool.filter((p) => group && p.group === group));
+  const others = shuffle(pool.filter((p) => !group || p.group !== group));
+  const picks = same.concat(others).slice(0, 3);
+  if (!picks.length) return;
+  const cards = picks.map((p) => {
+    const href = SITE_BASE + p.url.replace(/^\//, '');
+    return '<a class="guide-card" href="' + href + '">'
+      + '<div class="gc-top" style="background:' + (p.color || '#2E7D52') + '"></div>'
+      + '<div class="gc-body"><div class="gc-cat">' + (p.catLabel || '') + '</div>'
+      + '<h3>' + p.title + '</h3><p>' + (p.subtitle || '') + '</p>'
+      + '<div class="gc-more">자세히 보기 →</div></div></a>';
+  }).join('');
+  const sec = document.createElement('div');
+  sec.className = 'section related-section';
+  sec.innerHTML = '<div class="section-head"><h2>이 글을 본 학부모가 다음에 본 글</h2></div>'
+    + '<div class="guide-grid">' + cards + '</div>';
+  footer.parentNode.insertBefore(sec, footer);
 }
 
 async function initTicker() {

@@ -1,0 +1,470 @@
+[
+ {
+  "url": "/pages/cardnews-age-development.html",
+  "title": "연령별 발달 단계와 부모의 역할",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "parenting",
+  "catLabel": "시작·부모 · 카드뉴스",
+  "color": "#8A5A16",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-agility.html",
+  "title": "민첩성·체력 키우기",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-confidence.html",
+  "title": "자신감은 어떻게 자라는가",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-consistency.html",
+  "title": "꾸준함의 힘",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-dribbling.html",
+  "title": "드리블 실력 키우기 4가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-effort.html",
+  "title": "노력은 배신하지 않는다",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-enjoyment.html",
+  "title": "즐기는 선수를 이길 수 없다",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-etiquette.html",
+  "title": "훈련 태도와 예절, 실력보다 먼저입니다",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "parenting",
+  "catLabel": "시작·부모 · 카드뉴스",
+  "color": "#8A5A16",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-failure.html",
+  "title": "실패를 대하는 법",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-first-touch.html",
+  "title": "볼 멈추기(트래핑) 4가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-goalkeeper.html",
+  "title": "골키퍼 기본기 4가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-growth.html",
+  "title": "부모는 안 큰데 4학년 153cm · 우리가 지킨 5원칙",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-heading-safety.html",
+  "title": "헤딩, 안전하게 배우기",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-home-training.html",
+  "title": "집에서 하는 유소년 기본기 훈련 5가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "training",
+  "catLabel": "훈련·컨디션 · 카드뉴스",
+  "color": "#1B4332",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-injury-prevention.html",
+  "title": "부상 예방 습관 5가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "training",
+  "catLabel": "훈련·컨디션 · 카드뉴스",
+  "color": "#1B4332",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-intro.html",
+  "title": "그라운드 유소년이란",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "parenting",
+  "catLabel": "시작·부모 · 카드뉴스",
+  "color": "#8A5A16",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-legend-quotes.html",
+  "title": "포기하지 마라 · 레전드들의 한마디",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-meal-plan.html",
+  "title": "방학 하루 식단표 · 운동하는 우리 아이",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "nutrition",
+  "catLabel": "영양·건강 · 카드뉴스",
+  "color": "#B5651D",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-mental.html",
+  "title": "멘탈 강한 어린 선수",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-parents.html",
+  "title": "부모가 꼭 알아야 할 것들",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "parenting",
+  "catLabel": "시작·부모 · 카드뉴스",
+  "color": "#8A5A16",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-passing.html",
+  "title": "패스 기본기 4가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-positions.html",
+  "title": "포지션 이해하기",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-recovery-nutrition.html",
+  "title": "경기 후 회복과 영양",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "nutrition",
+  "catLabel": "영양·건강 · 카드뉴스",
+  "color": "#B5651D",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-rolemodel.html",
+  "title": "롤 모델에게서 배우는 것",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "mental",
+  "catLabel": "멘탈·마음 · 카드뉴스",
+  "color": "#2E7D52",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-shooting.html",
+  "title": "슈팅 기본기 4단계",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-soccer-shoes.html",
+  "title": "성장기 아이 축구화, 이렇게 고르세요",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "gear",
+  "catLabel": "장비 · 카드뉴스",
+  "color": "#4A6FA5",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-start-youth.html",
+  "title": "처음 시작할 때, 학부모가 알아야 할 7가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "parenting",
+  "catLabel": "시작·부모 · 카드뉴스",
+  "color": "#8A5A16",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-warmup.html",
+  "title": "경기 전 워밍업 5단계",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "training",
+  "catLabel": "훈련·컨디션 · 카드뉴스",
+  "color": "#1B4332",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-youth-defending.html",
+  "title": "유소년 수비수가 익혀야 할 기술 5가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-youth-midfield.html",
+  "title": "유소년 미드필더가 익혀야 할 움직임 5가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/cardnews-youth-movements.html",
+  "title": "유소년이 익혀야 할 핵심 움직임 5가지",
+  "subtitle": "카드뉴스로 한눈에",
+  "group": "skill",
+  "catLabel": "기술·전술 · 카드뉴스",
+  "color": "#3A6B8A",
+  "kind": "cardnews"
+ },
+ {
+  "url": "/pages/guide-age-development.html",
+  "title": "연령별 유소년 축구 발달 단계와 부모의 역할",
+  "subtitle": "축구 정보 · 나이에 맞는 기대와 지도",
+  "group": "parenting",
+  "catLabel": "시작·부모",
+  "color": "#8A5A16",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-bone-health.html",
+  "title": "성장기 뼈 건강과 칼슘·비타민D",
+  "subtitle": "건강·영양 · 평생 뼈의 90%가 이 시기에 만들어집니다",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-confidence.html",
+  "title": "자신감은 어떻게 자라는가",
+  "subtitle": "동기부여 · 어린 선수의 마음 근육",
+  "group": "mental",
+  "catLabel": "멘탈·마음",
+  "color": "#2E7D52",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-consistency.html",
+  "title": "꾸준함의 힘",
+  "subtitle": "동기부여 · 매일 조금씩의 기적",
+  "group": "mental",
+  "catLabel": "멘탈·마음",
+  "color": "#2E7D52",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-effort.html",
+  "title": "노력은 배신하지 않는다",
+  "subtitle": "동기부여 · 유소년 선수와 부모에게",
+  "group": "mental",
+  "catLabel": "멘탈·마음",
+  "color": "#2E7D52",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-enjoyment.html",
+  "title": "즐기는 선수를 이길 수 없다",
+  "subtitle": "동기부여 · 재미라는 가장 강한 연료",
+  "group": "mental",
+  "catLabel": "멘탈·마음",
+  "color": "#2E7D52",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-etiquette.html",
+  "title": "유소년 축구 훈련 태도와 예절, 실력보다 먼저입니다",
+  "subtitle": "유소년 축구 · 인사·존중·페어플레이·팀워크",
+  "group": "parenting",
+  "catLabel": "시작·부모",
+  "color": "#8A5A16",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-failure.html",
+  "title": "실패를 대하는 법",
+  "subtitle": "동기부여 · 진짜 강한 선수의 조건",
+  "group": "mental",
+  "catLabel": "멘탈·마음",
+  "color": "#2E7D52",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-home-training.html",
+  "title": "집에서 하는 유소년 축구 기본기 훈련 5가지",
+  "subtitle": "축구 훈련 · 좁은 공간·최소 장비로 매일 5분",
+  "group": "training",
+  "catLabel": "훈련·컨디션",
+  "color": "#1B4332",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-hydration.html",
+  "title": "성장기 축구선수의 수분·전해질 관리",
+  "subtitle": "건강·영양 · 탈수는 실력을 갉아먹는 가장 흔한 적",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-iron.html",
+  "title": "성장기 선수의 철분과 스포츠 빈혈",
+  "subtitle": "건강·영양 · 원인 모를 피로 뒤에 숨은 '철분 부족'",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-match-meals.html",
+  "title": "경기 전·후 추천 식단",
+  "subtitle": "K리그 가이드라인 기준 — 경기 전날부터 끝난 직후까지, 체중별 권장량으로",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-nutrition.html",
+  "title": "운동하는 유소년을 위한 영양 가이드",
+  "subtitle": "한국프로축구연맹(K리그) 「성장기 축구선수 영양 가이드라인」 기준",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-parents.html",
+  "title": "유소년 축구, 부모가 꼭 알아야 할 것들",
+  "subtitle": "유소년 축구 · 응원과 압박 사이에서",
+  "group": "parenting",
+  "catLabel": "시작·부모",
+  "color": "#8A5A16",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-positions.html",
+  "title": "유소년 축구 포지션 이해하기",
+  "subtitle": "기본기 · 포지션별 역할과 우리 아이에게 맞는 자리 찾기",
+  "group": "skill",
+  "catLabel": "기술·전술",
+  "color": "#3A6B8A",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-rolemodel.html",
+  "title": "롤 모델에게서 배우는 것",
+  "subtitle": "동기부여 · 실력이 아니라 태도를 훔쳐라",
+  "group": "mental",
+  "catLabel": "멘탈·마음",
+  "color": "#2E7D52",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-snacks.html",
+  "title": "유소년 운동선수를 위한 추천 간식",
+  "subtitle": "훈련·경기 사이, 무엇을 쥐여 보낼까 — 현실적인 똑똑한 간식",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-soccer-shoes.html",
+  "title": "성장기 아이 축구화, 이렇게 고르세요",
+  "subtitle": "축구화 리뷰 · 사이즈부터 스터드, 소재, 관리까지",
+  "group": "gear",
+  "catLabel": "장비",
+  "color": "#4A6FA5",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-start-youth.html",
+  "title": "유소년 축구 처음 시작할 때, 학부모가 알아야 할 7가지",
+  "subtitle": "유소년 축구 · 첫 시작을 위한 부모 체크리스트",
+  "group": "parenting",
+  "catLabel": "시작·부모",
+  "color": "#8A5A16",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-supplements.html",
+  "title": "유소년 선수와 영양제, 꼭 알아야 할 것",
+  "subtitle": "초등 유소년 운동선수에게 보충제가 필요할까? — 근거로 보는 안전 원칙",
+  "group": "nutrition",
+  "catLabel": "영양·건강",
+  "color": "#B5651D",
+  "kind": "guide"
+ },
+ {
+  "url": "/pages/guide-warmup.html",
+  "title": "유소년 축구 워밍업 & 부상 예방 루틴",
+  "subtitle": "건강·안전 · 경기 전 5~10분이 부상을 막습니다",
+  "group": "training",
+  "catLabel": "훈련·컨디션",
+  "color": "#1B4332",
+  "kind": "guide"
+ }
+]
